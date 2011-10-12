@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MCDatabaseModelStoreContainer" CdmEntityContainer="MCDatabaseModelContainer">
+    <EntitySetMapping Name="BuildingsНабор">
+      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.Buildings)">
+        <MappingFragment StoreEntitySet="BuildingsНабор">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DateTimeImtervalsНабор">
+      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.DateTimeImtervals)">
+        <MappingFragment StoreEntitySet="DateTimeImtervalsНабор">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="BuildingsId" ColumnName="BuildingsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NormativeCalculationНабор">
+      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.NormativeCalculation)">
+        <MappingFragment StoreEntitySet="NormativeCalculationНабор">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TotalArea" ColumnName="TotalArea" />
+          <ScalarProperty Name="CalculationArea" ColumnName="CalculationArea" />
+          <ScalarProperty Name="StandartOfHeat" ColumnName="StandartOfHeat" />
+          <ScalarProperty Name="ConsumptionHeatByTotalArea" ColumnName="ConsumptionHeatByTotalArea" />
+          <ScalarProperty Name="ConsumptionHeatByCalculationArea" ColumnName="ConsumptionHeatByCalculationArea" />
+          <ScalarProperty Name="TotalNormativeHeat" ColumnName="TotalNormativeHeat" />
+          <ScalarProperty Name="BuildingsId" ColumnName="BuildingsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

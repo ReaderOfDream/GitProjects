@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model3" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="Model3Container" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BuildingsНабор" EntityType="Model3.Buildings" />
+    <EntitySet Name="DateTimeImtervalsНабор" EntityType="Model3.DateTimeImtervals" />
+    <EntitySet Name="NormativeCalculationНабор" EntityType="Model3.NormativeCalculation" />
+    <AssociationSet Name="BuildingsDateTimeImtervals" Association="Model3.BuildingsDateTimeImtervals">
+      <End Role="Buildings" EntitySet="BuildingsНабор" />
+      <End Role="DateTimeImtervals" EntitySet="DateTimeImtervalsНабор" />
+    </AssociationSet>
+    <AssociationSet Name="BuildingsNormativeCalculation" Association="Model3.BuildingsNormativeCalculation">
+      <End Role="Buildings" EntitySet="BuildingsНабор" />
+      <End Role="NormativeCalculation" EntitySet="NormativeCalculationНабор" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Buildings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <NavigationProperty Name="DateTimeImtervals" Relationship="Model3.BuildingsDateTimeImtervals" FromRole="Buildings" ToRole="DateTimeImtervals" />
+    <NavigationProperty Name="NormativeCalculation" Relationship="Model3.BuildingsNormativeCalculation" FromRole="Buildings" ToRole="NormativeCalculation" />
+  </EntityType>
+  <EntityType Name="DateTimeImtervals">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="StartDate" Nullable="false" />
+    <Property Type="String" Name="EndDate" Nullable="false" />
+    <NavigationProperty Name="Buildings" Relationship="Model3.BuildingsDateTimeImtervals" FromRole="DateTimeImtervals" ToRole="Buildings" />
+    <Property Type="Int32" Name="BuildingsId" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NormativeCalculation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TotalArea" Nullable="false" />
+    <Property Type="String" Name="CalculationArea" Nullable="false" />
+    <Property Type="String" Name="StandartOfHeat" Nullable="false" />
+    <Property Type="String" Name="ConsumptionHeatByTotalArea" Nullable="false" />
+    <Property Type="String" Name="ConsumptionHeatByCalculationArea" Nullable="false" />
+    <Property Type="String" Name="TotalNormativeHeat" Nullable="false" />
+    <NavigationProperty Name="Buildings" Relationship="Model3.BuildingsNormativeCalculation" FromRole="NormativeCalculation" ToRole="Buildings" />
+    <Property Type="Int32" Name="BuildingsId" Nullable="false" />
+  </EntityType>
+  <Association Name="BuildingsDateTimeImtervals">
+    <End Type="Model3.Buildings" Role="Buildings" Multiplicity="1" />
+    <End Type="Model3.DateTimeImtervals" Role="DateTimeImtervals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DateTimeImtervals">
+        <PropertyRef Name="BuildingsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BuildingsNormativeCalculation">
+    <End Type="Model3.Buildings" Role="Buildings" Multiplicity="1" />
+    <End Type="Model3.NormativeCalculation" Role="NormativeCalculation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NormativeCalculation">
+        <PropertyRef Name="BuildingsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

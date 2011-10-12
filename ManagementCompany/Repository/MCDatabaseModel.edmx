@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MCDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MCDatabaseModelStoreContainer">
+    <EntitySet Name="BuildingsНабор" EntityType="MCDatabaseModel.Store.BuildingsНабор" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DateTimeImtervalsНабор" EntityType="MCDatabaseModel.Store.DateTimeImtervalsНабор" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NormativeCalculationНабор" EntityType="MCDatabaseModel.Store.NormativeCalculationНабор" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="BuildingsDateTimeImtervals" Association="MCDatabaseModel.Store.BuildingsDateTimeImtervals">
+      <End Role="Buildings" EntitySet="BuildingsНабор" />
+      <End Role="DateTimeImtervals" EntitySet="DateTimeImtervalsНабор" />
+    </AssociationSet>
+    <AssociationSet Name="BuildingsNormativeCalculation" Association="MCDatabaseModel.Store.BuildingsNormativeCalculation">
+      <End Role="Buildings" EntitySet="BuildingsНабор" />
+      <End Role="NormativeCalculation" EntitySet="NormativeCalculationНабор" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BuildingsНабор">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DateTimeImtervalsНабор">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StartDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EndDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BuildingsId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NormativeCalculationНабор">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TotalArea" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CalculationArea" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StandartOfHeat" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ConsumptionHeatByTotalArea" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ConsumptionHeatByCalculationArea" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TotalNormativeHeat" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BuildingsId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="BuildingsDateTimeImtervals">
+    <End Role="Buildings" Type="MCDatabaseModel.Store.BuildingsНабор" Multiplicity="1" />
+    <End Role="DateTimeImtervals" Type="MCDatabaseModel.Store.DateTimeImtervalsНабор" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DateTimeImtervals">
+        <PropertyRef Name="BuildingsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BuildingsNormativeCalculation">
+    <End Role="Buildings" Type="MCDatabaseModel.Store.BuildingsНабор" Multiplicity="1" />
+    <End Role="NormativeCalculation" Type="MCDatabaseModel.Store.NormativeCalculationНабор" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NormativeCalculation">
+        <PropertyRef Name="BuildingsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MCDatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="MCDatabaseModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BuildingsНабор" EntityType="MCDatabaseModel.Buildings" />
+          <EntitySet Name="DateTimeImtervalsНабор" EntityType="MCDatabaseModel.DateTimeImtervals" />
+          <EntitySet Name="NormativeCalculationНабор" EntityType="MCDatabaseModel.NormativeCalculation" />
+          <AssociationSet Name="BuildingsDateTimeImtervals" Association="MCDatabaseModel.BuildingsDateTimeImtervals">
+            <End Role="Buildings" EntitySet="BuildingsНабор" />
+            <End Role="DateTimeImtervals" EntitySet="DateTimeImtervalsНабор" />
+          </AssociationSet>
+          <AssociationSet Name="BuildingsNormativeCalculation" Association="MCDatabaseModel.BuildingsNormativeCalculation">
+            <End Role="Buildings" EntitySet="BuildingsНабор" />
+            <End Role="NormativeCalculation" EntitySet="NormativeCalculationНабор" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Buildings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="DateTimeImtervals" Relationship="MCDatabaseModel.BuildingsDateTimeImtervals" FromRole="Buildings" ToRole="DateTimeImtervals" />
+          <NavigationProperty Name="NormativeCalculation" Relationship="MCDatabaseModel.BuildingsNormativeCalculation" FromRole="Buildings" ToRole="NormativeCalculation" />
+        </EntityType>
+        <EntityType Name="DateTimeImtervals">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="StartDate" Nullable="false" />
+          <Property Type="String" Name="EndDate" Nullable="false" />
+          <Property Type="Int32" Name="BuildingsId" Nullable="false" />
+          <NavigationProperty Name="Buildings" Relationship="MCDatabaseModel.BuildingsDateTimeImtervals" FromRole="DateTimeImtervals" ToRole="Buildings" />
+        </EntityType>
+        <EntityType Name="NormativeCalculation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TotalArea" Nullable="false" />
+          <Property Type="String" Name="CalculationArea" Nullable="false" />
+          <Property Type="String" Name="StandartOfHeat" Nullable="false" />
+          <Property Type="String" Name="ConsumptionHeatByTotalArea" Nullable="false" />
+          <Property Type="String" Name="ConsumptionHeatByCalculationArea" Nullable="false" />
+          <Property Type="String" Name="TotalNormativeHeat" Nullable="false" />
+          <Property Type="Int32" Name="BuildingsId" Nullable="false" />
+          <NavigationProperty Name="Buildings" Relationship="MCDatabaseModel.BuildingsNormativeCalculation" FromRole="NormativeCalculation" ToRole="Buildings" />
+        </EntityType>
+        <Association Name="BuildingsDateTimeImtervals">
+          <End Type="MCDatabaseModel.Buildings" Role="Buildings" Multiplicity="1" />
+          <End Type="MCDatabaseModel.DateTimeImtervals" Role="DateTimeImtervals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buildings">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DateTimeImtervals">
+              <PropertyRef Name="BuildingsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BuildingsNormativeCalculation">
+          <End Type="MCDatabaseModel.Buildings" Role="Buildings" Multiplicity="1" />
+          <End Type="MCDatabaseModel.NormativeCalculation" Role="NormativeCalculation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buildings">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NormativeCalculation">
+              <PropertyRef Name="BuildingsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MCDatabaseModelStoreContainer" CdmEntityContainer="MCDatabaseModelContainer">
+    <EntitySetMapping Name="BuildingsНабор">
+      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.Buildings)">
+        <MappingFragment StoreEntitySet="BuildingsНабор">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DateTimeImtervalsНабор">
+      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.DateTimeImtervals)">
+        <MappingFragment StoreEntitySet="DateTimeImtervalsНабор">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="BuildingsId" ColumnName="BuildingsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NormativeCalculationНабор">
+      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.NormativeCalculation)">
+        <MappingFragment StoreEntitySet="NormativeCalculationНабор">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TotalArea" ColumnName="TotalArea" />
+          <ScalarProperty Name="CalculationArea" ColumnName="CalculationArea" />
+          <ScalarProperty Name="StandartOfHeat" ColumnName="StandartOfHeat" />
+          <ScalarProperty Name="ConsumptionHeatByTotalArea" ColumnName="ConsumptionHeatByTotalArea" />
+          <ScalarProperty Name="ConsumptionHeatByCalculationArea" ColumnName="ConsumptionHeatByCalculationArea" />
+          <ScalarProperty Name="TotalNormativeHeat" ColumnName="TotalNormativeHeat" />
+          <ScalarProperty Name="BuildingsId" ColumnName="BuildingsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="MCDatabaseModel" ZoomLevel="75" >
+        <EntityTypeShape EntityType="MCDatabaseModel.Buildings" Width="1.5" PointX="9.1532857740080384" PointY="23.044372897150168" />
+        <EntityTypeShape EntityType="MCDatabaseModel.DateTimeImtervals" Width="1.5" PointX="7.0086117456707218" PointY="8.12209372600638" />
+        <EntityTypeShape EntityType="MCDatabaseModel.NormativeCalculation" Width="1.5" PointX="1.3425460613065148" PointY="14.661880872520563" />
+        <AssociationConnector Association="MCDatabaseModel.BuildingsDateTimeImtervals" />
+        <AssociationConnector Association="MCDatabaseModel.BuildingsNormativeCalculation" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

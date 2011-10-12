@@ -1,0 +1,16 @@
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\bin\Debug\ManagementCompany.exe
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\bin\Debug\ManagementCompany.pdb
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\bin\Debug\Repository.dll
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\bin\Debug\Repository.pdb
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\obj\x86\Debug\MainWindow.baml
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\obj\x86\Debug\MainWindow.g.cs
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\obj\x86\Debug\App.g.cs
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\obj\x86\Debug\ManagementCompany_MarkupCompile.cache
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\obj\x86\Debug\ManagementCompany.g.resources
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\obj\x86\Debug\ManagementCompany.Properties.Resources.resources
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\obj\x86\Debug\ManagementCompany.exe
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\obj\x86\Debug\ManagementCompany.pdb
+D:\Фриланс\Отопление\ManagementCompany\ManagementCompany\bin\Debug\ManagementCompany.exe.config
