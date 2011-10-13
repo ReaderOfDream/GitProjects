@@ -95,6 +95,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{7C80777D-91D3-44C2-9A7F-D37511A32994}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Repository\Repository.csproj">
       <Project>{6570A4F7-8220-4A77-993F-E1156F4B5423}</Project>
       <Name>Repository</Name>
