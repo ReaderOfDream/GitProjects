@@ -50,16 +50,16 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EstimateConsumptionHeat" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="EstimateConsumptionHeat" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="DateTimeImtervalsНабор">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StartDate" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EndDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
     <Property Name="BuildingsId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="NormativeCalculationНабор">
@@ -67,12 +67,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TotalArea" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CalculationArea" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="StandartOfHeat" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ConsumptionHeatByTotalArea" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ConsumptionHeatByCalculationArea" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TotalNormativeHeat" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TotalArea" Type="float" Nullable="false" />
+    <Property Name="CalculationArea" Type="float" Nullable="false" />
+    <Property Name="StandartOfHeat" Type="float" Nullable="false" />
+    <Property Name="ConsumptionHeatByTotalArea" Type="float" Nullable="false" />
+    <Property Name="ConsumptionHeatByCalculationArea" Type="float" Nullable="false" />
+    <Property Name="TotalNormativeHeat" Type="float" Nullable="false" />
     <Property Name="BuildingsId" Type="int" Nullable="false" />
     <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -81,11 +81,11 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="AirTemperature" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="HeatByLoading" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PeopleCount" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="HotWaterByNorm" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TotalHeatConsumption" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AirTemperature" Type="float" Nullable="false" />
+    <Property Name="HeatByLoading" Type="float" Nullable="false" />
+    <Property Name="PeopleCount" Type="int" Nullable="false" />
+    <Property Name="HotWaterByNorm" Type="float" Nullable="false" />
+    <Property Name="TotalHeatConsumption" Type="float" Nullable="false" />
     <Property Name="BuildingsId" Type="int" Nullable="false" />
     <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -94,8 +94,8 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CurrentHeatMeterReader" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CurrentWaterHeatreader" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CurrentHeatMeterReader" Type="float" Nullable="false" />
+    <Property Name="CurrentWaterHeatReader" Type="float" Nullable="false" />
     <Property Name="BuildingsId" Type="int" Nullable="false" />
     <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -104,9 +104,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Requirements" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CalculationHotWater" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CalculationHot" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Requirements" Type="float" Nullable="false" />
+    <Property Name="CalculationHotWater" Type="float" Nullable="false" />
+    <Property Name="CalculationHot" Type="float" Nullable="false" />
     <Property Name="BuildingsId" Type="int" Nullable="false" />
     <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
   </EntityType>

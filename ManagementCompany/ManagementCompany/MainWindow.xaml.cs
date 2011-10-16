@@ -41,7 +41,7 @@ namespace ManagementCompany
                                 {
                                     Name = tbxName.Text, 
                                     Description = tbxDescription.Text,
-                                    EstimateConsumptionHeat = tbxNormativeConsumptionHeat.Text
+                                    EstimateConsumptionHeat = Double.Parse(tbxNormativeConsumptionHeat.Text)
                                     
                                 };
 
@@ -61,8 +61,8 @@ namespace ManagementCompany
             var endDate = DateTime.Parse(dtEndDate.Text);
 
             var dateTimeIntervals = new DateTimeImtervals();
-            dateTimeIntervals.EndDate = endDate.ToString();
-            dateTimeIntervals.StartDate = startDate.ToString();
+            dateTimeIntervals.EndDate = endDate;
+            dateTimeIntervals.StartDate = startDate;
             dateTimeIntervals.BuildingsId = 1;
 
             double totalArea = Double.Parse(tbxTotalArea.Text);
@@ -80,12 +80,12 @@ namespace ManagementCompany
                 return;
             }
             normativeCalculation.BuildingsId = ((Buildings)cmbxBuildings.SelectedItem).Id;
-            normativeCalculation.CalculationArea = calculationArea.ToString();
-            normativeCalculation.TotalArea = totalArea.ToString();
-            normativeCalculation.StandartOfHeat = standartHeat.ToString();
-            normativeCalculation.ConsumptionHeatByTotalArea = consumptionByTotalArea.ToString();
-            normativeCalculation.ConsumptionHeatByCalculationArea = consumptionByCalculationArea.ToString();
-            normativeCalculation.TotalNormativeHeat = tbxStandart.Text;
+            normativeCalculation.CalculationArea = calculationArea;
+            normativeCalculation.TotalArea = totalArea;
+            normativeCalculation.StandartOfHeat = standartHeat;
+            normativeCalculation.ConsumptionHeatByTotalArea = consumptionByTotalArea;
+            normativeCalculation.ConsumptionHeatByCalculationArea = consumptionByCalculationArea;
+            normativeCalculation.TotalNormativeHeat = Double.Parse(tbxStandart.Text);
             normativeCalculation.DateTimeImtervals = dateTimeIntervals;
 
             using (var mcDatabaseModelContainer = new MCDatabaseModelContainer())
@@ -127,19 +127,19 @@ namespace ManagementCompany
                                            where building.Id == ((Buildings) cmbxBuildingsContract.SelectedItem).Id
                                            select building.EstimateConsumptionHeat;
 
-                var consumptionByLoad = contractCalculator.ConsumptionByLoad(Double.Parse(estimatedConsumption.FirstOrDefault()), countDays,
+                var consumptionByLoad = contractCalculator.ConsumptionByLoad(estimatedConsumption.FirstOrDefault(), countDays,
                                                                              airtemperature);
                 var hotWaterByNorm = contractCalculator.HotWaterByNorm(countPeoples);
                 var totalHeatConsumption = contractCalculator.TotalHeatConsumption(consumptionByLoad, hotWaterByNorm);
 
                 var contractConsumption = new ContractConsumptionHeat
                                               {
-                                                  AirTemperature = airtemperature.ToString(),
+                                                  AirTemperature = airtemperature,
                                                   BuildingsId = ((Buildings) cmbxBuildingsContract.SelectedItem).Id,
-                                                  HeatByLoading = consumptionByLoad.ToString(),
-                                                  PeopleCount = countPeoples.ToString(),
-                                                  HotWaterByNorm = hotWaterByNorm.ToString(),
-                                                  TotalHeatConsumption = totalHeatConsumption.ToString(),
+                                                  HeatByLoading = consumptionByLoad,
+                                                  PeopleCount = countPeoples,
+                                                  HotWaterByNorm = hotWaterByNorm,
+                                                  TotalHeatConsumption = totalHeatConsumption,
                                                   DateTimeImtervals = datetime.First()
                                               };
                 context.ContractConsumptionHeatTable.AddObject(contractConsumption);
@@ -149,8 +149,8 @@ namespace ManagementCompany
 
         private void btnAddClearingInfo_Click(object sender, RoutedEventArgs e)
         {
-            var heatMeterReadings = tbxHeatMeterReading.Text;
-            var waterMeterReadings = tbxWaterMeterReading.Text;
+            var heatMeterReadings = Double.Parse(tbxHeatMeterReading.Text);
+            var waterMeterReadings = Double.Parse(tbxWaterMeterReading.Text);
 
             using (var context = new MCDatabaseModelContainer())
             {
@@ -159,14 +159,14 @@ namespace ManagementCompany
 
                 var meterReadings = context.MeterReadingsTable.CreateObject();
                 meterReadings.CurrentHeatMeterReader = heatMeterReadings;
-                meterReadings.CurrentWaterHeatreader = waterMeterReadings;
+                meterReadings.CurrentWaterHeatReader = waterMeterReadings;
                 meterReadings.BuildingsId = ((Buildings) cmbxBuildingsClearing.SelectedItem).Id;
                 meterReadings.DateTimeImtervals = datetime.First();
                 context.MeterReadingsTable.AddObject(meterReadings);
 
                 var clearing = context.ClearingTable.CreateObject();
-                clearing.Requirements = tbxRequirementHeat.Text;
-                clearing.CalculationHotWater = tbxWaterBuxgalter.Text;
+                clearing.Requirements = Double.Parse(tbxRequirementHeat.Text);
+                clearing.CalculationHotWater = Double.Parse(tbxWaterBuxgalter.Text);
                 clearing.BuildingsId = ((Buildings)cmbxBuildingsClearing.SelectedItem).Id;
 
                 var totalHeatConsumption = from contract in context.ContractConsumptionHeatTable
@@ -176,8 +176,7 @@ namespace ManagementCompany
                                            select contract.TotalHeatConsumption;
 
                 var totalCalculator = new TotalCalculation();
-                clearing.CalculationHot = totalCalculator.TotalHeatConsumption(Double.Parse(totalHeatConsumption.First()),
-                                                                               Double.Parse(tbxWaterBuxgalter.Text)).ToString();
+                clearing.CalculationHot = totalCalculator.TotalHeatConsumption(totalHeatConsumption.First(), Double.Parse(tbxWaterBuxgalter.Text));
                 clearing.DateTimeImtervals = datetime.First();
                 context.ClearingTable.AddObject(clearing);
                 context.SaveChanges();

@@ -53,7 +53,7 @@
         <MappingFragment StoreEntitySet="MeterReadingsTable">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CurrentHeatMeterReader" ColumnName="CurrentHeatMeterReader" />
-          <ScalarProperty Name="CurrentWaterHeatreader" ColumnName="CurrentWaterHeatreader" />
+          <ScalarProperty Name="CurrentWaterHeatReader" ColumnName="CurrentWaterHeatReader" />
           <ScalarProperty Name="BuildingsId" ColumnName="BuildingsId" />
         </MappingFragment>
       </EntityTypeMapping>

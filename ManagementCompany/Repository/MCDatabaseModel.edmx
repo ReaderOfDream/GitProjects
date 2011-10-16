@@ -55,16 +55,16 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EstimateConsumptionHeat" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="EstimateConsumptionHeat" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="DateTimeImtervalsНабор">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="StartDate" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="EndDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
     <Property Name="BuildingsId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="NormativeCalculationНабор">
@@ -72,12 +72,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TotalArea" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CalculationArea" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="StandartOfHeat" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ConsumptionHeatByTotalArea" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ConsumptionHeatByCalculationArea" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TotalNormativeHeat" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TotalArea" Type="float" Nullable="false" />
+    <Property Name="CalculationArea" Type="float" Nullable="false" />
+    <Property Name="StandartOfHeat" Type="float" Nullable="false" />
+    <Property Name="ConsumptionHeatByTotalArea" Type="float" Nullable="false" />
+    <Property Name="ConsumptionHeatByCalculationArea" Type="float" Nullable="false" />
+    <Property Name="TotalNormativeHeat" Type="float" Nullable="false" />
     <Property Name="BuildingsId" Type="int" Nullable="false" />
     <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -86,11 +86,11 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="AirTemperature" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="HeatByLoading" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PeopleCount" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="HotWaterByNorm" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TotalHeatConsumption" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AirTemperature" Type="float" Nullable="false" />
+    <Property Name="HeatByLoading" Type="float" Nullable="false" />
+    <Property Name="PeopleCount" Type="int" Nullable="false" />
+    <Property Name="HotWaterByNorm" Type="float" Nullable="false" />
+    <Property Name="TotalHeatConsumption" Type="float" Nullable="false" />
     <Property Name="BuildingsId" Type="int" Nullable="false" />
     <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -99,8 +99,8 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CurrentHeatMeterReader" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CurrentWaterHeatreader" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CurrentHeatMeterReader" Type="float" Nullable="false" />
+    <Property Name="CurrentWaterHeatReader" Type="float" Nullable="false" />
     <Property Name="BuildingsId" Type="int" Nullable="false" />
     <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -109,9 +109,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Requirements" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CalculationHotWater" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CalculationHot" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Requirements" Type="float" Nullable="false" />
+    <Property Name="CalculationHotWater" Type="float" Nullable="false" />
+    <Property Name="CalculationHot" Type="float" Nullable="false" />
     <Property Name="BuildingsId" Type="int" Nullable="false" />
     <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -277,8 +277,8 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" />
-          <Property Type="String" Name="Description" Nullable="false" />
-          <Property Type="String" Name="EstimateConsumptionHeat" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="Double" Name="EstimateConsumptionHeat" Nullable="false" />
           <NavigationProperty Name="DateTimeImtervals" Relationship="MCDatabaseModel.BuildingsDateTimeImtervals" FromRole="Buildings" ToRole="DateTimeImtervals" />
           <NavigationProperty Name="ContractConsumptionHeat" Relationship="MCDatabaseModel.BuildingsContractConsumptionHeat" FromRole="Buildings" ToRole="ContractConsumptionHeat" />
           <NavigationProperty Name="NormativeCalculation" Relationship="MCDatabaseModel.BuildingsNormativeCalculation" FromRole="Buildings" ToRole="NormativeCalculation" />
@@ -290,8 +290,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="StartDate" Nullable="false" />
-          <Property Type="String" Name="EndDate" Nullable="false" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" />
+          <Property Type="DateTime" Name="EndDate" Nullable="false" />
           <NavigationProperty Name="Buildings" Relationship="MCDatabaseModel.BuildingsDateTimeImtervals" FromRole="DateTimeImtervals" ToRole="Buildings" />
           <Property Type="Int32" Name="BuildingsId" Nullable="false" />
           <NavigationProperty Name="ContractConsumptionHeat" Relationship="MCDatabaseModel.ContractConsumptionHeatDateTimeImtervals" FromRole="DateTimeImtervals" ToRole="ContractConsumptionHeat" />
@@ -304,12 +304,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="TotalArea" Nullable="false" />
-          <Property Type="String" Name="CalculationArea" Nullable="false" />
-          <Property Type="String" Name="StandartOfHeat" Nullable="false" />
-          <Property Type="String" Name="ConsumptionHeatByTotalArea" Nullable="false" />
-          <Property Type="String" Name="ConsumptionHeatByCalculationArea" Nullable="false" />
-          <Property Type="String" Name="TotalNormativeHeat" Nullable="false" />
+          <Property Type="Double" Name="TotalArea" Nullable="false" />
+          <Property Type="Double" Name="CalculationArea" Nullable="false" />
+          <Property Type="Double" Name="StandartOfHeat" Nullable="false" />
+          <Property Type="Double" Name="ConsumptionHeatByTotalArea" Nullable="false" />
+          <Property Type="Double" Name="ConsumptionHeatByCalculationArea" Nullable="false" />
+          <Property Type="Double" Name="TotalNormativeHeat" Nullable="false" />
           <NavigationProperty Name="Buildings" Relationship="MCDatabaseModel.BuildingsNormativeCalculation" FromRole="NormativeCalculation" ToRole="Buildings" />
           <Property Type="Int32" Name="BuildingsId" Nullable="false" />
           <NavigationProperty Name="DateTimeImtervals" Relationship="MCDatabaseModel.NormativeCalculationDateTimeImtervals" FromRole="NormativeCalculation" ToRole="DateTimeImtervals" />
@@ -319,11 +319,11 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="AirTemperature" Nullable="false" />
-          <Property Type="String" Name="HeatByLoading" Nullable="false" />
-          <Property Type="String" Name="PeopleCount" Nullable="false" />
-          <Property Type="String" Name="HotWaterByNorm" Nullable="false" />
-          <Property Type="String" Name="TotalHeatConsumption" Nullable="false" />
+          <Property Type="Double" Name="AirTemperature" Nullable="false" />
+          <Property Type="Double" Name="HeatByLoading" Nullable="false" />
+          <Property Type="Int32" Name="PeopleCount" Nullable="false" />
+          <Property Type="Double" Name="HotWaterByNorm" Nullable="false" />
+          <Property Type="Double" Name="TotalHeatConsumption" Nullable="false" />
           <NavigationProperty Name="Buildings" Relationship="MCDatabaseModel.BuildingsContractConsumptionHeat" FromRole="ContractConsumptionHeat" ToRole="Buildings" />
           <Property Type="Int32" Name="BuildingsId" Nullable="false" />
           <NavigationProperty Name="DateTimeImtervals" Relationship="MCDatabaseModel.ContractConsumptionHeatDateTimeImtervals" FromRole="ContractConsumptionHeat" ToRole="DateTimeImtervals" />
@@ -377,8 +377,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="CurrentHeatMeterReader" Nullable="false" />
-          <Property Type="String" Name="CurrentWaterHeatreader" Nullable="false" />
+          <Property Type="Double" Name="CurrentHeatMeterReader" Nullable="false" />
+          <Property Type="Double" Name="CurrentWaterHeatReader" Nullable="false" />
           <NavigationProperty Name="Buildings" Relationship="MCDatabaseModel.BuildingsMeterReadings" FromRole="MeterReadings" ToRole="Buildings" />
           <Property Type="Int32" Name="BuildingsId" Nullable="false" />
           <NavigationProperty Name="DateTimeImtervals" Relationship="MCDatabaseModel.MeterReadingsDateTimeImtervals" FromRole="MeterReadings" ToRole="DateTimeImtervals" />
@@ -404,9 +404,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Requirements" Nullable="false" />
-          <Property Type="String" Name="CalculationHotWater" Nullable="false" />
-          <Property Type="String" Name="CalculationHot" Nullable="false" />
+          <Property Type="Double" Name="Requirements" Nullable="false" />
+          <Property Type="Double" Name="CalculationHotWater" Nullable="false" />
+          <Property Type="Double" Name="CalculationHot" Nullable="false" />
           <NavigationProperty Name="Buildings" Relationship="MCDatabaseModel.BuildingsClearing" FromRole="Clearing" ToRole="Buildings" />
           <Property Type="Int32" Name="BuildingsId" Nullable="false" />
           <NavigationProperty Name="DateTimeImtervals" Relationship="MCDatabaseModel.DateTimeImtervalsClearing" FromRole="Clearing" ToRole="DateTimeImtervals" />
@@ -485,7 +485,7 @@
         <MappingFragment StoreEntitySet="MeterReadingsTable">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CurrentHeatMeterReader" ColumnName="CurrentHeatMeterReader" />
-          <ScalarProperty Name="CurrentWaterHeatreader" ColumnName="CurrentWaterHeatreader" />
+          <ScalarProperty Name="CurrentWaterHeatReader" ColumnName="CurrentWaterHeatReader" />
           <ScalarProperty Name="BuildingsId" ColumnName="BuildingsId" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/16/2011 18:29:02
+-- Date Created: 10/16/2011 20:49:26
 -- Generated from EDMX file: D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\MCDatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -32,6 +32,18 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_NormativeCalculationDateTimeImtervals]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[NormativeCalculationНабор] DROP CONSTRAINT [FK_NormativeCalculationDateTimeImtervals];
 GO
+IF OBJECT_ID(N'[dbo].[FK_BuildingsMeterReadings]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MeterReadingsTable] DROP CONSTRAINT [FK_BuildingsMeterReadings];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MeterReadingsDateTimeImtervals]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MeterReadingsTable] DROP CONSTRAINT [FK_MeterReadingsDateTimeImtervals];
+GO
+IF OBJECT_ID(N'[dbo].[FK_BuildingsClearing]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ClearingTable] DROP CONSTRAINT [FK_BuildingsClearing];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DateTimeImtervalsClearing]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ClearingTable] DROP CONSTRAINT [FK_DateTimeImtervalsClearing];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -49,6 +61,12 @@ GO
 IF OBJECT_ID(N'[dbo].[ContractConsumptionHeatTable]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ContractConsumptionHeatTable];
 GO
+IF OBJECT_ID(N'[dbo].[MeterReadingsTable]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MeterReadingsTable];
+GO
+IF OBJECT_ID(N'[dbo].[ClearingTable]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ClearingTable];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -58,16 +76,16 @@ GO
 CREATE TABLE [dbo].[BuildingsНабор] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
-    [Description] nvarchar(max)  NOT NULL,
-    [EstimateConsumptionHeat] nvarchar(max)  NOT NULL
+    [Description] nvarchar(max)  NULL,
+    [EstimateConsumptionHeat] float  NOT NULL
 );
 GO
 
 -- Creating table 'DateTimeImtervalsНабор'
 CREATE TABLE [dbo].[DateTimeImtervalsНабор] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [StartDate] nvarchar(max)  NOT NULL,
-    [EndDate] nvarchar(max)  NOT NULL,
+    [StartDate] datetime  NOT NULL,
+    [EndDate] datetime  NOT NULL,
     [BuildingsId] int  NOT NULL
 );
 GO
@@ -75,12 +93,12 @@ GO
 -- Creating table 'NormativeCalculationНабор'
 CREATE TABLE [dbo].[NormativeCalculationНабор] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [TotalArea] nvarchar(max)  NOT NULL,
-    [CalculationArea] nvarchar(max)  NOT NULL,
-    [StandartOfHeat] nvarchar(max)  NOT NULL,
-    [ConsumptionHeatByTotalArea] nvarchar(max)  NOT NULL,
-    [ConsumptionHeatByCalculationArea] nvarchar(max)  NOT NULL,
-    [TotalNormativeHeat] nvarchar(max)  NOT NULL,
+    [TotalArea] float  NOT NULL,
+    [CalculationArea] float  NOT NULL,
+    [StandartOfHeat] float  NOT NULL,
+    [ConsumptionHeatByTotalArea] float  NOT NULL,
+    [ConsumptionHeatByCalculationArea] float  NOT NULL,
+    [TotalNormativeHeat] float  NOT NULL,
     [BuildingsId] int  NOT NULL,
     [DateTimeImtervals_Id] int  NOT NULL
 );
@@ -89,11 +107,11 @@ GO
 -- Creating table 'ContractConsumptionHeatTable'
 CREATE TABLE [dbo].[ContractConsumptionHeatTable] (
     [ID] int IDENTITY(1,1) NOT NULL,
-    [AirTemperature] nvarchar(max)  NOT NULL,
-    [HeatByLoading] nvarchar(max)  NOT NULL,
-    [PeopleCount] nvarchar(max)  NOT NULL,
-    [HotWaterByNorm] nvarchar(max)  NOT NULL,
-    [TotalHeatConsumption] nvarchar(max)  NOT NULL,
+    [AirTemperature] float  NOT NULL,
+    [HeatByLoading] float  NOT NULL,
+    [PeopleCount] int  NOT NULL,
+    [HotWaterByNorm] float  NOT NULL,
+    [TotalHeatConsumption] float  NOT NULL,
     [BuildingsId] int  NOT NULL,
     [DateTimeImtervals_Id] int  NOT NULL
 );
@@ -102,8 +120,8 @@ GO
 -- Creating table 'MeterReadingsTable'
 CREATE TABLE [dbo].[MeterReadingsTable] (
     [ID] int IDENTITY(1,1) NOT NULL,
-    [CurrentHeatMeterReader] nvarchar(max)  NOT NULL,
-    [CurrentWaterHeatreader] nvarchar(max)  NOT NULL,
+    [CurrentHeatMeterReader] float  NOT NULL,
+    [CurrentWaterHeatReader] float  NOT NULL,
     [BuildingsId] int  NOT NULL,
     [DateTimeImtervals_Id] int  NOT NULL
 );
@@ -112,9 +130,9 @@ GO
 -- Creating table 'ClearingTable'
 CREATE TABLE [dbo].[ClearingTable] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Requirements] nvarchar(max)  NOT NULL,
-    [CalculationHotWater] nvarchar(max)  NOT NULL,
-    [CalculationHot] nvarchar(max)  NOT NULL,
+    [Requirements] float  NOT NULL,
+    [CalculationHotWater] float  NOT NULL,
+    [CalculationHot] float  NOT NULL,
     [BuildingsId] int  NOT NULL,
     [DateTimeImtervals_Id] int  NOT NULL
 );

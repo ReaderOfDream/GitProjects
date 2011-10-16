@@ -248,14 +248,12 @@ namespace Repository
         /// </summary>
         /// <param name="id">Исходное значение свойства Id.</param>
         /// <param name="name">Исходное значение свойства Name.</param>
-        /// <param name="description">Исходное значение свойства Description.</param>
         /// <param name="estimateConsumptionHeat">Исходное значение свойства EstimateConsumptionHeat.</param>
-        public static Buildings CreateBuildings(global::System.Int32 id, global::System.String name, global::System.String description, global::System.String estimateConsumptionHeat)
+        public static Buildings CreateBuildings(global::System.Int32 id, global::System.String name, global::System.Double estimateConsumptionHeat)
         {
             Buildings buildings = new Buildings();
             buildings.Id = id;
             buildings.Name = name;
-            buildings.Description = description;
             buildings.EstimateConsumptionHeat = estimateConsumptionHeat;
             return buildings;
         }
@@ -317,7 +315,7 @@ namespace Repository
         /// <summary>
         /// Нет доступной документации по метаданным.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -329,7 +327,7 @@ namespace Repository
             {
                 OnDescriptionChanging(value);
                 ReportPropertyChanging("Description");
-                _Description = StructuralObject.SetValidValue(value, false);
+                _Description = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Description");
                 OnDescriptionChanged();
             }
@@ -343,7 +341,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String EstimateConsumptionHeat
+        public global::System.Double EstimateConsumptionHeat
         {
             get
             {
@@ -353,13 +351,13 @@ namespace Repository
             {
                 OnEstimateConsumptionHeatChanging(value);
                 ReportPropertyChanging("EstimateConsumptionHeat");
-                _EstimateConsumptionHeat = StructuralObject.SetValidValue(value, false);
+                _EstimateConsumptionHeat = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("EstimateConsumptionHeat");
                 OnEstimateConsumptionHeatChanged();
             }
         }
-        private global::System.String _EstimateConsumptionHeat;
-        partial void OnEstimateConsumptionHeatChanging(global::System.String value);
+        private global::System.Double _EstimateConsumptionHeat;
+        partial void OnEstimateConsumptionHeatChanging(global::System.Double value);
         partial void OnEstimateConsumptionHeatChanged();
 
         #endregion
@@ -497,7 +495,7 @@ namespace Repository
         /// <param name="calculationHotWater">Исходное значение свойства CalculationHotWater.</param>
         /// <param name="calculationHot">Исходное значение свойства CalculationHot.</param>
         /// <param name="buildingsId">Исходное значение свойства BuildingsId.</param>
-        public static Clearing CreateClearing(global::System.Int32 id, global::System.String requirements, global::System.String calculationHotWater, global::System.String calculationHot, global::System.Int32 buildingsId)
+        public static Clearing CreateClearing(global::System.Int32 id, global::System.Double requirements, global::System.Double calculationHotWater, global::System.Double calculationHot, global::System.Int32 buildingsId)
         {
             Clearing clearing = new Clearing();
             clearing.Id = id;
@@ -543,7 +541,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Requirements
+        public global::System.Double Requirements
         {
             get
             {
@@ -553,13 +551,13 @@ namespace Repository
             {
                 OnRequirementsChanging(value);
                 ReportPropertyChanging("Requirements");
-                _Requirements = StructuralObject.SetValidValue(value, false);
+                _Requirements = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Requirements");
                 OnRequirementsChanged();
             }
         }
-        private global::System.String _Requirements;
-        partial void OnRequirementsChanging(global::System.String value);
+        private global::System.Double _Requirements;
+        partial void OnRequirementsChanging(global::System.Double value);
         partial void OnRequirementsChanged();
     
         /// <summary>
@@ -567,7 +565,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String CalculationHotWater
+        public global::System.Double CalculationHotWater
         {
             get
             {
@@ -577,13 +575,13 @@ namespace Repository
             {
                 OnCalculationHotWaterChanging(value);
                 ReportPropertyChanging("CalculationHotWater");
-                _CalculationHotWater = StructuralObject.SetValidValue(value, false);
+                _CalculationHotWater = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CalculationHotWater");
                 OnCalculationHotWaterChanged();
             }
         }
-        private global::System.String _CalculationHotWater;
-        partial void OnCalculationHotWaterChanging(global::System.String value);
+        private global::System.Double _CalculationHotWater;
+        partial void OnCalculationHotWaterChanging(global::System.Double value);
         partial void OnCalculationHotWaterChanged();
     
         /// <summary>
@@ -591,7 +589,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String CalculationHot
+        public global::System.Double CalculationHot
         {
             get
             {
@@ -601,13 +599,13 @@ namespace Repository
             {
                 OnCalculationHotChanging(value);
                 ReportPropertyChanging("CalculationHot");
-                _CalculationHot = StructuralObject.SetValidValue(value, false);
+                _CalculationHot = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CalculationHot");
                 OnCalculationHotChanged();
             }
         }
-        private global::System.String _CalculationHot;
-        partial void OnCalculationHotChanging(global::System.String value);
+        private global::System.Double _CalculationHot;
+        partial void OnCalculationHotChanging(global::System.Double value);
         partial void OnCalculationHotChanged();
     
         /// <summary>
@@ -737,7 +735,7 @@ namespace Repository
         /// <param name="hotWaterByNorm">Исходное значение свойства HotWaterByNorm.</param>
         /// <param name="totalHeatConsumption">Исходное значение свойства TotalHeatConsumption.</param>
         /// <param name="buildingsId">Исходное значение свойства BuildingsId.</param>
-        public static ContractConsumptionHeat CreateContractConsumptionHeat(global::System.Int32 id, global::System.String airTemperature, global::System.String heatByLoading, global::System.String peopleCount, global::System.String hotWaterByNorm, global::System.String totalHeatConsumption, global::System.Int32 buildingsId)
+        public static ContractConsumptionHeat CreateContractConsumptionHeat(global::System.Int32 id, global::System.Double airTemperature, global::System.Double heatByLoading, global::System.Int32 peopleCount, global::System.Double hotWaterByNorm, global::System.Double totalHeatConsumption, global::System.Int32 buildingsId)
         {
             ContractConsumptionHeat contractConsumptionHeat = new ContractConsumptionHeat();
             contractConsumptionHeat.ID = id;
@@ -785,7 +783,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String AirTemperature
+        public global::System.Double AirTemperature
         {
             get
             {
@@ -795,13 +793,13 @@ namespace Repository
             {
                 OnAirTemperatureChanging(value);
                 ReportPropertyChanging("AirTemperature");
-                _AirTemperature = StructuralObject.SetValidValue(value, false);
+                _AirTemperature = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("AirTemperature");
                 OnAirTemperatureChanged();
             }
         }
-        private global::System.String _AirTemperature;
-        partial void OnAirTemperatureChanging(global::System.String value);
+        private global::System.Double _AirTemperature;
+        partial void OnAirTemperatureChanging(global::System.Double value);
         partial void OnAirTemperatureChanged();
     
         /// <summary>
@@ -809,7 +807,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String HeatByLoading
+        public global::System.Double HeatByLoading
         {
             get
             {
@@ -819,13 +817,13 @@ namespace Repository
             {
                 OnHeatByLoadingChanging(value);
                 ReportPropertyChanging("HeatByLoading");
-                _HeatByLoading = StructuralObject.SetValidValue(value, false);
+                _HeatByLoading = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("HeatByLoading");
                 OnHeatByLoadingChanged();
             }
         }
-        private global::System.String _HeatByLoading;
-        partial void OnHeatByLoadingChanging(global::System.String value);
+        private global::System.Double _HeatByLoading;
+        partial void OnHeatByLoadingChanging(global::System.Double value);
         partial void OnHeatByLoadingChanged();
     
         /// <summary>
@@ -833,7 +831,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String PeopleCount
+        public global::System.Int32 PeopleCount
         {
             get
             {
@@ -843,13 +841,13 @@ namespace Repository
             {
                 OnPeopleCountChanging(value);
                 ReportPropertyChanging("PeopleCount");
-                _PeopleCount = StructuralObject.SetValidValue(value, false);
+                _PeopleCount = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("PeopleCount");
                 OnPeopleCountChanged();
             }
         }
-        private global::System.String _PeopleCount;
-        partial void OnPeopleCountChanging(global::System.String value);
+        private global::System.Int32 _PeopleCount;
+        partial void OnPeopleCountChanging(global::System.Int32 value);
         partial void OnPeopleCountChanged();
     
         /// <summary>
@@ -857,7 +855,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String HotWaterByNorm
+        public global::System.Double HotWaterByNorm
         {
             get
             {
@@ -867,13 +865,13 @@ namespace Repository
             {
                 OnHotWaterByNormChanging(value);
                 ReportPropertyChanging("HotWaterByNorm");
-                _HotWaterByNorm = StructuralObject.SetValidValue(value, false);
+                _HotWaterByNorm = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("HotWaterByNorm");
                 OnHotWaterByNormChanged();
             }
         }
-        private global::System.String _HotWaterByNorm;
-        partial void OnHotWaterByNormChanging(global::System.String value);
+        private global::System.Double _HotWaterByNorm;
+        partial void OnHotWaterByNormChanging(global::System.Double value);
         partial void OnHotWaterByNormChanged();
     
         /// <summary>
@@ -881,7 +879,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String TotalHeatConsumption
+        public global::System.Double TotalHeatConsumption
         {
             get
             {
@@ -891,13 +889,13 @@ namespace Repository
             {
                 OnTotalHeatConsumptionChanging(value);
                 ReportPropertyChanging("TotalHeatConsumption");
-                _TotalHeatConsumption = StructuralObject.SetValidValue(value, false);
+                _TotalHeatConsumption = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("TotalHeatConsumption");
                 OnTotalHeatConsumptionChanged();
             }
         }
-        private global::System.String _TotalHeatConsumption;
-        partial void OnTotalHeatConsumptionChanging(global::System.String value);
+        private global::System.Double _TotalHeatConsumption;
+        partial void OnTotalHeatConsumptionChanging(global::System.Double value);
         partial void OnTotalHeatConsumptionChanged();
     
         /// <summary>
@@ -1024,7 +1022,7 @@ namespace Repository
         /// <param name="startDate">Исходное значение свойства StartDate.</param>
         /// <param name="endDate">Исходное значение свойства EndDate.</param>
         /// <param name="buildingsId">Исходное значение свойства BuildingsId.</param>
-        public static DateTimeImtervals CreateDateTimeImtervals(global::System.Int32 id, global::System.String startDate, global::System.String endDate, global::System.Int32 buildingsId)
+        public static DateTimeImtervals CreateDateTimeImtervals(global::System.Int32 id, global::System.DateTime startDate, global::System.DateTime endDate, global::System.Int32 buildingsId)
         {
             DateTimeImtervals dateTimeImtervals = new DateTimeImtervals();
             dateTimeImtervals.Id = id;
@@ -1069,7 +1067,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String StartDate
+        public global::System.DateTime StartDate
         {
             get
             {
@@ -1079,13 +1077,13 @@ namespace Repository
             {
                 OnStartDateChanging(value);
                 ReportPropertyChanging("StartDate");
-                _StartDate = StructuralObject.SetValidValue(value, false);
+                _StartDate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("StartDate");
                 OnStartDateChanged();
             }
         }
-        private global::System.String _StartDate;
-        partial void OnStartDateChanging(global::System.String value);
+        private global::System.DateTime _StartDate;
+        partial void OnStartDateChanging(global::System.DateTime value);
         partial void OnStartDateChanged();
     
         /// <summary>
@@ -1093,7 +1091,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String EndDate
+        public global::System.DateTime EndDate
         {
             get
             {
@@ -1103,13 +1101,13 @@ namespace Repository
             {
                 OnEndDateChanging(value);
                 ReportPropertyChanging("EndDate");
-                _EndDate = StructuralObject.SetValidValue(value, false);
+                _EndDate = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("EndDate");
                 OnEndDateChanged();
             }
         }
-        private global::System.String _EndDate;
-        partial void OnEndDateChanging(global::System.String value);
+        private global::System.DateTime _EndDate;
+        partial void OnEndDateChanging(global::System.DateTime value);
         partial void OnEndDateChanged();
     
         /// <summary>
@@ -1348,14 +1346,14 @@ namespace Repository
         /// </summary>
         /// <param name="id">Исходное значение свойства ID.</param>
         /// <param name="currentHeatMeterReader">Исходное значение свойства CurrentHeatMeterReader.</param>
-        /// <param name="currentWaterHeatreader">Исходное значение свойства CurrentWaterHeatreader.</param>
+        /// <param name="currentWaterHeatReader">Исходное значение свойства CurrentWaterHeatReader.</param>
         /// <param name="buildingsId">Исходное значение свойства BuildingsId.</param>
-        public static MeterReadings CreateMeterReadings(global::System.Int32 id, global::System.String currentHeatMeterReader, global::System.String currentWaterHeatreader, global::System.Int32 buildingsId)
+        public static MeterReadings CreateMeterReadings(global::System.Int32 id, global::System.Double currentHeatMeterReader, global::System.Double currentWaterHeatReader, global::System.Int32 buildingsId)
         {
             MeterReadings meterReadings = new MeterReadings();
             meterReadings.ID = id;
             meterReadings.CurrentHeatMeterReader = currentHeatMeterReader;
-            meterReadings.CurrentWaterHeatreader = currentWaterHeatreader;
+            meterReadings.CurrentWaterHeatReader = currentWaterHeatReader;
             meterReadings.BuildingsId = buildingsId;
             return meterReadings;
         }
@@ -1395,7 +1393,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String CurrentHeatMeterReader
+        public global::System.Double CurrentHeatMeterReader
         {
             get
             {
@@ -1405,13 +1403,13 @@ namespace Repository
             {
                 OnCurrentHeatMeterReaderChanging(value);
                 ReportPropertyChanging("CurrentHeatMeterReader");
-                _CurrentHeatMeterReader = StructuralObject.SetValidValue(value, false);
+                _CurrentHeatMeterReader = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CurrentHeatMeterReader");
                 OnCurrentHeatMeterReaderChanged();
             }
         }
-        private global::System.String _CurrentHeatMeterReader;
-        partial void OnCurrentHeatMeterReaderChanging(global::System.String value);
+        private global::System.Double _CurrentHeatMeterReader;
+        partial void OnCurrentHeatMeterReaderChanging(global::System.Double value);
         partial void OnCurrentHeatMeterReaderChanged();
     
         /// <summary>
@@ -1419,24 +1417,24 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String CurrentWaterHeatreader
+        public global::System.Double CurrentWaterHeatReader
         {
             get
             {
-                return _CurrentWaterHeatreader;
+                return _CurrentWaterHeatReader;
             }
             set
             {
-                OnCurrentWaterHeatreaderChanging(value);
-                ReportPropertyChanging("CurrentWaterHeatreader");
-                _CurrentWaterHeatreader = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("CurrentWaterHeatreader");
-                OnCurrentWaterHeatreaderChanged();
+                OnCurrentWaterHeatReaderChanging(value);
+                ReportPropertyChanging("CurrentWaterHeatReader");
+                _CurrentWaterHeatReader = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CurrentWaterHeatReader");
+                OnCurrentWaterHeatReaderChanged();
             }
         }
-        private global::System.String _CurrentWaterHeatreader;
-        partial void OnCurrentWaterHeatreaderChanging(global::System.String value);
-        partial void OnCurrentWaterHeatreaderChanged();
+        private global::System.Double _CurrentWaterHeatReader;
+        partial void OnCurrentWaterHeatReaderChanging(global::System.Double value);
+        partial void OnCurrentWaterHeatReaderChanged();
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -1566,7 +1564,7 @@ namespace Repository
         /// <param name="consumptionHeatByCalculationArea">Исходное значение свойства ConsumptionHeatByCalculationArea.</param>
         /// <param name="totalNormativeHeat">Исходное значение свойства TotalNormativeHeat.</param>
         /// <param name="buildingsId">Исходное значение свойства BuildingsId.</param>
-        public static NormativeCalculation CreateNormativeCalculation(global::System.Int32 id, global::System.String totalArea, global::System.String calculationArea, global::System.String standartOfHeat, global::System.String consumptionHeatByTotalArea, global::System.String consumptionHeatByCalculationArea, global::System.String totalNormativeHeat, global::System.Int32 buildingsId)
+        public static NormativeCalculation CreateNormativeCalculation(global::System.Int32 id, global::System.Double totalArea, global::System.Double calculationArea, global::System.Double standartOfHeat, global::System.Double consumptionHeatByTotalArea, global::System.Double consumptionHeatByCalculationArea, global::System.Double totalNormativeHeat, global::System.Int32 buildingsId)
         {
             NormativeCalculation normativeCalculation = new NormativeCalculation();
             normativeCalculation.Id = id;
@@ -1615,7 +1613,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String TotalArea
+        public global::System.Double TotalArea
         {
             get
             {
@@ -1625,13 +1623,13 @@ namespace Repository
             {
                 OnTotalAreaChanging(value);
                 ReportPropertyChanging("TotalArea");
-                _TotalArea = StructuralObject.SetValidValue(value, false);
+                _TotalArea = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("TotalArea");
                 OnTotalAreaChanged();
             }
         }
-        private global::System.String _TotalArea;
-        partial void OnTotalAreaChanging(global::System.String value);
+        private global::System.Double _TotalArea;
+        partial void OnTotalAreaChanging(global::System.Double value);
         partial void OnTotalAreaChanged();
     
         /// <summary>
@@ -1639,7 +1637,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String CalculationArea
+        public global::System.Double CalculationArea
         {
             get
             {
@@ -1649,13 +1647,13 @@ namespace Repository
             {
                 OnCalculationAreaChanging(value);
                 ReportPropertyChanging("CalculationArea");
-                _CalculationArea = StructuralObject.SetValidValue(value, false);
+                _CalculationArea = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("CalculationArea");
                 OnCalculationAreaChanged();
             }
         }
-        private global::System.String _CalculationArea;
-        partial void OnCalculationAreaChanging(global::System.String value);
+        private global::System.Double _CalculationArea;
+        partial void OnCalculationAreaChanging(global::System.Double value);
         partial void OnCalculationAreaChanged();
     
         /// <summary>
@@ -1663,7 +1661,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String StandartOfHeat
+        public global::System.Double StandartOfHeat
         {
             get
             {
@@ -1673,13 +1671,13 @@ namespace Repository
             {
                 OnStandartOfHeatChanging(value);
                 ReportPropertyChanging("StandartOfHeat");
-                _StandartOfHeat = StructuralObject.SetValidValue(value, false);
+                _StandartOfHeat = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("StandartOfHeat");
                 OnStandartOfHeatChanged();
             }
         }
-        private global::System.String _StandartOfHeat;
-        partial void OnStandartOfHeatChanging(global::System.String value);
+        private global::System.Double _StandartOfHeat;
+        partial void OnStandartOfHeatChanging(global::System.Double value);
         partial void OnStandartOfHeatChanged();
     
         /// <summary>
@@ -1687,7 +1685,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String ConsumptionHeatByTotalArea
+        public global::System.Double ConsumptionHeatByTotalArea
         {
             get
             {
@@ -1697,13 +1695,13 @@ namespace Repository
             {
                 OnConsumptionHeatByTotalAreaChanging(value);
                 ReportPropertyChanging("ConsumptionHeatByTotalArea");
-                _ConsumptionHeatByTotalArea = StructuralObject.SetValidValue(value, false);
+                _ConsumptionHeatByTotalArea = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ConsumptionHeatByTotalArea");
                 OnConsumptionHeatByTotalAreaChanged();
             }
         }
-        private global::System.String _ConsumptionHeatByTotalArea;
-        partial void OnConsumptionHeatByTotalAreaChanging(global::System.String value);
+        private global::System.Double _ConsumptionHeatByTotalArea;
+        partial void OnConsumptionHeatByTotalAreaChanging(global::System.Double value);
         partial void OnConsumptionHeatByTotalAreaChanged();
     
         /// <summary>
@@ -1711,7 +1709,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String ConsumptionHeatByCalculationArea
+        public global::System.Double ConsumptionHeatByCalculationArea
         {
             get
             {
@@ -1721,13 +1719,13 @@ namespace Repository
             {
                 OnConsumptionHeatByCalculationAreaChanging(value);
                 ReportPropertyChanging("ConsumptionHeatByCalculationArea");
-                _ConsumptionHeatByCalculationArea = StructuralObject.SetValidValue(value, false);
+                _ConsumptionHeatByCalculationArea = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("ConsumptionHeatByCalculationArea");
                 OnConsumptionHeatByCalculationAreaChanged();
             }
         }
-        private global::System.String _ConsumptionHeatByCalculationArea;
-        partial void OnConsumptionHeatByCalculationAreaChanging(global::System.String value);
+        private global::System.Double _ConsumptionHeatByCalculationArea;
+        partial void OnConsumptionHeatByCalculationAreaChanging(global::System.Double value);
         partial void OnConsumptionHeatByCalculationAreaChanged();
     
         /// <summary>
@@ -1735,7 +1733,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String TotalNormativeHeat
+        public global::System.Double TotalNormativeHeat
         {
             get
             {
@@ -1745,13 +1743,13 @@ namespace Repository
             {
                 OnTotalNormativeHeatChanging(value);
                 ReportPropertyChanging("TotalNormativeHeat");
-                _TotalNormativeHeat = StructuralObject.SetValidValue(value, false);
+                _TotalNormativeHeat = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("TotalNormativeHeat");
                 OnTotalNormativeHeatChanged();
             }
         }
-        private global::System.String _TotalNormativeHeat;
-        partial void OnTotalNormativeHeatChanging(global::System.String value);
+        private global::System.Double _TotalNormativeHeat;
+        partial void OnTotalNormativeHeatChanging(global::System.Double value);
         partial void OnTotalNormativeHeatChanged();
     
         /// <summary>
