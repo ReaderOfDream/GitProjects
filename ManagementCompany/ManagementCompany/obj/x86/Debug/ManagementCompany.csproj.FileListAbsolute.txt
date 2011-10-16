@@ -32,3 +32,5 @@ D:\Фриланс\Управляющая компания\GitProjects\Management
 D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\ManagementCompany\obj\x86\Debug\ManagementCompany.Properties.Resources.resources
 D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\ManagementCompany\obj\x86\Debug\GenerateResource.read.1.tlog
 D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\ManagementCompany\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\ManagementCompany\obj\x86\Debug\Views\CreateObjectView.baml
+D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\ManagementCompany\obj\x86\Debug\Views\CreateObjectView.g.cs

@@ -2,4 +2,5 @@
   <Module PersistentId="6F6AC5F1-90CB-42F0-9F67-D9B650800224" ModuleId="ManagementCompany" />
   <Module PersistentId="6570A4F7-8220-4A77-993F-E1156F4B5423" ModuleId="Repository" />
   <Module PersistentId="7C80777D-91D3-44C2-9A7F-D37511A32994" ModuleId="Core" />
+  <Module PersistentId="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB" ModuleId="Tests" />
 </Modules>
