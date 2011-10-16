@@ -4,3 +4,9 @@ D:\Фриланс\Отопление\ManagementCompany\Repository\bin\Debug\Repo
 D:\Фриланс\Отопление\ManagementCompany\Repository\bin\Debug\Repository.pdb
 D:\Фриланс\Отопление\ManagementCompany\Repository\obj\Debug\Repository.dll
 D:\Фриланс\Отопление\ManagementCompany\Repository\obj\Debug\Repository.pdb
+D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\bin\Debug\Repository.dll.config
+D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\bin\Debug\Repository.dll
+D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\bin\Debug\Repository.pdb
+D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\obj\Debug\ResolveAssemblyReference.cache
+D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\obj\Debug\Repository.dll
+D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\obj\Debug\Repository.pdb

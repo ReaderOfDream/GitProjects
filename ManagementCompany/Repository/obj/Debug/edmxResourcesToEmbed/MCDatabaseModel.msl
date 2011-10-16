@@ -7,6 +7,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EstimateConsumptionHeat" ColumnName="EstimateConsumptionHeat" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -34,5 +35,34 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ContractConsumptionHeatTable">
+      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.ContractConsumptionHeat)">
+        <MappingFragment StoreEntitySet="ContractConsumptionHeatTable">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AirTemperature" ColumnName="AirTemperature" />
+          <ScalarProperty Name="HeatByLoading" ColumnName="HeatByLoading" />
+          <ScalarProperty Name="PeopleCount" ColumnName="PeopleCount" />
+          <ScalarProperty Name="HotWaterByNorm" ColumnName="HotWaterByNorm" />
+          <ScalarProperty Name="TotalHeatConsumption" ColumnName="TotalHeatConsumption" />
+          <ScalarProperty Name="BuildingsId" ColumnName="BuildingsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ContractConsumptionHeatDateTimeImtervals" TypeName="MCDatabaseModel.ContractConsumptionHeatDateTimeImtervals" StoreEntitySet="ContractConsumptionHeatTable">
+      <EndProperty Name="DateTimeImtervals">
+        <ScalarProperty Name="Id" ColumnName="DateTimeImtervals_Id" />
+      </EndProperty>
+      <EndProperty Name="ContractConsumptionHeat">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="NormativeCalculationDateTimeImtervals" TypeName="MCDatabaseModel.NormativeCalculationDateTimeImtervals" StoreEntitySet="NormativeCalculationНабор">
+      <EndProperty Name="DateTimeImtervals">
+        <ScalarProperty Name="Id" ColumnName="DateTimeImtervals_Id" />
+      </EndProperty>
+      <EndProperty Name="NormativeCalculation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

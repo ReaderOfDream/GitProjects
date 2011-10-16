@@ -9,6 +9,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 
                 <StackPanel Orientation="Horizontal" Grid.Row="0">
@@ -20,7 +21,12 @@
                     <TextBox Name="tbxDescription" Width="200"/>
                 </StackPanel>
                 
-                <Button Name="CreateObject" Click="CreateObject_Click" Content="Создать" Grid.Row="2" Width="100"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="2">
+                    <Label Content="Нормативная потребность"/>
+                    <TextBox Name="tbxNormativeConsumptionHeat" />
+                </StackPanel>
+                
+                <Button Name="CreateObject" Click="CreateObject_Click" Content="Создать" Grid.Row="3" Width="100"/>
             </Grid>
             
             
@@ -69,6 +75,38 @@
                 
                 <Button Name="btnSaveStandartCalculation" Content="Сохранить" Width="100" Grid.Row="5" Click="btnSaveStandartCalculation_Click"/>
             </Grid>           
+        </TabItem>
+        <TabItem Header="Договр">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                    <RowDefinition  Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <Label Content="Фактическая температура воздуха"/>
+                    <TextBox Name="tbxAirTemperature"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                    <Label Content="Количество человек"/>
+                    <TextBox Name="tbxPeoplesCount"/>
+                </StackPanel>
+                
+                <ComboBox Name="cmbxMonts" Grid.Row="2"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="3">
+                    <Label Content="Здание: "/>
+                    <ComboBox Name="cmbxBuildingsContract" DisplayMemberPath="Name" Width="100"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="4">
+                    <Button Content="Добавить" Name="btnAddContract" Click="btnAddContract_Click"/>
+                </StackPanel>
+            </Grid>
         </TabItem>
     </TabControl>
 </Window>

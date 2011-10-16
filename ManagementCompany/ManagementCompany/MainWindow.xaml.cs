@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Linq;
+using System.Data.Objects;
+using System.Data.Objects.DataClasses;
 using System.Data.Common;
 using System.Windows;
+using Core;
+using Core.ContractCalculation;
 using Core.StandartCalculation;
 using Repository;
 
@@ -15,10 +20,14 @@ namespace ManagementCompany
         {
             InitializeComponent();
 
+            var months = new Months();
+            cmbxMonts.ItemsSource = months.AllMonth;
+            cmbxMonts.DisplayMemberPath = "Name";
+
             using (var mcDatabaseModelContainer = new MCDatabaseModelContainer())
             {
-                cmbxBuildings.ItemsSource = mcDatabaseModelContainer.BuildingsНабор;
-                mcDatabaseModelContainer.SaveChanges();
+                cmbxBuildings.ItemsSource = mcDatabaseModelContainer.BuildingsНабор.ToArray();
+                cmbxBuildingsContract.ItemsSource = mcDatabaseModelContainer.BuildingsНабор.ToArray();
             }
         }
 
@@ -27,7 +36,9 @@ namespace ManagementCompany
             var buildings = new Buildings
                                 {
                                     Name = tbxName.Text, 
-                                    Description = tbxDescription.Text
+                                    Description = tbxDescription.Text,
+                                    EstimateConsumptionHeat = tbxNormativeConsumptionHeat.Text
+                                    
                                 };
 
             using (var mcDatabaseModelContainer = new MCDatabaseModelContainer())
@@ -71,6 +82,7 @@ namespace ManagementCompany
             normativeCalculation.ConsumptionHeatByTotalArea = consumptionByTotalArea.ToString();
             normativeCalculation.ConsumptionHeatByCalculationArea = consumptionByCalculationArea.ToString();
             normativeCalculation.TotalNormativeHeat = tbxStandart.Text;
+            normativeCalculation.DateTimeImtervals = dateTimeIntervals;
 
             using (var mcDatabaseModelContainer = new MCDatabaseModelContainer())
             {
@@ -81,7 +93,7 @@ namespace ManagementCompany
                     transaction = mcDatabaseModelContainer.Connection.BeginTransaction();
 
                     mcDatabaseModelContainer.DateTimeImtervalsНабор.AddObject(dateTimeIntervals);
-                    mcDatabaseModelContainer.NormativeCalculationНабор.AddObject(normativeCalculation);
+                    //mcDatabaseModelContainer.NormativeCalculationНабор.AddObject(normativeCalculation);
                     mcDatabaseModelContainer.SaveChanges();
 
                     transaction.Commit();
@@ -91,6 +103,43 @@ namespace ManagementCompany
                     transaction.Rollback();
                     MessageBox.Show(exception.ToString());
                 }
+            }
+        }
+
+        private void btnAddContract_Click(object sender, RoutedEventArgs e)
+        {
+            double airtemperature = Double.Parse(tbxAirTemperature.Text);
+            int countPeoples = int.Parse(tbxPeoplesCount.Text);
+            int countDays = DateTime.DaysInMonth(DateTime.Now.Year, ((Month) cmbxMonts.SelectedItem).Index);
+
+            var contractCalculator = new ContractCalculator();
+
+            using (var context = new MCDatabaseModelContainer())
+            {
+                var datetime = from date in context.DateTimeImtervalsНабор
+                               select date;
+
+                var estimatedConsumption = from building in context.BuildingsНабор
+                                           where building.Id == ((Buildings) cmbxBuildingsContract.SelectedItem).Id
+                                           select building.EstimateConsumptionHeat;
+
+                var consumptionByLoad = contractCalculator.ConsumptionByLoad(Double.Parse(estimatedConsumption.FirstOrDefault()), countDays,
+                                                                             airtemperature);
+                var hotWaterByNorm = contractCalculator.HotWaterByNorm(countPeoples);
+                var totalHeatConsumption = contractCalculator.TotalHeatConsumption(consumptionByLoad, hotWaterByNorm);
+
+                var contractConsumption = new ContractConsumptionHeat
+                                              {
+                                                  AirTemperature = airtemperature.ToString(),
+                                                  BuildingsId = ((Buildings) cmbxBuildingsContract.SelectedItem).Id,
+                                                  HeatByLoading = consumptionByLoad.ToString(),
+                                                  PeopleCount = countPeoples.ToString(),
+                                                  HotWaterByNorm = hotWaterByNorm.ToString(),
+                                                  TotalHeatConsumption = totalHeatConsumption.ToString(),
+                                                  DateTimeImtervals = datetime.First()
+                                              };
+                context.ContractConsumptionHeatTable.AddObject(contractConsumption);
+                context.SaveChanges();
             }
         }
     }
