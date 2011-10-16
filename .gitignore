@@ -1,0 +1,9 @@
+ManagementCompany/Core/bin/*.*
+ManagementCompany/Core/obj/*.*
+ManagementCompany/ManagementCompany/bin/*.*
+ManagementCompany/ManagementCompany/obj/*.*
+ManagementCompany/ManagementCompany/_ReSharper.ManagementCompany/*.*
+ManagementCompany/Repository/bin/*.*
+ManagementCompany/Repository/obj/*.*
+ManagementCompany/Tests/bin/*.*
+ManagementCompany/Tests/obj/*.*
