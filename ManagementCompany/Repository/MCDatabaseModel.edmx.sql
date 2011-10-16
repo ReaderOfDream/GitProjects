@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/16/2011 14:24:02
+-- Date Created: 10/16/2011 18:29:02
 -- Generated from EDMX file: D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\MCDatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -99,6 +99,27 @@ CREATE TABLE [dbo].[ContractConsumptionHeatTable] (
 );
 GO
 
+-- Creating table 'MeterReadingsTable'
+CREATE TABLE [dbo].[MeterReadingsTable] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [CurrentHeatMeterReader] nvarchar(max)  NOT NULL,
+    [CurrentWaterHeatreader] nvarchar(max)  NOT NULL,
+    [BuildingsId] int  NOT NULL,
+    [DateTimeImtervals_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'ClearingTable'
+CREATE TABLE [dbo].[ClearingTable] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Requirements] nvarchar(max)  NOT NULL,
+    [CalculationHotWater] nvarchar(max)  NOT NULL,
+    [CalculationHot] nvarchar(max)  NOT NULL,
+    [BuildingsId] int  NOT NULL,
+    [DateTimeImtervals_Id] int  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -125,6 +146,18 @@ GO
 ALTER TABLE [dbo].[ContractConsumptionHeatTable]
 ADD CONSTRAINT [PK_ContractConsumptionHeatTable]
     PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'MeterReadingsTable'
+ALTER TABLE [dbo].[MeterReadingsTable]
+ADD CONSTRAINT [PK_MeterReadingsTable]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'ClearingTable'
+ALTER TABLE [dbo].[ClearingTable]
+ADD CONSTRAINT [PK_ClearingTable]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -198,6 +231,62 @@ ADD CONSTRAINT [FK_NormativeCalculationDateTimeImtervals]
 -- Creating non-clustered index for FOREIGN KEY 'FK_NormativeCalculationDateTimeImtervals'
 CREATE INDEX [IX_FK_NormativeCalculationDateTimeImtervals]
 ON [dbo].[NormativeCalculationНабор]
+    ([DateTimeImtervals_Id]);
+GO
+
+-- Creating foreign key on [BuildingsId] in table 'MeterReadingsTable'
+ALTER TABLE [dbo].[MeterReadingsTable]
+ADD CONSTRAINT [FK_BuildingsMeterReadings]
+    FOREIGN KEY ([BuildingsId])
+    REFERENCES [dbo].[BuildingsНабор]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_BuildingsMeterReadings'
+CREATE INDEX [IX_FK_BuildingsMeterReadings]
+ON [dbo].[MeterReadingsTable]
+    ([BuildingsId]);
+GO
+
+-- Creating foreign key on [DateTimeImtervals_Id] in table 'MeterReadingsTable'
+ALTER TABLE [dbo].[MeterReadingsTable]
+ADD CONSTRAINT [FK_MeterReadingsDateTimeImtervals]
+    FOREIGN KEY ([DateTimeImtervals_Id])
+    REFERENCES [dbo].[DateTimeImtervalsНабор]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_MeterReadingsDateTimeImtervals'
+CREATE INDEX [IX_FK_MeterReadingsDateTimeImtervals]
+ON [dbo].[MeterReadingsTable]
+    ([DateTimeImtervals_Id]);
+GO
+
+-- Creating foreign key on [BuildingsId] in table 'ClearingTable'
+ALTER TABLE [dbo].[ClearingTable]
+ADD CONSTRAINT [FK_BuildingsClearing]
+    FOREIGN KEY ([BuildingsId])
+    REFERENCES [dbo].[BuildingsНабор]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_BuildingsClearing'
+CREATE INDEX [IX_FK_BuildingsClearing]
+ON [dbo].[ClearingTable]
+    ([BuildingsId]);
+GO
+
+-- Creating foreign key on [DateTimeImtervals_Id] in table 'ClearingTable'
+ALTER TABLE [dbo].[ClearingTable]
+ADD CONSTRAINT [FK_DateTimeImtervalsClearing]
+    FOREIGN KEY ([DateTimeImtervals_Id])
+    REFERENCES [dbo].[DateTimeImtervalsНабор]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_DateTimeImtervalsClearing'
+CREATE INDEX [IX_FK_DateTimeImtervalsClearing]
+ON [dbo].[ClearingTable]
     ([DateTimeImtervals_Id]);
 GO
 

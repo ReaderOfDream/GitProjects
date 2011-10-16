@@ -5,6 +5,8 @@
     <EntitySet Name="DateTimeImtervalsНабор" EntityType="MCDatabaseModel.Store.DateTimeImtervalsНабор" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="NormativeCalculationНабор" EntityType="MCDatabaseModel.Store.NormativeCalculationНабор" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ContractConsumptionHeatTable" EntityType="MCDatabaseModel.Store.ContractConsumptionHeatTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MeterReadingsTable" EntityType="MCDatabaseModel.Store.MeterReadingsTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ClearingTable" EntityType="MCDatabaseModel.Store.ClearingTable" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="BuildingsDateTimeImtervals" Association="MCDatabaseModel.Store.BuildingsDateTimeImtervals">
       <End Role="Buildings" EntitySet="BuildingsНабор" />
       <End Role="DateTimeImtervals" EntitySet="DateTimeImtervalsНабор" />
@@ -24,6 +26,22 @@
     <AssociationSet Name="NormativeCalculationDateTimeImtervals" Association="MCDatabaseModel.Store.NormativeCalculationDateTimeImtervals">
       <End Role="NormativeCalculation" EntitySet="NormativeCalculationНабор" />
       <End Role="DateTimeImtervals" EntitySet="DateTimeImtervalsНабор" />
+    </AssociationSet>
+    <AssociationSet Name="BuildingsMeterReadings" Association="MCDatabaseModel.Store.BuildingsMeterReadings">
+      <End Role="Buildings" EntitySet="BuildingsНабор" />
+      <End Role="MeterReadings" EntitySet="MeterReadingsTable" />
+    </AssociationSet>
+    <AssociationSet Name="MeterReadingsDateTimeImtervals" Association="MCDatabaseModel.Store.MeterReadingsDateTimeImtervals">
+      <End Role="MeterReadings" EntitySet="MeterReadingsTable" />
+      <End Role="DateTimeImtervals" EntitySet="DateTimeImtervalsНабор" />
+    </AssociationSet>
+    <AssociationSet Name="BuildingsClearing" Association="MCDatabaseModel.Store.BuildingsClearing">
+      <End Role="Buildings" EntitySet="BuildingsНабор" />
+      <End Role="Clearing" EntitySet="ClearingTable" />
+    </AssociationSet>
+    <AssociationSet Name="DateTimeImtervalsClearing" Association="MCDatabaseModel.Store.DateTimeImtervalsClearing">
+      <End Role="DateTimeImtervals" EntitySet="DateTimeImtervalsНабор" />
+      <End Role="Clearing" EntitySet="ClearingTable" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="BuildingsНабор">
@@ -68,6 +86,27 @@
     <Property Name="PeopleCount" Type="nvarchar(max)" Nullable="false" />
     <Property Name="HotWaterByNorm" Type="nvarchar(max)" Nullable="false" />
     <Property Name="TotalHeatConsumption" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BuildingsId" Type="int" Nullable="false" />
+    <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MeterReadingsTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CurrentHeatMeterReader" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CurrentWaterHeatreader" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BuildingsId" Type="int" Nullable="false" />
+    <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClearingTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Requirements" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CalculationHotWater" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CalculationHot" Type="nvarchar(max)" Nullable="false" />
     <Property Name="BuildingsId" Type="int" Nullable="false" />
     <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -127,6 +166,54 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="NormativeCalculation">
+        <PropertyRef Name="DateTimeImtervals_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BuildingsMeterReadings">
+    <End Role="Buildings" Type="MCDatabaseModel.Store.BuildingsНабор" Multiplicity="1" />
+    <End Role="MeterReadings" Type="MCDatabaseModel.Store.MeterReadingsTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MeterReadings">
+        <PropertyRef Name="BuildingsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MeterReadingsDateTimeImtervals">
+    <End Role="MeterReadings" Type="MCDatabaseModel.Store.MeterReadingsTable" Multiplicity="*" />
+    <End Role="DateTimeImtervals" Type="MCDatabaseModel.Store.DateTimeImtervalsНабор" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="DateTimeImtervals">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MeterReadings">
+        <PropertyRef Name="DateTimeImtervals_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BuildingsClearing">
+    <End Role="Buildings" Type="MCDatabaseModel.Store.BuildingsНабор" Multiplicity="1" />
+    <End Role="Clearing" Type="MCDatabaseModel.Store.ClearingTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buildings">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clearing">
+        <PropertyRef Name="BuildingsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DateTimeImtervalsClearing">
+    <End Role="DateTimeImtervals" Type="MCDatabaseModel.Store.DateTimeImtervalsНабор" Multiplicity="1" />
+    <End Role="Clearing" Type="MCDatabaseModel.Store.ClearingTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DateTimeImtervals">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clearing">
         <PropertyRef Name="DateTimeImtervals_Id" />
       </Dependent>
     </ReferentialConstraint>

@@ -7,6 +7,7 @@ using System.Windows;
 using Core;
 using Core.ContractCalculation;
 using Core.StandartCalculation;
+using Core.TotalCalculation;
 using Repository;
 
 namespace ManagementCompany
@@ -23,11 +24,14 @@ namespace ManagementCompany
             var months = new Months();
             cmbxMonts.ItemsSource = months.AllMonth;
             cmbxMonts.DisplayMemberPath = "Name";
+            cmbxMontsClearing.ItemsSource = months.AllMonth;
+            cmbxMontsClearing.DisplayMemberPath = "Name";
 
             using (var mcDatabaseModelContainer = new MCDatabaseModelContainer())
             {
                 cmbxBuildings.ItemsSource = mcDatabaseModelContainer.BuildingsНабор.ToArray();
                 cmbxBuildingsContract.ItemsSource = mcDatabaseModelContainer.BuildingsНабор.ToArray();
+                cmbxBuildingsClearing.ItemsSource = mcDatabaseModelContainer.BuildingsНабор.ToArray();
             }
         }
 
@@ -139,6 +143,43 @@ namespace ManagementCompany
                                                   DateTimeImtervals = datetime.First()
                                               };
                 context.ContractConsumptionHeatTable.AddObject(contractConsumption);
+                context.SaveChanges();
+            }
+        }
+
+        private void btnAddClearingInfo_Click(object sender, RoutedEventArgs e)
+        {
+            var heatMeterReadings = tbxHeatMeterReading.Text;
+            var waterMeterReadings = tbxWaterMeterReading.Text;
+
+            using (var context = new MCDatabaseModelContainer())
+            {
+                var datetime = from date in context.DateTimeImtervalsНабор
+                               select date;
+
+                var meterReadings = context.MeterReadingsTable.CreateObject();
+                meterReadings.CurrentHeatMeterReader = heatMeterReadings;
+                meterReadings.CurrentWaterHeatreader = waterMeterReadings;
+                meterReadings.BuildingsId = ((Buildings) cmbxBuildingsClearing.SelectedItem).Id;
+                meterReadings.DateTimeImtervals = datetime.First();
+                context.MeterReadingsTable.AddObject(meterReadings);
+
+                var clearing = context.ClearingTable.CreateObject();
+                clearing.Requirements = tbxRequirementHeat.Text;
+                clearing.CalculationHotWater = tbxWaterBuxgalter.Text;
+                clearing.BuildingsId = ((Buildings)cmbxBuildingsClearing.SelectedItem).Id;
+
+                var totalHeatConsumption = from contract in context.ContractConsumptionHeatTable
+                                           where
+                                               contract.BuildingsId == clearing.BuildingsId &&
+                                               contract.DateTimeImtervals == datetime.FirstOrDefault()
+                                           select contract.TotalHeatConsumption;
+
+                var totalCalculator = new TotalCalculation();
+                clearing.CalculationHot = totalCalculator.TotalHeatConsumption(Double.Parse(totalHeatConsumption.First()),
+                                                                               Double.Parse(tbxWaterBuxgalter.Text)).ToString();
+                clearing.DateTimeImtervals = datetime.First();
+                context.ClearingTable.AddObject(clearing);
                 context.SaveChanges();
             }
         }

@@ -1,45 +1,50 @@
 <Configuration>
   <RecentFiles>
     <RecentFiles>
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx.sql" caret="232" fromTop="5" />
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:App.xaml.cs" caret="0" fromTop="0" />
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:App.xaml" caret="0" fromTop="0" />
       <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:app.config" caret="117" fromTop="4" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.Designer.cs" caret="1577" fromTop="9" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.Designer.cs" caret="2916" fromTop="16" />
       <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:StandartCalculation/f:IStandartCalculator.cs" caret="258" fromTop="11" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="2780" fromTop="12" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:ContractCalculation/f:ContractCalculator.cs" caret="464" fromTop="10" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:Months.cs" caret="1327" fromTop="28" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:TotalCalculation/f:TotalCalculation.cs" caret="307" fromTop="10" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx.sql" caret="10827" fromTop="31" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="6940" fromTop="23" />
       <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:StandartCalculation/f:StandartCalculator.cs" caret="74" fromTop="2" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="4027" fromTop="16" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="8825" fromTop="12" />
     </RecentFiles>
     <RecentEdits>
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="0" fromTop="0" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="465" fromTop="5" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="14322" fromTop="22" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:app.config" caret="117" fromTop="4" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="745" fromTop="11" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="959" fromTop="15" />
-      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:StandartCalculation/f:IStandartCalculator.cs" caret="327" fromTop="12" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="1677" fromTop="7" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="3405" fromTop="8" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="2629" fromTop="21" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="2403" fromTop="16" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="2174" fromTop="11" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="1924" fromTop="6" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="1352" fromTop="19" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="4027" fromTop="26" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="1220" fromTop="7" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="1761" fromTop="8" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="3517" fromTop="9" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="3762" fromTop="7" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="3146" fromTop="19" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="1313" fromTop="4" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="384" fromTop="10" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="554" fromTop="12" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="2780" fromTop="12" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="2534" fromTop="14" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="63" fromTop="2" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="900" fromTop="16" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="4027" fromTop="16" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="4760" fromTop="23" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="5181" fromTop="12" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="5853" fromTop="23" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="33" fromTop="1" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="5869" fromTop="14" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="519" fromTop="10" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="1623" fromTop="13" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="1129" fromTop="18" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="3104" fromTop="12" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="4419" fromTop="18" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="3888" fromTop="16" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:Months.cs" caret="1327" fromTop="28" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="6502" fromTop="15" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="5451" fromTop="18" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="6996" fromTop="21" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="4002" fromTop="14" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="5632" fromTop="18" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="6610" fromTop="31" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="5456" fromTop="16" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="800" fromTop="26" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="7625" fromTop="11" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="8005" fromTop="17" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:TotalCalculation/f:TotalCalculation.cs" caret="326" fromTop="12" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:TotalCalculation/f:TotalCalculation.cs" caret="559" fromTop="16" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="9312" fromTop="31" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="9350" fromTop="11" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="6940" fromTop="25" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="1204" fromTop="19" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="8746" fromTop="11" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="9015" fromTop="15" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -62,21 +67,21 @@
   <CompletionStatisticsManager>
     <ItemStatistics item="CSharpCodeCompletionContext">
       <Item value="ManagementCompany" priority="31" />
-      <Item value="mcDatabaseModelContainer" priority="256" />
-      <Item value="new" priority="31" />
-      <Item value="MCDatabaseModelContainer" priority="28" />
-      <Item value="Buildings" priority="29" />
-      <Item value="buildings" priority="95" />
+      <Item value="mcDatabaseModelContainer" priority="288" />
+      <Item value="new" priority="221" />
+      <Item value="MCDatabaseModelContainer" priority="57" />
+      <Item value="Buildings" priority="62" />
+      <Item value="buildings" priority="159" />
       <Item value="tbxName" priority="31" />
       <Item value="tbxDescription" priority="31" />
       <Item value="App`0" priority="31" />
       <Item value="Application`0" priority="31" />
-      <Item value="var" priority="127" />
+      <Item value="var" priority="381" />
       <Item value="dtStartDate" priority="31" />
       <Item value="standartCalculator" priority="96" />
       <Item value="StandartCalculator" priority="28" />
-      <Item value="double" priority="95" />
-      <Item value="Double`0" priority="95" />
+      <Item value="double" priority="447" />
+      <Item value="Double`0" priority="127" />
       <Item value="tbxTotalArea" priority="31" />
       <Item value="tbxCalculationArea" priority="31" />
       <Item value="tbxStandart" priority="63" />
@@ -86,12 +91,12 @@
       <Item value="try" priority="31" />
       <Item value="null" priority="31" />
       <Item value="transaction" priority="63" />
-      <Item value="DateTimeImtervals" priority="29" />
-      <Item value="dateTimeIntervals" priority="95" />
+      <Item value="DateTimeImtervals" priority="62" />
+      <Item value="dateTimeIntervals" priority="191" />
       <Item value="endDate" priority="31" />
       <Item value="startDate" priority="31" />
       <Item value="NormativeCalculation" priority="29" />
-      <Item value="normativeCalculation" priority="255" />
+      <Item value="normativeCalculation" priority="319" />
       <Item value="consumptionByTotalArea" priority="31" />
       <Item value="consumptionByCalculationArea" priority="31" />
       <Item value="exception" priority="64" />
@@ -99,22 +104,91 @@
       <Item value="chbBuildings" priority="31" />
       <Item value="cmbxBuildings" priority="63" />
       <Item value="if" priority="31" />
-      <Item value="return" priority="31" />
+      <Item value="return" priority="159" />
+      <Item value="DateTime`0" priority="159" />
+      <Item value="public" priority="188" />
+      <Item value="Array`0" priority="31" />
+      <Item value="class" priority="30" />
+      <Item value="string" priority="63" />
+      <Item value="Month`0" priority="31" />
+      <Item value="Month" priority="57" />
+      <Item value="Index" priority="31" />
+      <Item value="Name" priority="32" />
+      <Item value="cmbxMonts" priority="95" />
+      <Item value="using" priority="94" />
+      <Item value="tbxAirTemperature" priority="31" />
+      <Item value="int" priority="127" />
+      <Item value="tbxPeoplesCount" priority="31" />
+      <Item value="interface" priority="61" />
+      <Item value="estimatedConsumption" priority="63" />
+      <Item value="countDays" priority="96" />
+      <Item value="airTemperature" priority="31" />
+      <Item value="countPeople" priority="31" />
+      <Item value="consumptionByLoad" priority="96" />
+      <Item value="hotWaterByNorm" priority="96" />
+      <Item value="FontVariants`0" priority="31" />
+      <Item value="context" priority="351" />
+      <Item value="from" priority="31" />
+      <Item value="where" priority="95" />
+      <Item value="building" priority="92" />
+      <Item value="select" priority="127" />
+      <Item value="airtemperature" priority="64" />
+      <Item value="countPeoples" priority="64" />
+      <Item value="contractCalculator" priority="31" />
+      <Item value="ContractConsumptionHeat" priority="28" />
+      <Item value="AirTemperature" priority="31" />
+      <Item value="BuildingsId" priority="32" />
+      <Item value="HeatByLoading" priority="32" />
+      <Item value="PeopleCount" priority="32" />
+      <Item value="HotWaterByNorm" priority="32" />
+      <Item value="TotalHeatConsumption" priority="32" />
+      <Item value="totalHeatConsumption" priority="96" />
+      <Item value="contractConsumption" priority="31" />
+      <Item value="VisualXSnappingGuidelines" priority="95" />
+      <Item value="build" priority="31" />
+      <Item value="c" priority="31" />
+      <Item value="System" priority="30" />
+      <Item value="Linq" priority="26" />
+      <Item value="Buildings`0" priority="65" />
+      <Item value="cmbxBuildingsContract" priority="63" />
+      <Item value="EstimateConsumptionHeat" priority="32" />
+      <Item value="tbxNormativeConsumptionHeat" priority="32" />
+      <Item value="intervalId" priority="31" />
+      <Item value="datetime" priority="128" />
+      <Item value="meterReadings" priority="159" />
+      <Item value="tbxHeatMeterReading" priority="31" />
+      <Item value="tbxWaterMeterReading" priority="31" />
+      <Item value="cmbxBuildingsClearing" priority="63" />
+      <Item value="clearing" priority="223" />
+      <Item value="tbxRequirementHeat" priority="31" />
+      <Item value="tbxWaterBuxgalter" priority="63" />
+      <Item value="cmbxMontsClearing" priority="63" />
+      <Item value="contract" priority="95" />
+      <Item value="accountantWater" priority="31" />
+      <Item value="totalCalculator" priority="31" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Repository.MCDatabaseModelContainer">
-      <Item value="BuildingsНабор" priority="80" />
-      <Item value="SaveChanges`0" priority="53" />
+      <Item value="BuildingsНабор" priority="242" />
+      <Item value="SaveChanges`0" priority="107" />
       <Item value="Connection" priority="53" />
-      <Item value="DateTimeImtervalsНабор" priority="26" />
+      <Item value="DateTimeImtervalsНабор" priority="53" />
       <Item value="NormativeCalculationНабор" priority="26" />
+      <Item value="ContractConsumptionHeatTable" priority="80" />
+      <Item value="MeterReadingsTable" priority="53" />
+      <Item value="ClearingTable" priority="53" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Data.Objects.ObjectSet`1">
-      <Item value="AddObject`0" priority="81" />
+      <Item value="AddObject`0" priority="192" />
+      <Item value="Where`0" priority="53" />
+      <Item value="ToArray`1" priority="82" />
+      <Item value="First`1" priority="26" />
+      <Item value="CreateObject`0" priority="55" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Repository.Buildings">
       <Item value="Name" priority="26" />
       <Item value="Description" priority="26" />
-      <Item value="Id" priority="26" />
+      <Item value="Id" priority="80" />
+      <Item value="EstimateConsumptionHeat" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Controls.TextBlock">
       <Item value="Text" priority="53" />
@@ -130,15 +204,17 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.DateTime">
       <Item value="TryParse`0" priority="26" />
+      <Item value="DaysInMonth`0" priority="26" />
+      <Item value="Now" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Core.StandartCalculation.StandartCalculator">
       <Item value="CalculateConsumptionByArea`0" priority="53" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Double">
-      <Item value="Parse`0" priority="80" />
+      <Item value="Parse`0" priority="216" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Controls.TextBox">
-      <Item value="Text" priority="107" />
+      <Item value="Text" priority="324" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Data.Common.DbConnection">
       <Item value="BeginTransaction`0" priority="26" />
@@ -152,9 +228,11 @@
       <Item value="EndDate" priority="26" />
       <Item value="StartDate" priority="26" />
       <Item value="BuildingsId" priority="26" />
+      <Item value="Id" priority="80" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.DateTime">
       <Item value="ToString`0" priority="53" />
+      <Item value="Year" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Repository.NormativeCalculation">
       <Item value="BuildingsId" priority="26" />
@@ -164,9 +242,11 @@
       <Item value="ConsumptionHeatByTotalArea" priority="26" />
       <Item value="ConsumptionHeatByCalculationArea" priority="26" />
       <Item value="TotalNormativeHeat" priority="26" />
+      <Item value="DatetTimeIntervalId" priority="53" />
+      <Item value="DateTimeImtervals" priority="53" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Double">
-      <Item value="ToString`0" priority="134" />
+      <Item value="ToString`0" priority="273" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Windows.MessageBox">
       <Item value="Show`0" priority="53" />
@@ -175,8 +255,53 @@
       <Item value="ToString`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Controls.ComboBox">
-      <Item value="ItemsSource" priority="26" />
-      <Item value="SelectedItem" priority="26" />
+      <Item value="ItemsSource" priority="134" />
+      <Item value="SelectedItem" priority="80" />
+      <Item value="DisplayMemberPath" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Core.Months">
+      <Item value="AllMonth" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Int32">
+      <Item value="Parse`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Core.ContractCalculation.ContractCalculator">
+      <Item value="ConsumptionByLoad`0" priority="53" />
+      <Item value="HotWaterByNorm`0" priority="26" />
+      <Item value="TotalHeatConsumption`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Core.Month">
+      <Item value="Index" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ToString`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.IQueryable`1">
+      <Item value="FirstOrDefault`1" priority="55" />
+      <Item value="First`1" priority="163" />
+      <Item value="ToString`0" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Repository.MeterReadings">
+      <Item value="Buildings" priority="26" />
+      <Item value="CurrentHeatMeterReader" priority="26" />
+      <Item value="CurrentWaterHeatreader" priority="26" />
+      <Item value="BuildingsId" priority="26" />
+      <Item value="DateTimeImtervals" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Repository.Clearing">
+      <Item value="Requirements" priority="26" />
+      <Item value="CalculationHot" priority="80" />
+      <Item value="BuildingsId" priority="54" />
+      <Item value="DateTimeImtervals" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Repository.ContractConsumptionHeat">
+      <Item value="ID" priority="26" />
+      <Item value="BuildingsId" priority="26" />
+      <Item value="DateTimeImtervals" priority="26" />
+      <Item value="TotalHeatConsumption" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Core.TotalCalculation.TotalCalculation">
+      <Item value="TotalHeatConsumption`0" priority="26" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>
