@@ -1,5 +1,0 @@
-D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Core\bin\Debug\Core.dll
-D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Core\bin\Debug\Core.pdb
-D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Core\obj\Debug\ResolveAssemblyReference.cache
-D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Core\obj\Debug\Core.dll
-D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Core\obj\Debug\Core.pdb
