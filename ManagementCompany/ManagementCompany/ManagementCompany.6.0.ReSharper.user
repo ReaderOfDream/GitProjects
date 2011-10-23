@@ -10,41 +10,47 @@
       <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:Months.cs" caret="1327" fromTop="28" />
       <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:TotalCalculation/f:TotalCalculation.cs" caret="307" fromTop="10" />
       <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:StandartCalculation/f:StandartCalculator.cs" caret="74" fromTop="2" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="6940" fromTop="23" />
       <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx.sql" caret="10902" fromTop="14" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="7929" fromTop="8" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="8326" fromTop="14" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:DelegatingCommand.cs" caret="635" fromTop="19" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/f:Class1.cs" caret="178" fromTop="9" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:CoreTests/d:ConverterTests/f:StringToDoubleConverterTests.cs" caret="13" fromTop="0" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:Converters/f:StringToDoubleConveter.cs" caret="588" fromTop="15" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="1429" fromTop="28" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateObjectView.xaml" caret="1339" fromTop="17" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="956" fromTop="18" />
     </RecentFiles>
     <RecentEdits>
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="519" fromTop="10" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="1129" fromTop="18" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="3096" fromTop="12" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="4370" fromTop="18" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="3839" fromTop="16" />
-      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:Months.cs" caret="1327" fromTop="28" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="5402" fromTop="18" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="6878" fromTop="21" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="4002" fromTop="14" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="5632" fromTop="18" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="6610" fromTop="31" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="5456" fromTop="16" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="800" fromTop="26" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="7535" fromTop="11" />
-      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:TotalCalculation/f:TotalCalculation.cs" caret="326" fromTop="12" />
-      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:TotalCalculation/f:TotalCalculation.cs" caret="559" fromTop="16" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="9145" fromTop="31" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="6940" fromTop="25" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="1204" fromTop="19" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="8684" fromTop="11" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="9183" fromTop="12" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="1604" fromTop="17" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="2432" fromTop="23" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="3807" fromTop="23" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="5808" fromTop="22" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="6790" fromTop="13" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="7674" fromTop="11" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="7304" fromTop="3" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="8219" fromTop="19" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="8980" fromTop="23" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:DelegatingCommand.cs" caret="561" fromTop="21" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:DelegatingCommand.cs" caret="663" fromTop="25" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:DelegatingCommand.cs" caret="343" fromTop="5" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:DelegatingCommand.cs" caret="635" fromTop="19" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="971" fromTop="23" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="380" fromTop="14" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="185" fromTop="0" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="2109" fromTop="29" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="1241" fromTop="24" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="408" fromTop="16" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="13" fromTop="0" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:Converters/f:StringToDoubleConveter.cs" caret="151" fromTop="9" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:Converters/f:StringToDoubleConveter.cs" caret="585" fromTop="18" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:Converters/f:StringToDoubleConveter.cs" caret="42" fromTop="1" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/f:Class1.cs" caret="188" fromTop="9" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:CoreTests/d:ConverterTests/f:StringToDoubleConverterTests.cs" caret="360" fromTop="17" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:CoreTests/d:ConverterTests/f:StringToDoubleConverterTests.cs" caret="926" fromTop="31" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:CoreTests/d:ConverterTests/f:StringToDoubleConverterTests.cs" caret="860" fromTop="27" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:CoreTests/d:ConverterTests/f:StringToDoubleConverterTests.cs" caret="13" fromTop="0" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateObjectView.xaml" caret="1583" fromTop="16" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateObjectView.xaml" caret="984" fromTop="10" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateObjectView.xaml" caret="346" fromTop="2" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateObjectView.xaml" caret="1339" fromTop="10" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="2072" fromTop="24" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="1569" fromTop="18" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="2073" fromTop="30" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="1284" fromTop="11" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="1468" fromTop="17" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="953" fromTop="27" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="726" fromTop="13" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -68,28 +74,28 @@
     <ItemStatistics item="CSharpCodeCompletionContext">
       <Item value="ManagementCompany" priority="31" />
       <Item value="mcDatabaseModelContainer" priority="288" />
-      <Item value="new" priority="221" />
-      <Item value="MCDatabaseModelContainer" priority="57" />
-      <Item value="Buildings" priority="62" />
+      <Item value="new" priority="476" />
+      <Item value="MCDatabaseModelContainer" priority="86" />
+      <Item value="Buildings" priority="92" />
       <Item value="buildings" priority="159" />
       <Item value="tbxName" priority="31" />
       <Item value="tbxDescription" priority="31" />
       <Item value="App`0" priority="31" />
       <Item value="Application`0" priority="31" />
-      <Item value="var" priority="381" />
+      <Item value="var" priority="604" />
       <Item value="dtStartDate" priority="31" />
       <Item value="standartCalculator" priority="96" />
       <Item value="StandartCalculator" priority="28" />
-      <Item value="double" priority="447" />
-      <Item value="Double`0" priority="127" />
+      <Item value="double" priority="511" />
+      <Item value="Double`0" priority="287" />
       <Item value="tbxTotalArea" priority="31" />
       <Item value="tbxCalculationArea" priority="31" />
       <Item value="tbxStandart" priority="63" />
       <Item value="totalArea" priority="63" />
       <Item value="standartHeat" priority="95" />
       <Item value="calculationArea" priority="63" />
-      <Item value="try" priority="31" />
-      <Item value="null" priority="31" />
+      <Item value="try" priority="95" />
+      <Item value="null" priority="126" />
       <Item value="transaction" priority="63" />
       <Item value="DateTimeImtervals" priority="62" />
       <Item value="dateTimeIntervals" priority="191" />
@@ -103,34 +109,34 @@
       <Item value="MessageBox`0" priority="63" />
       <Item value="chbBuildings" priority="31" />
       <Item value="cmbxBuildings" priority="63" />
-      <Item value="if" priority="31" />
-      <Item value="return" priority="159" />
+      <Item value="if" priority="223" />
+      <Item value="return" priority="351" />
       <Item value="DateTime`0" priority="159" />
-      <Item value="public" priority="188" />
+      <Item value="public" priority="412" />
       <Item value="Array`0" priority="31" />
       <Item value="class" priority="30" />
-      <Item value="string" priority="63" />
+      <Item value="string" priority="223" />
       <Item value="Month`0" priority="31" />
       <Item value="Month" priority="57" />
       <Item value="Index" priority="31" />
-      <Item value="Name" priority="32" />
+      <Item value="Name" priority="95" />
       <Item value="cmbxMonts" priority="95" />
-      <Item value="using" priority="94" />
+      <Item value="using" priority="126" />
       <Item value="tbxAirTemperature" priority="31" />
       <Item value="int" priority="127" />
       <Item value="tbxPeoplesCount" priority="31" />
       <Item value="interface" priority="61" />
-      <Item value="estimatedConsumption" priority="63" />
+      <Item value="estimatedConsumption" priority="159" />
       <Item value="countDays" priority="96" />
       <Item value="airTemperature" priority="31" />
       <Item value="countPeople" priority="31" />
       <Item value="consumptionByLoad" priority="96" />
       <Item value="hotWaterByNorm" priority="96" />
       <Item value="FontVariants`0" priority="31" />
-      <Item value="context" priority="351" />
+      <Item value="context" priority="446" />
       <Item value="from" priority="31" />
       <Item value="where" priority="95" />
-      <Item value="building" priority="92" />
+      <Item value="building" priority="252" />
       <Item value="select" priority="127" />
       <Item value="airtemperature" priority="64" />
       <Item value="countPeoples" priority="64" />
@@ -166,29 +172,65 @@
       <Item value="contract" priority="95" />
       <Item value="accountantWater" priority="31" />
       <Item value="totalCalculator" priority="31" />
+      <Item value="RoutedCommand" priority="28" />
+      <Item value="ctor" priority="31" />
+      <Item value="Action`0" priority="31" />
+      <Item value="action" priority="31" />
+      <Item value="EnvironmentVariableTarget`0" priority="31" />
+      <Item value="parameter" priority="31" />
+      <Item value="as" priority="63" />
+      <Item value="Action" priority="32" />
+      <Item value="fact" priority="62" />
+      <Item value="true" priority="63" />
+      <Item value="Func" priority="32" />
+      <Item value="bool" priority="63" />
+      <Item value="DelegatingCommand" priority="28" />
+      <Item value="void" priority="127" />
+      <Item value="private" priority="63" />
+      <Item value="Description" priority="31" />
+      <Item value="EstimatedConsumption" priority="63" />
+      <Item value="finally" priority="31" />
+      <Item value="String`0" priority="62" />
+      <Item value="out" priority="95" />
+      <Item value="consumption" priority="31" />
+      <Item value="false" priority="95" />
+      <Item value="value" priority="63" />
+      <Item value="convertingValue" priority="95" />
+      <Item value="throw" priority="63" />
+      <Item value="TestAttribute`0" priority="31" />
+      <Item value="Test" priority="31" />
+      <Item value="converter" priority="31" />
+      <Item value="CultureAttribute`0" priority="31" />
+      <Item value="CultureInfo" priority="28" />
+      <Item value="typeof" priority="31" />
+      <Item value="Assert`0" priority="31" />
+      <Item value="expextedValue" priority="31" />
+      <Item value="result" priority="63" />
+      <Item value="ArgumentException`0" priority="31" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Repository.MCDatabaseModelContainer">
-      <Item value="BuildingsНабор" priority="242" />
-      <Item value="SaveChanges`0" priority="107" />
+      <Item value="BuildingsНабор" priority="269" />
+      <Item value="SaveChanges`0" priority="134" />
       <Item value="Connection" priority="53" />
       <Item value="DateTimeImtervalsНабор" priority="53" />
       <Item value="NormativeCalculationНабор" priority="26" />
       <Item value="ContractConsumptionHeatTable" priority="80" />
       <Item value="MeterReadingsTable" priority="53" />
       <Item value="ClearingTable" priority="53" />
+      <Item value="Dispose`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Data.Objects.ObjectSet`1">
-      <Item value="AddObject`0" priority="192" />
+      <Item value="AddObject`0" priority="219" />
       <Item value="Where`0" priority="53" />
       <Item value="ToArray`1" priority="82" />
       <Item value="First`1" priority="26" />
       <Item value="CreateObject`0" priority="55" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Repository.Buildings">
-      <Item value="Name" priority="26" />
-      <Item value="Description" priority="26" />
+      <Item value="Name" priority="53" />
+      <Item value="Description" priority="53" />
       <Item value="Id" priority="80" />
-      <Item value="EstimateConsumptionHeat" priority="26" />
+      <Item value="EstimateConsumptionHeat" priority="53" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Controls.TextBlock">
       <Item value="Text" priority="53" />
@@ -211,7 +253,8 @@
       <Item value="CalculateConsumptionByArea`0" priority="53" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Double">
-      <Item value="Parse`0" priority="379" />
+      <Item value="Parse`0" priority="406" />
+      <Item value="TryParse`0" priority="80" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Controls.TextBox">
       <Item value="Text" priority="324" />
@@ -246,10 +289,10 @@
       <Item value="DateTimeImtervals" priority="53" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Double">
-      <Item value="ToString`0" priority="273" />
+      <Item value="ToString`0" priority="300" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Windows.MessageBox">
-      <Item value="Show`0" priority="53" />
+      <Item value="Show`0" priority="81" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Exception">
       <Item value="ToString`0" priority="26" />
@@ -303,5 +346,26 @@
     <ItemStatistics item="Qualified:Core.TotalCalculation.TotalCalculation">
       <Item value="TotalHeatConsumption`0" priority="26" />
     </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="IsNullOrEmpty`0" priority="26" />
+      <Item value="Format`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Core.Converters.StringToDoubleConveter">
+      <Item value="Convert`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
+      <Item value="AreEqual`0" priority="27" />
+      <Item value="Throws`1" priority="26" />
+    </ItemStatistics>
   </CompletionStatisticsManager>
+  <UnitTestSessions>
+    <Session>
+      <Name>Session #1</Name>
+      <Elements>
+        <UnitTestElement Provider="nUnit" Id="Tests.CoreTests.ConverterTests.StringToDoubleConverterTests" type="NUnitTestFixtureElement" Project="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB" />
+        <UnitTestElement Provider="nUnit" Id="Tests.CoreTests.ConverterTests.StringToDoubleConverterTests.Convert_PassInvalidValue_ThrowsArgumentException" ParentId="Tests.CoreTests.ConverterTests.StringToDoubleConverterTests" type="NUnitTestElement" TypeName="Tests.CoreTests.ConverterTests.StringToDoubleConverterTests" MethodName="Convert_PassInvalidValue_ThrowsArgumentException" Project="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB" />
+        <UnitTestElement Provider="nUnit" Id="Tests.CoreTests.ConverterTests.StringToDoubleConverterTests.Convert_PassValidValue_MustReturnConvertedValue" ParentId="Tests.CoreTests.ConverterTests.StringToDoubleConverterTests" type="NUnitTestElement" TypeName="Tests.CoreTests.ConverterTests.StringToDoubleConverterTests" MethodName="Convert_PassValidValue_MustReturnConvertedValue" Project="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB" />
+      </Elements>
+    </Session>
+  </UnitTestSessions>
 </Configuration>
