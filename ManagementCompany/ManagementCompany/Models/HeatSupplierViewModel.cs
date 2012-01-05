@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Core;
@@ -8,7 +9,7 @@ using Repository.DAL;
 
 namespace ManagementCompany.Models
 {
-    public class HeatSupplierViewModel
+    public class HeatSupplierViewModel : INotifyPropertyChanged
     {
         private readonly IHeatSupplierRepository supplierRepository;
         private readonly UserControl view;
@@ -39,18 +40,70 @@ namespace ManagementCompany.Models
             Description = string.Empty;
         }
 
+        public void DeleteSupplier()
+        {
+            if (selectedItem == null)
+                return;
+
+            supplierRepository.DeleteHeatSupplier(selectedItem.Id);
+            supplierRepository.Save();
+
+            HeatSuppliers.Remove(selectedItem);
+        }
+
+        public ICommand DeleteSupplierCommand
+        {
+            get
+            {
+                return new DelegatingCommand(DeleteSupplier);
+            }
+        }
 
         public ICommand CreateSupplierCommand
         {
-            get { return new DelegatingCommand(CreateSupplier, () => true); }
+            get { return new DelegatingCommand(CreateSupplier); }
         }
 
-        public string Name { get; set; }
-        public string Description { get; set; }
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
+        private string description;
+        public string Description
+        {
+            get { return description; }
+            set
+            {
+                description = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Description"));
+            }
+        }
+
         public ObservableCollection<HeatSupplier> HeatSuppliers { get; set; }
+        
+        private HeatSupplier selectedItem;
+        public HeatSupplier SelectedItem
+        {
+            get { return selectedItem; }
+            set 
+            { 
+                selectedItem = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("SelectedItem"));
+            }
+        }
+
         public UserControl View
         {
             get { return view; }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged = delegate{};
     }
 }

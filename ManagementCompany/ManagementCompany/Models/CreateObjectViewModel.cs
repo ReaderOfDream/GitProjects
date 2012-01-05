@@ -51,7 +51,7 @@ namespace ManagementCompany.Models
             return true;
         }
 
-        public ICommand CreateObjectCommand { get { return new DelegatingCommand(CreateObject, UserInputValid); } }
+        public ICommand CreateObjectCommand { get { return new DelegatingCommand(CreateObject); } }
 
         public string Name { get; set; }
         public string Description { get; set; }

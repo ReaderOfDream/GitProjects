@@ -24,9 +24,10 @@
         <Label Content="Описание:" Grid.Row="1" Grid.Column="0"/>
         <TextBox Text="{Binding Description}" Width="200" Grid.Row="1" Grid.Column="1" Margin="5" MaxLength="200"/>
 
+        <Button Command="{Binding DeleteSupplierCommand}" Content="Удалить поставщика" Grid.Row="2" Margin="5"/>
         <Button Command="{Binding CreateSupplierCommand}" Content="Создать поставщика" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Width="100" Margin="5"/>
         
-        <ListView Grid.Row="3" Grid.ColumnSpan="2" ItemsSource="{Binding HeatSuppliers}">
+        <ListView Grid.Row="3" Grid.ColumnSpan="2" ItemsSource="{Binding HeatSuppliers}" SelectedItem="{Binding SelectedItem}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}" Width="200"/>

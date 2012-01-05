@@ -35,9 +35,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\Lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="CoreTests\ConverterTests\StringToDoubleConverterTests.cs" />
+    <Compile Include="ManagementCompanyTests\HeatSupplierViewModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -54,7 +60,16 @@
       <Project>{7C80777D-91D3-44C2-9A7F-D37511A32994}</Project>
       <Name>Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ManagementCompany\ManagementCompany.csproj">
+      <Project>{6F6AC5F1-90CB-42F0-9F67-D9B650800224}</Project>
+      <Name>ManagementCompany</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{6570A4F7-8220-4A77-993F-E1156F4B5423}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
