@@ -10,3 +10,9 @@ D:\Фриланс\Управляющая компания\GitProjects\Management
 D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\obj\Debug\Repository.dll
 D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\obj\Debug\Repository.pdb
 D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\bin\Debug\Repository.dll.config
+C:\Users\Cleric\Documents\Visual Studio 2010\Projects\GitProjects\GitProjects\ManagementCompany\Repository\bin\Debug\Repository.dll.config
+C:\Users\Cleric\Documents\Visual Studio 2010\Projects\GitProjects\GitProjects\ManagementCompany\Repository\bin\Debug\Repository.dll
+C:\Users\Cleric\Documents\Visual Studio 2010\Projects\GitProjects\GitProjects\ManagementCompany\Repository\bin\Debug\Repository.pdb
+C:\Users\Cleric\Documents\Visual Studio 2010\Projects\GitProjects\GitProjects\ManagementCompany\Repository\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Cleric\Documents\Visual Studio 2010\Projects\GitProjects\GitProjects\ManagementCompany\Repository\obj\Debug\Repository.dll
+C:\Users\Cleric\Documents\Visual Studio 2010\Projects\GitProjects\GitProjects\ManagementCompany\Repository\obj\Debug\Repository.pdb

@@ -8,6 +8,7 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="EstimateConsumptionHeat" ColumnName="EstimateConsumptionHeat" />
+          <ScalarProperty Name="TotalArea" ColumnName="TotalArea" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -26,7 +27,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.NormativeCalculations)">
         <MappingFragment StoreEntitySet="NormativeCalculations">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="TotalArea" ColumnName="TotalArea" />
           <ScalarProperty Name="CalculationArea" ColumnName="CalculationArea" />
           <ScalarProperty Name="StandartOfHeat" ColumnName="StandartOfHeat" />
           <ScalarProperty Name="ConsumptionHeatByTotalArea" ColumnName="ConsumptionHeatByTotalArea" />

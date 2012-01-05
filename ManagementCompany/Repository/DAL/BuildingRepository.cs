@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Repository.DAL
 {
     public interface IBuildingRepository : IDisposable
     {
         IEnumerable<Building> GetBuildings();
+        IEnumerable<HeatSupplier> GetSuppliers();
+
         Building GeBuildingById(int buildingId);
         void InsertBuilding(Building building);
         void DeleteBuilding(int buildingId);
         void UpdateBuilding(Building building);
         void Save();
+        
     }
 
     public class BuildingRepository : IBuildingRepository
@@ -32,6 +34,11 @@ namespace Repository.DAL
         public IEnumerable<Building> GetBuildings()
         {
             return db.Buildings;
+        }
+
+        public IEnumerable<HeatSupplier> GetSuppliers()
+        {
+            return db.HeatSuppliers;
         }
 
         public Building GeBuildingById(int buildingId)

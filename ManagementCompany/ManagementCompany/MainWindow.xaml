@@ -11,32 +11,7 @@
             <UserControl Content="{Binding Path=HeatSupplierViewModel.View}"/>
         </TabItem>
         <TabItem Header="Создание сущности">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                
-                <StackPanel Orientation="Horizontal" Grid.Row="0">
-                    <Label Content="Имя"/>
-                    <TextBox Name="tbxName" Width="200"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Row="1">
-                    <Label Content="Описание"/>
-                    <TextBox Name="tbxDescription" Width="200"/>
-                </StackPanel>
-                
-                <StackPanel Orientation="Horizontal" Grid.Row="2">
-                    <Label Content="Нормативная потребность"/>
-                    <TextBox Name="tbxNormativeConsumptionHeat" />
-                </StackPanel>
-                
-                <Button Name="CreateObject" Click="CreateObject_Click" Content="Создать" Grid.Row="3" Width="100"/>
-            </Grid>
-            
-            
+            <UserControl Content="{Binding Path=CreateObjectViewModel.View}"/>
         </TabItem>
         <TabItem Header="Задание нормативного расчета">
             <Grid>

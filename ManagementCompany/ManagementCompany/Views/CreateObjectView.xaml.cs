@@ -17,7 +17,7 @@ namespace ManagementCompany.Views
     /// <summary>
     /// Логика взаимодействия для CreateObjectView.xaml
     /// </summary>
-    public partial class CreateObjectView : Page
+    public partial class CreateObjectView : UserControl
     {
         public CreateObjectView()
         {

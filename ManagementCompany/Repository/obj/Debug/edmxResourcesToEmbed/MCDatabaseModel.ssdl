@@ -57,6 +57,7 @@
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
     <Property Name="EstimateConsumptionHeat" Type="float" Nullable="false" />
+    <Property Name="TotalArea" Type="nvarchar(max)" Nullable="false" />
     <Property Name="HeatSupplier_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="DateTimeImtervals">
@@ -74,7 +75,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TotalArea" Type="float" Nullable="false" />
     <Property Name="CalculationArea" Type="float" Nullable="false" />
     <Property Name="StandartOfHeat" Type="float" Nullable="false" />
     <Property Name="ConsumptionHeatByTotalArea" Type="float" Nullable="false" />

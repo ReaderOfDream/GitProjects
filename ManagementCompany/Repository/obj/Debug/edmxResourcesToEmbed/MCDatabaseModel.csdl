@@ -62,6 +62,7 @@
     <NavigationProperty Name="MeterReadings" Relationship="MCDatabaseModel.BuildingsMeterReadings" FromRole="Buildings" ToRole="MeterReadings" />
     <NavigationProperty Name="Clearing" Relationship="MCDatabaseModel.BuildingsClearing" FromRole="Buildings" ToRole="Clearing" />
     <NavigationProperty Name="HeatSupplier" Relationship="MCDatabaseModel.BuildingsHeatSupplier" FromRole="Buildings" ToRole="HeatSupplier" />
+    <Property Type="String" Name="TotalArea" Nullable="false" />
   </EntityType>
   <EntityType Name="DateTimeImtervals">
     <Key>
@@ -83,7 +84,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Double" Name="TotalArea" Nullable="false" />
     <Property Type="Double" Name="CalculationArea" Nullable="false" />
     <Property Type="Double" Name="StandartOfHeat" Nullable="false" />
     <Property Type="Double" Name="ConsumptionHeatByTotalArea" Nullable="false" />

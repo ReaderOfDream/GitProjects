@@ -22,6 +22,9 @@ namespace ManagementCompany
         private IHeatSupplierRepository heatSupplierRepository;
         private HeatSupplierViewModel heatSupplierViewModel;
 
+        private IBuildingRepository createobjectRepository;
+        private CreateObjectViewModel createobjectViewModel;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,6 +32,10 @@ namespace ManagementCompany
 
             heatSupplierRepository = new HeatSupplierRepository(new MCDatabaseModelContainer());
             heatSupplierViewModel = new HeatSupplierViewModel(heatSupplierRepository);
+
+            createobjectRepository = new BuildingRepository(new MCDatabaseModelContainer());
+            createobjectViewModel = new CreateObjectViewModel(createobjectRepository);
+
 
             var months = new Months();
             cmbxMonts.ItemsSource = months.AllMonth;
@@ -42,24 +49,6 @@ namespace ManagementCompany
                 cmbxBuildingsContract.ItemsSource = mcDatabaseModelContainer.Buildings.ToArray();
                 cmbxBuildingsClearing.ItemsSource = mcDatabaseModelContainer.Buildings.ToArray();
             }
-        }
-
-        private void CreateObject_Click(object sender, RoutedEventArgs e)
-        {
-            var buildings = new Building
-                                {
-                                    Name = tbxName.Text,
-                                    Description = tbxDescription.Text,
-                                    EstimateConsumptionHeat = Double.Parse(tbxNormativeConsumptionHeat.Text)
-
-                                };
-
-            using (var mcDatabaseModelContainer = new MCDatabaseModelContainer())
-            {
-                mcDatabaseModelContainer.Buildings.AddObject(buildings);
-                mcDatabaseModelContainer.SaveChanges();
-            }
-
         }
 
         private void btnSaveStandartCalculation_Click(object sender, RoutedEventArgs e)
@@ -90,7 +79,6 @@ namespace ManagementCompany
             }
             normativeCalculation.BuildingsId = ((Building)cmbxBuildings.SelectedItem).Id;
             normativeCalculation.CalculationArea = calculationArea;
-            normativeCalculation.TotalArea = totalArea;
             normativeCalculation.StandartOfHeat = standartHeat;
             normativeCalculation.ConsumptionHeatByTotalArea = consumptionByTotalArea;
             normativeCalculation.ConsumptionHeatByCalculationArea = consumptionByCalculationArea;
@@ -193,5 +181,7 @@ namespace ManagementCompany
         }
 
         public HeatSupplierViewModel HeatSupplierViewModel { get { return heatSupplierViewModel; }}
+
+        public CreateObjectViewModel CreateObjectViewModel { get { return createobjectViewModel; } }
     }
 }
