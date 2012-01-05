@@ -22,6 +22,12 @@ namespace ManagementCompany
         private IHeatSupplierRepository heatSupplierRepository;
         private HeatSupplierViewModel heatSupplierViewModel;
 
+        private IBuildingRepository createobjectRepository;
+        private CreateObjectViewModel createobjectViewModel;
+
+        private IReportRepository reportRepository;
+        private CreateReportViewModel createReportViewModel;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,6 +35,12 @@ namespace ManagementCompany
 
             heatSupplierRepository = new HeatSupplierRepository(new MCDatabaseModelContainer());
             heatSupplierViewModel = new HeatSupplierViewModel(heatSupplierRepository);
+
+            createobjectRepository = new BuildingRepository(new MCDatabaseModelContainer());
+            createobjectViewModel = new CreateObjectViewModel(createobjectRepository);
+
+            reportRepository = new ReportRepository(new MCDatabaseModelContainer());
+            createReportViewModel = new CreateReportViewModel(reportRepository);
 
             var months = new Months();
             cmbxMonts.ItemsSource = months.AllMonth;
@@ -44,24 +56,6 @@ namespace ManagementCompany
             }
         }
 
-        private void CreateObject_Click(object sender, RoutedEventArgs e)
-        {
-            var buildings = new Building
-                                {
-                                    Name = tbxName.Text,
-                                    Description = tbxDescription.Text,
-                                    EstimateConsumptionHeat = Double.Parse(tbxNormativeConsumptionHeat.Text)
-
-                                };
-
-            using (var mcDatabaseModelContainer = new MCDatabaseModelContainer())
-            {
-                mcDatabaseModelContainer.Buildings.AddObject(buildings);
-                mcDatabaseModelContainer.SaveChanges();
-            }
-
-        }
-
         private void btnSaveStandartCalculation_Click(object sender, RoutedEventArgs e)
         {
             var standartCalculator = new StandartCalculator();
@@ -72,8 +66,7 @@ namespace ManagementCompany
             var dateTimeIntervals = new DateTimeImtervals();
             dateTimeIntervals.EndDate = endDate;
             dateTimeIntervals.StartDate = startDate;
-            dateTimeIntervals.BuildingsId = 1;
-
+            
             double totalArea = Double.Parse(tbxTotalArea.Text);
             double calculationArea = Double.Parse(tbxCalculationArea.Text);
             double standartHeat = Double.Parse(tbxStandart.Text);
@@ -90,7 +83,6 @@ namespace ManagementCompany
             }
             normativeCalculation.BuildingsId = ((Building)cmbxBuildings.SelectedItem).Id;
             normativeCalculation.CalculationArea = calculationArea;
-            normativeCalculation.TotalArea = totalArea;
             normativeCalculation.StandartOfHeat = standartHeat;
             normativeCalculation.ConsumptionHeatByTotalArea = consumptionByTotalArea;
             normativeCalculation.ConsumptionHeatByCalculationArea = consumptionByCalculationArea;
@@ -193,5 +185,7 @@ namespace ManagementCompany
         }
 
         public HeatSupplierViewModel HeatSupplierViewModel { get { return heatSupplierViewModel; }}
+        public CreateObjectViewModel CreateObjectViewModel { get { return createobjectViewModel; } }
+        public CreateReportViewModel CreateReportViewModel { get { return createReportViewModel; } }
     }
 }

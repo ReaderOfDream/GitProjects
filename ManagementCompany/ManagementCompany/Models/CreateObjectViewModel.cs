@@ -1,45 +1,75 @@
-﻿using System;
+﻿using System.Collections.ObjectModel;
+using System;
+using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Core;
+using ManagementCompany.Views;
 using Repository;
 using Repository.DAL;
 
 namespace ManagementCompany.Models
 {
-    public class CreateObjectViewModel
+    public class CreateObjectViewModel : INotifyPropertyChanged
     {
+        private readonly IBuildingRepository supplierRepository;
+        private readonly UserControl view;
+
         public CreateObjectViewModel(IBuildingRepository buildingRepository)
         {
-            
+            Buildings = new ObservableCollection<Building>(buildingRepository.GetBuildings());
+            HeatSuppliers = new ObservableCollection<HeatSupplier>(buildingRepository.GetSuppliers());
+            supplierRepository = buildingRepository;
+            view = new CreateObjectView() { DataContext = this };
         }
+
+        public ObservableCollection<Building> Buildings { get; set; }
+        public ObservableCollection<HeatSupplier> HeatSuppliers { get; set; }
 
         private void CreateObject()
         {
-            MCDatabaseModelContainer context = null;
+            if (string.IsNullOrEmpty(Name))
+                return;
+
+            if (SelectedHeatSupplier == null)
+                return;
             try
             {
-                context = new MCDatabaseModelContainer();
                 var building = new Building
                                    {
                                        Name = Name,
                                        Description = Description,
-                                       EstimateConsumptionHeat = estimatedConsumption
+                                       EstimateConsumptionHeat = estimatedConsumption,
+                                       TotalArea = TotalArea,
+                                       HeatSupplier = SelectedHeatSupplier
                                    };
-                context.Buildings.AddObject(building);
-                context.SaveChanges();
+                supplierRepository.InsertBuilding(building);
+                supplierRepository.Save();
+                Buildings.Add(building);
+
+                //Clean Gui's text
+                Name = string.Empty;
+                Description = string.Empty;
+
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                MessageBox.Show("Не удалось сохранить новую сущность", "Внимание!");
-            }
-            finally
-            {
-                if (context != null)
-                    context.Dispose();
+                MessageBox.Show(exception.Message, "Внимание!");
             }
         }
 
+        private void DeleteObject()
+        {
+            if (selectedItem == null)
+                return;
+
+            supplierRepository.DeleteBuilding(selectedItem.Id);
+            supplierRepository.Save();
+
+            Buildings.Remove(selectedItem);
+
+        }
         private bool UserInputValid()
         {
             if (String.IsNullOrEmpty(Name))
@@ -52,10 +82,16 @@ namespace ManagementCompany.Models
         }
 
         public ICommand CreateObjectCommand { get { return new DelegatingCommand(CreateObject); } }
+        public ICommand DeleteObjectCommand
+        {
+            get
+            {
+                return new DelegatingCommand(DeleteObject);
+            }
+        }
 
         public string Name { get; set; }
         public string Description { get; set; }
-
         private double estimatedConsumption;
         public string EstimatedConsumption
         {
@@ -70,5 +106,25 @@ namespace ManagementCompany.Models
                 }
             }
         }
+        public string TotalArea { get; set; }
+        public HeatSupplier SelectedHeatSupplier { get; set; }
+
+        private Building selectedItem;
+        public Building SelectedItem
+        {
+            get { return selectedItem; }
+            set
+            {
+                selectedItem = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("SelectedItem"));
+            }
+        }
+        
+        public UserControl View
+        {
+            get { return view; }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
     }
 }

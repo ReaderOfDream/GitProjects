@@ -274,12 +274,14 @@ namespace Repository
         /// <param name="id">Исходное значение свойства Id.</param>
         /// <param name="name">Исходное значение свойства Name.</param>
         /// <param name="estimateConsumptionHeat">Исходное значение свойства EstimateConsumptionHeat.</param>
-        public static Building CreateBuilding(global::System.Int32 id, global::System.String name, global::System.Double estimateConsumptionHeat)
+        /// <param name="totalArea">Исходное значение свойства TotalArea.</param>
+        public static Building CreateBuilding(global::System.Int32 id, global::System.String name, global::System.Double estimateConsumptionHeat, global::System.String totalArea)
         {
             Building building = new Building();
             building.Id = id;
             building.Name = name;
             building.EstimateConsumptionHeat = estimateConsumptionHeat;
+            building.TotalArea = totalArea;
             return building;
         }
 
@@ -384,6 +386,30 @@ namespace Repository
         private global::System.Double _EstimateConsumptionHeat;
         partial void OnEstimateConsumptionHeatChanging(global::System.Double value);
         partial void OnEstimateConsumptionHeatChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String TotalArea
+        {
+            get
+            {
+                return _TotalArea;
+            }
+            set
+            {
+                OnTotalAreaChanging(value);
+                ReportPropertyChanging("TotalArea");
+                _TotalArea = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("TotalArea");
+                OnTotalAreaChanged();
+            }
+        }
+        private global::System.String _TotalArea;
+        partial void OnTotalAreaChanging(global::System.String value);
+        partial void OnTotalAreaChanged();
 
         #endregion
     
@@ -1062,15 +1088,13 @@ namespace Repository
         /// <param name="id">Исходное значение свойства Id.</param>
         /// <param name="startDate">Исходное значение свойства StartDate.</param>
         /// <param name="endDate">Исходное значение свойства EndDate.</param>
-        /// <param name="buildingsId">Исходное значение свойства BuildingsId.</param>
         /// <param name="heatSupplierId">Исходное значение свойства HeatSupplierId.</param>
-        public static DateTimeImtervals CreateDateTimeImtervals(global::System.Int32 id, global::System.DateTime startDate, global::System.DateTime endDate, global::System.Int32 buildingsId, global::System.Int32 heatSupplierId)
+        public static DateTimeImtervals CreateDateTimeImtervals(global::System.Int32 id, global::System.DateTime startDate, global::System.DateTime endDate, global::System.Int32 heatSupplierId)
         {
             DateTimeImtervals dateTimeImtervals = new DateTimeImtervals();
             dateTimeImtervals.Id = id;
             dateTimeImtervals.StartDate = startDate;
             dateTimeImtervals.EndDate = endDate;
-            dateTimeImtervals.BuildingsId = buildingsId;
             dateTimeImtervals.HeatSupplierId = heatSupplierId;
             return dateTimeImtervals;
         }
@@ -1152,30 +1176,6 @@ namespace Repository
         private global::System.DateTime _EndDate;
         partial void OnEndDateChanging(global::System.DateTime value);
         partial void OnEndDateChanged();
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 BuildingsId
-        {
-            get
-            {
-                return _BuildingsId;
-            }
-            set
-            {
-                OnBuildingsIdChanging(value);
-                ReportPropertyChanging("BuildingsId");
-                _BuildingsId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("BuildingsId");
-                OnBuildingsIdChanged();
-            }
-        }
-        private global::System.Int32 _BuildingsId;
-        partial void OnBuildingsIdChanging(global::System.Int32 value);
-        partial void OnBuildingsIdChanged();
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -1778,18 +1778,16 @@ namespace Repository
         /// Создание нового объекта NormativeCalculations.
         /// </summary>
         /// <param name="id">Исходное значение свойства Id.</param>
-        /// <param name="totalArea">Исходное значение свойства TotalArea.</param>
         /// <param name="calculationArea">Исходное значение свойства CalculationArea.</param>
         /// <param name="standartOfHeat">Исходное значение свойства StandartOfHeat.</param>
         /// <param name="consumptionHeatByTotalArea">Исходное значение свойства ConsumptionHeatByTotalArea.</param>
         /// <param name="consumptionHeatByCalculationArea">Исходное значение свойства ConsumptionHeatByCalculationArea.</param>
         /// <param name="totalNormativeHeat">Исходное значение свойства TotalNormativeHeat.</param>
         /// <param name="buildingsId">Исходное значение свойства BuildingsId.</param>
-        public static NormativeCalculations CreateNormativeCalculations(global::System.Int32 id, global::System.Double totalArea, global::System.Double calculationArea, global::System.Double standartOfHeat, global::System.Double consumptionHeatByTotalArea, global::System.Double consumptionHeatByCalculationArea, global::System.Double totalNormativeHeat, global::System.Int32 buildingsId)
+        public static NormativeCalculations CreateNormativeCalculations(global::System.Int32 id, global::System.Double calculationArea, global::System.Double standartOfHeat, global::System.Double consumptionHeatByTotalArea, global::System.Double consumptionHeatByCalculationArea, global::System.Double totalNormativeHeat, global::System.Int32 buildingsId)
         {
             NormativeCalculations normativeCalculations = new NormativeCalculations();
             normativeCalculations.Id = id;
-            normativeCalculations.TotalArea = totalArea;
             normativeCalculations.CalculationArea = calculationArea;
             normativeCalculations.StandartOfHeat = standartOfHeat;
             normativeCalculations.ConsumptionHeatByTotalArea = consumptionHeatByTotalArea;
@@ -1828,30 +1826,6 @@ namespace Repository
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Double TotalArea
-        {
-            get
-            {
-                return _TotalArea;
-            }
-            set
-            {
-                OnTotalAreaChanging(value);
-                ReportPropertyChanging("TotalArea");
-                _TotalArea = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("TotalArea");
-                OnTotalAreaChanged();
-            }
-        }
-        private global::System.Double _TotalArea;
-        partial void OnTotalAreaChanging(global::System.Double value);
-        partial void OnTotalAreaChanged();
     
         /// <summary>
         /// Нет доступной документации по метаданным.

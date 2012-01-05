@@ -2,11 +2,9 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 01/05/2012 12:31:08
+-- Date Created: 01/05/2012 23:39:45
 -- Generated from EDMX file: D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\MCDatabaseModel.edmx
 -- --------------------------------------------------
-
-CREATE DATABASE [ManagementCompany]
 
 SET QUOTED_IDENTIFIER OFF;
 GO
@@ -19,9 +17,6 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_BuildingsDateTimeImtervals]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[DateTimeImtervals] DROP CONSTRAINT [FK_BuildingsDateTimeImtervals];
-GO
 IF OBJECT_ID(N'[dbo].[FK_BuildingsContractConsumptionHeat]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ContractConsumptionHeatTable] DROP CONSTRAINT [FK_BuildingsContractConsumptionHeat];
 GO
@@ -46,6 +41,12 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_DateTimeImtervalsClearing]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ClearingTable] DROP CONSTRAINT [FK_DateTimeImtervalsClearing];
 GO
+IF OBJECT_ID(N'[dbo].[FK_BuildingsHeatSupplier]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Buildings] DROP CONSTRAINT [FK_BuildingsHeatSupplier];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DateTimeImtervalsHeatSupplier]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[DateTimeImtervals] DROP CONSTRAINT [FK_DateTimeImtervalsHeatSupplier];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -69,6 +70,9 @@ GO
 IF OBJECT_ID(N'[dbo].[ClearingTable]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ClearingTable];
 GO
+IF OBJECT_ID(N'[dbo].[HeatSuppliers]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[HeatSuppliers];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -80,6 +84,7 @@ CREATE TABLE [dbo].[Buildings] (
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NULL,
     [EstimateConsumptionHeat] float  NOT NULL,
+    [TotalArea] nvarchar(max)  NOT NULL,
     [HeatSupplier_Id] int  NOT NULL
 );
 GO
@@ -89,7 +94,6 @@ CREATE TABLE [dbo].[DateTimeImtervals] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [StartDate] datetime  NOT NULL,
     [EndDate] datetime  NOT NULL,
-    [BuildingsId] int  NOT NULL,
     [HeatSupplierId] int  NOT NULL
 );
 GO
@@ -97,7 +101,6 @@ GO
 -- Creating table 'NormativeCalculations'
 CREATE TABLE [dbo].[NormativeCalculations] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [TotalArea] float  NOT NULL,
     [CalculationArea] float  NOT NULL,
     [StandartOfHeat] float  NOT NULL,
     [ConsumptionHeatByTotalArea] float  NOT NULL,

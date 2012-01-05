@@ -86,8 +86,6 @@ namespace ManagementCompany.Models
             }
         }
 
-        public ObservableCollection<HeatSupplier> HeatSuppliers { get; set; }
-        
         private HeatSupplier selectedItem;
         public HeatSupplier SelectedItem
         {
@@ -98,6 +96,8 @@ namespace ManagementCompany.Models
                 PropertyChanged(this, new PropertyChangedEventArgs("SelectedItem"));
             }
         }
+
+        public ObservableCollection<HeatSupplier> HeatSuppliers { get; set; }
 
         public UserControl View
         {

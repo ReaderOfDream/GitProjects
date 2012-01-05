@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace ManagementCompany.Views
 {
     /// <summary>
-    /// Логика взаимодействия для CreateObjectView.xaml
+    /// Логика взаимодействия для CreateReportView.xaml
     /// </summary>
-    public partial class CreateObjectView : UserControl
+    public partial class CreateReportView : UserControl
     {
-        public CreateObjectView()
+        public CreateReportView()
         {
             InitializeComponent();
         }

@@ -4,11 +4,7 @@
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:App.xaml" caret="0" fromTop="0" />
       <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:StandartCalculation/f:IStandartCalculator.cs" caret="258" fromTop="11" />
       <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:Months.cs" caret="1327" fromTop="28" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModelContainer.datasource" caret="324" fromTop="5" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx" caret="42220" fromTop="12" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:app.config" caret="607" fromTop="12" />
       <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:Converters/f:StringToDoubleConveter.cs" caret="0" fromTop="0" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx.sql" caret="438" fromTop="10" />
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateObjectView.xaml" caret="1583" fromTop="12" />
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:ManagementObjectsView.xaml" caret="0" fromTop="0" />
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:ManagementObjectsView.xaml.cs" caret="523" fromTop="10" />
@@ -23,28 +19,18 @@
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:ManagementObjectsViewModel.cs" caret="526" fromTop="12" />
       <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/d:DAL/f:BuildingRepository.cs" caret="161" fromTop="7" />
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="1633" fromTop="21" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="2648" fromTop="23" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.Designer.cs" caret="60978" fromTop="5" />
       <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:TotalCalculation/f:TotalCalculation.cs" caret="434" fromTop="16" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="6312" fromTop="15" />
-      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:ContractCalculation/f:ContractCalculator.cs" caret="786" fromTop="16" />
       <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:StandartCalculation/f:StandartCalculator.cs" caret="307" fromTop="9" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:ContractCalculation/f:ContractCalculator.cs" caret="786" fromTop="16" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx.sql" caret="0" fromTop="0" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModelContainer.datasource" caret="0" fromTop="0" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.Designer.cs" caret="44739" fromTop="0" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx" caret="30275" fromTop="18" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:app.config" caret="498" fromTop="4" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="555" fromTop="16" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="2404" fromTop="13" />
     </RecentFiles>
     <RecentEdits>
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:App.xaml.cs" caret="618" fromTop="9" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="9532" fromTop="8" />
-      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="724" fromTop="12" />
-      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="283" fromTop="8" />
-      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="818" fromTop="17" />
-      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="483" fromTop="7" />
-      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="2385" fromTop="31" />
-      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="2374" fromTop="22" />
-      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="2124" fromTop="16" />
-      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="1854" fromTop="13" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateHeatSupplier.xaml" caret="1637" fromTop="7" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="306" fromTop="11" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="3143" fromTop="16" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="2819" fromTop="24" />
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateHeatSupplier.xaml" caret="1328" fromTop="5" />
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="1648" fromTop="12" />
       <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:DelegatingCommand.cs" caret="1791" fromTop="31" />
@@ -61,6 +47,20 @@
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="2288" fromTop="11" />
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="2527" fromTop="18" />
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="2648" fromTop="23" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:app.config" caret="455" fromTop="4" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx" caret="0" fromTop="27" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx" caret="41170" fromTop="0" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx" caret="41170" fromTop="12" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx" caret="41170" fromTop="17" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx" caret="41170" fromTop="21" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx" caret="41170" fromTop="21" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx" caret="41170" fromTop="27" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx" caret="41170" fromTop="10" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx" caret="41579" fromTop="20" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.Designer.cs" caret="83071" fromTop="2085" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="2404" fromTop="13" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.Designer.cs" caret="44810" fromTop="8" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx" caret="30275" fromTop="18" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
