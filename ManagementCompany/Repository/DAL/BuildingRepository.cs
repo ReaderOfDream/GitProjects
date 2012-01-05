@@ -64,7 +64,7 @@ namespace Repository.DAL
 
             updatingItem.Name = building.Name;
             updatingItem.Description = building.Description;
-            updatingItem.EstimateConsumptionHeat = building.EstimateConsumptionHeat;
+            updatingItem.StandartOfHeat = building.StandartOfHeat;
         }
 
         public void Save()

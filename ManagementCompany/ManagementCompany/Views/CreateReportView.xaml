@@ -12,26 +12,31 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Label Content="Имя"/>
+            <TextBox Text="{Binding Name}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
             <Label Content="Начальная дата"/>
             <DatePicker SelectedDate="{Binding StartDate}"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
             <Label Content="Конечная дата"/>
             <DatePicker SelectedDate="{Binding EndDate}"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="2">
+        <StackPanel Orientation="Horizontal" Grid.Row="3">
             <Label Content="Поставщик тепла" Grid.Column="0" Grid.Row="4"/>
-            <ComboBox Grid.Column="1" Grid.Row="4" ItemsSource="{Binding HeatSuppliers}" SelectedItem="{Binding SelectedHeatSupplier}" 
-                  DisplayMemberPath="Name" Width="100"/>
+            <ComboBox ItemsSource="{Binding HeatSuppliers}" SelectedItem="{Binding SelectedHeatSupplier}" DisplayMemberPath="Name" Width="100"/>
         </StackPanel>
         
-        <Button Content="Сохранить" Grid.Row="3" Command="{Binding CreateReportCommand}"/>
-        <ListView Grid.Row="4" Grid.ColumnSpan="2" ItemsSource="{Binding DateTimeIntervals}" SelectedItem="{Binding SelectedItem}">
+        <Button Content="Сохранить" Grid.Row="4" Command="{Binding CreateReportCommand}"/>
+        <ListView Grid.Row="5" Grid.ColumnSpan="2" ItemsSource="{Binding DateTimeIntervals}" SelectedItem="{Binding SelectedItem}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="начальная дата" DisplayMemberBinding="{Binding StartDate}" Width="300"/>

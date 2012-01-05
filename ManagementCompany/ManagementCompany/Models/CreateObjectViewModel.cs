@@ -40,7 +40,7 @@ namespace ManagementCompany.Models
                                    {
                                        Name = Name,
                                        Description = Description,
-                                       EstimateConsumptionHeat = estimatedConsumption,
+                                       StandartOfHeat = estimatedConsumption,
                                        TotalArea = TotalArea,
                                        HeatSupplier = SelectedHeatSupplier
                                    };

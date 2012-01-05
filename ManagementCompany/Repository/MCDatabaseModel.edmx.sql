@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 01/05/2012 23:39:45
+-- Date Created: 01/06/2012 01:43:37
 -- Generated from EDMX file: D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\MCDatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -83,7 +83,7 @@ CREATE TABLE [dbo].[Buildings] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NULL,
-    [EstimateConsumptionHeat] float  NOT NULL,
+    [StandartOfHeat] float  NOT NULL,
     [TotalArea] nvarchar(max)  NOT NULL,
     [HeatSupplier_Id] int  NOT NULL
 );
@@ -94,7 +94,8 @@ CREATE TABLE [dbo].[DateTimeImtervals] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [StartDate] datetime  NOT NULL,
     [EndDate] datetime  NOT NULL,
-    [HeatSupplierId] int  NOT NULL
+    [HeatSupplierId] int  NOT NULL,
+    [Name] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -102,10 +103,9 @@ GO
 CREATE TABLE [dbo].[NormativeCalculations] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [CalculationArea] float  NOT NULL,
-    [StandartOfHeat] float  NOT NULL,
+    [EstimateConsumptionHeat] float  NOT NULL,
     [ConsumptionHeatByTotalArea] float  NOT NULL,
     [ConsumptionHeatByCalculationArea] float  NOT NULL,
-    [TotalNormativeHeat] float  NOT NULL,
     [BuildingsId] int  NOT NULL,
     [DateTimeImtervals_Id] int  NOT NULL
 );

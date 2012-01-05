@@ -59,6 +59,7 @@
     <Compile Include="Models\CreateReportViewModel.cs" />
     <Compile Include="Models\HeatSupplierViewModel.cs" />
     <Compile Include="Models\ManagementObjectsViewModel.cs" />
+    <Compile Include="Models\NormativeCalculationViewModel.cs" />
     <Compile Include="Views\CreateHeatSupplier.xaml.cs">
       <DependentUpon>CreateHeatSupplier.xaml</DependentUpon>
     </Compile>
@@ -70,6 +71,9 @@
     </Compile>
     <Compile Include="Views\ManagementObjectsView.xaml.cs">
       <DependentUpon>ManagementObjectsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NormativeCalculationView.xaml.cs">
+      <DependentUpon>NormativeCalculationView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -96,6 +100,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ManagementObjectsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NormativeCalculationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
