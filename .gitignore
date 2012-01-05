@@ -12,3 +12,5 @@ _ReSharper.*
 *~
 *.swp
 ~$*
+/ManagementCompany/Repository/bin
+/ManagementCompany/Repository/obj
