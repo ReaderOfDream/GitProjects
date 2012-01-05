@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 01/05/2012 18:24:49
--- Generated from EDMX file: C:\Users\Cleric\Documents\Visual Studio 2010\Projects\GitProjects\GitProjects\ManagementCompany\Repository\MCDatabaseModel.edmx
+-- Date Created: 01/05/2012 23:39:45
+-- Generated from EDMX file: D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\MCDatabaseModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -94,7 +94,6 @@ CREATE TABLE [dbo].[DateTimeImtervals] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [StartDate] datetime  NOT NULL,
     [EndDate] datetime  NOT NULL,
-    [BuildingsId] int  NOT NULL,
     [HeatSupplierId] int  NOT NULL
 );
 GO

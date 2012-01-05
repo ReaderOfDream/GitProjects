@@ -25,6 +25,9 @@ namespace ManagementCompany
         private IBuildingRepository buildingRepository;
         private BuildingViewModel buildingViewModel;
 
+        private IReportRepository reportRepository;
+        private CreateReportViewModel createReportViewModel;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -36,6 +39,8 @@ namespace ManagementCompany
             buildingRepository = new BuildingRepository(new MCDatabaseModelContainer());
             buildingViewModel = new BuildingViewModel(buildingRepository);
 
+            reportRepository = new ReportRepository(new MCDatabaseModelContainer());
+            createReportViewModel = new CreateReportViewModel(reportRepository);
 
             var months = new Months();
             cmbxMonts.ItemsSource = months.AllMonth;
@@ -61,8 +66,7 @@ namespace ManagementCompany
             var dateTimeIntervals = new DateTimeImtervals();
             dateTimeIntervals.EndDate = endDate;
             dateTimeIntervals.StartDate = startDate;
-            dateTimeIntervals.BuildingsId = 1;
-
+            
             double totalArea = Double.Parse(tbxTotalArea.Text);
             double calculationArea = Double.Parse(tbxCalculationArea.Text);
             double standartHeat = Double.Parse(tbxStandart.Text);
@@ -181,7 +185,7 @@ namespace ManagementCompany
         }
 
         public HeatSupplierViewModel HeatSupplierViewModel { get { return heatSupplierViewModel; }}
-
         public BuildingViewModel BuildingViewModel { get { return buildingViewModel; } }
+        public CreateReportViewModel CreateReportViewModel { get { return createReportViewModel; } }
     }
 }

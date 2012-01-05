@@ -13,6 +13,9 @@
         <TabItem Header="Создание сущности">
             <UserControl Content="{Binding Path=BuildingViewModel.View}"/>
         </TabItem>
+        <TabItem Header="Создание отчета">
+            <UserControl Content="{Binding Path=CreateReportViewModel.View}"/>
+        </TabItem>
         <TabItem Header="Задание нормативного расчета">
             <Grid>
                 <Grid.RowDefinitions>

@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\BuildingRepository.cs" />
+    <Compile Include="DAL\ReportRepository.cs" />
     <Compile Include="MCDatabaseModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -109,11 +110,11 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MCDatabaseModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="app.config">
+    <None Include="App.Config" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="MCDatabaseModelContainer.datasource">
       <SubType>Designer</SubType>
     </None>
-    <None Include="ClassDiagram2.cd" />
-    <None Include="MCDatabaseModelContainer.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
