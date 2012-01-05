@@ -2,9 +2,11 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 10/16/2011 20:49:26
+-- Date Created: 01/05/2012 12:31:08
 -- Generated from EDMX file: D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\MCDatabaseModel.edmx
 -- --------------------------------------------------
+
+CREATE DATABASE [ManagementCompany]
 
 SET QUOTED_IDENTIFIER OFF;
 GO
@@ -18,19 +20,19 @@ GO
 -- --------------------------------------------------
 
 IF OBJECT_ID(N'[dbo].[FK_BuildingsDateTimeImtervals]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[DateTimeImtervalsНабор] DROP CONSTRAINT [FK_BuildingsDateTimeImtervals];
+    ALTER TABLE [dbo].[DateTimeImtervals] DROP CONSTRAINT [FK_BuildingsDateTimeImtervals];
 GO
 IF OBJECT_ID(N'[dbo].[FK_BuildingsContractConsumptionHeat]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ContractConsumptionHeatTable] DROP CONSTRAINT [FK_BuildingsContractConsumptionHeat];
 GO
 IF OBJECT_ID(N'[dbo].[FK_BuildingsNormativeCalculation]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[NormativeCalculationНабор] DROP CONSTRAINT [FK_BuildingsNormativeCalculation];
+    ALTER TABLE [dbo].[NormativeCalculations] DROP CONSTRAINT [FK_BuildingsNormativeCalculation];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ContractConsumptionHeatDateTimeImtervals]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ContractConsumptionHeatTable] DROP CONSTRAINT [FK_ContractConsumptionHeatDateTimeImtervals];
 GO
 IF OBJECT_ID(N'[dbo].[FK_NormativeCalculationDateTimeImtervals]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[NormativeCalculationНабор] DROP CONSTRAINT [FK_NormativeCalculationDateTimeImtervals];
+    ALTER TABLE [dbo].[NormativeCalculations] DROP CONSTRAINT [FK_NormativeCalculationDateTimeImtervals];
 GO
 IF OBJECT_ID(N'[dbo].[FK_BuildingsMeterReadings]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[MeterReadingsTable] DROP CONSTRAINT [FK_BuildingsMeterReadings];
@@ -49,14 +51,14 @@ GO
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[BuildingsНабор]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[BuildingsНабор];
+IF OBJECT_ID(N'[dbo].[Buildings]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Buildings];
 GO
-IF OBJECT_ID(N'[dbo].[DateTimeImtervalsНабор]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[DateTimeImtervalsНабор];
+IF OBJECT_ID(N'[dbo].[DateTimeImtervals]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DateTimeImtervals];
 GO
-IF OBJECT_ID(N'[dbo].[NormativeCalculationНабор]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[NormativeCalculationНабор];
+IF OBJECT_ID(N'[dbo].[NormativeCalculations]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[NormativeCalculations];
 GO
 IF OBJECT_ID(N'[dbo].[ContractConsumptionHeatTable]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ContractConsumptionHeatTable];
@@ -72,26 +74,28 @@ GO
 -- Creating all tables
 -- --------------------------------------------------
 
--- Creating table 'BuildingsНабор'
-CREATE TABLE [dbo].[BuildingsНабор] (
+-- Creating table 'Buildings'
+CREATE TABLE [dbo].[Buildings] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NULL,
-    [EstimateConsumptionHeat] float  NOT NULL
+    [EstimateConsumptionHeat] float  NOT NULL,
+    [HeatSupplier_Id] int  NOT NULL
 );
 GO
 
--- Creating table 'DateTimeImtervalsНабор'
-CREATE TABLE [dbo].[DateTimeImtervalsНабор] (
+-- Creating table 'DateTimeImtervals'
+CREATE TABLE [dbo].[DateTimeImtervals] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [StartDate] datetime  NOT NULL,
     [EndDate] datetime  NOT NULL,
-    [BuildingsId] int  NOT NULL
+    [BuildingsId] int  NOT NULL,
+    [HeatSupplierId] int  NOT NULL
 );
 GO
 
--- Creating table 'NormativeCalculationНабор'
-CREATE TABLE [dbo].[NormativeCalculationНабор] (
+-- Creating table 'NormativeCalculations'
+CREATE TABLE [dbo].[NormativeCalculations] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [TotalArea] float  NOT NULL,
     [CalculationArea] float  NOT NULL,
@@ -138,25 +142,33 @@ CREATE TABLE [dbo].[ClearingTable] (
 );
 GO
 
+-- Creating table 'HeatSuppliers'
+CREATE TABLE [dbo].[HeatSuppliers] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(max)  NOT NULL,
+    [Description] nvarchar(max)  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
 
--- Creating primary key on [Id] in table 'BuildingsНабор'
-ALTER TABLE [dbo].[BuildingsНабор]
-ADD CONSTRAINT [PK_BuildingsНабор]
+-- Creating primary key on [Id] in table 'Buildings'
+ALTER TABLE [dbo].[Buildings]
+ADD CONSTRAINT [PK_Buildings]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'DateTimeImtervalsНабор'
-ALTER TABLE [dbo].[DateTimeImtervalsНабор]
-ADD CONSTRAINT [PK_DateTimeImtervalsНабор]
+-- Creating primary key on [Id] in table 'DateTimeImtervals'
+ALTER TABLE [dbo].[DateTimeImtervals]
+ADD CONSTRAINT [PK_DateTimeImtervals]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'NormativeCalculationНабор'
-ALTER TABLE [dbo].[NormativeCalculationНабор]
-ADD CONSTRAINT [PK_NormativeCalculationНабор]
+-- Creating primary key on [Id] in table 'NormativeCalculations'
+ALTER TABLE [dbo].[NormativeCalculations]
+ADD CONSTRAINT [PK_NormativeCalculations]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -178,29 +190,21 @@ ADD CONSTRAINT [PK_ClearingTable]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
+-- Creating primary key on [Id] in table 'HeatSuppliers'
+ALTER TABLE [dbo].[HeatSuppliers]
+ADD CONSTRAINT [PK_HeatSuppliers]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
-
--- Creating foreign key on [BuildingsId] in table 'DateTimeImtervalsНабор'
-ALTER TABLE [dbo].[DateTimeImtervalsНабор]
-ADD CONSTRAINT [FK_BuildingsDateTimeImtervals]
-    FOREIGN KEY ([BuildingsId])
-    REFERENCES [dbo].[BuildingsНабор]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_BuildingsDateTimeImtervals'
-CREATE INDEX [IX_FK_BuildingsDateTimeImtervals]
-ON [dbo].[DateTimeImtervalsНабор]
-    ([BuildingsId]);
-GO
 
 -- Creating foreign key on [BuildingsId] in table 'ContractConsumptionHeatTable'
 ALTER TABLE [dbo].[ContractConsumptionHeatTable]
 ADD CONSTRAINT [FK_BuildingsContractConsumptionHeat]
     FOREIGN KEY ([BuildingsId])
-    REFERENCES [dbo].[BuildingsНабор]
+    REFERENCES [dbo].[Buildings]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -210,17 +214,17 @@ ON [dbo].[ContractConsumptionHeatTable]
     ([BuildingsId]);
 GO
 
--- Creating foreign key on [BuildingsId] in table 'NormativeCalculationНабор'
-ALTER TABLE [dbo].[NormativeCalculationНабор]
+-- Creating foreign key on [BuildingsId] in table 'NormativeCalculations'
+ALTER TABLE [dbo].[NormativeCalculations]
 ADD CONSTRAINT [FK_BuildingsNormativeCalculation]
     FOREIGN KEY ([BuildingsId])
-    REFERENCES [dbo].[BuildingsНабор]
+    REFERENCES [dbo].[Buildings]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_BuildingsNormativeCalculation'
 CREATE INDEX [IX_FK_BuildingsNormativeCalculation]
-ON [dbo].[NormativeCalculationНабор]
+ON [dbo].[NormativeCalculations]
     ([BuildingsId]);
 GO
 
@@ -228,7 +232,7 @@ GO
 ALTER TABLE [dbo].[ContractConsumptionHeatTable]
 ADD CONSTRAINT [FK_ContractConsumptionHeatDateTimeImtervals]
     FOREIGN KEY ([DateTimeImtervals_Id])
-    REFERENCES [dbo].[DateTimeImtervalsНабор]
+    REFERENCES [dbo].[DateTimeImtervals]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -238,17 +242,17 @@ ON [dbo].[ContractConsumptionHeatTable]
     ([DateTimeImtervals_Id]);
 GO
 
--- Creating foreign key on [DateTimeImtervals_Id] in table 'NormativeCalculationНабор'
-ALTER TABLE [dbo].[NormativeCalculationНабор]
+-- Creating foreign key on [DateTimeImtervals_Id] in table 'NormativeCalculations'
+ALTER TABLE [dbo].[NormativeCalculations]
 ADD CONSTRAINT [FK_NormativeCalculationDateTimeImtervals]
     FOREIGN KEY ([DateTimeImtervals_Id])
-    REFERENCES [dbo].[DateTimeImtervalsНабор]
+    REFERENCES [dbo].[DateTimeImtervals]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_NormativeCalculationDateTimeImtervals'
 CREATE INDEX [IX_FK_NormativeCalculationDateTimeImtervals]
-ON [dbo].[NormativeCalculationНабор]
+ON [dbo].[NormativeCalculations]
     ([DateTimeImtervals_Id]);
 GO
 
@@ -256,7 +260,7 @@ GO
 ALTER TABLE [dbo].[MeterReadingsTable]
 ADD CONSTRAINT [FK_BuildingsMeterReadings]
     FOREIGN KEY ([BuildingsId])
-    REFERENCES [dbo].[BuildingsНабор]
+    REFERENCES [dbo].[Buildings]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -270,7 +274,7 @@ GO
 ALTER TABLE [dbo].[MeterReadingsTable]
 ADD CONSTRAINT [FK_MeterReadingsDateTimeImtervals]
     FOREIGN KEY ([DateTimeImtervals_Id])
-    REFERENCES [dbo].[DateTimeImtervalsНабор]
+    REFERENCES [dbo].[DateTimeImtervals]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -284,7 +288,7 @@ GO
 ALTER TABLE [dbo].[ClearingTable]
 ADD CONSTRAINT [FK_BuildingsClearing]
     FOREIGN KEY ([BuildingsId])
-    REFERENCES [dbo].[BuildingsНабор]
+    REFERENCES [dbo].[Buildings]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -298,7 +302,7 @@ GO
 ALTER TABLE [dbo].[ClearingTable]
 ADD CONSTRAINT [FK_DateTimeImtervalsClearing]
     FOREIGN KEY ([DateTimeImtervals_Id])
-    REFERENCES [dbo].[DateTimeImtervalsНабор]
+    REFERENCES [dbo].[DateTimeImtervals]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -306,6 +310,34 @@ ADD CONSTRAINT [FK_DateTimeImtervalsClearing]
 CREATE INDEX [IX_FK_DateTimeImtervalsClearing]
 ON [dbo].[ClearingTable]
     ([DateTimeImtervals_Id]);
+GO
+
+-- Creating foreign key on [HeatSupplier_Id] in table 'Buildings'
+ALTER TABLE [dbo].[Buildings]
+ADD CONSTRAINT [FK_BuildingsHeatSupplier]
+    FOREIGN KEY ([HeatSupplier_Id])
+    REFERENCES [dbo].[HeatSuppliers]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_BuildingsHeatSupplier'
+CREATE INDEX [IX_FK_BuildingsHeatSupplier]
+ON [dbo].[Buildings]
+    ([HeatSupplier_Id]);
+GO
+
+-- Creating foreign key on [HeatSupplierId] in table 'DateTimeImtervals'
+ALTER TABLE [dbo].[DateTimeImtervals]
+ADD CONSTRAINT [FK_DateTimeImtervalsHeatSupplier]
+    FOREIGN KEY ([HeatSupplierId])
+    REFERENCES [dbo].[HeatSuppliers]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_DateTimeImtervalsHeatSupplier'
+CREATE INDEX [IX_FK_DateTimeImtervalsHeatSupplier]
+ON [dbo].[DateTimeImtervals]
+    ([HeatSupplierId]);
 GO
 
 -- --------------------------------------------------

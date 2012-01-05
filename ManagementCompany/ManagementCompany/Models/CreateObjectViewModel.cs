@@ -3,24 +3,30 @@ using System.Windows;
 using System.Windows.Input;
 using Core;
 using Repository;
+using Repository.DAL;
 
 namespace ManagementCompany.Models
 {
     public class CreateObjectViewModel
     {
+        public CreateObjectViewModel(IBuildingRepository buildingRepository)
+        {
+            
+        }
+
         private void CreateObject()
         {
             MCDatabaseModelContainer context = null;
             try
             {
                 context = new MCDatabaseModelContainer();
-                var building = new Buildings
+                var building = new Building
                                    {
                                        Name = Name,
                                        Description = Description,
                                        EstimateConsumptionHeat = estimatedConsumption
                                    };
-                context.BuildingsНабор.AddObject(building);
+                context.Buildings.AddObject(building);
                 context.SaveChanges();
             }
             catch (Exception)

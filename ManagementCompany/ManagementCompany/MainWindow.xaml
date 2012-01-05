@@ -2,7 +2,30 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
+    
+    <!--<UserControl Content="{Binding View}"/>-->
+    
+    
     <TabControl>
+        <TabItem Header="Поставщик тепла">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                
+                <StackPanel Grid.Row="0">
+                    <TextBlock Text="Название"/>
+                    <TextBox />
+                </StackPanel>
+
+                <StackPanel Grid.Row="1">
+                    <TextBlock Text="Описание"/>
+                    <TextBox />
+                </StackPanel>
+            </Grid>
+        </TabItem>
         <TabItem Header="Создание сущности">
             <Grid>
                 <Grid.RowDefinitions>

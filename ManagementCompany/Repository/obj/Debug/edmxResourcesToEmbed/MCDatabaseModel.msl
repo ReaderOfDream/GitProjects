@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="MCDatabaseModelStoreContainer" CdmEntityContainer="MCDatabaseModelContainer">
-    <EntitySetMapping Name="BuildingsНабор">
-      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.Buildings)">
-        <MappingFragment StoreEntitySet="BuildingsНабор">
+    <EntitySetMapping Name="Buildings">
+      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.Building)">
+        <MappingFragment StoreEntitySet="Buildings">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -11,19 +11,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DateTimeImtervalsНабор">
+    <EntitySetMapping Name="DateTimeImtervals">
       <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.DateTimeImtervals)">
-        <MappingFragment StoreEntitySet="DateTimeImtervalsНабор">
+        <MappingFragment StoreEntitySet="DateTimeImtervals">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
           <ScalarProperty Name="BuildingsId" ColumnName="BuildingsId" />
+          <ScalarProperty Name="HeatSupplierId" ColumnName="HeatSupplierId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="NormativeCalculationНабор">
-      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.NormativeCalculation)">
-        <MappingFragment StoreEntitySet="NormativeCalculationНабор">
+    <EntitySetMapping Name="NormativeCalculations">
+      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.NormativeCalculations)">
+        <MappingFragment StoreEntitySet="NormativeCalculations">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="TotalArea" ColumnName="TotalArea" />
           <ScalarProperty Name="CalculationArea" ColumnName="CalculationArea" />
@@ -69,6 +70,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="HeatSuppliers">
+      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.HeatSupplier)">
+        <MappingFragment StoreEntitySet="HeatSuppliers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="ContractConsumptionHeatDateTimeImtervals" TypeName="MCDatabaseModel.ContractConsumptionHeatDateTimeImtervals" StoreEntitySet="ContractConsumptionHeatTable">
       <EndProperty Name="DateTimeImtervals">
         <ScalarProperty Name="Id" ColumnName="DateTimeImtervals_Id" />
@@ -77,7 +87,7 @@
         <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="NormativeCalculationDateTimeImtervals" TypeName="MCDatabaseModel.NormativeCalculationDateTimeImtervals" StoreEntitySet="NormativeCalculationНабор">
+    <AssociationSetMapping Name="NormativeCalculationDateTimeImtervals" TypeName="MCDatabaseModel.NormativeCalculationDateTimeImtervals" StoreEntitySet="NormativeCalculations">
       <EndProperty Name="DateTimeImtervals">
         <ScalarProperty Name="Id" ColumnName="DateTimeImtervals_Id" />
       </EndProperty>
@@ -98,6 +108,14 @@
         <ScalarProperty Name="Id" ColumnName="DateTimeImtervals_Id" />
       </EndProperty>
       <EndProperty Name="Clearing">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BuildingsHeatSupplier" TypeName="MCDatabaseModel.BuildingsHeatSupplier" StoreEntitySet="Buildings">
+      <EndProperty Name="HeatSupplier">
+        <ScalarProperty Name="Id" ColumnName="HeatSupplier_Id" />
+      </EndProperty>
+      <EndProperty Name="Buildings">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>

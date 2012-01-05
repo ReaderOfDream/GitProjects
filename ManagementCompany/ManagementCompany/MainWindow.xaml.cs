@@ -29,25 +29,25 @@ namespace ManagementCompany
 
             using (var mcDatabaseModelContainer = new MCDatabaseModelContainer())
             {
-                cmbxBuildings.ItemsSource = mcDatabaseModelContainer.BuildingsНабор.ToArray();
-                cmbxBuildingsContract.ItemsSource = mcDatabaseModelContainer.BuildingsНабор.ToArray();
-                cmbxBuildingsClearing.ItemsSource = mcDatabaseModelContainer.BuildingsНабор.ToArray();
+                cmbxBuildings.ItemsSource = mcDatabaseModelContainer.Buildings.ToArray();
+                cmbxBuildingsContract.ItemsSource = mcDatabaseModelContainer.Buildings.ToArray();
+                cmbxBuildingsClearing.ItemsSource = mcDatabaseModelContainer.Buildings.ToArray();
             }
         }
 
         private void CreateObject_Click(object sender, RoutedEventArgs e)
         {
-            var buildings = new Buildings
+            var buildings = new Building
                                 {
-                                    Name = tbxName.Text, 
+                                    Name = tbxName.Text,
                                     Description = tbxDescription.Text,
                                     EstimateConsumptionHeat = Double.Parse(tbxNormativeConsumptionHeat.Text)
-                                    
+
                                 };
 
             using (var mcDatabaseModelContainer = new MCDatabaseModelContainer())
             {
-                mcDatabaseModelContainer.BuildingsНабор.AddObject(buildings);
+                mcDatabaseModelContainer.Buildings.AddObject(buildings);
                 mcDatabaseModelContainer.SaveChanges();
             }
 
@@ -72,14 +72,14 @@ namespace ManagementCompany
             var consumptionByTotalArea = standartCalculator.CalculateConsumptionByArea(totalArea, standartHeat);
             var consumptionByCalculationArea = standartCalculator.CalculateConsumptionByArea(calculationArea,
                                                                                              standartHeat);
-            var normativeCalculation = new NormativeCalculation();
+            var normativeCalculation = new NormativeCalculations();
 
             if (cmbxBuildings.SelectedItem == null)
             {
                 MessageBox.Show("Необходимо выбрать здание");
                 return;
             }
-            normativeCalculation.BuildingsId = ((Buildings)cmbxBuildings.SelectedItem).Id;
+            normativeCalculation.BuildingsId = ((Building)cmbxBuildings.SelectedItem).Id;
             normativeCalculation.CalculationArea = calculationArea;
             normativeCalculation.TotalArea = totalArea;
             normativeCalculation.StandartOfHeat = standartHeat;
@@ -96,7 +96,7 @@ namespace ManagementCompany
                     mcDatabaseModelContainer.Connection.Open();
                     transaction = mcDatabaseModelContainer.Connection.BeginTransaction();
 
-                    mcDatabaseModelContainer.DateTimeImtervalsНабор.AddObject(dateTimeIntervals);
+                    mcDatabaseModelContainer.DateTimeImtervals.AddObject(dateTimeIntervals);
                     //mcDatabaseModelContainer.NormativeCalculationНабор.AddObject(normativeCalculation);
                     mcDatabaseModelContainer.SaveChanges();
 
@@ -114,17 +114,17 @@ namespace ManagementCompany
         {
             double airtemperature = Double.Parse(tbxAirTemperature.Text);
             int countPeoples = int.Parse(tbxPeoplesCount.Text);
-            int countDays = DateTime.DaysInMonth(DateTime.Now.Year, ((Month) cmbxMonts.SelectedItem).Index);
+            int countDays = DateTime.DaysInMonth(DateTime.Now.Year, ((Month)cmbxMonts.SelectedItem).Index);
 
             var contractCalculator = new ContractCalculator();
 
             using (var context = new MCDatabaseModelContainer())
             {
-                var datetime = from date in context.DateTimeImtervalsНабор
+                var datetime = from date in context.DateTimeImtervals
                                select date;
 
-                var estimatedConsumption = from building in context.BuildingsНабор
-                                           where building.Id == ((Buildings) cmbxBuildingsContract.SelectedItem).Id
+                var estimatedConsumption = from building in context.Buildings
+                                           where building.Id == ((Building)cmbxBuildingsContract.SelectedItem).Id
                                            select building.EstimateConsumptionHeat;
 
                 var consumptionByLoad = contractCalculator.ConsumptionByLoad(estimatedConsumption.FirstOrDefault(), countDays,
@@ -135,7 +135,7 @@ namespace ManagementCompany
                 var contractConsumption = new ContractConsumptionHeat
                                               {
                                                   AirTemperature = airtemperature,
-                                                  BuildingsId = ((Buildings) cmbxBuildingsContract.SelectedItem).Id,
+                                                  BuildingsId = ((Building)cmbxBuildingsContract.SelectedItem).Id,
                                                   HeatByLoading = consumptionByLoad,
                                                   PeopleCount = countPeoples,
                                                   HotWaterByNorm = hotWaterByNorm,
@@ -154,20 +154,20 @@ namespace ManagementCompany
 
             using (var context = new MCDatabaseModelContainer())
             {
-                var datetime = from date in context.DateTimeImtervalsНабор
+                var datetime = from date in context.DateTimeImtervals
                                select date;
 
                 var meterReadings = context.MeterReadingsTable.CreateObject();
                 meterReadings.CurrentHeatMeterReader = heatMeterReadings;
                 meterReadings.CurrentWaterHeatReader = waterMeterReadings;
-                meterReadings.BuildingsId = ((Buildings) cmbxBuildingsClearing.SelectedItem).Id;
+                meterReadings.BuildingsId = ((Building)cmbxBuildingsClearing.SelectedItem).Id;
                 meterReadings.DateTimeImtervals = datetime.First();
                 context.MeterReadingsTable.AddObject(meterReadings);
 
                 var clearing = context.ClearingTable.CreateObject();
                 clearing.Requirements = Double.Parse(tbxRequirementHeat.Text);
                 clearing.CalculationHotWater = Double.Parse(tbxWaterBuxgalter.Text);
-                clearing.BuildingsId = ((Buildings)cmbxBuildingsClearing.SelectedItem).Id;
+                clearing.BuildingsId = ((Building)cmbxBuildingsClearing.SelectedItem).Id;
 
                 var totalHeatConsumption = from contract in context.ContractConsumptionHeatTable
                                            where

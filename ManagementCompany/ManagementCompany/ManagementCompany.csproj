@@ -56,8 +56,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\HeatSupplierViewModel.cs" />
+    <Compile Include="Models\ManagementObjectsViewModel.cs" />
     <Compile Include="Views\CreateObjectView.xaml.cs">
       <DependentUpon>CreateObjectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagementObjectsView.xaml.cs">
+      <DependentUpon>ManagementObjectsView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -72,6 +77,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\CreateObjectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ManagementObjectsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
