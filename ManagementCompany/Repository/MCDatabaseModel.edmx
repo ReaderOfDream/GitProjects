@@ -61,7 +61,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="EstimateConsumptionHeat" Type="float" Nullable="false" />
+    <Property Name="StandartOfHeat" Type="float" Nullable="false" />
     <Property Name="TotalArea" Type="nvarchar(max)" Nullable="false" />
     <Property Name="HeatSupplier_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -73,6 +73,7 @@
     <Property Name="StartDate" Type="datetime" Nullable="false" />
     <Property Name="EndDate" Type="datetime" Nullable="false" />
     <Property Name="HeatSupplierId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="NormativeCalculations">
     <Key>
@@ -80,10 +81,9 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CalculationArea" Type="float" Nullable="false" />
-    <Property Name="StandartOfHeat" Type="float" Nullable="false" />
+    <Property Name="EstimateConsumptionHeat" Type="float" Nullable="false" />
     <Property Name="ConsumptionHeatByTotalArea" Type="float" Nullable="false" />
     <Property Name="ConsumptionHeatByCalculationArea" Type="float" Nullable="false" />
-    <Property Name="TotalNormativeHeat" Type="float" Nullable="false" />
     <Property Name="BuildingsId" Type="int" Nullable="false" />
     <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -309,7 +309,7 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="true" />
-          <Property Type="Double" Name="EstimateConsumptionHeat" Nullable="false" />
+          <Property Type="Double" Name="StandartOfHeat" Nullable="false" />
           <NavigationProperty Name="ContractConsumptionHeat" Relationship="MCDatabaseModel.BuildingsContractConsumptionHeat" FromRole="Buildings" ToRole="ContractConsumptionHeat" />
           <NavigationProperty Name="NormativeCalculation" Relationship="MCDatabaseModel.BuildingsNormativeCalculation" FromRole="Buildings" ToRole="NormativeCalculation" />
           <NavigationProperty Name="MeterReadings" Relationship="MCDatabaseModel.BuildingsMeterReadings" FromRole="Buildings" ToRole="MeterReadings" />
@@ -330,6 +330,7 @@
           <NavigationProperty Name="Clearing" Relationship="MCDatabaseModel.DateTimeImtervalsClearing" FromRole="DateTimeImtervals" ToRole="Clearing" />
           <NavigationProperty Name="HeatSupplier" Relationship="MCDatabaseModel.DateTimeImtervalsHeatSupplier" FromRole="DateTimeImtervals" ToRole="HeatSupplier" />
           <Property Type="Int32" Name="HeatSupplierId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" />
         </EntityType>
         <EntityType Name="NormativeCalculations">
           <Key>
@@ -337,10 +338,9 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Double" Name="CalculationArea" Nullable="false" />
-          <Property Type="Double" Name="StandartOfHeat" Nullable="false" />
+          <Property Type="Double" Name="EstimateConsumptionHeat" Nullable="false" />
           <Property Type="Double" Name="ConsumptionHeatByTotalArea" Nullable="false" />
           <Property Type="Double" Name="ConsumptionHeatByCalculationArea" Nullable="false" />
-          <Property Type="Double" Name="TotalNormativeHeat" Nullable="false" />
           <NavigationProperty Name="Buildings" Relationship="MCDatabaseModel.BuildingsNormativeCalculation" FromRole="NormativeCalculation" ToRole="Buildings" />
           <Property Type="Int32" Name="BuildingsId" Nullable="false" />
           <NavigationProperty Name="DateTimeImtervals" Relationship="MCDatabaseModel.NormativeCalculationDateTimeImtervals" FromRole="NormativeCalculation" ToRole="DateTimeImtervals" />
@@ -484,7 +484,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="EstimateConsumptionHeat" ColumnName="EstimateConsumptionHeat" />
+          <ScalarProperty Name="StandartOfHeat" ColumnName="StandartOfHeat" />
           <ScalarProperty Name="TotalArea" ColumnName="TotalArea" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -496,6 +496,7 @@
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
           <ScalarProperty Name="HeatSupplierId" ColumnName="HeatSupplierId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -504,10 +505,9 @@
         <MappingFragment StoreEntitySet="NormativeCalculations">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="CalculationArea" ColumnName="CalculationArea" />
-          <ScalarProperty Name="StandartOfHeat" ColumnName="StandartOfHeat" />
+          <ScalarProperty Name="EstimateConsumptionHeat" ColumnName="EstimateConsumptionHeat" />
           <ScalarProperty Name="ConsumptionHeatByTotalArea" ColumnName="ConsumptionHeatByTotalArea" />
           <ScalarProperty Name="ConsumptionHeatByCalculationArea" ColumnName="ConsumptionHeatByCalculationArea" />
-          <ScalarProperty Name="TotalNormativeHeat" ColumnName="TotalNormativeHeat" />
           <ScalarProperty Name="BuildingsId" ColumnName="BuildingsId" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -615,45 +615,47 @@
     <edmx:Diagrams>
       <Diagram Name="MCDatabaseModel" ZoomLevel="63" >
         <EntityTypeShape EntityType="MCDatabaseModel.Building" Width="2.5" PointX="7" PointY="25.375" Height="2.7494921874999996" />
-        <EntityTypeShape EntityType="MCDatabaseModel.DateTimeImtervals" Width="2.25" PointX="7.875" PointY="19.75" Height="2.7494921874999996" />
-        <EntityTypeShape EntityType="MCDatabaseModel.NormativeCalculations" Width="3.5" PointX="1.25" PointY="19.875" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="MCDatabaseModel.DateTimeImtervals" Width="2.25" PointX="7.875" PointY="19.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="MCDatabaseModel.NormativeCalculations" Width="3.5" PointX="1.25" PointY="19.875" Height="2.5571907552083353" />
         <EntityTypeShape EntityType="MCDatabaseModel.ContractConsumptionHeat" Width="2.5" PointX="14.5" PointY="20.75" Height="2.7494921874999996" />
         <AssociationConnector Association="MCDatabaseModel.BuildingsContractConsumptionHeat" ManuallyRouted="false">
           <ConnectorPoint PointX="7.40625" PointY="25.375" />
-          <ConnectorPoint PointX="7.40625" PointY="23.078820045572918" />
-          <ConnectorPoint PointX="9.6315085416666673" PointY="23.078820045572918" />
-          <ConnectorPoint PointX="9.7981752083333351" PointY="23.078820045572918" />
-          <ConnectorPoint PointX="9.8678401041666657" PointY="23.078820045572918" />
-          <ConnectorPoint PointX="10.034506770833334" PointY="23.078820045572918" />
-          <ConnectorPoint PointX="14.5" PointY="23.078820045572918" />
+          <ConnectorPoint PointX="7.40625" PointY="23.126892903645832" />
+          <ConnectorPoint PointX="9.6761889713541667" PointY="23.126892903645832" />
+          <ConnectorPoint PointX="9.8428556380208345" PointY="23.126892903645832" />
+          <ConnectorPoint PointX="9.8901803190104172" PointY="23.126892903645832" />
+          <ConnectorPoint PointX="10.056846985677085" PointY="23.126892903645832" />
+          <ConnectorPoint PointX="14.5" PointY="23.126892903645832" />
         </AssociationConnector>
         <AssociationConnector Association="MCDatabaseModel.BuildingsNormativeCalculation">
-          <ConnectorPoint PointX="7" PointY="27.644122973908566" />
-          <ConnectorPoint PointX="4.71875" PointY="27.644122973908566" />
-          <ConnectorPoint PointX="4.71875" PointY="22.6244921875" />
+          <ConnectorPoint PointX="7" PointY="26.364889572916663" />
+          <ConnectorPoint PointX="4.71875" PointY="26.364889572916663" />
+          <ConnectorPoint PointX="4.71875" PointY="22.432190755208335" />
         </AssociationConnector>
         <AssociationConnector Association="MCDatabaseModel.ContractConsumptionHeatDateTimeImtervals">
-          <ConnectorPoint PointX="14.5" PointY="21.624746093749998" />
-          <ConnectorPoint PointX="10.125" PointY="21.624746093749998" />
+          <ConnectorPoint PointX="14.5" PointY="21.720896809895834" />
+          <ConnectorPoint PointX="10.125" PointY="21.720896809895834" />
         </AssociationConnector>
         <AssociationConnector Association="MCDatabaseModel.NormativeCalculationDateTimeImtervals">
-          <ConnectorPoint PointX="4.75" PointY="21.187246093749998" />
-          <ConnectorPoint PointX="7.875" PointY="21.187246093749998" />
+          <ConnectorPoint PointX="4.75" PointY="21.153595377604169" />
+          <ConnectorPoint PointX="7.875" PointY="21.153595377604169" />
         </AssociationConnector>
         <EntityTypeShape EntityType="MCDatabaseModel.MeterReadings" Width="3.375" PointX="1.25" PointY="23.5" Height="2.1725878906249996" />
         <AssociationConnector Association="MCDatabaseModel.BuildingsMeterReadings">
-          <ConnectorPoint PointX="7" PointY="26.898540539062495" />
-          <ConnectorPoint PointX="2.9375" PointY="26.898540539062495" />
+          <ConnectorPoint PointX="7" PointY="26.99469125520833" />
+          <ConnectorPoint PointX="4.802083333333333" PointY="26.99469125520833" />
+          <ConnectorPoint PointX="4.635416666666667" PointY="26.99469125520833" />
+          <ConnectorPoint PointX="2.9375" PointY="26.99469125520833" />
           <ConnectorPoint PointX="2.9375" PointY="25.672587890625" />
         </AssociationConnector>
         <AssociationConnector Association="MCDatabaseModel.MeterReadingsDateTimeImtervals" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.625" PointY="24.806668472290038" />
-          <ConnectorPoint PointX="4.635416666666667" PointY="24.806668472290038" />
-          <ConnectorPoint PointX="4.802083333333333" PointY="24.806668472290038" />
-          <ConnectorPoint PointX="7.322916666666667" PointY="24.806668472290038" />
-          <ConnectorPoint PointX="7.489583333333333" PointY="24.806668472290038" />
-          <ConnectorPoint PointX="9.7148418750000012" PointY="24.806668472290038" />
-          <ConnectorPoint PointX="9.7148418750000012" PointY="22.4994921875" />
+          <ConnectorPoint PointX="4.625" PointY="24.792604279518127" />
+          <ConnectorPoint PointX="4.635416666666667" PointY="24.792604279518127" />
+          <ConnectorPoint PointX="4.802083333333333" PointY="24.792604279518127" />
+          <ConnectorPoint PointX="7.322916666666667" PointY="24.792604279518127" />
+          <ConnectorPoint PointX="7.489583333333333" PointY="24.792604279518127" />
+          <ConnectorPoint PointX="9.7595223046875" PointY="24.792604279518127" />
+          <ConnectorPoint PointX="9.7595223046875" PointY="22.691793619791667" />
         </AssociationConnector>
         <EntityTypeShape EntityType="MCDatabaseModel.Clearing" Width="2.5" PointX="12.125" PointY="23.75" Height="1.7879850260416674" />
         <AssociationConnector Association="MCDatabaseModel.BuildingsClearing">
@@ -661,9 +663,9 @@
           <ConnectorPoint PointX="12.125" PointY="25.744944661458334" />
         </AssociationConnector>
         <AssociationConnector Association="MCDatabaseModel.DateTimeImtervalsClearing">
-          <ConnectorPoint PointX="9.9511734375" PointY="22.4994921875" />
-          <ConnectorPoint PointX="9.9511734375" PointY="24.278334236145021" />
-          <ConnectorPoint PointX="12.125" PointY="24.278334236145021" />
+          <ConnectorPoint PointX="9.9735136523437511" PointY="22.691793619791667" />
+          <ConnectorPoint PointX="9.9735136523437511" PointY="24.271302139759065" />
+          <ConnectorPoint PointX="12.125" PointY="24.271302139759065" />
         </AssociationConnector>
         <EntityTypeShape EntityType="MCDatabaseModel.HeatSupplier" Width="1.5" PointX="15.875" PointY="26.25" Height="1.5956835937500031" />
         <AssociationConnector Association="MCDatabaseModel.BuildingsHeatSupplier">

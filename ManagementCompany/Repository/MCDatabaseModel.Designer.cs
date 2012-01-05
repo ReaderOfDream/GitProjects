@@ -273,14 +273,14 @@ namespace Repository
         /// </summary>
         /// <param name="id">Исходное значение свойства Id.</param>
         /// <param name="name">Исходное значение свойства Name.</param>
-        /// <param name="estimateConsumptionHeat">Исходное значение свойства EstimateConsumptionHeat.</param>
+        /// <param name="standartOfHeat">Исходное значение свойства StandartOfHeat.</param>
         /// <param name="totalArea">Исходное значение свойства TotalArea.</param>
-        public static Building CreateBuilding(global::System.Int32 id, global::System.String name, global::System.Double estimateConsumptionHeat, global::System.String totalArea)
+        public static Building CreateBuilding(global::System.Int32 id, global::System.String name, global::System.Double standartOfHeat, global::System.String totalArea)
         {
             Building building = new Building();
             building.Id = id;
             building.Name = name;
-            building.EstimateConsumptionHeat = estimateConsumptionHeat;
+            building.StandartOfHeat = standartOfHeat;
             building.TotalArea = totalArea;
             return building;
         }
@@ -368,24 +368,24 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Double EstimateConsumptionHeat
+        public global::System.Double StandartOfHeat
         {
             get
             {
-                return _EstimateConsumptionHeat;
+                return _StandartOfHeat;
             }
             set
             {
-                OnEstimateConsumptionHeatChanging(value);
-                ReportPropertyChanging("EstimateConsumptionHeat");
-                _EstimateConsumptionHeat = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("EstimateConsumptionHeat");
-                OnEstimateConsumptionHeatChanged();
+                OnStandartOfHeatChanging(value);
+                ReportPropertyChanging("StandartOfHeat");
+                _StandartOfHeat = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StandartOfHeat");
+                OnStandartOfHeatChanged();
             }
         }
-        private global::System.Double _EstimateConsumptionHeat;
-        partial void OnEstimateConsumptionHeatChanging(global::System.Double value);
-        partial void OnEstimateConsumptionHeatChanged();
+        private global::System.Double _StandartOfHeat;
+        partial void OnStandartOfHeatChanging(global::System.Double value);
+        partial void OnStandartOfHeatChanged();
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -1089,13 +1089,15 @@ namespace Repository
         /// <param name="startDate">Исходное значение свойства StartDate.</param>
         /// <param name="endDate">Исходное значение свойства EndDate.</param>
         /// <param name="heatSupplierId">Исходное значение свойства HeatSupplierId.</param>
-        public static DateTimeImtervals CreateDateTimeImtervals(global::System.Int32 id, global::System.DateTime startDate, global::System.DateTime endDate, global::System.Int32 heatSupplierId)
+        /// <param name="name">Исходное значение свойства Name.</param>
+        public static DateTimeImtervals CreateDateTimeImtervals(global::System.Int32 id, global::System.DateTime startDate, global::System.DateTime endDate, global::System.Int32 heatSupplierId, global::System.String name)
         {
             DateTimeImtervals dateTimeImtervals = new DateTimeImtervals();
             dateTimeImtervals.Id = id;
             dateTimeImtervals.StartDate = startDate;
             dateTimeImtervals.EndDate = endDate;
             dateTimeImtervals.HeatSupplierId = heatSupplierId;
+            dateTimeImtervals.Name = name;
             return dateTimeImtervals;
         }
 
@@ -1200,6 +1202,30 @@ namespace Repository
         private global::System.Int32 _HeatSupplierId;
         partial void OnHeatSupplierIdChanging(global::System.Int32 value);
         partial void OnHeatSupplierIdChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
 
         #endregion
     
@@ -1779,20 +1805,18 @@ namespace Repository
         /// </summary>
         /// <param name="id">Исходное значение свойства Id.</param>
         /// <param name="calculationArea">Исходное значение свойства CalculationArea.</param>
-        /// <param name="standartOfHeat">Исходное значение свойства StandartOfHeat.</param>
+        /// <param name="estimateConsumptionHeat">Исходное значение свойства EstimateConsumptionHeat.</param>
         /// <param name="consumptionHeatByTotalArea">Исходное значение свойства ConsumptionHeatByTotalArea.</param>
         /// <param name="consumptionHeatByCalculationArea">Исходное значение свойства ConsumptionHeatByCalculationArea.</param>
-        /// <param name="totalNormativeHeat">Исходное значение свойства TotalNormativeHeat.</param>
         /// <param name="buildingsId">Исходное значение свойства BuildingsId.</param>
-        public static NormativeCalculations CreateNormativeCalculations(global::System.Int32 id, global::System.Double calculationArea, global::System.Double standartOfHeat, global::System.Double consumptionHeatByTotalArea, global::System.Double consumptionHeatByCalculationArea, global::System.Double totalNormativeHeat, global::System.Int32 buildingsId)
+        public static NormativeCalculations CreateNormativeCalculations(global::System.Int32 id, global::System.Double calculationArea, global::System.Double estimateConsumptionHeat, global::System.Double consumptionHeatByTotalArea, global::System.Double consumptionHeatByCalculationArea, global::System.Int32 buildingsId)
         {
             NormativeCalculations normativeCalculations = new NormativeCalculations();
             normativeCalculations.Id = id;
             normativeCalculations.CalculationArea = calculationArea;
-            normativeCalculations.StandartOfHeat = standartOfHeat;
+            normativeCalculations.EstimateConsumptionHeat = estimateConsumptionHeat;
             normativeCalculations.ConsumptionHeatByTotalArea = consumptionHeatByTotalArea;
             normativeCalculations.ConsumptionHeatByCalculationArea = consumptionHeatByCalculationArea;
-            normativeCalculations.TotalNormativeHeat = totalNormativeHeat;
             normativeCalculations.BuildingsId = buildingsId;
             return normativeCalculations;
         }
@@ -1856,24 +1880,24 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Double StandartOfHeat
+        public global::System.Double EstimateConsumptionHeat
         {
             get
             {
-                return _StandartOfHeat;
+                return _EstimateConsumptionHeat;
             }
             set
             {
-                OnStandartOfHeatChanging(value);
-                ReportPropertyChanging("StandartOfHeat");
-                _StandartOfHeat = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("StandartOfHeat");
-                OnStandartOfHeatChanged();
+                OnEstimateConsumptionHeatChanging(value);
+                ReportPropertyChanging("EstimateConsumptionHeat");
+                _EstimateConsumptionHeat = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EstimateConsumptionHeat");
+                OnEstimateConsumptionHeatChanged();
             }
         }
-        private global::System.Double _StandartOfHeat;
-        partial void OnStandartOfHeatChanging(global::System.Double value);
-        partial void OnStandartOfHeatChanged();
+        private global::System.Double _EstimateConsumptionHeat;
+        partial void OnEstimateConsumptionHeatChanging(global::System.Double value);
+        partial void OnEstimateConsumptionHeatChanged();
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -1922,30 +1946,6 @@ namespace Repository
         private global::System.Double _ConsumptionHeatByCalculationArea;
         partial void OnConsumptionHeatByCalculationAreaChanging(global::System.Double value);
         partial void OnConsumptionHeatByCalculationAreaChanged();
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Double TotalNormativeHeat
-        {
-            get
-            {
-                return _TotalNormativeHeat;
-            }
-            set
-            {
-                OnTotalNormativeHeatChanging(value);
-                ReportPropertyChanging("TotalNormativeHeat");
-                _TotalNormativeHeat = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("TotalNormativeHeat");
-                OnTotalNormativeHeatChanged();
-            }
-        }
-        private global::System.Double _TotalNormativeHeat;
-        partial void OnTotalNormativeHeatChanging(global::System.Double value);
-        partial void OnTotalNormativeHeatChanged();
     
         /// <summary>
         /// Нет доступной документации по метаданным.

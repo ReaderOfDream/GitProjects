@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Core;
@@ -29,11 +26,15 @@ namespace ManagementCompany.Models
 
         public void CreateReport()
         {
+            if (string.IsNullOrEmpty(Name))
+                return;
+
             if (SelectedHeatSupplier == null)
                 return;
 
             var interval = new DateTimeImtervals()
                                {
+                                   Name = Name,
                                    StartDate = StartDate,
                                    EndDate = EndDate,
                                    HeatSupplier = SelectedHeatSupplier
@@ -59,5 +60,6 @@ namespace ManagementCompany.Models
         public HeatSupplier SelectedHeatSupplier { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -28,6 +28,9 @@ namespace ManagementCompany
         private IReportRepository reportRepository;
         private CreateReportViewModel createReportViewModel;
 
+        private INormativeCalculationRepository normativeCalculationRepository;
+        private NormativeCalculationViewModel normativeCalculationViewModel;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -42,6 +45,9 @@ namespace ManagementCompany
             reportRepository = new ReportRepository(new MCDatabaseModelContainer());
             createReportViewModel = new CreateReportViewModel(reportRepository);
 
+            normativeCalculationRepository = new NormativeCalculationRepository(new MCDatabaseModelContainer());
+            normativeCalculationViewModel = new NormativeCalculationViewModel(normativeCalculationRepository, new StandartCalculator());
+
             var months = new Months();
             cmbxMonts.ItemsSource = months.AllMonth;
             cmbxMonts.DisplayMemberPath = "Name";
@@ -50,64 +56,8 @@ namespace ManagementCompany
 
             using (var mcDatabaseModelContainer = new MCDatabaseModelContainer())
             {
-                cmbxBuildings.ItemsSource = mcDatabaseModelContainer.Buildings.ToArray();
                 cmbxBuildingsContract.ItemsSource = mcDatabaseModelContainer.Buildings.ToArray();
                 cmbxBuildingsClearing.ItemsSource = mcDatabaseModelContainer.Buildings.ToArray();
-            }
-        }
-
-        private void btnSaveStandartCalculation_Click(object sender, RoutedEventArgs e)
-        {
-            var standartCalculator = new StandartCalculator();
-
-            var startDate = DateTime.Parse(dtStartDate.Text);
-            var endDate = DateTime.Parse(dtEndDate.Text);
-
-            var dateTimeIntervals = new DateTimeImtervals();
-            dateTimeIntervals.EndDate = endDate;
-            dateTimeIntervals.StartDate = startDate;
-            
-            double totalArea = Double.Parse(tbxTotalArea.Text);
-            double calculationArea = Double.Parse(tbxCalculationArea.Text);
-            double standartHeat = Double.Parse(tbxStandart.Text);
-
-            var consumptionByTotalArea = standartCalculator.CalculateConsumptionByArea(totalArea, standartHeat);
-            var consumptionByCalculationArea = standartCalculator.CalculateConsumptionByArea(calculationArea,
-                                                                                             standartHeat);
-            var normativeCalculation = new NormativeCalculations();
-
-            if (cmbxBuildings.SelectedItem == null)
-            {
-                MessageBox.Show("Необходимо выбрать здание");
-                return;
-            }
-            normativeCalculation.BuildingsId = ((Building)cmbxBuildings.SelectedItem).Id;
-            normativeCalculation.CalculationArea = calculationArea;
-            normativeCalculation.StandartOfHeat = standartHeat;
-            normativeCalculation.ConsumptionHeatByTotalArea = consumptionByTotalArea;
-            normativeCalculation.ConsumptionHeatByCalculationArea = consumptionByCalculationArea;
-            normativeCalculation.TotalNormativeHeat = Double.Parse(tbxStandart.Text);
-            normativeCalculation.DateTimeImtervals = dateTimeIntervals;
-
-            using (var mcDatabaseModelContainer = new MCDatabaseModelContainer())
-            {
-                DbTransaction transaction = null;
-                try
-                {
-                    mcDatabaseModelContainer.Connection.Open();
-                    transaction = mcDatabaseModelContainer.Connection.BeginTransaction();
-
-                    mcDatabaseModelContainer.DateTimeImtervals.AddObject(dateTimeIntervals);
-                    //mcDatabaseModelContainer.NormativeCalculationНабор.AddObject(normativeCalculation);
-                    mcDatabaseModelContainer.SaveChanges();
-
-                    transaction.Commit();
-                }
-                catch (Exception exception)
-                {
-                    transaction.Rollback();
-                    MessageBox.Show(exception.ToString());
-                }
             }
         }
 
@@ -126,7 +76,7 @@ namespace ManagementCompany
 
                 var estimatedConsumption = from building in context.Buildings
                                            where building.Id == ((Building)cmbxBuildingsContract.SelectedItem).Id
-                                           select building.EstimateConsumptionHeat;
+                                           select building.StandartOfHeat;
 
                 var consumptionByLoad = contractCalculator.ConsumptionByLoad(estimatedConsumption.FirstOrDefault(), countDays,
                                                                              airtemperature);
@@ -184,6 +134,7 @@ namespace ManagementCompany
             }
         }
 
+        public NormativeCalculationViewModel NormativeCalculationViewModel { get { return normativeCalculationViewModel; } }
         public HeatSupplierViewModel HeatSupplierViewModel { get { return heatSupplierViewModel; }}
         public BuildingViewModel BuildingViewModel { get { return buildingViewModel; } }
         public CreateReportViewModel CreateReportViewModel { get { return createReportViewModel; } }

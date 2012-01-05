@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Core.StandartCalculation
 {
-    interface IStandartCalculator
+    public interface IStandartCalculator
     {
         double CalculateConsumptionByArea(double area, double standartHeat);
     }

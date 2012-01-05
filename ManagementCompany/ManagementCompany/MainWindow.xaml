@@ -17,49 +17,7 @@
             <UserControl Content="{Binding Path=CreateReportViewModel.View}"/>
         </TabItem>
         <TabItem Header="Задание нормативного расчета">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                
-                <StackPanel Orientation="Horizontal" Grid.Row="0">
-                    <Label Content="Инвентарная площадь"/>
-                    <TextBox Width="200" Name="tbxTotalArea"/>
-                </StackPanel>
-                
-                <StackPanel Orientation="Horizontal" Grid.Row="1">
-                    <Label Content="Площадь для начисления"/>
-                    <TextBox Width="200" Name="tbxCalculationArea"/>
-                </StackPanel>
-                
-                <StackPanel Orientation="Horizontal" Grid.Row="2">
-                    <Label Content="Норматив"/>
-                    <TextBox Width="200" Name="tbxStandart"/>
-                </StackPanel>
-                
-                <StackPanel Orientation="Horizontal" Grid.Row="3">
-                    <Label Content="Начальная дата"/>
-                    <DatePicker Name="dtStartDate" />
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Grid.Row="4">
-                    <Label Content="Здание: "/>
-                    <ComboBox Name="cmbxBuildings" DisplayMemberPath="Name" Width="100"/>
-                </StackPanel>
-                
-                <StackPanel Orientation="Horizontal" Grid.Row="5">
-                    <Label Content="Конечная дата"/>
-                    <DatePicker Name="dtEndDate"/>
-                </StackPanel>
-                
-                <Button Name="btnSaveStandartCalculation" Content="Сохранить" Width="100" Grid.Row="5" Click="btnSaveStandartCalculation_Click"/>
-            </Grid>           
+            <UserControl Content="{Binding Path=NormativeCalculationViewModel.View}"/>
         </TabItem>
         <TabItem Header="Договр">
             <Grid>

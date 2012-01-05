@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -63,8 +63,8 @@ namespace Repository.DAL
 
             updatingItem.Name = building.Name;
             updatingItem.Description = building.Description;
-            updatingItem.EstimateConsumptionHeat = building.EstimateConsumptionHeat;
             updatingItem.TotalArea = building.TotalArea;
+            updatingItem.StandartOfHeat = building.StandartOfHeat;
         }
 
         public void Save()
