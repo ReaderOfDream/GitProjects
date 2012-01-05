@@ -1,60 +1,66 @@
 <Configuration>
   <RecentFiles>
     <RecentFiles>
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:App.xaml.cs" caret="0" fromTop="0" />
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:App.xaml" caret="0" fromTop="0" />
       <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:StandartCalculation/f:IStandartCalculator.cs" caret="258" fromTop="11" />
       <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:Months.cs" caret="1327" fromTop="28" />
-      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:DelegatingCommand.cs" caret="635" fromTop="19" />
       <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModelContainer.datasource" caret="324" fromTop="5" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx" caret="42481" fromTop="12" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:ManagementObjectsViewModel.cs" caret="469" fromTop="17" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:ManagementObjectsView.xaml.cs" caret="858" fromTop="16" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx" caret="42220" fromTop="12" />
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:app.config" caret="607" fromTop="12" />
-      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:TotalCalculation/f:TotalCalculation.cs" caret="554" fromTop="18" />
-      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:StandartCalculation/f:StandartCalculator.cs" caret="0" fromTop="0" />
       <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:Converters/f:StringToDoubleConveter.cs" caret="0" fromTop="0" />
-      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:ContractCalculation/f:ContractCalculator.cs" caret="828" fromTop="17" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="854" fromTop="9" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="1759" fromTop="9" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateObjectView.xaml" caret="1339" fromTop="17" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="304" fromTop="13" />
       <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx.sql" caret="438" fromTop="10" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="211" fromTop="9" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.Designer.cs" caret="0" fromTop="0" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/d:DAL/f:HeatSupplierRepository.cs" caret="1702" fromTop="20" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateObjectView.xaml" caret="1583" fromTop="12" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:ManagementObjectsView.xaml" caret="0" fromTop="0" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:ManagementObjectsView.xaml.cs" caret="523" fromTop="10" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/d:DAL/f:HeatSupplierRepository.cs" caret="1565" fromTop="42" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateHeatSupplier.xaml.cs" caret="669" fromTop="14" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/f:Class1.cs" caret="0" fromTop="0" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:App.xaml.cs" caret="618" fromTop="9" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="1372" fromTop="3" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateHeatSupplier.xaml" caret="471" fromTop="7" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="447" fromTop="10" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:DelegatingCommand.cs" caret="281" fromTop="11" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:ManagementObjectsViewModel.cs" caret="526" fromTop="12" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/d:DAL/f:BuildingRepository.cs" caret="161" fromTop="7" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="1633" fromTop="21" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="2648" fromTop="23" />
+      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.Designer.cs" caret="60978" fromTop="5" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:TotalCalculation/f:TotalCalculation.cs" caret="434" fromTop="16" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="6312" fromTop="15" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:ContractCalculation/f:ContractCalculator.cs" caret="786" fromTop="16" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:StandartCalculation/f:StandartCalculator.cs" caret="307" fromTop="9" />
     </RecentFiles>
     <RecentEdits>
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="4255" fromTop="11" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="5416" fromTop="20" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="7411" fromTop="15" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="3037" fromTop="5" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="3257" fromTop="12" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:app.config" caret="607" fromTop="12" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.Designer.cs" caret="661" fromTop="15" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="7587" fromTop="10" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="9103" fromTop="16" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx.sql" caret="889" fromTop="12" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx.sql" caret="1133" fromTop="12" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx.sql" caret="533" fromTop="12" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx.sql" caret="438" fromTop="10" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="646" fromTop="9" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="854" fromTop="15" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="313" fromTop="13" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="590" fromTop="12" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="363" fromTop="16" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="425" fromTop="20" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="268" fromTop="12" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.Designer.cs" caret="0" fromTop="0" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/d:DAL/f:HeatSupplierRepository.cs" caret="607" fromTop="9" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/d:DAL/f:HeatSupplierRepository.cs" caret="124" fromTop="5" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/d:DAL/f:HeatSupplierRepository.cs" caret="458" fromTop="11" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/d:DAL/f:HeatSupplierRepository.cs" caret="549" fromTop="15" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/d:DAL/f:HeatSupplierRepository.cs" caret="1188" fromTop="24" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/d:DAL/f:HeatSupplierRepository.cs" caret="1438" fromTop="24" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/d:DAL/f:HeatSupplierRepository.cs" caret="993" fromTop="13" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/d:DAL/f:HeatSupplierRepository.cs" caret="1822" fromTop="22" />
-      <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/d:DAL/f:HeatSupplierRepository.cs" caret="1707" fromTop="20" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:App.xaml.cs" caret="618" fromTop="9" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="9532" fromTop="8" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="724" fromTop="12" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="283" fromTop="8" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="818" fromTop="17" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="483" fromTop="7" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="2385" fromTop="31" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="2374" fromTop="22" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="2124" fromTop="16" />
+      <File id="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB/d:ManagementCompanyTests/f:HeatSupplierViewModelTest.cs" caret="1854" fromTop="13" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateHeatSupplier.xaml" caret="1637" fromTop="7" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="306" fromTop="11" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="3143" fromTop="16" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="2819" fromTop="24" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateHeatSupplier.xaml" caret="1328" fromTop="5" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="1648" fromTop="12" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:DelegatingCommand.cs" caret="1791" fromTop="31" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:DelegatingCommand.cs" caret="1159" fromTop="9" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:DelegatingCommand.cs" caret="721" fromTop="27" />
+      <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/f:DelegatingCommand.cs" caret="43" fromTop="1" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="1963" fromTop="16" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="1812" fromTop="16" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="1486" fromTop="7" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="1603" fromTop="18" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="1633" fromTop="21" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="2009" fromTop="15" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="2220" fromTop="22" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="2288" fromTop="11" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="2527" fromTop="18" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="2648" fromTop="23" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -78,15 +84,15 @@
     <ItemStatistics item="CSharpCodeCompletionContext">
       <Item value="ManagementCompany" priority="31" />
       <Item value="mcDatabaseModelContainer" priority="288" />
-      <Item value="new" priority="636" />
-      <Item value="MCDatabaseModelContainer" priority="115" />
+      <Item value="new" priority="1148" />
+      <Item value="MCDatabaseModelContainer" priority="144" />
       <Item value="Buildings" priority="92" />
       <Item value="buildings" priority="159" />
       <Item value="tbxName" priority="31" />
       <Item value="tbxDescription" priority="31" />
       <Item value="App`0" priority="31" />
       <Item value="Application`0" priority="31" />
-      <Item value="var" priority="636" />
+      <Item value="var" priority="764" />
       <Item value="dtStartDate" priority="31" />
       <Item value="standartCalculator" priority="96" />
       <Item value="StandartCalculator" priority="28" />
@@ -113,17 +119,17 @@
       <Item value="MessageBox`0" priority="63" />
       <Item value="chbBuildings" priority="31" />
       <Item value="cmbxBuildings" priority="63" />
-      <Item value="if" priority="223" />
-      <Item value="return" priority="479" />
+      <Item value="if" priority="319" />
+      <Item value="return" priority="767" />
       <Item value="DateTime`0" priority="159" />
-      <Item value="public" priority="634" />
+      <Item value="public" priority="922" />
       <Item value="Array`0" priority="31" />
       <Item value="class" priority="62" />
-      <Item value="string" priority="287" />
+      <Item value="string" priority="479" />
       <Item value="Month`0" priority="31" />
       <Item value="Month" priority="57" />
       <Item value="Index" priority="31" />
-      <Item value="Name" priority="95" />
+      <Item value="Name" priority="224" />
       <Item value="cmbxMonts" priority="95" />
       <Item value="using" priority="157" />
       <Item value="tbxAirTemperature" priority="31" />
@@ -140,7 +146,7 @@
       <Item value="context" priority="542" />
       <Item value="from" priority="31" />
       <Item value="where" priority="95" />
-      <Item value="building" priority="252" />
+      <Item value="building" priority="508" />
       <Item value="select" priority="127" />
       <Item value="airtemperature" priority="64" />
       <Item value="countPeoples" priority="64" />
@@ -159,7 +165,7 @@
       <Item value="c" priority="31" />
       <Item value="System" priority="61" />
       <Item value="Linq" priority="26" />
-      <Item value="Buildings`0" priority="97" />
+      <Item value="Buildings`0" priority="129" />
       <Item value="cmbxBuildingsContract" priority="63" />
       <Item value="EstimateConsumptionHeat" priority="32" />
       <Item value="tbxNormativeConsumptionHeat" priority="32" />
@@ -177,10 +183,10 @@
       <Item value="accountantWater" priority="31" />
       <Item value="totalCalculator" priority="31" />
       <Item value="RoutedCommand" priority="28" />
-      <Item value="ctor" priority="127" />
+      <Item value="ctor" priority="191" />
       <Item value="Action`0" priority="31" />
       <Item value="action" priority="31" />
-      <Item value="EnvironmentVariableTarget`0" priority="31" />
+      <Item value="EnvironmentVariableTarget`0" priority="63" />
       <Item value="parameter" priority="31" />
       <Item value="as" priority="63" />
       <Item value="Action" priority="32" />
@@ -188,10 +194,10 @@
       <Item value="true" priority="63" />
       <Item value="Func" priority="32" />
       <Item value="bool" priority="63" />
-      <Item value="DelegatingCommand" priority="57" />
-      <Item value="void" priority="159" />
-      <Item value="private" priority="63" />
-      <Item value="Description" priority="31" />
+      <Item value="DelegatingCommand" priority="86" />
+      <Item value="void" priority="287" />
+      <Item value="private" priority="95" />
+      <Item value="Description" priority="129" />
       <Item value="EstimatedConsumption" priority="63" />
       <Item value="finally" priority="31" />
       <Item value="String`0" priority="62" />
@@ -207,7 +213,7 @@
       <Item value="CultureAttribute`0" priority="31" />
       <Item value="CultureInfo" priority="28" />
       <Item value="typeof" priority="31" />
-      <Item value="Assert`0" priority="31" />
+      <Item value="Assert`0" priority="63" />
       <Item value="expextedValue" priority="31" />
       <Item value="result" priority="95" />
       <Item value="ArgumentException`0" priority="31" />
@@ -218,21 +224,65 @@
       <Item value="Data" priority="27" />
       <Item value="IUnitOfWork`0" priority="63" />
       <Item value="IUnitOfWorkFactory`0" priority="31" />
-      <Item value="db" priority="127" />
-      <Item value="MCDatabaseModelContainer`0" priority="31" />
+      <Item value="db" priority="447" />
+      <Item value="MCDatabaseModelContainer`0" priority="63" />
       <Item value="mcDatabaseModel" priority="64" />
-      <Item value="DBNull`0" priority="31" />
+      <Item value="DBNull`0" priority="63" />
       <Item value="IEnumerable" priority="31" />
-      <Item value="HeatSupplier`0" priority="31" />
+      <Item value="HeatSupplier`0" priority="127" />
       <Item value="heatsupplierId" priority="26" />
       <Item value="heatSupplierId" priority="26" />
       <Item value="deletingSupplier" priority="26" />
-      <Item value="heatSupplier" priority="53" />
-      <Item value="updatingEntry" priority="26" />
+      <Item value="heatSupplier" priority="85" />
+      <Item value="updatingEntry" priority="58" />
+      <Item value="IBuildingRepository`0" priority="31" />
+      <Item value="mcDatabase" priority="64" />
+      <Item value="buildingId" priority="63" />
+      <Item value="Building`0" priority="31" />
+      <Item value="deletingEntity" priority="31" />
+      <Item value="item" priority="31" />
+      <Item value="updatingItem" priority="95" />
+      <Item value="heatSupplierRepository" priority="129" />
+      <Item value="buildingRepository" priority="32" />
+      <Item value="HeatSupplierRepository`0" priority="31" />
+      <Item value="supplierRepository" priority="191" />
+      <Item value="ObservableCollection&lt;HeatSupplier&gt;" priority="28" />
+      <Item value="HeatSuppliers" priority="63" />
+      <Item value="supplier" priority="31" />
+      <Item value="heatSupplierViewModel" priority="64" />
+      <Item value="HeatSupplierViewModel" priority="28" />
+      <Item value="HeatSupplierRepository" priority="28" />
+      <Item value="GetAnimationBaseValue`0" priority="63" />
+      <Item value="UserControl`0" priority="31" />
+      <Item value="CreateHeatSupplier" priority="28" />
+      <Item value="DataContext" priority="63" />
+      <Item value="this" priority="160" />
+      <Item value="view" priority="31" />
+      <Item value="mockRepository" priority="160" />
+      <Item value="SetUp" priority="31" />
+      <Item value="MockRepository" priority="28" />
+      <Item value="IHeatSupplierRepository`0" priority="31" />
+      <Item value="x" priority="127" />
+      <Item value="HeatSupplier" priority="57" />
+      <Item value="Length" priority="26" />
+      <Item value="RequiresSTA" priority="31" />
+      <Item value="vm" priority="63" />
+      <Item value="Arg" priority="63" />
+      <Item value="const" priority="31" />
+      <Item value="name" priority="63" />
+      <Item value="HeatSuppliers_CreateViewModel_MustFillFromRepository`0" priority="63" />
+      <Item value="description" priority="63" />
+      <Item value="arg" priority="63" />
+      <Item value="PropertyChanged" priority="95" />
+      <Item value="PropertyChangedEventArgs" priority="86" />
+      <Item value="ICommand`0" priority="31" />
+      <Item value="SelectedItem" priority="63" />
+      <Item value="selectedItem" priority="95" />
+      <Item value="Fact" priority="28" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Repository.MCDatabaseModelContainer">
       <Item value="BuildingsНабор" priority="269" />
-      <Item value="SaveChanges`0" priority="157" />
+      <Item value="SaveChanges`0" priority="184" />
       <Item value="Connection" priority="53" />
       <Item value="DateTimeImtervalsНабор" priority="53" />
       <Item value="NormativeCalculationНабор" priority="26" />
@@ -240,18 +290,18 @@
       <Item value="MeterReadingsTable" priority="53" />
       <Item value="ClearingTable" priority="53" />
       <Item value="Dispose`0" priority="26" />
-      <Item value="Buildings" priority="26" />
+      <Item value="Buildings" priority="188" />
       <Item value="ObjectStateManager" priority="26" />
       <Item value="HeatSuppliers" priority="164" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Data.Objects.ObjectSet`1">
-      <Item value="AddObject`0" priority="242" />
-      <Item value="Where`0" priority="80" />
+      <Item value="AddObject`0" priority="269" />
+      <Item value="Where`0" priority="107" />
       <Item value="ToArray`1" priority="82" />
       <Item value="First`1" priority="26" />
       <Item value="CreateObject`0" priority="55" />
-      <Item value="DeleteObject`0" priority="45" />
-      <Item value="Single`1" priority="45" />
+      <Item value="DeleteObject`0" priority="72" />
+      <Item value="Single`1" priority="127" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Repository.Buildings">
       <Item value="Name" priority="53" />
@@ -374,14 +424,15 @@
       <Item value="TotalHeatConsumption`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.String">
-      <Item value="IsNullOrEmpty`0" priority="26" />
+      <Item value="IsNullOrEmpty`0" priority="80" />
       <Item value="Format`0" priority="26" />
+      <Item value="Empty" priority="53" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Core.Converters.StringToDoubleConveter">
       <Item value="Convert`0" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@NUnit.Framework.Assert">
-      <Item value="AreEqual`0" priority="27" />
+      <Item value="AreEqual`0" priority="54" />
       <Item value="Throws`1" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@Repository.Buildings">
@@ -402,17 +453,68 @@
       <Item value="CreateObjectSet`1" priority="26" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Repository.HeatSupplier">
-      <Item value="Id" priority="91" />
-      <Item value="Name" priority="45" />
+      <Item value="Id" priority="118" />
+      <Item value="Name" priority="72" />
+      <Item value="Description" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Repository.Building">
+      <Item value="Id" priority="134" />
+      <Item value="Name" priority="53" />
+      <Item value="Description" priority="53" />
+      <Item value="EstimateConsumptionHeat" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Repository.DAL.IHeatSupplierRepository">
+      <Item value="InsertHeatSupplier`0" priority="107" />
+      <Item value="Save`0" priority="80" />
+      <Item value="GetHeatSuppliers`0" priority="53" />
+      <Item value="Stub`1" priority="80" />
+      <Item value="AssertWasNotCalled`1" priority="26" />
+      <Item value="Expect`1" priority="27" />
+      <Item value="DeleteHeatSupplier`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.ObjectModel.ObservableCollection`1">
+      <Item value="Add`0" priority="26" />
+      <Item value="Count" priority="27" />
+      <Item value="Remove`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Rhino.Mocks.MockRepository">
+      <Item value="StrictMock`0" priority="26" />
+      <Item value="Stub`1" priority="26" />
+      <Item value="ReplayAll`0" priority="26" />
+      <Item value="VerifyAll`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Rhino.Mocks.Interfaces.IMethodOptions`1">
+      <Item value="Return`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ManagementCompany.Models.HeatSupplierViewModel">
+      <Item value="HeatSuppliers" priority="26" />
+      <Item value="CreateSupplierCommand" priority="26" />
+      <Item value="Name" priority="26" />
+      <Item value="Description" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Input.ICommand">
+      <Item value="Execute`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Rhino.Mocks.Arg`1">
+      <Item value="Is" priority="26" />
+      <Item value="Matches`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Rhino.Mocks.Constraints.IsArg`1">
+      <Item value="Anything" priority="26" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <UnitTestSessions>
     <Session>
       <Name>Session #1</Name>
       <Elements>
+        <UnitTestElement Provider="nUnit" Id="Tests.Class1" type="NUnitTestFixtureElement" Project="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB" />
+        <UnitTestElement Provider="nUnit" Id="Tests.ManagementCompanyTests.HeatSupplierViewModelTest" type="NUnitTestFixtureElement" Project="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB" />
         <UnitTestElement Provider="nUnit" Id="Tests.CoreTests.ConverterTests.StringToDoubleConverterTests" type="NUnitTestFixtureElement" Project="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB" />
         <UnitTestElement Provider="nUnit" Id="Tests.CoreTests.ConverterTests.StringToDoubleConverterTests.Convert_PassInvalidValue_ThrowsArgumentException" ParentId="Tests.CoreTests.ConverterTests.StringToDoubleConverterTests" type="NUnitTestElement" TypeName="Tests.CoreTests.ConverterTests.StringToDoubleConverterTests" MethodName="Convert_PassInvalidValue_ThrowsArgumentException" Project="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB" />
         <UnitTestElement Provider="nUnit" Id="Tests.CoreTests.ConverterTests.StringToDoubleConverterTests.Convert_PassValidValue_MustReturnConvertedValue" ParentId="Tests.CoreTests.ConverterTests.StringToDoubleConverterTests" type="NUnitTestElement" TypeName="Tests.CoreTests.ConverterTests.StringToDoubleConverterTests" MethodName="Convert_PassValidValue_MustReturnConvertedValue" Project="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB" />
+        <UnitTestElement Provider="nUnit" Id="Tests.ManagementCompanyTests.HeatSupplierViewModelTest.CreateSupplier_NameEmpty_DoNotCreate" ParentId="Tests.ManagementCompanyTests.HeatSupplierViewModelTest" type="NUnitTestElement" TypeName="Tests.ManagementCompanyTests.HeatSupplierViewModelTest" MethodName="CreateSupplier_NameEmpty_DoNotCreate" Project="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB" />
+        <UnitTestElement Provider="nUnit" Id="Tests.ManagementCompanyTests.HeatSupplierViewModelTest.CreateSupplier_SetNameAndDescription_MustCreateWithAppropriatevalues" ParentId="Tests.ManagementCompanyTests.HeatSupplierViewModelTest" type="NUnitTestElement" TypeName="Tests.ManagementCompanyTests.HeatSupplierViewModelTest" MethodName="CreateSupplier_SetNameAndDescription_MustCreateWithAppropriatevalues" Project="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB" />
+        <UnitTestElement Provider="nUnit" Id="Tests.ManagementCompanyTests.HeatSupplierViewModelTest.HeatSuppliers_CreateViewModel_MustFillFromRepository" ParentId="Tests.ManagementCompanyTests.HeatSupplierViewModelTest" type="NUnitTestElement" TypeName="Tests.ManagementCompanyTests.HeatSupplierViewModelTest" MethodName="HeatSuppliers_CreateViewModel_MustFillFromRepository" Project="7D5ED02E-9A2C-48DB-8CBA-39A5BE8BDDFB" />
       </Elements>
     </Session>
   </UnitTestSessions>
