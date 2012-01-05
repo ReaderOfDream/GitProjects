@@ -22,8 +22,8 @@ namespace ManagementCompany
         private IHeatSupplierRepository heatSupplierRepository;
         private HeatSupplierViewModel heatSupplierViewModel;
 
-        private IBuildingRepository createobjectRepository;
-        private CreateObjectViewModel createobjectViewModel;
+        private IBuildingRepository buildingRepository;
+        private BuildingViewModel buildingViewModel;
 
         public MainWindow()
         {
@@ -33,8 +33,8 @@ namespace ManagementCompany
             heatSupplierRepository = new HeatSupplierRepository(new MCDatabaseModelContainer());
             heatSupplierViewModel = new HeatSupplierViewModel(heatSupplierRepository);
 
-            createobjectRepository = new BuildingRepository(new MCDatabaseModelContainer());
-            createobjectViewModel = new CreateObjectViewModel(createobjectRepository);
+            buildingRepository = new BuildingRepository(new MCDatabaseModelContainer());
+            buildingViewModel = new BuildingViewModel(buildingRepository);
 
 
             var months = new Months();
@@ -182,6 +182,6 @@ namespace ManagementCompany
 
         public HeatSupplierViewModel HeatSupplierViewModel { get { return heatSupplierViewModel; }}
 
-        public CreateObjectViewModel CreateObjectViewModel { get { return createobjectViewModel; } }
+        public BuildingViewModel BuildingViewModel { get { return buildingViewModel; } }
     }
 }

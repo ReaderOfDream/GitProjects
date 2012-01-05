@@ -17,12 +17,12 @@
       <File id="7C80777D-91D3-44C2-9A7F-D37511A32994/d:ContractCalculation/f:ContractCalculator.cs" caret="828" fromTop="17" />
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml" caret="854" fromTop="9" />
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="1759" fromTop="9" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateObjectView.xaml" caret="1339" fromTop="17" />
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:CreateObjectViewModel.cs" caret="304" fromTop="13" />
       <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.edmx.sql" caret="438" fromTop="10" />
-      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="211" fromTop="9" />
       <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/f:MCDatabaseModel.Designer.cs" caret="0" fromTop="0" />
       <File id="6570A4F7-8220-4A77-993F-E1156F4B5423/d:DAL/f:HeatSupplierRepository.cs" caret="1702" fromTop="20" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Views/f:CreateObjectView.xaml" caret="1339" fromTop="17" />
+      <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/d:Models/f:HeatSupplierViewModel.cs" caret="217" fromTop="8" />
     </RecentFiles>
     <RecentEdits>
       <File id="6F6AC5F1-90CB-42F0-9F67-D9B650800224/f:MainWindow.xaml.cs" caret="4255" fromTop="11" />

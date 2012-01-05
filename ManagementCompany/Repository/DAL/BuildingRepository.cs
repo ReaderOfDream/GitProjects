@@ -9,12 +9,11 @@ namespace Repository.DAL
         IEnumerable<Building> GetBuildings();
         IEnumerable<HeatSupplier> GetSuppliers();
 
-        Building GeBuildingById(int buildingId);
+        Building GetBuildingById(int buildingId);
         void InsertBuilding(Building building);
         void DeleteBuilding(int buildingId);
         void UpdateBuilding(Building building);
         void Save();
-        
     }
 
     public class BuildingRepository : IBuildingRepository
@@ -41,7 +40,7 @@ namespace Repository.DAL
             return db.HeatSuppliers;
         }
 
-        public Building GeBuildingById(int buildingId)
+        public Building GetBuildingById(int buildingId)
         {
             return db.Buildings.Single(building => building.Id == buildingId);
         }
@@ -65,6 +64,7 @@ namespace Repository.DAL
             updatingItem.Name = building.Name;
             updatingItem.Description = building.Description;
             updatingItem.EstimateConsumptionHeat = building.EstimateConsumptionHeat;
+            updatingItem.TotalArea = building.TotalArea;
         }
 
         public void Save()

@@ -61,8 +61,8 @@
     <Compile Include="Views\CreateHeatSupplier.xaml.cs">
       <DependentUpon>CreateHeatSupplier.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CreateObjectView.xaml.cs">
-      <DependentUpon>CreateObjectView.xaml</DependentUpon>
+    <Compile Include="Views\CreateBuildingView.xaml.cs">
+      <DependentUpon>CreateBuildingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ManagementObjectsView.xaml.cs">
       <DependentUpon>ManagementObjectsView.xaml</DependentUpon>
@@ -83,7 +83,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CreateObjectView.xaml">
+    <Page Include="Views\CreateBuildingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -93,7 +93,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\CreateObjectViewModel.cs" />
+    <Compile Include="Models\BuildingViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

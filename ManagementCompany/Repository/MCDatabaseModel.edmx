@@ -616,7 +616,7 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="MCDatabaseModel" ZoomLevel="63" >
+      <Diagram Name="MCDatabaseModel" ZoomLevel="100" >
         <EntityTypeShape EntityType="MCDatabaseModel.Building" Width="2.5" PointX="7" PointY="25.75" Height="2.9417936197916674" />
         <EntityTypeShape EntityType="MCDatabaseModel.DateTimeImtervals" Width="2.25" PointX="7.875" PointY="19.75" Height="1.787985026041671" />
         <EntityTypeShape EntityType="MCDatabaseModel.NormativeCalculations" Width="3.5" PointX="1.25" PointY="19.875" Height="2.7494921874999996" />
