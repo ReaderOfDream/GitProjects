@@ -15,20 +15,12 @@ namespace ManagementCompany
     /// </summary>
     public partial class App : Application
     {
-        public App()
-        {
-            //var viewVM = new ManagementObjectsViewModel();
-            View = new ManagementObjectsView();
-        }
-
         protected override void OnStartup(StartupEventArgs e)
         {
-            var mainWindow = new MainWindow{DataContext = this};
+            var mainWindow = new MainWindow();
             mainWindow.Show();
             
             base.OnStartup(e);
         }
-
-        public UserControl View { get; set; }
     }
 }

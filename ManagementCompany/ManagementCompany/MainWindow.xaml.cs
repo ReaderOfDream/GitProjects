@@ -8,7 +8,9 @@ using Core;
 using Core.ContractCalculation;
 using Core.StandartCalculation;
 using Core.TotalCalculation;
+using ManagementCompany.Models;
 using Repository;
+using Repository.DAL;
 
 namespace ManagementCompany
 {
@@ -17,9 +19,16 @@ namespace ManagementCompany
     /// </summary>
     public partial class MainWindow : Window
     {
+        private IHeatSupplierRepository heatSupplierRepository;
+        private HeatSupplierViewModel heatSupplierViewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
+
+            heatSupplierRepository = new HeatSupplierRepository(new MCDatabaseModelContainer());
+            heatSupplierViewModel = new HeatSupplierViewModel(heatSupplierRepository);
 
             var months = new Months();
             cmbxMonts.ItemsSource = months.AllMonth;
@@ -182,5 +191,7 @@ namespace ManagementCompany
                 context.SaveChanges();
             }
         }
+
+        public HeatSupplierViewModel HeatSupplierViewModel { get { return heatSupplierViewModel; }}
     }
 }

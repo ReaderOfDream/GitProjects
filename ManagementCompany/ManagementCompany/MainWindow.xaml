@@ -8,23 +8,7 @@
     
     <TabControl>
         <TabItem Header="Поставщик тепла">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                
-                <StackPanel Grid.Row="0">
-                    <TextBlock Text="Название"/>
-                    <TextBox />
-                </StackPanel>
-
-                <StackPanel Grid.Row="1">
-                    <TextBlock Text="Описание"/>
-                    <TextBox />
-                </StackPanel>
-            </Grid>
+            <UserControl Content="{Binding Path=HeatSupplierViewModel.View}"/>
         </TabItem>
         <TabItem Header="Создание сущности">
             <Grid>
