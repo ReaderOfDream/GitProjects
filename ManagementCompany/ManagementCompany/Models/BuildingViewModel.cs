@@ -11,23 +11,23 @@ using Repository.DAL;
 
 namespace ManagementCompany.Models
 {
-    public class CreateObjectViewModel : INotifyPropertyChanged
+    public class BuildingViewModel : INotifyPropertyChanged
     {
         private readonly IBuildingRepository supplierRepository;
         private readonly UserControl view;
 
-        public CreateObjectViewModel(IBuildingRepository buildingRepository)
+        public BuildingViewModel(IBuildingRepository buildingRepository)
         {
             Buildings = new ObservableCollection<Building>(buildingRepository.GetBuildings());
             HeatSuppliers = new ObservableCollection<HeatSupplier>(buildingRepository.GetSuppliers());
             supplierRepository = buildingRepository;
-            view = new CreateObjectView() { DataContext = this };
+            view = new CreateBuildingView() { DataContext = this };
         }
 
         public ObservableCollection<Building> Buildings { get; set; }
         public ObservableCollection<HeatSupplier> HeatSuppliers { get; set; }
 
-        private void CreateObject()
+        private void CreateBuilding()
         {
             if (string.IsNullOrEmpty(Name))
                 return;
@@ -59,7 +59,7 @@ namespace ManagementCompany.Models
             }
         }
 
-        private void DeleteObject()
+        private void DeleteBuilding()
         {
             if (selectedItem == null)
                 return;
@@ -81,12 +81,12 @@ namespace ManagementCompany.Models
             return true;
         }
 
-        public ICommand CreateObjectCommand { get { return new DelegatingCommand(CreateObject); } }
-        public ICommand DeleteObjectCommand
+        public ICommand CreateBuildingCommand { get { return new DelegatingCommand(CreateBuilding); } }
+        public ICommand DeleteBuildingCommand
         {
             get
             {
-                return new DelegatingCommand(DeleteObject);
+                return new DelegatingCommand(DeleteBuilding);
             }
         }
 
