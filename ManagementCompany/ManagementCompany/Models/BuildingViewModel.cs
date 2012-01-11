@@ -18,10 +18,18 @@ namespace ManagementCompany.Models
 
         public BuildingViewModel(IBuildingRepository buildingRepository)
         {
-            Buildings = new ObservableCollection<Building>(buildingRepository.GetBuildings());
-            HeatSuppliers = new ObservableCollection<HeatSupplier>(buildingRepository.GetSuppliers());
-            supplierRepository = buildingRepository;
-            view = new CreateBuildingView() { DataContext = this };
+            try
+            {
+                Buildings = new ObservableCollection<Building>(buildingRepository.GetBuildings());
+                HeatSuppliers = new ObservableCollection<HeatSupplier>(buildingRepository.GetSuppliers());
+                supplierRepository = buildingRepository;
+                view = new CreateBuildingView() {DataContext = this};
+            }
+            catch (Exception error)
+            {
+                int x;
+
+            }
         }
 
         public ObservableCollection<Building> Buildings { get; set; }
@@ -40,7 +48,7 @@ namespace ManagementCompany.Models
                                    {
                                        Name = Name,
                                        Description = Description,
-                                       EstimateConsumptionHeat = estimatedConsumption,
+                                       StandartOfHeat = estimatedConsumption,
                                        TotalArea = TotalArea,
                                        HeatSupplier = SelectedHeatSupplier
                                    };
