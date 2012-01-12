@@ -671,12 +671,13 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="MCDatabaseModel" ZoomLevel="63" >
-        <EntityTypeShape EntityType="MCDatabaseModel.Building" Width="2.5" PointX="7" PointY="25.375" Height="2.7494921874999996" />
+      <Diagram Name="MCDatabaseModel" ZoomLevel="82" >
+        <EntityTypeShape EntityType="MCDatabaseModel.Building" Width="2.5" PointX="7" PointY="25.375" Height="2.9417936197916674" />
         <EntityTypeShape EntityType="MCDatabaseModel.DateTimeImtervals" Width="2.25" PointX="7.875" PointY="19.75" Height="2.9417936197916674" />
         <EntityTypeShape EntityType="MCDatabaseModel.NormativeCalculations" Width="3.5" PointX="1.25" PointY="19.875" Height="2.5571907552083353" />
         <EntityTypeShape EntityType="MCDatabaseModel.ContractConsumptionHeat" Width="2.5" PointX="14.5" PointY="20.75" Height="2.5571907552083353" />
@@ -690,8 +691,8 @@
           <ConnectorPoint PointX="14.5" PointY="23.030742187500003" />
         </AssociationConnector>
         <AssociationConnector Association="MCDatabaseModel.BuildingsNormativeCalculation">
-          <ConnectorPoint PointX="7" PointY="26.364889572916663" />
-          <ConnectorPoint PointX="4.71875" PointY="26.364889572916663" />
+          <ConnectorPoint PointX="7" PointY="26.329655876835698" />
+          <ConnectorPoint PointX="4.71875" PointY="26.329655876835698" />
           <ConnectorPoint PointX="4.71875" PointY="22.432190755208335" />
         </AssociationConnector>
         <AssociationConnector Association="MCDatabaseModel.ContractConsumptionHeatDateTimeImtervals">
@@ -704,10 +705,8 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="MCDatabaseModel.MeterReadings" Width="3.375" PointX="1.25" PointY="23.5" Height="2.1725878906249996" />
         <AssociationConnector Association="MCDatabaseModel.BuildingsMeterReadings">
-          <ConnectorPoint PointX="7" PointY="26.99469125520833" />
-          <ConnectorPoint PointX="4.802083333333333" PointY="26.99469125520833" />
-          <ConnectorPoint PointX="4.635416666666667" PointY="26.99469125520833" />
-          <ConnectorPoint PointX="2.9375" PointY="26.99469125520833" />
+          <ConnectorPoint PointX="7" PointY="27.354477248313682" />
+          <ConnectorPoint PointX="2.9375" PointY="27.354477248313682" />
           <ConnectorPoint PointX="2.9375" PointY="25.672587890625" />
         </AssociationConnector>
         <AssociationConnector Association="MCDatabaseModel.MeterReadingsDateTimeImtervals" ManuallyRouted="false">
@@ -731,8 +730,8 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="MCDatabaseModel.HeatSupplier" Width="1.5" PointX="15.875" PointY="26.25" Height="1.5956835937500031" />
         <AssociationConnector Association="MCDatabaseModel.BuildingsHeatSupplier">
-          <ConnectorPoint PointX="9.5" PointY="27.187246093749998" />
-          <ConnectorPoint PointX="15.875" PointY="27.187246093749998" />
+          <ConnectorPoint PointX="9.5" PointY="27.240143229166669" />
+          <ConnectorPoint PointX="15.875" PointY="27.240143229166669" />
         </AssociationConnector>
         <AssociationConnector Association="MCDatabaseModel.DateTimeImtervalsHeatSupplier">
           <ConnectorPoint PointX="10.125" PointY="20.21875" />

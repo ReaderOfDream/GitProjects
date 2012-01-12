@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 01/12/2012 00:34:06
+-- Date Created: 01/12/2012 23:55:25
 -- Generated from EDMX file: D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\MCDatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -46,6 +46,9 @@ IF OBJECT_ID(N'[dbo].[FK_BuildingsHeatSupplier]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_DateTimeImtervalsHeatSupplier]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[DateTimeImtervals] DROP CONSTRAINT [FK_DateTimeImtervalsHeatSupplier];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ContractConsumptionHeatThermometerReading]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ContractConsumptionHeatTable] DROP CONSTRAINT [FK_ContractConsumptionHeatThermometerReading];
 GO
 
 -- --------------------------------------------------

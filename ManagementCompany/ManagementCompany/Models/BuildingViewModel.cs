@@ -18,10 +18,18 @@ namespace ManagementCompany.Models
 
         public BuildingViewModel(IBuildingRepository buildingRepository)
         {
-            Buildings = new ObservableCollection<Building>(buildingRepository.GetBuildings());
-            HeatSuppliers = new ObservableCollection<HeatSupplier>(buildingRepository.GetSuppliers());
-            supplierRepository = buildingRepository;
-            view = new CreateBuildingView() { DataContext = this };
+            try
+            {
+                Buildings = new ObservableCollection<Building>(buildingRepository.GetBuildings());
+                HeatSuppliers = new ObservableCollection<HeatSupplier>(buildingRepository.GetSuppliers());
+                supplierRepository = buildingRepository;
+                view = new CreateBuildingView() {DataContext = this};
+            }
+            catch (Exception error)
+            {
+                int x;
+
+            }
         }
 
         public ObservableCollection<Building> Buildings { get; set; }
