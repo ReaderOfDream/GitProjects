@@ -23,36 +23,7 @@
             <UserControl Content="{Binding Path=ThermometersReaderViewModel.View}"/>
         </TabItem>
         <TabItem Header="Договр">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition  Height="Auto"/>
-                    <RowDefinition  Height="Auto"/>
-                    <RowDefinition  Height="Auto"/>
-                    <RowDefinition  Height="Auto"/>
-                </Grid.RowDefinitions>
-                
-                <StackPanel Orientation="Horizontal" Grid.Row="0">
-                    <Label Content="Фактическая температура воздуха"/>
-                    <TextBox Name="tbxAirTemperature"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Grid.Row="1">
-                    <Label Content="Количество человек"/>
-                    <TextBox Name="tbxPeoplesCount"/>
-                </StackPanel>
-                
-                <ComboBox Name="cmbxMonts" Grid.Row="2"/>
-
-                <StackPanel Orientation="Horizontal" Grid.Row="3">
-                    <Label Content="Здание: "/>
-                    <ComboBox Name="cmbxBuildingsContract" DisplayMemberPath="Name" Width="100"/>
-                </StackPanel>
-
-                <StackPanel Grid.Row="4">
-                    <Button Content="Добавить" Name="btnAddContract" Click="btnAddContract_Click"/>
-                </StackPanel>
-            </Grid>
+            <UserControl Content="{Binding Path=ContractConsumptionViewModel.View}"/>
         </TabItem>
         <TabItem Header="Счетчик">
             <Grid>

@@ -56,11 +56,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\ContractConsumptionViewModel.cs" />
     <Compile Include="Models\CreateReportViewModel.cs" />
     <Compile Include="Models\HeatSupplierViewModel.cs" />
     <Compile Include="Models\ManagementObjectsViewModel.cs" />
     <Compile Include="Models\NormativeCalculationViewModel.cs" />
     <Compile Include="Models\ThermometersReaderViewModel.cs" />
+    <Compile Include="Views\ContractConsumptionView.xaml.cs">
+      <DependentUpon>ContractConsumptionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CreateHeatSupplier.xaml.cs">
       <DependentUpon>CreateHeatSupplier.xaml</DependentUpon>
     </Compile>
@@ -91,6 +95,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ContractConsumptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CreateHeatSupplier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

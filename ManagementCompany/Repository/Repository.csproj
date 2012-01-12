@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\BuildingRepository.cs" />
+    <Compile Include="DAL\ContractComsumptionRepository.cs" />
     <Compile Include="DAL\NormativeCalculationRepository.cs" />
     <Compile Include="DAL\ReportRepository.cs" />
     <Compile Include="DAL\ThermometerReadingRepository.cs" />

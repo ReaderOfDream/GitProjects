@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="ManagementCompany.Views.ContractConsumptionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Label Content="Фактическая температура воздуха"/>
+            <ComboBox ItemsSource="{Binding ThermometerReadings}" SelectedItem="{Binding SelectedThermometerReading}" DisplayMemberPath="Month"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Label Content="Количество человек"/>
+            <TextBox Text="{Binding PeopleCount}"/>
+        </StackPanel>       
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3">
+            <Label Content="Здание: "/>
+            <ComboBox DisplayMemberPath="Name" Width="100" ItemsSource="{Binding Buildings}" SelectedItem="{Binding SelectedBuilding}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="4">
+            <Label Content="Интервал отчета"/>
+            <ComboBox DisplayMemberPath="Name" Width="100" ItemsSource="{Binding DateTimeIntervals}" SelectedItem="{Binding SelectedInterval}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5">
+            <Button Content="Рассчитать" Command="{Binding CalculateCommand}" Width="100" />
+        </StackPanel>
+
+        <ListView Grid.Row="6" ItemsSource="{Binding ContractConsumptions}" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Количество человек" DisplayMemberBinding="{Binding PeopleCount}"/>
+                    <GridViewColumn Header="Отопление по нагрузке" DisplayMemberBinding="{Binding HeatByLoading}" />
+                    <GridViewColumn Header="ГВС по норме" DisplayMemberBinding="{Binding HotWaterByNorm}" />
+                    <GridViewColumn Header="Итого" DisplayMemberBinding="{Binding TotalHeatConsumption}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>

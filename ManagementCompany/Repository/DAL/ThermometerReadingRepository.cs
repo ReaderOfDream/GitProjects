@@ -3,6 +3,17 @@ using System.Linq;
 
 namespace Repository.DAL
 {
+    public interface IRepository<T>
+    {
+        IEnumerable<T> GetItems();
+
+        T GetThermometerReadingById(int id);
+        void InsertThermometerReading(T item);
+        void DeleteThermometerReading(T item);
+        void UpdateThermometerReading(T item);
+        void Save();
+    }
+
     public interface IThermometerReadingRepository
     {
         IEnumerable<ThermometerReading> GetThermometerReadings();

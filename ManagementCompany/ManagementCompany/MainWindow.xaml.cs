@@ -31,73 +31,35 @@ namespace ManagementCompany
         private readonly IThermometerReadingRepository thermometerReadingRepository;
         private readonly ThermometersReaderViewModel thermometerReadingViewModel;
 
+        private IContractConsumprionRepository contractConsumprionRepository;
+        private ContractConsumptionViewModel contractConsumptionViewModel;
+
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
 
-            heatSupplierRepository = new HeatSupplierRepository(new MCDatabaseModelContainer());
+            var db = new MCDatabaseModelContainer();
+
+            heatSupplierRepository = new HeatSupplierRepository(db);
+            buildingRepository = new BuildingRepository(db);
+            reportRepository = new ReportRepository(db);
+            normativeCalculationRepository = new NormativeCalculationRepository(db);
+            thermometerReadingRepository = new ThermometerReadingRepository(db);
+            contractConsumprionRepository = new ContractComsumptionRepository(db);
+
             heatSupplierViewModel = new HeatSupplierViewModel(heatSupplierRepository);
-
-            buildingRepository = new BuildingRepository(new MCDatabaseModelContainer());
             buildingViewModel = new BuildingViewModel(buildingRepository);
-
-            reportRepository = new ReportRepository(new MCDatabaseModelContainer());
             createReportViewModel = new CreateReportViewModel(reportRepository);
-
-            normativeCalculationRepository = new NormativeCalculationRepository(new MCDatabaseModelContainer());
             normativeCalculationViewModel = new NormativeCalculationViewModel(normativeCalculationRepository, new StandartCalculator());
-
-            thermometerReadingRepository = new ThermometerReadingRepository(new MCDatabaseModelContainer());
             thermometerReadingViewModel = new ThermometersReaderViewModel(thermometerReadingRepository);
+            contractConsumptionViewModel = new ContractConsumptionViewModel(contractConsumprionRepository, new ContractCalculator());
 
-            var months = new Months();
-            cmbxMonts.ItemsSource = months.AllMonth;
-            cmbxMonts.DisplayMemberPath = "Name";
-            cmbxMontsClearing.ItemsSource = months.AllMonth;
             cmbxMontsClearing.DisplayMemberPath = "Name";
 
             using (var mcDatabaseModelContainer = new MCDatabaseModelContainer())
             {
-                cmbxBuildingsContract.ItemsSource = mcDatabaseModelContainer.Buildings.ToArray();
                 cmbxBuildingsClearing.ItemsSource = mcDatabaseModelContainer.Buildings.ToArray();
-            }
-        }
-
-        private void btnAddContract_Click(object sender, RoutedEventArgs e)
-        {
-            double airtemperature = Double.Parse(tbxAirTemperature.Text);
-            int countPeoples = int.Parse(tbxPeoplesCount.Text);
-            int countDays = DateTime.DaysInMonth(DateTime.Now.Year, ((Month)cmbxMonts.SelectedItem).Index);
-
-            var contractCalculator = new ContractCalculator();
-
-            using (var context = new MCDatabaseModelContainer())
-            {
-                var datetime = from date in context.DateTimeImtervals
-                               select date;
-
-                var estimatedConsumption = from building in context.Buildings
-                                           where building.Id == ((Building)cmbxBuildingsContract.SelectedItem).Id
-                                           select building.StandartOfHeat;
-
-                var consumptionByLoad = contractCalculator.ConsumptionByLoad(estimatedConsumption.FirstOrDefault(), countDays,
-                                                                             airtemperature);
-                var hotWaterByNorm = contractCalculator.HotWaterByNorm(countPeoples);
-                var totalHeatConsumption = contractCalculator.TotalHeatConsumption(consumptionByLoad, hotWaterByNorm);
-
-                var contractConsumption = new ContractConsumptionHeat
-                                              {
-                                                  //AirTemperature = airtemperature,
-                                                  BuildingsId = ((Building)cmbxBuildingsContract.SelectedItem).Id,
-                                                  HeatByLoading = consumptionByLoad,
-                                                  PeopleCount = countPeoples,
-                                                  HotWaterByNorm = hotWaterByNorm,
-                                                  TotalHeatConsumption = totalHeatConsumption,
-                                                  DateTimeImtervals = datetime.First()
-                                              };
-                context.ContractConsumptionHeatTable.AddObject(contractConsumption);
-                context.SaveChanges();
             }
         }
 
@@ -141,7 +103,10 @@ namespace ManagementCompany
         public HeatSupplierViewModel HeatSupplierViewModel { get { return heatSupplierViewModel; }}
         public BuildingViewModel BuildingViewModel { get { return buildingViewModel; } }
         public CreateReportViewModel CreateReportViewModel { get { return createReportViewModel; } }
-        public ThermometersReaderViewModel ThermometersReaderViewModel{get { return thermometerReadingViewModel; }
+        public ThermometersReaderViewModel ThermometersReaderViewModel{get { return thermometerReadingViewModel; }}
+        public ContractConsumptionViewModel ContractConsumptionViewModel
+        {
+            get { return contractConsumptionViewModel; }
         }
     }
 }
