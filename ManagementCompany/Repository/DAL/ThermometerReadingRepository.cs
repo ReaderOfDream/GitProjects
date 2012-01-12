@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Repository.DAL
 {
@@ -16,7 +14,7 @@ namespace Repository.DAL
         void Save();
     }
 
-    class ThermometerReadingRepository : IThermometerReadingRepository
+    public class ThermometerReadingRepository : IThermometerReadingRepository
     {
         private readonly MCDatabaseModelContainer db;
 
@@ -34,27 +32,31 @@ namespace Repository.DAL
 
         public ThermometerReading GetThermometerReadingById(int id)
         {
-            throw new NotImplementedException();
+            return db.ThermometerReadings.Single(item => item.Id == id);
         }
 
         public void InsertThermometerReading(ThermometerReading thermReading)
         {
-            throw new NotImplementedException();
+            db.ThermometerReadings.AddObject(thermReading);
         }
 
         public void DeleteThermometerReading(ThermometerReading thermReading)
         {
-            throw new NotImplementedException();
+            var deletingItem = db.ThermometerReadings.Single(item => item.Id == thermReading.Id);
+            db.ThermometerReadings.DeleteObject(deletingItem);
         }
 
         public void UpdateThermometerReading(ThermometerReading thermReading)
         {
-            throw new NotImplementedException();
+            var updatingItem = db.ThermometerReadings.Single(item => item.Id == thermReading.Id);
+            updatingItem.Month = thermReading.Month;
+            updatingItem.Year = thermReading.Year;
+            updatingItem.AirTemperature = thermReading.AirTemperature;
         }
 
         public void Save()
         {
-            throw new NotImplementedException();
+            db.SaveChanges();
         }
 
         #endregion

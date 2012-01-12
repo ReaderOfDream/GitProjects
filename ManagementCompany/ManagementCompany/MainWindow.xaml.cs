@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Data.Objects;
-using System.Data.Objects.DataClasses;
-using System.Data.Common;
 using System.Windows;
 using Core;
 using Core.ContractCalculation;
@@ -19,17 +16,20 @@ namespace ManagementCompany
     /// </summary>
     public partial class MainWindow : Window
     {
-        private IHeatSupplierRepository heatSupplierRepository;
-        private HeatSupplierViewModel heatSupplierViewModel;
+        private readonly IHeatSupplierRepository heatSupplierRepository;
+        private readonly HeatSupplierViewModel heatSupplierViewModel;
 
-        private IBuildingRepository buildingRepository;
-        private BuildingViewModel buildingViewModel;
+        private readonly IBuildingRepository buildingRepository;
+        private readonly BuildingViewModel buildingViewModel;
 
-        private IReportRepository reportRepository;
-        private CreateReportViewModel createReportViewModel;
+        private readonly IReportRepository reportRepository;
+        private readonly CreateReportViewModel createReportViewModel;
 
-        private INormativeCalculationRepository normativeCalculationRepository;
-        private NormativeCalculationViewModel normativeCalculationViewModel;
+        private readonly INormativeCalculationRepository normativeCalculationRepository;
+        private readonly NormativeCalculationViewModel normativeCalculationViewModel;
+
+        private readonly IThermometerReadingRepository thermometerReadingRepository;
+        private readonly ThermometersReaderViewModel thermometerReadingViewModel;
 
         public MainWindow()
         {
@@ -47,6 +47,9 @@ namespace ManagementCompany
 
             normativeCalculationRepository = new NormativeCalculationRepository(new MCDatabaseModelContainer());
             normativeCalculationViewModel = new NormativeCalculationViewModel(normativeCalculationRepository, new StandartCalculator());
+
+            thermometerReadingRepository = new ThermometerReadingRepository(new MCDatabaseModelContainer());
+            thermometerReadingViewModel = new ThermometersReaderViewModel(thermometerReadingRepository);
 
             var months = new Months();
             cmbxMonts.ItemsSource = months.AllMonth;
@@ -138,5 +141,7 @@ namespace ManagementCompany
         public HeatSupplierViewModel HeatSupplierViewModel { get { return heatSupplierViewModel; }}
         public BuildingViewModel BuildingViewModel { get { return buildingViewModel; } }
         public CreateReportViewModel CreateReportViewModel { get { return createReportViewModel; } }
+        public ThermometersReaderViewModel ThermometersReaderViewModel{get { return thermometerReadingViewModel; }
+        }
     }
 }

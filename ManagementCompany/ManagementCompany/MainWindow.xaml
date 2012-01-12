@@ -19,6 +19,9 @@
         <TabItem Header="Задание нормативного расчета">
             <UserControl Content="{Binding Path=NormativeCalculationViewModel.View}"/>
         </TabItem>
+        <TabItem Header="Календарь температур">
+            <UserControl Content="{Binding Path=ThermometersReaderViewModel.View}"/>
+        </TabItem>
         <TabItem Header="Договр">
             <Grid>
                 <Grid.RowDefinitions>
