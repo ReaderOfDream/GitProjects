@@ -60,6 +60,7 @@
     <Compile Include="Models\HeatSupplierViewModel.cs" />
     <Compile Include="Models\ManagementObjectsViewModel.cs" />
     <Compile Include="Models\NormativeCalculationViewModel.cs" />
+    <Compile Include="Models\ThermometersReaderViewModel.cs" />
     <Compile Include="Views\CreateHeatSupplier.xaml.cs">
       <DependentUpon>CreateHeatSupplier.xaml</DependentUpon>
     </Compile>

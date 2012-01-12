@@ -85,7 +85,7 @@ namespace ManagementCompany
 
                 var contractConsumption = new ContractConsumptionHeat
                                               {
-                                                  AirTemperature = airtemperature,
+                                                  //AirTemperature = airtemperature,
                                                   BuildingsId = ((Building)cmbxBuildingsContract.SelectedItem).Id,
                                                   HeatByLoading = consumptionByLoad,
                                                   PeopleCount = countPeoples,

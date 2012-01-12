@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
@@ -13,6 +13,7 @@
     <EntitySet Name="MeterReadingsTable" EntityType="MCDatabaseModel.Store.MeterReadingsTable" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ClearingTable" EntityType="MCDatabaseModel.Store.ClearingTable" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="HeatSuppliers" EntityType="MCDatabaseModel.Store.HeatSuppliers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ThermometerReadings" EntityType="MCDatabaseModel.Store.ThermometerReadings" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="BuildingsContractConsumptionHeat" Association="MCDatabaseModel.Store.BuildingsContractConsumptionHeat">
       <End Role="Buildings" EntitySet="Buildings" />
       <End Role="ContractConsumptionHeat" EntitySet="ContractConsumptionHeatTable" />
@@ -53,6 +54,10 @@
       <End Role="DateTimeImtervals" EntitySet="DateTimeImtervals" />
       <End Role="HeatSupplier" EntitySet="HeatSuppliers" />
     </AssociationSet>
+    <AssociationSet Name="ContractConsumptionHeatThermometerReading" Association="MCDatabaseModel.Store.ContractConsumptionHeatThermometerReading">
+      <End Role="ContractConsumptionHeat" EntitySet="ContractConsumptionHeatTable" />
+      <End Role="ThermometerReading" EntitySet="ThermometerReadings" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Buildings">
     <Key>
@@ -92,13 +97,13 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="AirTemperature" Type="float" Nullable="false" />
     <Property Name="HeatByLoading" Type="float" Nullable="false" />
     <Property Name="PeopleCount" Type="int" Nullable="false" />
     <Property Name="HotWaterByNorm" Type="float" Nullable="false" />
     <Property Name="TotalHeatConsumption" Type="float" Nullable="false" />
     <Property Name="BuildingsId" Type="int" Nullable="false" />
     <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
+    <Property Name="ThermometerReading_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="MeterReadingsTable">
     <Key>
@@ -128,6 +133,15 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ThermometerReadings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Month" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Year" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AirTemperature" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="BuildingsContractConsumptionHeat">
     <End Role="Buildings" Type="MCDatabaseModel.Store.Buildings" Multiplicity="1" />
@@ -249,6 +263,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="ContractConsumptionHeatThermometerReading">
+    <End Role="ContractConsumptionHeat" Type="MCDatabaseModel.Store.ContractConsumptionHeatTable" Multiplicity="*" />
+    <End Role="ThermometerReading" Type="MCDatabaseModel.Store.ThermometerReadings" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ThermometerReading">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContractConsumptionHeat">
+        <PropertyRef Name="ThermometerReading_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -301,6 +327,11 @@
             <End Role="DateTimeImtervals" EntitySet="DateTimeImtervals" />
             <End Role="HeatSupplier" EntitySet="HeatSuppliers" />
           </AssociationSet>
+          <EntitySet Name="ThermometerReadings" EntityType="MCDatabaseModel.ThermometerReading" />
+          <AssociationSet Name="ContractConsumptionHeatThermometerReading" Association="MCDatabaseModel.ContractConsumptionHeatThermometerReading">
+            <End Role="ContractConsumptionHeat" EntitySet="ContractConsumptionHeatTable" />
+            <End Role="ThermometerReading" EntitySet="ThermometerReadings" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Building">
           <Key>
@@ -350,7 +381,6 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Double" Name="AirTemperature" Nullable="false" />
           <Property Type="Double" Name="HeatByLoading" Nullable="false" />
           <Property Type="Int32" Name="PeopleCount" Nullable="false" />
           <Property Type="Double" Name="HotWaterByNorm" Nullable="false" />
@@ -358,6 +388,7 @@
           <NavigationProperty Name="Buildings" Relationship="MCDatabaseModel.BuildingsContractConsumptionHeat" FromRole="ContractConsumptionHeat" ToRole="Buildings" />
           <Property Type="Int32" Name="BuildingsId" Nullable="false" />
           <NavigationProperty Name="DateTimeImtervals" Relationship="MCDatabaseModel.ContractConsumptionHeatDateTimeImtervals" FromRole="ContractConsumptionHeat" ToRole="DateTimeImtervals" />
+          <NavigationProperty Name="ThermometerReading" Relationship="MCDatabaseModel.ContractConsumptionHeatThermometerReading" FromRole="ContractConsumptionHeat" ToRole="ThermometerReading" />
         </EntityType>
         <Association Name="BuildingsContractConsumptionHeat">
           <End Type="MCDatabaseModel.Building" Role="Buildings" Multiplicity="1" />
@@ -472,6 +503,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ThermometerReading">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Month" Nullable="false" />
+          <Property Type="String" Name="Year" Nullable="false" />
+          <Property Type="String" Name="AirTemperature" Nullable="false" />
+          <NavigationProperty Name="ContractConsumptionHeats" Relationship="MCDatabaseModel.ContractConsumptionHeatThermometerReading" FromRole="ThermometerReading" ToRole="ContractConsumptionHeat" />
+        </EntityType>
+        <Association Name="ContractConsumptionHeatThermometerReading">
+          <End Type="MCDatabaseModel.ContractConsumptionHeat" Role="ContractConsumptionHeat" Multiplicity="*" />
+          <End Type="MCDatabaseModel.ThermometerReading" Role="ThermometerReading" Multiplicity="1" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -516,7 +561,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.ContractConsumptionHeat)">
         <MappingFragment StoreEntitySet="ContractConsumptionHeatTable">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="AirTemperature" ColumnName="AirTemperature" />
           <ScalarProperty Name="HeatByLoading" ColumnName="HeatByLoading" />
           <ScalarProperty Name="PeopleCount" ColumnName="PeopleCount" />
           <ScalarProperty Name="HotWaterByNorm" ColumnName="HotWaterByNorm" />
@@ -552,6 +596,16 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThermometerReadings">
+      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.ThermometerReading)">
+        <MappingFragment StoreEntitySet="ThermometerReadings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="AirTemperature" ColumnName="AirTemperature" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -595,6 +649,14 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
+    <AssociationSetMapping Name="ContractConsumptionHeatThermometerReading" TypeName="MCDatabaseModel.ContractConsumptionHeatThermometerReading" StoreEntitySet="ContractConsumptionHeatTable">
+      <EndProperty Name="ThermometerReading">
+        <ScalarProperty Name="Id" ColumnName="ThermometerReading_Id" />
+      </EndProperty>
+      <EndProperty Name="ContractConsumptionHeat">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -617,15 +679,15 @@
         <EntityTypeShape EntityType="MCDatabaseModel.Building" Width="2.5" PointX="7" PointY="25.375" Height="2.7494921874999996" />
         <EntityTypeShape EntityType="MCDatabaseModel.DateTimeImtervals" Width="2.25" PointX="7.875" PointY="19.75" Height="2.9417936197916674" />
         <EntityTypeShape EntityType="MCDatabaseModel.NormativeCalculations" Width="3.5" PointX="1.25" PointY="19.875" Height="2.5571907552083353" />
-        <EntityTypeShape EntityType="MCDatabaseModel.ContractConsumptionHeat" Width="2.5" PointX="14.5" PointY="20.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="MCDatabaseModel.ContractConsumptionHeat" Width="2.5" PointX="14.5" PointY="20.75" Height="2.5571907552083353" />
         <AssociationConnector Association="MCDatabaseModel.BuildingsContractConsumptionHeat" ManuallyRouted="false">
           <ConnectorPoint PointX="7.40625" PointY="25.375" />
-          <ConnectorPoint PointX="7.40625" PointY="23.126892903645832" />
-          <ConnectorPoint PointX="9.6761889713541667" PointY="23.126892903645832" />
-          <ConnectorPoint PointX="9.8428556380208345" PointY="23.126892903645832" />
-          <ConnectorPoint PointX="9.8901803190104172" PointY="23.126892903645832" />
-          <ConnectorPoint PointX="10.056846985677085" PointY="23.126892903645832" />
-          <ConnectorPoint PointX="14.5" PointY="23.126892903645832" />
+          <ConnectorPoint PointX="7.40625" PointY="23.030742187500003" />
+          <ConnectorPoint PointX="9.6477289982096348" PointY="23.030742187500003" />
+          <ConnectorPoint PointX="9.8143956648763027" PointY="23.030742187500003" />
+          <ConnectorPoint PointX="9.87595033243815" PointY="23.030742187500003" />
+          <ConnectorPoint PointX="10.042616999104817" PointY="23.030742187500003" />
+          <ConnectorPoint PointX="14.5" PointY="23.030742187500003" />
         </AssociationConnector>
         <AssociationConnector Association="MCDatabaseModel.BuildingsNormativeCalculation">
           <ConnectorPoint PointX="7" PointY="26.364889572916663" />
@@ -649,13 +711,13 @@
           <ConnectorPoint PointX="2.9375" PointY="25.672587890625" />
         </AssociationConnector>
         <AssociationConnector Association="MCDatabaseModel.MeterReadingsDateTimeImtervals" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.625" PointY="24.792604279518127" />
-          <ConnectorPoint PointX="4.635416666666667" PointY="24.792604279518127" />
-          <ConnectorPoint PointX="4.802083333333333" PointY="24.792604279518127" />
-          <ConnectorPoint PointX="7.322916666666667" PointY="24.792604279518127" />
-          <ConnectorPoint PointX="7.489583333333333" PointY="24.792604279518127" />
-          <ConnectorPoint PointX="9.7595223046875" PointY="24.792604279518127" />
-          <ConnectorPoint PointX="9.7595223046875" PointY="22.691793619791667" />
+          <ConnectorPoint PointX="4.625" PointY="24.791725267469882" />
+          <ConnectorPoint PointX="4.635416666666667" PointY="24.791725267469882" />
+          <ConnectorPoint PointX="4.802083333333333" PointY="24.791725267469882" />
+          <ConnectorPoint PointX="7.322916666666667" PointY="24.791725267469882" />
+          <ConnectorPoint PointX="7.489583333333333" PointY="24.791725267469882" />
+          <ConnectorPoint PointX="9.7310623315429687" PointY="24.791725267469882" />
+          <ConnectorPoint PointX="9.7310623315429687" PointY="22.691793619791667" />
         </AssociationConnector>
         <EntityTypeShape EntityType="MCDatabaseModel.Clearing" Width="2.5" PointX="12.125" PointY="23.75" Height="1.7879850260416674" />
         <AssociationConnector Association="MCDatabaseModel.BuildingsClearing">
@@ -663,9 +725,9 @@
           <ConnectorPoint PointX="12.125" PointY="25.744944661458334" />
         </AssociationConnector>
         <AssociationConnector Association="MCDatabaseModel.DateTimeImtervalsClearing">
-          <ConnectorPoint PointX="9.9735136523437511" PointY="22.691793619791667" />
-          <ConnectorPoint PointX="9.9735136523437511" PointY="24.271302139759065" />
-          <ConnectorPoint PointX="12.125" PointY="24.271302139759065" />
+          <ConnectorPoint PointX="9.9592836657714834" PointY="22.691793619791667" />
+          <ConnectorPoint PointX="9.9592836657714834" PointY="24.270862633734943" />
+          <ConnectorPoint PointX="12.125" PointY="24.270862633734943" />
         </AssociationConnector>
         <EntityTypeShape EntityType="MCDatabaseModel.HeatSupplier" Width="1.5" PointX="15.875" PointY="26.25" Height="1.5956835937500031" />
         <AssociationConnector Association="MCDatabaseModel.BuildingsHeatSupplier">
@@ -676,6 +738,13 @@
           <ConnectorPoint PointX="10.125" PointY="20.21875" />
           <ConnectorPoint PointX="17.21875" PointY="20.21875" />
           <ConnectorPoint PointX="17.21875" PointY="26.25" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="MCDatabaseModel.ThermometerReading" Width="2.375" PointX="18.125" PointY="21.25" Height="1.7879850260416674" />
+        <AssociationConnector Association="MCDatabaseModel.ContractConsumptionHeatThermometerReading">
+          <ConnectorPoint PointX="17" PointY="22.240143229166669" />
+          <ConnectorPoint PointX="17.135416666666668" PointY="22.240143229166669" />
+          <ConnectorPoint PointX="17.302083333333332" PointY="22.240143229166669" />
+          <ConnectorPoint PointX="18.125" PointY="22.240143229166669" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

@@ -61,6 +61,7 @@
     <Compile Include="DAL\BuildingRepository.cs" />
     <Compile Include="DAL\NormativeCalculationRepository.cs" />
     <Compile Include="DAL\ReportRepository.cs" />
+    <Compile Include="DAL\ThermometerReadingRepository.cs" />
     <Compile Include="MCDatabaseModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

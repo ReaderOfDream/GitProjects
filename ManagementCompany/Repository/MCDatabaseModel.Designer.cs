@@ -28,6 +28,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("MCDatabaseModel", "DateTimeImtervalsClearing", "DateTimeImtervals", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.DateTimeImtervals), "Clearing", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Repository.Clearing))]
 [assembly: EdmRelationshipAttribute("MCDatabaseModel", "BuildingsHeatSupplier", "Buildings", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repository.Building), "HeatSupplier", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.HeatSupplier))]
 [assembly: EdmRelationshipAttribute("MCDatabaseModel", "DateTimeImtervalsHeatSupplier", "DateTimeImtervals", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repository.DateTimeImtervals), "HeatSupplier", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.HeatSupplier), true)]
+[assembly: EdmRelationshipAttribute("MCDatabaseModel", "ContractConsumptionHeatThermometerReading", "ContractConsumptionHeat", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repository.ContractConsumptionHeat), "ThermometerReading", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.ThermometerReading))]
 
 #endregion
 
@@ -190,6 +191,22 @@ namespace Repository
             }
         }
         private ObjectSet<HeatSupplier> _HeatSuppliers;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<ThermometerReading> ThermometerReadings
+        {
+            get
+            {
+                if ((_ThermometerReadings == null))
+                {
+                    _ThermometerReadings = base.CreateObjectSet<ThermometerReading>("ThermometerReadings");
+                }
+                return _ThermometerReadings;
+            }
+        }
+        private ObjectSet<ThermometerReading> _ThermometerReadings;
 
         #endregion
         #region Методы AddTo
@@ -248,6 +265,14 @@ namespace Repository
         public void AddToHeatSuppliers(HeatSupplier heatSupplier)
         {
             base.AddObject("HeatSuppliers", heatSupplier);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet ThermometerReadings. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToThermometerReadings(ThermometerReading thermometerReading)
+        {
+            base.AddObject("ThermometerReadings", thermometerReading);
         }
 
         #endregion
@@ -796,17 +821,15 @@ namespace Repository
         /// Создание нового объекта ContractConsumptionHeat.
         /// </summary>
         /// <param name="id">Исходное значение свойства ID.</param>
-        /// <param name="airTemperature">Исходное значение свойства AirTemperature.</param>
         /// <param name="heatByLoading">Исходное значение свойства HeatByLoading.</param>
         /// <param name="peopleCount">Исходное значение свойства PeopleCount.</param>
         /// <param name="hotWaterByNorm">Исходное значение свойства HotWaterByNorm.</param>
         /// <param name="totalHeatConsumption">Исходное значение свойства TotalHeatConsumption.</param>
         /// <param name="buildingsId">Исходное значение свойства BuildingsId.</param>
-        public static ContractConsumptionHeat CreateContractConsumptionHeat(global::System.Int32 id, global::System.Double airTemperature, global::System.Double heatByLoading, global::System.Int32 peopleCount, global::System.Double hotWaterByNorm, global::System.Double totalHeatConsumption, global::System.Int32 buildingsId)
+        public static ContractConsumptionHeat CreateContractConsumptionHeat(global::System.Int32 id, global::System.Double heatByLoading, global::System.Int32 peopleCount, global::System.Double hotWaterByNorm, global::System.Double totalHeatConsumption, global::System.Int32 buildingsId)
         {
             ContractConsumptionHeat contractConsumptionHeat = new ContractConsumptionHeat();
             contractConsumptionHeat.ID = id;
-            contractConsumptionHeat.AirTemperature = airTemperature;
             contractConsumptionHeat.HeatByLoading = heatByLoading;
             contractConsumptionHeat.PeopleCount = peopleCount;
             contractConsumptionHeat.HotWaterByNorm = hotWaterByNorm;
@@ -844,30 +867,6 @@ namespace Repository
         private global::System.Int32 _ID;
         partial void OnIDChanging(global::System.Int32 value);
         partial void OnIDChanged();
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Double AirTemperature
-        {
-            get
-            {
-                return _AirTemperature;
-            }
-            set
-            {
-                OnAirTemperatureChanging(value);
-                ReportPropertyChanging("AirTemperature");
-                _AirTemperature = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("AirTemperature");
-                OnAirTemperatureChanged();
-            }
-        }
-        private global::System.Double _AirTemperature;
-        partial void OnAirTemperatureChanging(global::System.Double value);
-        partial void OnAirTemperatureChanged();
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -1065,6 +1064,44 @@ namespace Repository
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DateTimeImtervals>("MCDatabaseModel.ContractConsumptionHeatDateTimeImtervals", "DateTimeImtervals", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MCDatabaseModel", "ContractConsumptionHeatThermometerReading", "ThermometerReading")]
+        public ThermometerReading ThermometerReading
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ThermometerReading>("MCDatabaseModel.ContractConsumptionHeatThermometerReading", "ThermometerReading").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ThermometerReading>("MCDatabaseModel.ContractConsumptionHeatThermometerReading", "ThermometerReading").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<ThermometerReading> ThermometerReadingReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ThermometerReading>("MCDatabaseModel.ContractConsumptionHeatThermometerReading", "ThermometerReading");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ThermometerReading>("MCDatabaseModel.ContractConsumptionHeatThermometerReading", "ThermometerReading", value);
                 }
             }
         }
@@ -2047,6 +2084,164 @@ namespace Repository
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DateTimeImtervals>("MCDatabaseModel.NormativeCalculationDateTimeImtervals", "DateTimeImtervals", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MCDatabaseModel", Name="ThermometerReading")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ThermometerReading : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта ThermometerReading.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства Id.</param>
+        /// <param name="month">Исходное значение свойства Month.</param>
+        /// <param name="year">Исходное значение свойства Year.</param>
+        /// <param name="airTemperature">Исходное значение свойства AirTemperature.</param>
+        public static ThermometerReading CreateThermometerReading(global::System.Int32 id, global::System.String month, global::System.String year, global::System.String airTemperature)
+        {
+            ThermometerReading thermometerReading = new ThermometerReading();
+            thermometerReading.Id = id;
+            thermometerReading.Month = month;
+            thermometerReading.Year = year;
+            thermometerReading.AirTemperature = airTemperature;
+            return thermometerReading;
+        }
+
+        #endregion
+        #region Свойства-примитивы
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Month
+        {
+            get
+            {
+                return _Month;
+            }
+            set
+            {
+                OnMonthChanging(value);
+                ReportPropertyChanging("Month");
+                _Month = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Month");
+                OnMonthChanged();
+            }
+        }
+        private global::System.String _Month;
+        partial void OnMonthChanging(global::System.String value);
+        partial void OnMonthChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Year
+        {
+            get
+            {
+                return _Year;
+            }
+            set
+            {
+                OnYearChanging(value);
+                ReportPropertyChanging("Year");
+                _Year = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Year");
+                OnYearChanged();
+            }
+        }
+        private global::System.String _Year;
+        partial void OnYearChanging(global::System.String value);
+        partial void OnYearChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String AirTemperature
+        {
+            get
+            {
+                return _AirTemperature;
+            }
+            set
+            {
+                OnAirTemperatureChanging(value);
+                ReportPropertyChanging("AirTemperature");
+                _AirTemperature = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("AirTemperature");
+                OnAirTemperatureChanged();
+            }
+        }
+        private global::System.String _AirTemperature;
+        partial void OnAirTemperatureChanging(global::System.String value);
+        partial void OnAirTemperatureChanged();
+
+        #endregion
+    
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MCDatabaseModel", "ContractConsumptionHeatThermometerReading", "ContractConsumptionHeat")]
+        public EntityCollection<ContractConsumptionHeat> ContractConsumptionHeats
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ContractConsumptionHeat>("MCDatabaseModel.ContractConsumptionHeatThermometerReading", "ContractConsumptionHeat");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ContractConsumptionHeat>("MCDatabaseModel.ContractConsumptionHeatThermometerReading", "ContractConsumptionHeat", value);
                 }
             }
         }

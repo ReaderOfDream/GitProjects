@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 01/06/2012 01:43:37
+-- Date Created: 01/12/2012 00:34:06
 -- Generated from EDMX file: D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\MCDatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -73,6 +73,9 @@ GO
 IF OBJECT_ID(N'[dbo].[HeatSuppliers]', 'U') IS NOT NULL
     DROP TABLE [dbo].[HeatSuppliers];
 GO
+IF OBJECT_ID(N'[dbo].[ThermometerReadings]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ThermometerReadings];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -114,13 +117,13 @@ GO
 -- Creating table 'ContractConsumptionHeatTable'
 CREATE TABLE [dbo].[ContractConsumptionHeatTable] (
     [ID] int IDENTITY(1,1) NOT NULL,
-    [AirTemperature] float  NOT NULL,
     [HeatByLoading] float  NOT NULL,
     [PeopleCount] int  NOT NULL,
     [HotWaterByNorm] float  NOT NULL,
     [TotalHeatConsumption] float  NOT NULL,
     [BuildingsId] int  NOT NULL,
-    [DateTimeImtervals_Id] int  NOT NULL
+    [DateTimeImtervals_Id] int  NOT NULL,
+    [ThermometerReading_Id] int  NOT NULL
 );
 GO
 
@@ -150,6 +153,15 @@ CREATE TABLE [dbo].[HeatSuppliers] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'ThermometerReadings'
+CREATE TABLE [dbo].[ThermometerReadings] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Month] nvarchar(max)  NOT NULL,
+    [Year] nvarchar(max)  NOT NULL,
+    [AirTemperature] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -196,6 +208,12 @@ GO
 -- Creating primary key on [Id] in table 'HeatSuppliers'
 ALTER TABLE [dbo].[HeatSuppliers]
 ADD CONSTRAINT [PK_HeatSuppliers]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'ThermometerReadings'
+ALTER TABLE [dbo].[ThermometerReadings]
+ADD CONSTRAINT [PK_ThermometerReadings]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -341,6 +359,20 @@ ADD CONSTRAINT [FK_DateTimeImtervalsHeatSupplier]
 CREATE INDEX [IX_FK_DateTimeImtervalsHeatSupplier]
 ON [dbo].[DateTimeImtervals]
     ([HeatSupplierId]);
+GO
+
+-- Creating foreign key on [ThermometerReading_Id] in table 'ContractConsumptionHeatTable'
+ALTER TABLE [dbo].[ContractConsumptionHeatTable]
+ADD CONSTRAINT [FK_ContractConsumptionHeatThermometerReading]
+    FOREIGN KEY ([ThermometerReading_Id])
+    REFERENCES [dbo].[ThermometerReadings]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ContractConsumptionHeatThermometerReading'
+CREATE INDEX [IX_FK_ContractConsumptionHeatThermometerReading]
+ON [dbo].[ContractConsumptionHeatTable]
+    ([ThermometerReading_Id]);
 GO
 
 -- --------------------------------------------------
