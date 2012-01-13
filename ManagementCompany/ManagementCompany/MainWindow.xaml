@@ -26,46 +26,7 @@
             <UserControl Content="{Binding Path=ContractConsumptionViewModel.View}"/>
         </TabItem>
         <TabItem Header="Счетчик">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                
-                <StackPanel Orientation="Horizontal" Grid.Row="0">
-                    <Label Content="показание воды"/>
-                    <TextBox Name="tbxWaterMeterReading"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Grid.Row="1">
-                    <Label Content="показание тепла"/>
-                    <TextBox Name="tbxHeatMeterReading"/>
-                </StackPanel>
-                
-                <StackPanel Orientation="Horizontal" Grid.Row="2">
-                    <Label Content="предъявленная тепло"/>
-                    <TextBox Name="tbxRequirementHeat"/>
-                </StackPanel>
-                
-                <StackPanel Orientation="Horizontal" Grid.Row="3">
-                    <Label Content="Вода из бухгалтерии"/>
-                    <TextBox Name="tbxWaterBuxgalter"/>
-                </StackPanel>
-                
-                <Button Name="btnAddClearingInfo" Click="btnAddClearingInfo_Click" Grid.Row="4" Content="Добавить" Width="100"/>
-
-                <StackPanel Orientation="Horizontal" Grid.Row="5">
-                    <Label Content="Здание: "/>
-                    <ComboBox Name="cmbxBuildingsClearing" DisplayMemberPath="Name" Width="100"/>
-                </StackPanel>
-
-                <ComboBox Name="cmbxMontsClearing" Grid.Row="6" Width="100"/>
-            </Grid>
+            <UserControl Content="{Binding Path=ClearinfViewModel.View}" />
         </TabItem>
     </TabControl>
 </Window>

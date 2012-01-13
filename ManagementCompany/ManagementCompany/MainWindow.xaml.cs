@@ -34,6 +34,9 @@ namespace ManagementCompany
         private IContractConsumprionRepository contractConsumprionRepository;
         private ContractConsumptionViewModel contractConsumptionViewModel;
 
+        private IClearingRepository clearingRepository;
+        private ClearinfViewModel clearinfViewModel;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -47,6 +50,7 @@ namespace ManagementCompany
             normativeCalculationRepository = new NormativeCalculationRepository(db);
             thermometerReadingRepository = new ThermometerReadingRepository(db);
             contractConsumprionRepository = new ContractComsumptionRepository(db);
+            clearingRepository = new ClearingRepository(db);
 
             heatSupplierViewModel = new HeatSupplierViewModel(heatSupplierRepository);
             buildingViewModel = new BuildingViewModel(buildingRepository);
@@ -54,59 +58,15 @@ namespace ManagementCompany
             normativeCalculationViewModel = new NormativeCalculationViewModel(normativeCalculationRepository, new StandartCalculator());
             thermometerReadingViewModel = new ThermometersReaderViewModel(thermometerReadingRepository);
             contractConsumptionViewModel = new ContractConsumptionViewModel(contractConsumprionRepository, new ContractCalculator());
-
-            cmbxMontsClearing.DisplayMemberPath = "Name";
-
-            using (var mcDatabaseModelContainer = new MCDatabaseModelContainer())
-            {
-                cmbxBuildingsClearing.ItemsSource = mcDatabaseModelContainer.Buildings.ToArray();
-            }
+            clearinfViewModel = new ClearinfViewModel(clearingRepository, new TotalCalculation());
         }
-
-        private void btnAddClearingInfo_Click(object sender, RoutedEventArgs e)
-        {
-            var heatMeterReadings = Double.Parse(tbxHeatMeterReading.Text);
-            var waterMeterReadings = Double.Parse(tbxWaterMeterReading.Text);
-
-            using (var context = new MCDatabaseModelContainer())
-            {
-                var datetime = from date in context.DateTimeImtervals
-                               select date;
-
-                var meterReadings = context.MeterReadingsTable.CreateObject();
-                meterReadings.CurrentHeatMeterReader = heatMeterReadings;
-                meterReadings.CurrentWaterHeatReader = waterMeterReadings;
-                meterReadings.BuildingsId = ((Building)cmbxBuildingsClearing.SelectedItem).Id;
-                meterReadings.DateTimeImtervals = datetime.First();
-                context.MeterReadingsTable.AddObject(meterReadings);
-
-                var clearing = context.ClearingTable.CreateObject();
-                clearing.Requirements = Double.Parse(tbxRequirementHeat.Text);
-                clearing.CalculationHotWater = Double.Parse(tbxWaterBuxgalter.Text);
-                clearing.BuildingsId = ((Building)cmbxBuildingsClearing.SelectedItem).Id;
-
-                var totalHeatConsumption = from contract in context.ContractConsumptionHeatTable
-                                           where
-                                               contract.BuildingsId == clearing.BuildingsId &&
-                                               contract.DateTimeImtervals == datetime.FirstOrDefault()
-                                           select contract.TotalHeatConsumption;
-
-                var totalCalculator = new TotalCalculation();
-                clearing.CalculationHot = totalCalculator.TotalHeatConsumption(totalHeatConsumption.First(), Double.Parse(tbxWaterBuxgalter.Text));
-                clearing.DateTimeImtervals = datetime.First();
-                context.ClearingTable.AddObject(clearing);
-                context.SaveChanges();
-            }
-        }
-
+        
         public NormativeCalculationViewModel NormativeCalculationViewModel { get { return normativeCalculationViewModel; } }
         public HeatSupplierViewModel HeatSupplierViewModel { get { return heatSupplierViewModel; }}
         public BuildingViewModel BuildingViewModel { get { return buildingViewModel; } }
         public CreateReportViewModel CreateReportViewModel { get { return createReportViewModel; } }
         public ThermometersReaderViewModel ThermometersReaderViewModel{get { return thermometerReadingViewModel; }}
-        public ContractConsumptionViewModel ContractConsumptionViewModel
-        {
-            get { return contractConsumptionViewModel; }
-        }
+        public ContractConsumptionViewModel ContractConsumptionViewModel{get { return contractConsumptionViewModel; }}
+        public ClearinfViewModel ClearinfViewModel{ get { return clearinfViewModel; }}
     }
 }
