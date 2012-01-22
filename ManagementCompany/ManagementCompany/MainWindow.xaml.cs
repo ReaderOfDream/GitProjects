@@ -34,6 +34,8 @@ namespace ManagementCompany
         private IContractConsumprionRepository contractConsumprionRepository;
         private ContractConsumptionViewModel contractConsumptionViewModel;
 
+        private bool _isReportViewerLoaded;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -61,7 +63,36 @@ namespace ManagementCompany
             {
                 cmbxBuildingsClearing.ItemsSource = mcDatabaseModelContainer.Buildings.ToArray();
             }
+
+            _reportViewer.Load += ReportViewerLoad;
         }
+
+        private void ReportViewerLoad(object sender, EventArgs e)
+        {
+            if (!_isReportViewerLoaded)
+            {
+                Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new
+                    Microsoft.Reporting.WinForms.ReportDataSource();
+                DataSet dataset = new DataSet();
+                dataset.BeginInit();
+                reportDataSource1.Name = "BuildingsSet";
+                //Name of the report dataset in our .RDLC file
+                reportDataSource1.Value = dataset.Buildings;
+                this._reportViewer.LocalReport.DataSources.Add(reportDataSource1);
+                this._reportViewer.LocalReport.ReportPath = "../../Report.rdlc";
+                dataset.EndInit();
+                //fill data into WpfApplication4DataSet
+                DataSetTableAdapters.BuildingsTableAdapter
+                    accountsTableAdapter = new
+                        DataSetTableAdapters.BuildingsTableAdapter();
+
+                accountsTableAdapter.ClearBeforeFill = true;
+                accountsTableAdapter.Fill(dataset.Buildings);
+                _reportViewer.RefreshReport();
+                _isReportViewerLoaded = true;
+            }
+        }
+
 
         private void btnAddClearingInfo_Click(object sender, RoutedEventArgs e)
         {

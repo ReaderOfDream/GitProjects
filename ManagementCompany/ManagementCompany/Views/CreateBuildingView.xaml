@@ -41,7 +41,7 @@
                   DisplayMemberPath="Name"/>
 
         <Button Command="{Binding CreateBuildingCommand}" Content="Создать объект" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" Width="100" Margin="5"/>
-        <ListView Grid.Row="6" Grid.ColumnSpan="2" ItemsSource="{Binding Buildings}" SelectedItem="{Binding SelectedItem}" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+        <ListView Grid.Row="6" Grid.ColumnSpan="2" ItemsSource="{Binding Buildings}" SelectedItem="{Binding SelectedItem}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" DataContext="{Binding}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}" Width="30" />
