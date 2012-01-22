@@ -37,6 +37,8 @@ namespace ManagementCompany
         private IClearingRepository clearingRepository;
         private ClearinfViewModel clearinfViewModel;
 
+        private bool _isReportViewerLoaded;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -58,9 +60,36 @@ namespace ManagementCompany
             normativeCalculationViewModel = new NormativeCalculationViewModel(normativeCalculationRepository, new StandartCalculator());
             thermometerReadingViewModel = new ThermometersReaderViewModel(thermometerReadingRepository);
             contractConsumptionViewModel = new ContractConsumptionViewModel(contractConsumprionRepository, new ContractCalculator());
+
             clearinfViewModel = new ClearinfViewModel(clearingRepository, new TotalCalculation());
+            _reportViewer.Load += ReportViewerLoad;
         }
-        
+
+        private void ReportViewerLoad(object sender, EventArgs e)
+        {
+            if (!_isReportViewerLoaded)
+            {
+                Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new
+                    Microsoft.Reporting.WinForms.ReportDataSource();
+                DataSet dataset = new DataSet();
+                dataset.BeginInit();
+                reportDataSource1.Name = "BuildingsSet";
+                //Name of the report dataset in our .RDLC file
+                reportDataSource1.Value = dataset.Buildings;
+                this._reportViewer.LocalReport.DataSources.Add(reportDataSource1);
+                this._reportViewer.LocalReport.ReportPath = "../../Report.rdlc";
+                dataset.EndInit();
+                //fill data into WpfApplication4DataSet
+                DataSetTableAdapters.BuildingsTableAdapter
+                    accountsTableAdapter = new
+                        DataSetTableAdapters.BuildingsTableAdapter();
+
+                accountsTableAdapter.ClearBeforeFill = true;
+                accountsTableAdapter.Fill(dataset.Buildings);
+                _reportViewer.RefreshReport();
+                _isReportViewerLoaded = true;
+            }
+        }
         public NormativeCalculationViewModel NormativeCalculationViewModel { get { return normativeCalculationViewModel; } }
         public HeatSupplierViewModel HeatSupplierViewModel { get { return heatSupplierViewModel; }}
         public BuildingViewModel BuildingViewModel { get { return buildingViewModel; } }

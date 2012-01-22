@@ -1,6 +1,7 @@
 ﻿<Window x:Class="ManagementCompany.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:WinForms="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         Title="MainWindow" Height="350" Width="525">
     
     <!--<UserControl Content="{Binding View}"/>-->
@@ -27,6 +28,11 @@
         </TabItem>
         <TabItem Header="Счетчик">
             <UserControl Content="{Binding Path=ClearinfViewModel.View}" />
+        </TabItem>
+        <TabItem Header="Отчет">
+            <WindowsFormsHost Height="240" Name="windowsFormsHost1" Width="496" >
+                <WinForms:ReportViewer x:Name="_reportViewer" Width="300" Height="300"/>
+            </WindowsFormsHost>
         </TabItem>
     </TabControl>
 </Window>
