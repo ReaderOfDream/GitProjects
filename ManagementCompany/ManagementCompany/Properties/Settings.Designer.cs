@@ -32,5 +32,37 @@ namespace ManagementCompany.Properties {
                 return ((string)(this["ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CLERIC-LAPTOP\\SQLEXPRESS;Integrated Security=True")]
+        public string CLERICLAPTOPSQLEXPRESS {
+            get {
+                return ((string)(this["CLERICLAPTOPSQLEXPRESS"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CLERIC-LAPTOP\\SQLEXPRESS;Initial Catalog=ManagementCompany;Integrated" +
+            " Security=True")]
+        public string ManagementCompany {
+            get {
+                return ((string)(this["ManagementCompany"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CLERIC-LAPTOP\\SQLEXPRESS;Initial Catalog=master;Integrated Security=T" +
+            "rue")]
+        public string masterConnectionString {
+            get {
+                return ((string)(this["masterConnectionString"]));
+            }
+        }
     }
 }

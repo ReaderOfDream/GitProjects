@@ -9,6 +9,11 @@ namespace Core.StandartCalculation
             return area * standartHeat;
         }
 
+        public double CalculateTotalConsumption(double consumptionbyarea,double volumebystandart,double someconstant)
+        {
+            return consumptionbyarea + volumebystandart*someconstant;
+        }
+
         #endregion
     }
 }

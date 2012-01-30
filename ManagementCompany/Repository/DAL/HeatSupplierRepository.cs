@@ -55,7 +55,15 @@ namespace Repository.DAL
 
         public void Save()
         {
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception err)
+            {
+                int x;
+
+            }
         }
 
         #region Implementation of IDisposable

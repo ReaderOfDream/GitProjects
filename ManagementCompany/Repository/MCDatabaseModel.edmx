@@ -7,56 +7,57 @@
     <Schema Namespace="MCDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="MCDatabaseModelStoreContainer">
     <EntitySet Name="Buildings" EntityType="MCDatabaseModel.Store.Buildings" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DateTimeImtervals" EntityType="MCDatabaseModel.Store.DateTimeImtervals" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DateTimeIntervals" EntityType="MCDatabaseModel.Store.DateTimeIntervals" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="NormativeCalculations" EntityType="MCDatabaseModel.Store.NormativeCalculations" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ContractConsumptionHeatTable" EntityType="MCDatabaseModel.Store.ContractConsumptionHeatTable" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MeterReadingsTable" EntityType="MCDatabaseModel.Store.MeterReadingsTable" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ClearingTable" EntityType="MCDatabaseModel.Store.ClearingTable" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContractConsumptionHeats" EntityType="MCDatabaseModel.Store.ContractConsumptionHeats" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MeterReadings" EntityType="MCDatabaseModel.Store.MeterReadings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Clearings" EntityType="MCDatabaseModel.Store.Clearings" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="HeatSuppliers" EntityType="MCDatabaseModel.Store.HeatSuppliers" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ThermometerReadings" EntityType="MCDatabaseModel.Store.ThermometerReadings" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="BuildingsContractConsumptionHeat" Association="MCDatabaseModel.Store.BuildingsContractConsumptionHeat">
-      <End Role="Buildings" EntitySet="Buildings" />
-      <End Role="ContractConsumptionHeat" EntitySet="ContractConsumptionHeatTable" />
-    </AssociationSet>
-    <AssociationSet Name="BuildingsNormativeCalculation" Association="MCDatabaseModel.Store.BuildingsNormativeCalculation">
-      <End Role="Buildings" EntitySet="Buildings" />
-      <End Role="NormativeCalculation" EntitySet="NormativeCalculations" />
-    </AssociationSet>
-    <AssociationSet Name="ContractConsumptionHeatDateTimeImtervals" Association="MCDatabaseModel.Store.ContractConsumptionHeatDateTimeImtervals">
-      <End Role="ContractConsumptionHeat" EntitySet="ContractConsumptionHeatTable" />
-      <End Role="DateTimeImtervals" EntitySet="DateTimeImtervals" />
-    </AssociationSet>
-    <AssociationSet Name="NormativeCalculationDateTimeImtervals" Association="MCDatabaseModel.Store.NormativeCalculationDateTimeImtervals">
-      <End Role="NormativeCalculation" EntitySet="NormativeCalculations" />
-      <End Role="DateTimeImtervals" EntitySet="DateTimeImtervals" />
-    </AssociationSet>
-    <AssociationSet Name="BuildingsMeterReadings" Association="MCDatabaseModel.Store.BuildingsMeterReadings">
-      <End Role="Buildings" EntitySet="Buildings" />
-      <End Role="MeterReadings" EntitySet="MeterReadingsTable" />
-    </AssociationSet>
-    <AssociationSet Name="MeterReadingsDateTimeImtervals" Association="MCDatabaseModel.Store.MeterReadingsDateTimeImtervals">
-      <End Role="MeterReadings" EntitySet="MeterReadingsTable" />
-      <End Role="DateTimeImtervals" EntitySet="DateTimeImtervals" />
-    </AssociationSet>
-    <AssociationSet Name="BuildingsClearing" Association="MCDatabaseModel.Store.BuildingsClearing">
-      <End Role="Buildings" EntitySet="Buildings" />
-      <End Role="Clearing" EntitySet="ClearingTable" />
-    </AssociationSet>
-    <AssociationSet Name="DateTimeImtervalsClearing" Association="MCDatabaseModel.Store.DateTimeImtervalsClearing">
-      <End Role="DateTimeImtervals" EntitySet="DateTimeImtervals" />
-      <End Role="Clearing" EntitySet="ClearingTable" />
-    </AssociationSet>
-    <AssociationSet Name="BuildingsHeatSupplier" Association="MCDatabaseModel.Store.BuildingsHeatSupplier">
-      <End Role="Buildings" EntitySet="Buildings" />
+    <EntitySet Name="WholeTableSet" EntityType="MCDatabaseModel.Store.WholeTableSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="BuildingHeatSupplier" Association="MCDatabaseModel.Store.BuildingHeatSupplier">
+      <End Role="Building" EntitySet="Buildings" />
       <End Role="HeatSupplier" EntitySet="HeatSuppliers" />
     </AssociationSet>
-    <AssociationSet Name="DateTimeImtervalsHeatSupplier" Association="MCDatabaseModel.Store.DateTimeImtervalsHeatSupplier">
-      <End Role="DateTimeImtervals" EntitySet="DateTimeImtervals" />
+    <AssociationSet Name="BuildingMeterReading" Association="MCDatabaseModel.Store.BuildingMeterReading">
+      <End Role="Building" EntitySet="Buildings" />
+      <End Role="MeterReading" EntitySet="MeterReadings" />
+    </AssociationSet>
+    <AssociationSet Name="DateTimeIntervalMeterReading" Association="MCDatabaseModel.Store.DateTimeIntervalMeterReading">
+      <End Role="DateTimeInterval" EntitySet="DateTimeIntervals" />
+      <End Role="MeterReading" EntitySet="MeterReadings" />
+    </AssociationSet>
+    <AssociationSet Name="DateTimeIntervalHeatSupplier" Association="MCDatabaseModel.Store.DateTimeIntervalHeatSupplier">
+      <End Role="DateTimeInterval" EntitySet="DateTimeIntervals" />
       <End Role="HeatSupplier" EntitySet="HeatSuppliers" />
+    </AssociationSet>
+    <AssociationSet Name="BuildingClearing" Association="MCDatabaseModel.Store.BuildingClearing">
+      <End Role="Building" EntitySet="Buildings" />
+      <End Role="Clearing" EntitySet="Clearings" />
+    </AssociationSet>
+    <AssociationSet Name="DateTimeIntervalClearing" Association="MCDatabaseModel.Store.DateTimeIntervalClearing">
+      <End Role="DateTimeInterval" EntitySet="DateTimeIntervals" />
+      <End Role="Clearing" EntitySet="Clearings" />
+    </AssociationSet>
+    <AssociationSet Name="DateTimeIntervalContractConsumptionHeat" Association="MCDatabaseModel.Store.DateTimeIntervalContractConsumptionHeat">
+      <End Role="DateTimeInterval" EntitySet="DateTimeIntervals" />
+      <End Role="ContractConsumptionHeat" EntitySet="ContractConsumptionHeats" />
+    </AssociationSet>
+    <AssociationSet Name="ContractConsumptionHeatBuilding" Association="MCDatabaseModel.Store.ContractConsumptionHeatBuilding">
+      <End Role="ContractConsumptionHeat" EntitySet="ContractConsumptionHeats" />
+      <End Role="Building" EntitySet="Buildings" />
     </AssociationSet>
     <AssociationSet Name="ContractConsumptionHeatThermometerReading" Association="MCDatabaseModel.Store.ContractConsumptionHeatThermometerReading">
-      <End Role="ContractConsumptionHeat" EntitySet="ContractConsumptionHeatTable" />
+      <End Role="ContractConsumptionHeat" EntitySet="ContractConsumptionHeats" />
       <End Role="ThermometerReading" EntitySet="ThermometerReadings" />
+    </AssociationSet>
+    <AssociationSet Name="NormativeCalculationBuilding" Association="MCDatabaseModel.Store.NormativeCalculationBuilding">
+      <End Role="NormativeCalculation" EntitySet="NormativeCalculations" />
+      <End Role="Building" EntitySet="Buildings" />
+    </AssociationSet>
+    <AssociationSet Name="DateTimeIntervalNormativeCalculation" Association="MCDatabaseModel.Store.DateTimeIntervalNormativeCalculation">
+      <End Role="DateTimeInterval" EntitySet="DateTimeIntervals" />
+      <End Role="NormativeCalculation" EntitySet="NormativeCalculations" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Buildings">
@@ -67,18 +68,18 @@
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
     <Property Name="StandartOfHeat" Type="float" Nullable="false" />
-    <Property Name="TotalArea" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TotalArea" Type="float" Nullable="false" />
     <Property Name="HeatSupplier_Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="DateTimeImtervals">
+  <EntityType Name="DateTimeIntervals">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="StartDate" Type="datetime" Nullable="false" />
     <Property Name="EndDate" Type="datetime" Nullable="false" />
-    <Property Name="HeatSupplierId" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HeatSupplier_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="NormativeCalculations">
     <Key>
@@ -89,10 +90,10 @@
     <Property Name="EstimateConsumptionHeat" Type="float" Nullable="false" />
     <Property Name="ConsumptionHeatByTotalArea" Type="float" Nullable="false" />
     <Property Name="ConsumptionHeatByCalculationArea" Type="float" Nullable="false" />
-    <Property Name="BuildingsId" Type="int" Nullable="false" />
-    <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
+    <Property Name="Building_Id" Type="int" Nullable="false" />
+    <Property Name="DateTimeInterval_Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="ContractConsumptionHeatTable">
+  <EntityType Name="ContractConsumptionHeats">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -101,30 +102,30 @@
     <Property Name="PeopleCount" Type="int" Nullable="false" />
     <Property Name="HotWaterByNorm" Type="float" Nullable="false" />
     <Property Name="TotalHeatConsumption" Type="float" Nullable="false" />
-    <Property Name="BuildingsId" Type="int" Nullable="false" />
-    <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
+    <Property Name="DateTimeInterval_Id" Type="int" Nullable="false" />
+    <Property Name="Building_Id" Type="int" Nullable="false" />
     <Property Name="ThermometerReading_Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="MeterReadingsTable">
+  <EntityType Name="MeterReadings">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CurrentHeatMeterReader" Type="float" Nullable="false" />
     <Property Name="CurrentWaterHeatReader" Type="float" Nullable="false" />
-    <Property Name="BuildingsId" Type="int" Nullable="false" />
-    <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
+    <Property Name="Building_Id" Type="int" Nullable="false" />
+    <Property Name="DateTimeInterval_Id" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="ClearingTable">
+  <EntityType Name="Clearings">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Requirements" Type="float" Nullable="false" />
-    <Property Name="CalculationHotWater" Type="float" Nullable="false" />
+    <Property Name="CalculationByBughaltery" Type="float" Nullable="false" />
     <Property Name="CalculationHot" Type="float" Nullable="false" />
-    <Property Name="BuildingsId" Type="int" Nullable="false" />
-    <Property Name="DateTimeImtervals_Id" Type="int" Nullable="false" />
+    <Property Name="Building_Id" Type="int" Nullable="false" />
+    <Property Name="DateTimeInterval_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="HeatSuppliers">
     <Key>
@@ -143,128 +144,132 @@
     <Property Name="Year" Type="nvarchar(max)" Nullable="false" />
     <Property Name="AirTemperature" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <Association Name="BuildingsContractConsumptionHeat">
-    <End Role="Buildings" Type="MCDatabaseModel.Store.Buildings" Multiplicity="1" />
-    <End Role="ContractConsumptionHeat" Type="MCDatabaseModel.Store.ContractConsumptionHeatTable" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Buildings">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ContractConsumptionHeat">
-        <PropertyRef Name="BuildingsId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="BuildingsNormativeCalculation">
-    <End Role="Buildings" Type="MCDatabaseModel.Store.Buildings" Multiplicity="1" />
-    <End Role="NormativeCalculation" Type="MCDatabaseModel.Store.NormativeCalculations" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Buildings">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="NormativeCalculation">
-        <PropertyRef Name="BuildingsId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="ContractConsumptionHeatDateTimeImtervals">
-    <End Role="ContractConsumptionHeat" Type="MCDatabaseModel.Store.ContractConsumptionHeatTable" Multiplicity="*" />
-    <End Role="DateTimeImtervals" Type="MCDatabaseModel.Store.DateTimeImtervals" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="DateTimeImtervals">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ContractConsumptionHeat">
-        <PropertyRef Name="DateTimeImtervals_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="NormativeCalculationDateTimeImtervals">
-    <End Role="NormativeCalculation" Type="MCDatabaseModel.Store.NormativeCalculations" Multiplicity="*" />
-    <End Role="DateTimeImtervals" Type="MCDatabaseModel.Store.DateTimeImtervals" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="DateTimeImtervals">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="NormativeCalculation">
-        <PropertyRef Name="DateTimeImtervals_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="BuildingsMeterReadings">
-    <End Role="Buildings" Type="MCDatabaseModel.Store.Buildings" Multiplicity="1" />
-    <End Role="MeterReadings" Type="MCDatabaseModel.Store.MeterReadingsTable" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Buildings">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="MeterReadings">
-        <PropertyRef Name="BuildingsId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="MeterReadingsDateTimeImtervals">
-    <End Role="MeterReadings" Type="MCDatabaseModel.Store.MeterReadingsTable" Multiplicity="*" />
-    <End Role="DateTimeImtervals" Type="MCDatabaseModel.Store.DateTimeImtervals" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="DateTimeImtervals">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="MeterReadings">
-        <PropertyRef Name="DateTimeImtervals_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="BuildingsClearing">
-    <End Role="Buildings" Type="MCDatabaseModel.Store.Buildings" Multiplicity="1" />
-    <End Role="Clearing" Type="MCDatabaseModel.Store.ClearingTable" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Buildings">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Clearing">
-        <PropertyRef Name="BuildingsId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="DateTimeImtervalsClearing">
-    <End Role="DateTimeImtervals" Type="MCDatabaseModel.Store.DateTimeImtervals" Multiplicity="1" />
-    <End Role="Clearing" Type="MCDatabaseModel.Store.ClearingTable" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DateTimeImtervals">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Clearing">
-        <PropertyRef Name="DateTimeImtervals_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="BuildingsHeatSupplier">
-    <End Role="Buildings" Type="MCDatabaseModel.Store.Buildings" Multiplicity="*" />
+  <EntityType Name="WholeTableSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BuildingDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BuildingStandartOfHeat" Type="float" Nullable="false" />
+    <Property Name="BuildingTotalArea" Type="float" Nullable="false" />
+    <Property Name="HeatSupplierName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HeatSupplierDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateTimeIntervalStartDate" Type="datetime" Nullable="true" />
+    <Property Name="DateTimeIntervalEndDate" Type="datetime" Nullable="true" />
+    <Property Name="DateTimeIntervalName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ClearingRequirements" Type="float" Nullable="false" />
+    <Property Name="ClearingCalculationHot" Type="float" Nullable="false" />
+    <Property Name="ClearingCalculationByBuhgaltery" Type="float" Nullable="false" />
+    <Property Name="MeterReadingHeat" Type="float" Nullable="false" />
+    <Property Name="MeterReadingWater" Type="float" Nullable="false" />
+    <Property Name="ContractHeatByLoading" Type="float" Nullable="false" />
+    <Property Name="ContractPeopleCount" Type="float" Nullable="false" />
+    <Property Name="ContractHotWaterByNorm" Type="float" Nullable="false" />
+    <Property Name="ContractTotalHeatConsumption" Type="float" Nullable="false" />
+    <Property Name="NormativeCalculationArea" Type="float" Nullable="false" />
+    <Property Name="NormativeEstimateConsumptionHeat" Type="float" Nullable="false" />
+    <Property Name="NormativConsumptionHeatByTotalArea" Type="float" Nullable="false" />
+    <Property Name="NormativeConsumptionHeatByCalculationArea" Type="float" Nullable="false" />
+  </EntityType>
+  <Association Name="BuildingHeatSupplier">
+    <End Role="Building" Type="MCDatabaseModel.Store.Buildings" Multiplicity="*" />
     <End Role="HeatSupplier" Type="MCDatabaseModel.Store.HeatSuppliers" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="HeatSupplier">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Buildings">
+      <Dependent Role="Building">
         <PropertyRef Name="HeatSupplier_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="DateTimeImtervalsHeatSupplier">
-    <End Role="DateTimeImtervals" Type="MCDatabaseModel.Store.DateTimeImtervals" Multiplicity="*" />
+  <Association Name="BuildingMeterReading">
+    <End Role="Building" Type="MCDatabaseModel.Store.Buildings" Multiplicity="1" />
+    <End Role="MeterReading" Type="MCDatabaseModel.Store.MeterReadings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Building">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MeterReading">
+        <PropertyRef Name="Building_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DateTimeIntervalMeterReading">
+    <End Role="DateTimeInterval" Type="MCDatabaseModel.Store.DateTimeIntervals" Multiplicity="1" />
+    <End Role="MeterReading" Type="MCDatabaseModel.Store.MeterReadings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DateTimeInterval">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MeterReading">
+        <PropertyRef Name="DateTimeInterval_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DateTimeIntervalHeatSupplier">
+    <End Role="DateTimeInterval" Type="MCDatabaseModel.Store.DateTimeIntervals" Multiplicity="*" />
     <End Role="HeatSupplier" Type="MCDatabaseModel.Store.HeatSuppliers" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="HeatSupplier">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="DateTimeImtervals">
-        <PropertyRef Name="HeatSupplierId" />
+      <Dependent Role="DateTimeInterval">
+        <PropertyRef Name="HeatSupplier_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BuildingClearing">
+    <End Role="Building" Type="MCDatabaseModel.Store.Buildings" Multiplicity="1" />
+    <End Role="Clearing" Type="MCDatabaseModel.Store.Clearings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Building">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clearing">
+        <PropertyRef Name="Building_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DateTimeIntervalClearing">
+    <End Role="DateTimeInterval" Type="MCDatabaseModel.Store.DateTimeIntervals" Multiplicity="1" />
+    <End Role="Clearing" Type="MCDatabaseModel.Store.Clearings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DateTimeInterval">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clearing">
+        <PropertyRef Name="DateTimeInterval_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DateTimeIntervalContractConsumptionHeat">
+    <End Role="DateTimeInterval" Type="MCDatabaseModel.Store.DateTimeIntervals" Multiplicity="1" />
+    <End Role="ContractConsumptionHeat" Type="MCDatabaseModel.Store.ContractConsumptionHeats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DateTimeInterval">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContractConsumptionHeat">
+        <PropertyRef Name="DateTimeInterval_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ContractConsumptionHeatBuilding">
+    <End Role="ContractConsumptionHeat" Type="MCDatabaseModel.Store.ContractConsumptionHeats" Multiplicity="*" />
+    <End Role="Building" Type="MCDatabaseModel.Store.Buildings" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Building">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ContractConsumptionHeat">
+        <PropertyRef Name="Building_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="ContractConsumptionHeatThermometerReading">
-    <End Role="ContractConsumptionHeat" Type="MCDatabaseModel.Store.ContractConsumptionHeatTable" Multiplicity="*" />
+    <End Role="ContractConsumptionHeat" Type="MCDatabaseModel.Store.ContractConsumptionHeats" Multiplicity="*" />
     <End Role="ThermometerReading" Type="MCDatabaseModel.Store.ThermometerReadings" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="ThermometerReading">
@@ -275,64 +280,89 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="NormativeCalculationBuilding">
+    <End Role="NormativeCalculation" Type="MCDatabaseModel.Store.NormativeCalculations" Multiplicity="*" />
+    <End Role="Building" Type="MCDatabaseModel.Store.Buildings" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Building">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NormativeCalculation">
+        <PropertyRef Name="Building_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DateTimeIntervalNormativeCalculation">
+    <End Role="DateTimeInterval" Type="MCDatabaseModel.Store.DateTimeIntervals" Multiplicity="1" />
+    <End Role="NormativeCalculation" Type="MCDatabaseModel.Store.NormativeCalculations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DateTimeInterval">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NormativeCalculation">
+        <PropertyRef Name="DateTimeInterval_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MCDatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityContainer Name="MCDatabaseModelContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Buildings" EntityType="MCDatabaseModel.Building" />
-          <EntitySet Name="DateTimeImtervals" EntityType="MCDatabaseModel.DateTimeImtervals" />
-          <EntitySet Name="NormativeCalculations" EntityType="MCDatabaseModel.NormativeCalculations" />
-          <EntitySet Name="ContractConsumptionHeatTable" EntityType="MCDatabaseModel.ContractConsumptionHeat" />
-          <AssociationSet Name="BuildingsContractConsumptionHeat" Association="MCDatabaseModel.BuildingsContractConsumptionHeat">
-            <End Role="Buildings" EntitySet="Buildings" />
-            <End Role="ContractConsumptionHeat" EntitySet="ContractConsumptionHeatTable" />
-          </AssociationSet>
-          <AssociationSet Name="BuildingsNormativeCalculation" Association="MCDatabaseModel.BuildingsNormativeCalculation">
-            <End Role="Buildings" EntitySet="Buildings" />
-            <End Role="NormativeCalculation" EntitySet="NormativeCalculations" />
-          </AssociationSet>
-          <AssociationSet Name="ContractConsumptionHeatDateTimeImtervals" Association="MCDatabaseModel.ContractConsumptionHeatDateTimeImtervals">
-            <End Role="ContractConsumptionHeat" EntitySet="ContractConsumptionHeatTable" />
-            <End Role="DateTimeImtervals" EntitySet="DateTimeImtervals" />
-          </AssociationSet>
-          <AssociationSet Name="NormativeCalculationDateTimeImtervals" Association="MCDatabaseModel.NormativeCalculationDateTimeImtervals">
-            <End Role="NormativeCalculation" EntitySet="NormativeCalculations" />
-            <End Role="DateTimeImtervals" EntitySet="DateTimeImtervals" />
-          </AssociationSet>
-          <EntitySet Name="MeterReadingsTable" EntityType="MCDatabaseModel.MeterReadings" />
-          <AssociationSet Name="BuildingsMeterReadings" Association="MCDatabaseModel.BuildingsMeterReadings">
-            <End Role="Buildings" EntitySet="Buildings" />
-            <End Role="MeterReadings" EntitySet="MeterReadingsTable" />
-          </AssociationSet>
-          <AssociationSet Name="MeterReadingsDateTimeImtervals" Association="MCDatabaseModel.MeterReadingsDateTimeImtervals">
-            <End Role="MeterReadings" EntitySet="MeterReadingsTable" />
-            <End Role="DateTimeImtervals" EntitySet="DateTimeImtervals" />
-          </AssociationSet>
-          <EntitySet Name="ClearingTable" EntityType="MCDatabaseModel.Clearing" />
-          <AssociationSet Name="BuildingsClearing" Association="MCDatabaseModel.BuildingsClearing">
-            <End Role="Buildings" EntitySet="Buildings" />
-            <End Role="Clearing" EntitySet="ClearingTable" />
-          </AssociationSet>
-          <AssociationSet Name="DateTimeImtervalsClearing" Association="MCDatabaseModel.DateTimeImtervalsClearing">
-            <End Role="DateTimeImtervals" EntitySet="DateTimeImtervals" />
-            <End Role="Clearing" EntitySet="ClearingTable" />
-          </AssociationSet>
+          <EntitySet Name="DateTimeIntervals" EntityType="MCDatabaseModel.DateTimeInterval" />
+          <EntitySet Name="NormativeCalculations" EntityType="MCDatabaseModel.NormativeCalculation" />
+          <EntitySet Name="ContractConsumptionHeats" EntityType="MCDatabaseModel.ContractConsumptionHeat" />
+          <EntitySet Name="MeterReadings" EntityType="MCDatabaseModel.MeterReading" />
+          <EntitySet Name="Clearings" EntityType="MCDatabaseModel.Clearing" />
           <EntitySet Name="HeatSuppliers" EntityType="MCDatabaseModel.HeatSupplier" />
-          <AssociationSet Name="BuildingsHeatSupplier" Association="MCDatabaseModel.BuildingsHeatSupplier">
-            <End Role="Buildings" EntitySet="Buildings" />
-            <End Role="HeatSupplier" EntitySet="HeatSuppliers" />
-          </AssociationSet>
-          <AssociationSet Name="DateTimeImtervalsHeatSupplier" Association="MCDatabaseModel.DateTimeImtervalsHeatSupplier">
-            <End Role="DateTimeImtervals" EntitySet="DateTimeImtervals" />
-            <End Role="HeatSupplier" EntitySet="HeatSuppliers" />
-          </AssociationSet>
           <EntitySet Name="ThermometerReadings" EntityType="MCDatabaseModel.ThermometerReading" />
+          <EntitySet Name="WholeTableSet" EntityType="MCDatabaseModel.WholeTable" />
+          <AssociationSet Name="BuildingHeatSupplier" Association="MCDatabaseModel.BuildingHeatSupplier">
+            <End Role="Building" EntitySet="Buildings" />
+            <End Role="HeatSupplier" EntitySet="HeatSuppliers" />
+          </AssociationSet>
+          <AssociationSet Name="BuildingMeterReading" Association="MCDatabaseModel.BuildingMeterReading">
+            <End Role="Building" EntitySet="Buildings" />
+            <End Role="MeterReading" EntitySet="MeterReadings" />
+          </AssociationSet>
+          <AssociationSet Name="DateTimeIntervalMeterReading" Association="MCDatabaseModel.DateTimeIntervalMeterReading">
+            <End Role="DateTimeInterval" EntitySet="DateTimeIntervals" />
+            <End Role="MeterReading" EntitySet="MeterReadings" />
+          </AssociationSet>
+          <AssociationSet Name="DateTimeIntervalHeatSupplier" Association="MCDatabaseModel.DateTimeIntervalHeatSupplier">
+            <End Role="DateTimeInterval" EntitySet="DateTimeIntervals" />
+            <End Role="HeatSupplier" EntitySet="HeatSuppliers" />
+          </AssociationSet>
+          <AssociationSet Name="BuildingClearing" Association="MCDatabaseModel.BuildingClearing">
+            <End Role="Building" EntitySet="Buildings" />
+            <End Role="Clearing" EntitySet="Clearings" />
+          </AssociationSet>
+          <AssociationSet Name="DateTimeIntervalClearing" Association="MCDatabaseModel.DateTimeIntervalClearing">
+            <End Role="DateTimeInterval" EntitySet="DateTimeIntervals" />
+            <End Role="Clearing" EntitySet="Clearings" />
+          </AssociationSet>
+          <AssociationSet Name="DateTimeIntervalContractConsumptionHeat" Association="MCDatabaseModel.DateTimeIntervalContractConsumptionHeat">
+            <End Role="DateTimeInterval" EntitySet="DateTimeIntervals" />
+            <End Role="ContractConsumptionHeat" EntitySet="ContractConsumptionHeats" />
+          </AssociationSet>
+          <AssociationSet Name="ContractConsumptionHeatBuilding" Association="MCDatabaseModel.ContractConsumptionHeatBuilding">
+            <End Role="ContractConsumptionHeat" EntitySet="ContractConsumptionHeats" />
+            <End Role="Building" EntitySet="Buildings" />
+          </AssociationSet>
           <AssociationSet Name="ContractConsumptionHeatThermometerReading" Association="MCDatabaseModel.ContractConsumptionHeatThermometerReading">
-            <End Role="ContractConsumptionHeat" EntitySet="ContractConsumptionHeatTable" />
+            <End Role="ContractConsumptionHeat" EntitySet="ContractConsumptionHeats" />
             <End Role="ThermometerReading" EntitySet="ThermometerReadings" />
           </AssociationSet>
-        </EntityContainer>
+          <AssociationSet Name="NormativeCalculationBuilding" Association="MCDatabaseModel.NormativeCalculationBuilding">
+            <End Role="NormativeCalculation" EntitySet="NormativeCalculations" />
+            <End Role="Building" EntitySet="Buildings" />
+          </AssociationSet>
+          <AssociationSet Name="DateTimeIntervalNormativeCalculation" Association="MCDatabaseModel.DateTimeIntervalNormativeCalculation">
+            <End Role="DateTimeInterval" EntitySet="DateTimeIntervals" />
+            <End Role="NormativeCalculation" EntitySet="NormativeCalculations" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="Building">
           <Key>
             <PropertyRef Name="Id" />
@@ -341,29 +371,28 @@
           <Property Type="String" Name="Name" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="true" />
           <Property Type="Double" Name="StandartOfHeat" Nullable="false" />
-          <NavigationProperty Name="ContractConsumptionHeat" Relationship="MCDatabaseModel.BuildingsContractConsumptionHeat" FromRole="Buildings" ToRole="ContractConsumptionHeat" />
-          <NavigationProperty Name="NormativeCalculation" Relationship="MCDatabaseModel.BuildingsNormativeCalculation" FromRole="Buildings" ToRole="NormativeCalculation" />
-          <NavigationProperty Name="MeterReadings" Relationship="MCDatabaseModel.BuildingsMeterReadings" FromRole="Buildings" ToRole="MeterReadings" />
-          <NavigationProperty Name="Clearing" Relationship="MCDatabaseModel.BuildingsClearing" FromRole="Buildings" ToRole="Clearing" />
-          <NavigationProperty Name="HeatSupplier" Relationship="MCDatabaseModel.BuildingsHeatSupplier" FromRole="Buildings" ToRole="HeatSupplier" />
-          <Property Type="String" Name="TotalArea" Nullable="false" />
+          <Property Type="Double" Name="TotalArea" Nullable="false" />
+          <NavigationProperty Name="HeatSupplier" Relationship="MCDatabaseModel.BuildingHeatSupplier" FromRole="Building" ToRole="HeatSupplier" />
+          <NavigationProperty Name="MeterReading" Relationship="MCDatabaseModel.BuildingMeterReading" FromRole="Building" ToRole="MeterReading" />
+          <NavigationProperty Name="Clearing" Relationship="MCDatabaseModel.BuildingClearing" FromRole="Building" ToRole="Clearing" />
+          <NavigationProperty Name="ContractConsumptionHeat" Relationship="MCDatabaseModel.ContractConsumptionHeatBuilding" FromRole="Building" ToRole="ContractConsumptionHeat" />
+          <NavigationProperty Name="NormativeCalculation" Relationship="MCDatabaseModel.NormativeCalculationBuilding" FromRole="Building" ToRole="NormativeCalculation" />
         </EntityType>
-        <EntityType Name="DateTimeImtervals">
+        <EntityType Name="DateTimeInterval">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="DateTime" Name="StartDate" Nullable="false" />
           <Property Type="DateTime" Name="EndDate" Nullable="false" />
-          <NavigationProperty Name="ContractConsumptionHeat" Relationship="MCDatabaseModel.ContractConsumptionHeatDateTimeImtervals" FromRole="DateTimeImtervals" ToRole="ContractConsumptionHeat" />
-          <NavigationProperty Name="NormativeCalculation" Relationship="MCDatabaseModel.NormativeCalculationDateTimeImtervals" FromRole="DateTimeImtervals" ToRole="NormativeCalculation" />
-          <NavigationProperty Name="MeterReadings" Relationship="MCDatabaseModel.MeterReadingsDateTimeImtervals" FromRole="DateTimeImtervals" ToRole="MeterReadings" />
-          <NavigationProperty Name="Clearing" Relationship="MCDatabaseModel.DateTimeImtervalsClearing" FromRole="DateTimeImtervals" ToRole="Clearing" />
-          <NavigationProperty Name="HeatSupplier" Relationship="MCDatabaseModel.DateTimeImtervalsHeatSupplier" FromRole="DateTimeImtervals" ToRole="HeatSupplier" />
-          <Property Type="Int32" Name="HeatSupplierId" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="MeterReading" Relationship="MCDatabaseModel.DateTimeIntervalMeterReading" FromRole="DateTimeInterval" ToRole="MeterReading" />
+          <NavigationProperty Name="HeatSupplier" Relationship="MCDatabaseModel.DateTimeIntervalHeatSupplier" FromRole="DateTimeInterval" ToRole="HeatSupplier" />
+          <NavigationProperty Name="Clearing" Relationship="MCDatabaseModel.DateTimeIntervalClearing" FromRole="DateTimeInterval" ToRole="Clearing" />
+          <NavigationProperty Name="ContractConsumptionHeat" Relationship="MCDatabaseModel.DateTimeIntervalContractConsumptionHeat" FromRole="DateTimeInterval" ToRole="ContractConsumptionHeat" />
+          <NavigationProperty Name="NormativeCalculation" Relationship="MCDatabaseModel.DateTimeIntervalNormativeCalculation" FromRole="DateTimeInterval" ToRole="NormativeCalculation" />
         </EntityType>
-        <EntityType Name="NormativeCalculations">
+        <EntityType Name="NormativeCalculation">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -372,9 +401,8 @@
           <Property Type="Double" Name="EstimateConsumptionHeat" Nullable="false" />
           <Property Type="Double" Name="ConsumptionHeatByTotalArea" Nullable="false" />
           <Property Type="Double" Name="ConsumptionHeatByCalculationArea" Nullable="false" />
-          <NavigationProperty Name="Buildings" Relationship="MCDatabaseModel.BuildingsNormativeCalculation" FromRole="NormativeCalculation" ToRole="Buildings" />
-          <Property Type="Int32" Name="BuildingsId" Nullable="false" />
-          <NavigationProperty Name="DateTimeImtervals" Relationship="MCDatabaseModel.NormativeCalculationDateTimeImtervals" FromRole="NormativeCalculation" ToRole="DateTimeImtervals" />
+          <NavigationProperty Name="Building" Relationship="MCDatabaseModel.NormativeCalculationBuilding" FromRole="NormativeCalculation" ToRole="Building" />
+          <NavigationProperty Name="DateTimeInterval" Relationship="MCDatabaseModel.DateTimeIntervalNormativeCalculation" FromRole="NormativeCalculation" ToRole="DateTimeInterval" />
         </EntityType>
         <EntityType Name="ContractConsumptionHeat">
           <Key>
@@ -385,98 +413,31 @@
           <Property Type="Int32" Name="PeopleCount" Nullable="false" />
           <Property Type="Double" Name="HotWaterByNorm" Nullable="false" />
           <Property Type="Double" Name="TotalHeatConsumption" Nullable="false" />
-          <NavigationProperty Name="Buildings" Relationship="MCDatabaseModel.BuildingsContractConsumptionHeat" FromRole="ContractConsumptionHeat" ToRole="Buildings" />
-          <Property Type="Int32" Name="BuildingsId" Nullable="false" />
-          <NavigationProperty Name="DateTimeImtervals" Relationship="MCDatabaseModel.ContractConsumptionHeatDateTimeImtervals" FromRole="ContractConsumptionHeat" ToRole="DateTimeImtervals" />
+          <NavigationProperty Name="DateTimeInterval" Relationship="MCDatabaseModel.DateTimeIntervalContractConsumptionHeat" FromRole="ContractConsumptionHeat" ToRole="DateTimeInterval" />
+          <NavigationProperty Name="Building" Relationship="MCDatabaseModel.ContractConsumptionHeatBuilding" FromRole="ContractConsumptionHeat" ToRole="Building" />
           <NavigationProperty Name="ThermometerReading" Relationship="MCDatabaseModel.ContractConsumptionHeatThermometerReading" FromRole="ContractConsumptionHeat" ToRole="ThermometerReading" />
         </EntityType>
-        <Association Name="BuildingsContractConsumptionHeat">
-          <End Type="MCDatabaseModel.Building" Role="Buildings" Multiplicity="1" />
-          <End Type="MCDatabaseModel.ContractConsumptionHeat" Role="ContractConsumptionHeat" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Buildings">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ContractConsumptionHeat">
-              <PropertyRef Name="BuildingsId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="BuildingsNormativeCalculation">
-          <End Type="MCDatabaseModel.Building" Role="Buildings" Multiplicity="1" />
-          <End Type="MCDatabaseModel.NormativeCalculations" Role="NormativeCalculation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Buildings">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="NormativeCalculation">
-              <PropertyRef Name="BuildingsId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ContractConsumptionHeatDateTimeImtervals">
-          <End Type="MCDatabaseModel.ContractConsumptionHeat" Role="ContractConsumptionHeat" Multiplicity="0..1" />
-          <End Type="MCDatabaseModel.DateTimeImtervals" Role="DateTimeImtervals" Multiplicity="1" />
-        </Association>
-        <Association Name="NormativeCalculationDateTimeImtervals">
-          <End Type="MCDatabaseModel.NormativeCalculations" Role="NormativeCalculation" Multiplicity="0..1" />
-          <End Type="MCDatabaseModel.DateTimeImtervals" Role="DateTimeImtervals" Multiplicity="1" />
-        </Association>
-        <EntityType Name="MeterReadings">
+        <EntityType Name="MeterReading">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Double" Name="CurrentHeatMeterReader" Nullable="false" />
           <Property Type="Double" Name="CurrentWaterHeatReader" Nullable="false" />
-          <NavigationProperty Name="Buildings" Relationship="MCDatabaseModel.BuildingsMeterReadings" FromRole="MeterReadings" ToRole="Buildings" />
-          <Property Type="Int32" Name="BuildingsId" Nullable="false" />
-          <NavigationProperty Name="DateTimeImtervals" Relationship="MCDatabaseModel.MeterReadingsDateTimeImtervals" FromRole="MeterReadings" ToRole="DateTimeImtervals" />
+          <NavigationProperty Name="Building" Relationship="MCDatabaseModel.BuildingMeterReading" FromRole="MeterReading" ToRole="Building" />
+          <NavigationProperty Name="DateTimeInterval" Relationship="MCDatabaseModel.DateTimeIntervalMeterReading" FromRole="MeterReading" ToRole="DateTimeInterval" />
         </EntityType>
-        <Association Name="BuildingsMeterReadings">
-          <End Type="MCDatabaseModel.Building" Role="Buildings" Multiplicity="1" />
-          <End Type="MCDatabaseModel.MeterReadings" Role="MeterReadings" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Buildings">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="MeterReadings">
-              <PropertyRef Name="BuildingsId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="MeterReadingsDateTimeImtervals">
-          <End Type="MCDatabaseModel.MeterReadings" Role="MeterReadings" Multiplicity="0..1" />
-          <End Type="MCDatabaseModel.DateTimeImtervals" Role="DateTimeImtervals" Multiplicity="1" />
-        </Association>
         <EntityType Name="Clearing">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Double" Name="Requirements" Nullable="false" />
-          <Property Type="Double" Name="CalculationHotWater" Nullable="false" />
+          <Property Type="Double" Name="CalculationByBughaltery" Nullable="false" />
           <Property Type="Double" Name="CalculationHot" Nullable="false" />
-          <NavigationProperty Name="Buildings" Relationship="MCDatabaseModel.BuildingsClearing" FromRole="Clearing" ToRole="Buildings" />
-          <Property Type="Int32" Name="BuildingsId" Nullable="false" />
-          <NavigationProperty Name="DateTimeImtervals" Relationship="MCDatabaseModel.DateTimeImtervalsClearing" FromRole="Clearing" ToRole="DateTimeImtervals" />
+          <NavigationProperty Name="Building" Relationship="MCDatabaseModel.BuildingClearing" FromRole="Clearing" ToRole="Building" />
+          <NavigationProperty Name="DateTimeInterval" Relationship="MCDatabaseModel.DateTimeIntervalClearing" FromRole="Clearing" ToRole="DateTimeInterval" />
         </EntityType>
-        <Association Name="BuildingsClearing">
-          <End Type="MCDatabaseModel.Building" Role="Buildings" Multiplicity="1" />
-          <End Type="MCDatabaseModel.Clearing" Role="Clearing" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Buildings">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Clearing">
-              <PropertyRef Name="BuildingsId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="DateTimeImtervalsClearing">
-          <End Type="MCDatabaseModel.DateTimeImtervals" Role="DateTimeImtervals" Multiplicity="1" />
-          <End Type="MCDatabaseModel.Clearing" Role="Clearing" Multiplicity="0..1" />
-        </Association>
         <EntityType Name="HeatSupplier">
           <Key>
             <PropertyRef Name="Id" />
@@ -484,25 +445,9 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="false" />
-          <NavigationProperty Name="Buildings" Relationship="MCDatabaseModel.BuildingsHeatSupplier" FromRole="HeatSupplier" ToRole="Buildings" />
-          <NavigationProperty Name="DateTimeImtervals" Relationship="MCDatabaseModel.DateTimeImtervalsHeatSupplier" FromRole="HeatSupplier" ToRole="DateTimeImtervals" />
+          <NavigationProperty Name="Building" Relationship="MCDatabaseModel.BuildingHeatSupplier" FromRole="HeatSupplier" ToRole="Building" />
+          <NavigationProperty Name="DateTimeInterval" Relationship="MCDatabaseModel.DateTimeIntervalHeatSupplier" FromRole="HeatSupplier" ToRole="DateTimeInterval" />
         </EntityType>
-        <Association Name="BuildingsHeatSupplier">
-          <End Type="MCDatabaseModel.Building" Role="Buildings" Multiplicity="*" />
-          <End Type="MCDatabaseModel.HeatSupplier" Role="HeatSupplier" Multiplicity="1" />
-        </Association>
-        <Association Name="DateTimeImtervalsHeatSupplier">
-          <End Type="MCDatabaseModel.DateTimeImtervals" Role="DateTimeImtervals" Multiplicity="*" />
-          <End Type="MCDatabaseModel.HeatSupplier" Role="HeatSupplier" Multiplicity="1" />
-          <ReferentialConstraint>
-            <Principal Role="HeatSupplier">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="DateTimeImtervals">
-              <PropertyRef Name="HeatSupplierId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="ThermometerReading">
           <Key>
             <PropertyRef Name="Id" />
@@ -511,11 +456,79 @@
           <Property Type="String" Name="Month" Nullable="false" />
           <Property Type="String" Name="Year" Nullable="false" />
           <Property Type="String" Name="AirTemperature" Nullable="false" />
-          <NavigationProperty Name="ContractConsumptionHeats" Relationship="MCDatabaseModel.ContractConsumptionHeatThermometerReading" FromRole="ThermometerReading" ToRole="ContractConsumptionHeat" />
+          <NavigationProperty Name="ContractConsumptionHeat" Relationship="MCDatabaseModel.ContractConsumptionHeatThermometerReading" FromRole="ThermometerReading" ToRole="ContractConsumptionHeat" />
         </EntityType>
+        <EntityType Name="WholeTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="BuildingName" Nullable="false" />
+          <Property Type="String" Name="BuildingDescription" Nullable="false" />
+          <Property Type="Double" Name="BuildingStandartOfHeat" Nullable="false" />
+          <Property Type="Double" Name="BuildingTotalArea" Nullable="false" />
+          <Property Type="String" Name="HeatSupplierName" Nullable="false" />
+          <Property Type="String" Name="HeatSupplierDescription" Nullable="false" />
+          <Property Type="DateTime" Name="DateTimeIntervalStartDate" Nullable="true" />
+          <Property Type="DateTime" Name="DateTimeIntervalEndDate" Nullable="true" />
+          <Property Type="String" Name="DateTimeIntervalName" Nullable="true" />
+          <Property Type="Double" Name="ClearingRequirements" Nullable="false" />
+          <Property Type="Double" Name="ClearingCalculationHot" Nullable="false" />
+          <Property Type="Double" Name="ClearingCalculationByBuhgaltery" Nullable="false" />
+          <Property Type="Double" Name="MeterReadingHeat" Nullable="false" />
+          <Property Type="Double" Name="MeterReadingWater" Nullable="false" />
+          <Property Type="Double" Name="ContractHeatByLoading" Nullable="false" />
+          <Property Type="Double" Name="ContractPeopleCount" Nullable="false" />
+          <Property Type="Double" Name="ContractHotWaterByNorm" Nullable="false" />
+          <Property Type="Double" Name="ContractTotalHeatConsumption" Nullable="false" />
+          <Property Type="Double" Name="NormativeCalculationArea" Nullable="false" />
+          <Property Type="Double" Name="NormativeEstimateConsumptionHeat" Nullable="false" />
+          <Property Type="Double" Name="NormativConsumptionHeatByTotalArea" Nullable="false" />
+          <Property Type="Double" Name="NormativeConsumptionHeatByCalculationArea" Nullable="false" />
+        </EntityType>
+        <Association Name="BuildingHeatSupplier">
+          <End Type="MCDatabaseModel.Building" Role="Building" Multiplicity="*" />
+          <End Type="MCDatabaseModel.HeatSupplier" Role="HeatSupplier" Multiplicity="1" />
+        </Association>
+        <Association Name="BuildingMeterReading">
+          <End Type="MCDatabaseModel.Building" Role="Building" Multiplicity="1" />
+          <End Type="MCDatabaseModel.MeterReading" Role="MeterReading" Multiplicity="*" />
+        </Association>
+        <Association Name="DateTimeIntervalMeterReading">
+          <End Type="MCDatabaseModel.DateTimeInterval" Role="DateTimeInterval" Multiplicity="1" />
+          <End Type="MCDatabaseModel.MeterReading" Role="MeterReading" Multiplicity="0..1" />
+        </Association>
+        <Association Name="DateTimeIntervalHeatSupplier">
+          <End Type="MCDatabaseModel.DateTimeInterval" Role="DateTimeInterval" Multiplicity="*" />
+          <End Type="MCDatabaseModel.HeatSupplier" Role="HeatSupplier" Multiplicity="1" />
+        </Association>
+        <Association Name="BuildingClearing">
+          <End Type="MCDatabaseModel.Building" Role="Building" Multiplicity="1" />
+          <End Type="MCDatabaseModel.Clearing" Role="Clearing" Multiplicity="*" />
+        </Association>
+        <Association Name="DateTimeIntervalClearing">
+          <End Type="MCDatabaseModel.DateTimeInterval" Role="DateTimeInterval" Multiplicity="1" />
+          <End Type="MCDatabaseModel.Clearing" Role="Clearing" Multiplicity="0..1" />
+        </Association>
+        <Association Name="DateTimeIntervalContractConsumptionHeat">
+          <End Type="MCDatabaseModel.DateTimeInterval" Role="DateTimeInterval" Multiplicity="1" />
+          <End Type="MCDatabaseModel.ContractConsumptionHeat" Role="ContractConsumptionHeat" Multiplicity="0..1" />
+        </Association>
+        <Association Name="ContractConsumptionHeatBuilding">
+          <End Type="MCDatabaseModel.ContractConsumptionHeat" Role="ContractConsumptionHeat" Multiplicity="1" />
+          <End Type="MCDatabaseModel.Building" Role="Building" Multiplicity="1" />
+        </Association>
         <Association Name="ContractConsumptionHeatThermometerReading">
           <End Type="MCDatabaseModel.ContractConsumptionHeat" Role="ContractConsumptionHeat" Multiplicity="*" />
           <End Type="MCDatabaseModel.ThermometerReading" Role="ThermometerReading" Multiplicity="1" />
+        </Association>
+        <Association Name="NormativeCalculationBuilding">
+          <End Type="MCDatabaseModel.NormativeCalculation" Role="NormativeCalculation" Multiplicity="0..1" />
+          <End Type="MCDatabaseModel.Building" Role="Building" Multiplicity="1" />
+        </Association>
+        <Association Name="DateTimeIntervalNormativeCalculation">
+          <End Type="MCDatabaseModel.DateTimeInterval" Role="DateTimeInterval" Multiplicity="1" />
+          <End Type="MCDatabaseModel.NormativeCalculation" Role="NormativeCalculation" Multiplicity="0..1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -534,59 +547,54 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DateTimeImtervals">
-      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.DateTimeImtervals)">
-        <MappingFragment StoreEntitySet="DateTimeImtervals">
+    <EntitySetMapping Name="DateTimeIntervals">
+      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.DateTimeInterval)">
+        <MappingFragment StoreEntitySet="DateTimeIntervals">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="HeatSupplierId" ColumnName="HeatSupplierId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NormativeCalculations">
-      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.NormativeCalculations)">
+      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.NormativeCalculation)">
         <MappingFragment StoreEntitySet="NormativeCalculations">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="CalculationArea" ColumnName="CalculationArea" />
           <ScalarProperty Name="EstimateConsumptionHeat" ColumnName="EstimateConsumptionHeat" />
           <ScalarProperty Name="ConsumptionHeatByTotalArea" ColumnName="ConsumptionHeatByTotalArea" />
           <ScalarProperty Name="ConsumptionHeatByCalculationArea" ColumnName="ConsumptionHeatByCalculationArea" />
-          <ScalarProperty Name="BuildingsId" ColumnName="BuildingsId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ContractConsumptionHeatTable">
+    <EntitySetMapping Name="ContractConsumptionHeats">
       <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.ContractConsumptionHeat)">
-        <MappingFragment StoreEntitySet="ContractConsumptionHeatTable">
+        <MappingFragment StoreEntitySet="ContractConsumptionHeats">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="HeatByLoading" ColumnName="HeatByLoading" />
           <ScalarProperty Name="PeopleCount" ColumnName="PeopleCount" />
           <ScalarProperty Name="HotWaterByNorm" ColumnName="HotWaterByNorm" />
           <ScalarProperty Name="TotalHeatConsumption" ColumnName="TotalHeatConsumption" />
-          <ScalarProperty Name="BuildingsId" ColumnName="BuildingsId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="MeterReadingsTable">
-      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.MeterReadings)">
-        <MappingFragment StoreEntitySet="MeterReadingsTable">
+    <EntitySetMapping Name="MeterReadings">
+      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.MeterReading)">
+        <MappingFragment StoreEntitySet="MeterReadings">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CurrentHeatMeterReader" ColumnName="CurrentHeatMeterReader" />
           <ScalarProperty Name="CurrentWaterHeatReader" ColumnName="CurrentWaterHeatReader" />
-          <ScalarProperty Name="BuildingsId" ColumnName="BuildingsId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ClearingTable">
+    <EntitySetMapping Name="Clearings">
       <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.Clearing)">
-        <MappingFragment StoreEntitySet="ClearingTable">
+        <MappingFragment StoreEntitySet="Clearings">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Requirements" ColumnName="Requirements" />
-          <ScalarProperty Name="CalculationHotWater" ColumnName="CalculationHotWater" />
+          <ScalarProperty Name="CalculationByBughaltery" ColumnName="CalculationByBughaltery" />
           <ScalarProperty Name="CalculationHot" ColumnName="CalculationHot" />
-          <ScalarProperty Name="BuildingsId" ColumnName="BuildingsId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -609,52 +617,121 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="ContractConsumptionHeatDateTimeImtervals" TypeName="MCDatabaseModel.ContractConsumptionHeatDateTimeImtervals" StoreEntitySet="ContractConsumptionHeatTable">
-      <EndProperty Name="DateTimeImtervals">
-        <ScalarProperty Name="Id" ColumnName="DateTimeImtervals_Id" />
+    <EntitySetMapping Name="WholeTableSet">
+      <EntityTypeMapping TypeName="IsTypeOf(MCDatabaseModel.WholeTable)">
+        <MappingFragment StoreEntitySet="WholeTableSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
+          <ScalarProperty Name="BuildingDescription" ColumnName="BuildingDescription" />
+          <ScalarProperty Name="BuildingStandartOfHeat" ColumnName="BuildingStandartOfHeat" />
+          <ScalarProperty Name="BuildingTotalArea" ColumnName="BuildingTotalArea" />
+          <ScalarProperty Name="HeatSupplierName" ColumnName="HeatSupplierName" />
+          <ScalarProperty Name="HeatSupplierDescription" ColumnName="HeatSupplierDescription" />
+          <ScalarProperty Name="DateTimeIntervalStartDate" ColumnName="DateTimeIntervalStartDate" />
+          <ScalarProperty Name="DateTimeIntervalEndDate" ColumnName="DateTimeIntervalEndDate" />
+          <ScalarProperty Name="DateTimeIntervalName" ColumnName="DateTimeIntervalName" />
+          <ScalarProperty Name="ClearingRequirements" ColumnName="ClearingRequirements" />
+          <ScalarProperty Name="ClearingCalculationHot" ColumnName="ClearingCalculationHot" />
+          <ScalarProperty Name="ClearingCalculationByBuhgaltery" ColumnName="ClearingCalculationByBuhgaltery" />
+          <ScalarProperty Name="MeterReadingHeat" ColumnName="MeterReadingHeat" />
+          <ScalarProperty Name="MeterReadingWater" ColumnName="MeterReadingWater" />
+          <ScalarProperty Name="ContractHeatByLoading" ColumnName="ContractHeatByLoading" />
+          <ScalarProperty Name="ContractPeopleCount" ColumnName="ContractPeopleCount" />
+          <ScalarProperty Name="ContractHotWaterByNorm" ColumnName="ContractHotWaterByNorm" />
+          <ScalarProperty Name="ContractTotalHeatConsumption" ColumnName="ContractTotalHeatConsumption" />
+          <ScalarProperty Name="NormativeCalculationArea" ColumnName="NormativeCalculationArea" />
+          <ScalarProperty Name="NormativeEstimateConsumptionHeat" ColumnName="NormativeEstimateConsumptionHeat" />
+          <ScalarProperty Name="NormativConsumptionHeatByTotalArea" ColumnName="NormativConsumptionHeatByTotalArea" />
+          <ScalarProperty Name="NormativeConsumptionHeatByCalculationArea" ColumnName="NormativeConsumptionHeatByCalculationArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="BuildingHeatSupplier" TypeName="MCDatabaseModel.BuildingHeatSupplier" StoreEntitySet="Buildings">
+      <EndProperty Name="HeatSupplier">
+        <ScalarProperty Name="Id" ColumnName="HeatSupplier_Id" />
       </EndProperty>
-      <EndProperty Name="ContractConsumptionHeat">
-        <ScalarProperty Name="ID" ColumnName="ID" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="NormativeCalculationDateTimeImtervals" TypeName="MCDatabaseModel.NormativeCalculationDateTimeImtervals" StoreEntitySet="NormativeCalculations">
-      <EndProperty Name="DateTimeImtervals">
-        <ScalarProperty Name="Id" ColumnName="DateTimeImtervals_Id" />
-      </EndProperty>
-      <EndProperty Name="NormativeCalculation">
+      <EndProperty Name="Building">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="MeterReadingsDateTimeImtervals" TypeName="MCDatabaseModel.MeterReadingsDateTimeImtervals" StoreEntitySet="MeterReadingsTable">
-      <EndProperty Name="DateTimeImtervals">
-        <ScalarProperty Name="Id" ColumnName="DateTimeImtervals_Id" />
+    <AssociationSetMapping Name="BuildingMeterReading" TypeName="MCDatabaseModel.BuildingMeterReading" StoreEntitySet="MeterReadings">
+      <EndProperty Name="Building">
+        <ScalarProperty Name="Id" ColumnName="Building_Id" />
       </EndProperty>
-      <EndProperty Name="MeterReadings">
+      <EndProperty Name="MeterReading">
         <ScalarProperty Name="ID" ColumnName="ID" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="DateTimeImtervalsClearing" TypeName="MCDatabaseModel.DateTimeImtervalsClearing" StoreEntitySet="ClearingTable">
-      <EndProperty Name="DateTimeImtervals">
-        <ScalarProperty Name="Id" ColumnName="DateTimeImtervals_Id" />
+    <AssociationSetMapping Name="DateTimeIntervalMeterReading" TypeName="MCDatabaseModel.DateTimeIntervalMeterReading" StoreEntitySet="MeterReadings">
+      <EndProperty Name="DateTimeInterval">
+        <ScalarProperty Name="Id" ColumnName="DateTimeInterval_Id" />
+      </EndProperty>
+      <EndProperty Name="MeterReading">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DateTimeIntervalHeatSupplier" TypeName="MCDatabaseModel.DateTimeIntervalHeatSupplier" StoreEntitySet="DateTimeIntervals">
+      <EndProperty Name="HeatSupplier">
+        <ScalarProperty Name="Id" ColumnName="HeatSupplier_Id" />
+      </EndProperty>
+      <EndProperty Name="DateTimeInterval">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="BuildingClearing" TypeName="MCDatabaseModel.BuildingClearing" StoreEntitySet="Clearings">
+      <EndProperty Name="Building">
+        <ScalarProperty Name="Id" ColumnName="Building_Id" />
       </EndProperty>
       <EndProperty Name="Clearing">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="BuildingsHeatSupplier" TypeName="MCDatabaseModel.BuildingsHeatSupplier" StoreEntitySet="Buildings">
-      <EndProperty Name="HeatSupplier">
-        <ScalarProperty Name="Id" ColumnName="HeatSupplier_Id" />
+    <AssociationSetMapping Name="DateTimeIntervalClearing" TypeName="MCDatabaseModel.DateTimeIntervalClearing" StoreEntitySet="Clearings">
+      <EndProperty Name="DateTimeInterval">
+        <ScalarProperty Name="Id" ColumnName="DateTimeInterval_Id" />
       </EndProperty>
-      <EndProperty Name="Buildings">
+      <EndProperty Name="Clearing">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ContractConsumptionHeatThermometerReading" TypeName="MCDatabaseModel.ContractConsumptionHeatThermometerReading" StoreEntitySet="ContractConsumptionHeatTable">
+    <AssociationSetMapping Name="DateTimeIntervalContractConsumptionHeat" TypeName="MCDatabaseModel.DateTimeIntervalContractConsumptionHeat" StoreEntitySet="ContractConsumptionHeats">
+      <EndProperty Name="DateTimeInterval">
+        <ScalarProperty Name="Id" ColumnName="DateTimeInterval_Id" />
+      </EndProperty>
+      <EndProperty Name="ContractConsumptionHeat">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ContractConsumptionHeatBuilding" TypeName="MCDatabaseModel.ContractConsumptionHeatBuilding" StoreEntitySet="ContractConsumptionHeats">
+      <EndProperty Name="Building">
+        <ScalarProperty Name="Id" ColumnName="Building_Id" />
+      </EndProperty>
+      <EndProperty Name="ContractConsumptionHeat">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ContractConsumptionHeatThermometerReading" TypeName="MCDatabaseModel.ContractConsumptionHeatThermometerReading" StoreEntitySet="ContractConsumptionHeats">
       <EndProperty Name="ThermometerReading">
         <ScalarProperty Name="Id" ColumnName="ThermometerReading_Id" />
       </EndProperty>
       <EndProperty Name="ContractConsumptionHeat">
         <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="NormativeCalculationBuilding" TypeName="MCDatabaseModel.NormativeCalculationBuilding" StoreEntitySet="NormativeCalculations">
+      <EndProperty Name="Building">
+        <ScalarProperty Name="Id" ColumnName="Building_Id" />
+      </EndProperty>
+      <EndProperty Name="NormativeCalculation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DateTimeIntervalNormativeCalculation" TypeName="MCDatabaseModel.DateTimeIntervalNormativeCalculation" StoreEntitySet="NormativeCalculations">
+      <EndProperty Name="DateTimeInterval">
+        <ScalarProperty Name="Id" ColumnName="DateTimeInterval_Id" />
+      </EndProperty>
+      <EndProperty Name="NormativeCalculation">
+        <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
@@ -676,76 +753,74 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="MCDatabaseModel" ZoomLevel="82" >
-        <EntityTypeShape EntityType="MCDatabaseModel.Building" Width="2.5" PointX="7" PointY="25.375" Height="2.9417936197916674" />
-        <EntityTypeShape EntityType="MCDatabaseModel.DateTimeImtervals" Width="2.25" PointX="7.875" PointY="19.75" Height="2.9417936197916674" />
-        <EntityTypeShape EntityType="MCDatabaseModel.NormativeCalculations" Width="3.5" PointX="1.25" PointY="19.875" Height="2.5571907552083353" />
+      <Diagram Name="MCDatabaseModel" ZoomLevel="55" >
+        <EntityTypeShape EntityType="MCDatabaseModel.Building" Width="2.5" PointX="6.125" PointY="25.5" Height="3.1340950520833353" />
+        <EntityTypeShape EntityType="MCDatabaseModel.DateTimeInterval" Width="2.25" PointX="8" PointY="19.125" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="MCDatabaseModel.NormativeCalculation" Width="3.5" PointX="2.375" PointY="20.125" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="MCDatabaseModel.ContractConsumptionHeat" Width="2.5" PointX="14.5" PointY="20.75" Height="2.5571907552083353" />
-        <AssociationConnector Association="MCDatabaseModel.BuildingsContractConsumptionHeat" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.40625" PointY="25.375" />
-          <ConnectorPoint PointX="7.40625" PointY="23.030742187500003" />
-          <ConnectorPoint PointX="9.6477289982096348" PointY="23.030742187500003" />
-          <ConnectorPoint PointX="9.8143956648763027" PointY="23.030742187500003" />
-          <ConnectorPoint PointX="9.87595033243815" PointY="23.030742187500003" />
-          <ConnectorPoint PointX="10.042616999104817" PointY="23.030742187500003" />
-          <ConnectorPoint PointX="14.5" PointY="23.030742187500003" />
-        </AssociationConnector>
-        <AssociationConnector Association="MCDatabaseModel.BuildingsNormativeCalculation">
-          <ConnectorPoint PointX="7" PointY="26.329655876835698" />
-          <ConnectorPoint PointX="4.71875" PointY="26.329655876835698" />
-          <ConnectorPoint PointX="4.71875" PointY="22.432190755208335" />
-        </AssociationConnector>
-        <AssociationConnector Association="MCDatabaseModel.ContractConsumptionHeatDateTimeImtervals">
-          <ConnectorPoint PointX="14.5" PointY="21.720896809895834" />
-          <ConnectorPoint PointX="10.125" PointY="21.720896809895834" />
-        </AssociationConnector>
-        <AssociationConnector Association="MCDatabaseModel.NormativeCalculationDateTimeImtervals">
-          <ConnectorPoint PointX="4.75" PointY="21.153595377604169" />
-          <ConnectorPoint PointX="7.875" PointY="21.153595377604169" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="MCDatabaseModel.MeterReadings" Width="3.375" PointX="1.25" PointY="23.5" Height="2.1725878906249996" />
-        <AssociationConnector Association="MCDatabaseModel.BuildingsMeterReadings">
-          <ConnectorPoint PointX="7" PointY="27.354477248313682" />
-          <ConnectorPoint PointX="2.9375" PointY="27.354477248313682" />
-          <ConnectorPoint PointX="2.9375" PointY="25.672587890625" />
-        </AssociationConnector>
-        <AssociationConnector Association="MCDatabaseModel.MeterReadingsDateTimeImtervals" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.625" PointY="24.791725267469882" />
-          <ConnectorPoint PointX="4.635416666666667" PointY="24.791725267469882" />
-          <ConnectorPoint PointX="4.802083333333333" PointY="24.791725267469882" />
-          <ConnectorPoint PointX="7.322916666666667" PointY="24.791725267469882" />
-          <ConnectorPoint PointX="7.489583333333333" PointY="24.791725267469882" />
-          <ConnectorPoint PointX="9.7310623315429687" PointY="24.791725267469882" />
-          <ConnectorPoint PointX="9.7310623315429687" PointY="22.691793619791667" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="MCDatabaseModel.Clearing" Width="2.5" PointX="12.125" PointY="23.75" Height="1.7879850260416674" />
-        <AssociationConnector Association="MCDatabaseModel.BuildingsClearing">
-          <ConnectorPoint PointX="9.5" PointY="25.744944661458334" />
-          <ConnectorPoint PointX="12.125" PointY="25.744944661458334" />
-        </AssociationConnector>
-        <AssociationConnector Association="MCDatabaseModel.DateTimeImtervalsClearing">
-          <ConnectorPoint PointX="9.9592836657714834" PointY="22.691793619791667" />
-          <ConnectorPoint PointX="9.9592836657714834" PointY="24.270862633734943" />
-          <ConnectorPoint PointX="12.125" PointY="24.270862633734943" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="MCDatabaseModel.HeatSupplier" Width="1.5" PointX="15.875" PointY="26.25" Height="1.5956835937500031" />
-        <AssociationConnector Association="MCDatabaseModel.BuildingsHeatSupplier">
-          <ConnectorPoint PointX="9.5" PointY="27.240143229166669" />
+        <EntityTypeShape EntityType="MCDatabaseModel.MeterReading" Width="3.375" PointX="1" PointY="23.375" Height="1.9802864583333353" />
+        <EntityTypeShape EntityType="MCDatabaseModel.Clearing" Width="2.5" PointX="11.25" PointY="23.5" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="MCDatabaseModel.HeatSupplier" Width="1.875" PointX="15.875" PointY="26.25" Height="1.9802864583333353" />
+        <EntityTypeShape EntityType="MCDatabaseModel.ThermometerReading" Width="2.375" PointX="18.125" PointY="21.25" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="MCDatabaseModel.WholeTable" Width="3.25" PointX="7" PointY="29.5" Height="5.4417122395833317" />
+        <AssociationConnector Association="MCDatabaseModel.BuildingHeatSupplier">
+          <ConnectorPoint PointX="8.625" PointY="27.240143229166669" />
           <ConnectorPoint PointX="15.875" PointY="27.240143229166669" />
         </AssociationConnector>
-        <AssociationConnector Association="MCDatabaseModel.DateTimeImtervalsHeatSupplier">
-          <ConnectorPoint PointX="10.125" PointY="20.21875" />
-          <ConnectorPoint PointX="17.21875" PointY="20.21875" />
-          <ConnectorPoint PointX="17.21875" PointY="26.25" />
+        <AssociationConnector Association="MCDatabaseModel.BuildingMeterReading">
+          <ConnectorPoint PointX="6.125" PointY="26.970896809895834" />
+          <ConnectorPoint PointX="2.6875" PointY="26.970896809895834" />
+          <ConnectorPoint PointX="2.6875" PointY="25.355286458333335" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="MCDatabaseModel.ThermometerReading" Width="2.375" PointX="18.125" PointY="21.25" Height="1.7879850260416674" />
+        <AssociationConnector Association="MCDatabaseModel.DateTimeIntervalMeterReading">
+          <ConnectorPoint PointX="8.76228430908203" PointY="21.8744921875" />
+          <ConnectorPoint PointX="8.76228430908203" PointY="24.062423706054688" />
+          <ConnectorPoint PointX="5.239583333333333" PointY="24.062423706054688" />
+          <ConnectorPoint PointX="5.072916666666667" PointY="24.062423706054688" />
+          <ConnectorPoint PointX="4.375" PointY="24.062423706054688" />
+        </AssociationConnector>
+        <AssociationConnector Association="MCDatabaseModel.DateTimeIntervalHeatSupplier">
+          <ConnectorPoint PointX="10.25" PointY="19.90625" />
+          <ConnectorPoint PointX="17.40625" PointY="19.90625" />
+          <ConnectorPoint PointX="17.40625" PointY="26.25" />
+        </AssociationConnector>
+        <AssociationConnector Association="MCDatabaseModel.BuildingClearing">
+          <ConnectorPoint PointX="8.625" PointY="26.566585799357092" />
+          <ConnectorPoint PointX="12.5" PointY="26.566585799357092" />
+          <ConnectorPoint PointX="12.5" PointY="25.672587890625" />
+        </AssociationConnector>
+        <AssociationConnector Association="MCDatabaseModel.DateTimeIntervalClearing">
+          <ConnectorPoint PointX="9.53576947265625" PointY="21.8744921875" />
+          <ConnectorPoint PointX="9.53576947265625" PointY="24.7493896484375" />
+          <ConnectorPoint PointX="11.25" PointY="24.7493896484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="MCDatabaseModel.DateTimeIntervalContractConsumptionHeat">
+          <ConnectorPoint PointX="10.25" PointY="21.312246093749998" />
+          <ConnectorPoint PointX="14.5" PointY="21.312246093749998" />
+        </AssociationConnector>
+        <AssociationConnector Association="MCDatabaseModel.ContractConsumptionHeatBuilding">
+          <ConnectorPoint PointX="15.15625" PointY="23.307190755208335" />
+          <ConnectorPoint PointX="15.15625" PointY="25.961293945312498" />
+          <ConnectorPoint PointX="12.583333333333334" PointY="25.961293945312498" />
+          <ConnectorPoint PointX="12.416666666666666" PointY="25.961293945312498" />
+          <ConnectorPoint PointX="8.625" PointY="25.961293945312498" />
+        </AssociationConnector>
         <AssociationConnector Association="MCDatabaseModel.ContractConsumptionHeatThermometerReading">
           <ConnectorPoint PointX="17" PointY="22.240143229166669" />
-          <ConnectorPoint PointX="17.135416666666668" PointY="22.240143229166669" />
-          <ConnectorPoint PointX="17.302083333333332" PointY="22.240143229166669" />
+          <ConnectorPoint PointX="17.322916666666668" PointY="22.240143229166669" />
+          <ConnectorPoint PointX="17.489583333333332" PointY="22.240143229166669" />
           <ConnectorPoint PointX="18.125" PointY="22.240143229166669" />
         </AssociationConnector>
-      </Diagram>
+        <AssociationConnector Association="MCDatabaseModel.NormativeCalculationBuilding">
+          <ConnectorPoint PointX="5.15625" PointY="22.489889322916667" />
+          <ConnectorPoint PointX="5.15625" PointY="26.368226041666667" />
+          <ConnectorPoint PointX="6.125" PointY="26.368226041666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="MCDatabaseModel.DateTimeIntervalNormativeCalculation">
+          <ConnectorPoint PointX="8" PointY="20.999746093749998" />
+          <ConnectorPoint PointX="5.875" PointY="20.999746093749998" />
+        </AssociationConnector>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

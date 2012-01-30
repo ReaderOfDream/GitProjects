@@ -21,7 +21,7 @@ namespace ManagementCompany.Models
             view = new CreateReportView(){DataContext = this};
             db = repository;
             HeatSuppliers = new ObservableCollection<HeatSupplier>(repository.GetHeatSuppliers());
-            DateTimeIntervals = new ObservableCollection<DateTimeImtervals>(repository.GetDateTimeIntervals());
+            DateTimeIntervals = new ObservableCollection<DateTimeInterval>(repository.GetDateTimeIntervals());
         }
 
         public void CreateReport()
@@ -32,7 +32,7 @@ namespace ManagementCompany.Models
             if (SelectedHeatSupplier == null)
                 return;
 
-            var interval = new DateTimeImtervals()
+            var interval = new DateTimeInterval()
                                {
                                    Name = Name,
                                    StartDate = StartDate,
@@ -44,7 +44,7 @@ namespace ManagementCompany.Models
             DateTimeIntervals.Add(interval);
         }
 
-        public ObservableCollection<DateTimeImtervals> DateTimeIntervals { get; set; }
+        public ObservableCollection<DateTimeInterval> DateTimeIntervals { get; set; }
         public ObservableCollection<HeatSupplier> HeatSuppliers { get; set; }
 
         public UserControl View

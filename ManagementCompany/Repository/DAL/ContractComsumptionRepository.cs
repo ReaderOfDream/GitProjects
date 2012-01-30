@@ -6,7 +6,7 @@ namespace Repository.DAL
 {
     public interface IContractConsumprionRepository
     {
-        IEnumerable<DateTimeImtervals> GetDateTimeIntervals();
+        IEnumerable<DateTimeInterval> GetDateTimeIntervals();
         IEnumerable<ThermometerReading> GetThermometerReadings();
         IEnumerable<Building> GetBuildings();
         IEnumerable<ContractConsumptionHeat> GetConstractConsumptions();
@@ -29,9 +29,9 @@ namespace Repository.DAL
 
         #region Implementation of IRepository<ContractConsumptionHeat>
 
-        public IEnumerable<DateTimeImtervals> GetDateTimeIntervals()
+        public IEnumerable<DateTimeInterval> GetDateTimeIntervals()
         {
-            return db.DateTimeImtervals;
+            return db.DateTimeIntervals;
         }
 
         public IEnumerable<ThermometerReading> GetThermometerReadings()
@@ -46,23 +46,23 @@ namespace Repository.DAL
 
         public IEnumerable<ContractConsumptionHeat> GetConstractConsumptions()
         {
-            return db.ContractConsumptionHeatTable;
+            return db.ContractConsumptionHeats;
         }
 
         public ContractConsumptionHeat GetConstractConsumptionById(int id)
         {
-            return db.ContractConsumptionHeatTable.Single(item => item.ID == id);
+            return db.ContractConsumptionHeats.Single(item => item.ID == id);
         }
 
         public void InsertConstractConsumption(ContractConsumptionHeat item)
         {
-            db.ContractConsumptionHeatTable.AddObject(item);
+            db.ContractConsumptionHeats.AddObject(item);
         }
 
         public void DeleteConstractConsumption(ContractConsumptionHeat item)
         {
-            var deletingItem = db.ContractConsumptionHeatTable.Single(x => x.ID == item.ID);
-            db.ContractConsumptionHeatTable.DeleteObject(deletingItem);
+            var deletingItem = db.ContractConsumptionHeats.Single(x => x.ID == item.ID);
+            db.ContractConsumptionHeats.DeleteObject(deletingItem);
         }
 
         public void UpdateConstractConsumption(ContractConsumptionHeat item)

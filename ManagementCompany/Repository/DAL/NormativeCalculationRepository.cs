@@ -6,12 +6,12 @@ namespace Repository.DAL
     public interface INormativeCalculationRepository
     {
         IEnumerable<Building> GetBuildings();
-        IEnumerable<DateTimeImtervals> GetDateTimeIntervals();
-        IEnumerable<NormativeCalculations> GetNormativeCalculations();
-        NormativeCalculations GetNormativeCalculationsId(int normativeCalculationsId);
-        void InsertNormativeCalculations(NormativeCalculations normativeCalculations);
+        IEnumerable<DateTimeInterval> GetDateTimeIntervals();
+        IEnumerable<NormativeCalculation> GetNormativeCalculations();
+        NormativeCalculation GetNormativeCalculationsId(int normativeCalculationsId);
+        void InsertNormativeCalculations(NormativeCalculation normativeCalculations);
         void DeleteNormativeCalculations(int normativeCalculationsId);
-        void UpdateNormativeCalculations(NormativeCalculations normativeCalculations);
+        void UpdateNormativeCalculations(NormativeCalculation normativeCalculations);
         void Save();
     }
 
@@ -31,22 +31,22 @@ namespace Repository.DAL
             return db.Buildings;
         }
 
-        public IEnumerable<DateTimeImtervals> GetDateTimeIntervals()
+        public IEnumerable<DateTimeInterval> GetDateTimeIntervals()
         {
-            return db.DateTimeImtervals;
+            return db.DateTimeIntervals;
         }
 
-        public IEnumerable<NormativeCalculations> GetNormativeCalculations()
+        public IEnumerable<NormativeCalculation> GetNormativeCalculations()
         {
             return db.NormativeCalculations;
         }
 
-        public NormativeCalculations GetNormativeCalculationsId(int normativeCalculationsId)
+        public NormativeCalculation GetNormativeCalculationsId(int normativeCalculationsId)
         {
             return db.NormativeCalculations.Single(item => item.Id == normativeCalculationsId);
         }
 
-        public void InsertNormativeCalculations(NormativeCalculations normativeCalculations)
+        public void InsertNormativeCalculations(NormativeCalculation normativeCalculations)
         {
             db.NormativeCalculations.AddObject(normativeCalculations);
         }
@@ -57,7 +57,7 @@ namespace Repository.DAL
             db.NormativeCalculations.DeleteObject(deletingItem);
         }
 
-        public void UpdateNormativeCalculations(NormativeCalculations normativeCalculations)
+        public void UpdateNormativeCalculations(NormativeCalculation normativeCalculations)
         {
             var updatingItem = db.NormativeCalculations.Single(item => item.Id == normativeCalculations.Id);
 
@@ -65,7 +65,6 @@ namespace Repository.DAL
             updatingItem.EstimateConsumptionHeat = normativeCalculations.EstimateConsumptionHeat;
             updatingItem.ConsumptionHeatByCalculationArea = normativeCalculations.ConsumptionHeatByCalculationArea;
             updatingItem.ConsumptionHeatByTotalArea = normativeCalculations.ConsumptionHeatByTotalArea;
-            updatingItem.BuildingsId = normativeCalculations.BuildingsId;
         }
 
         public void Save()

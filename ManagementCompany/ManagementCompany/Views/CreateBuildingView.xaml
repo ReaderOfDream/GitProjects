@@ -29,11 +29,11 @@
         <TextBox Text="{Binding Description}" Width="200" Grid.Row="1" Grid.Column="1" Margin="5" MaxLength="200"/>
 
         <Label Content="Нормативная потребность:" Grid.Row="2" Grid.Column="0"/>
-        <TextBox Text="{Binding EstimatedConsumption, ValidatesOnExceptions=True}" Grid.Row="2" Grid.Column="1" 
+        <TextBox Text="{Binding StandartOfHeat, ValidatesOnExceptions=True}" Grid.Row="2" Grid.Column="1" 
                  Margin="5" MaxLength="20"/>
 
         <Label Content="Площадь" Grid.Row="3" Grid.Column="0" />
-        <TextBox Text="{Binding TotalArea, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="1" Grid.Row="3" 
+        <TextBox Text="{Binding TotalArea,  ValidatesOnExceptions=True}" Grid.Column="1" Grid.Row="3" 
                  Margin="5" MaxLength="10"/>
         
         <Label Content="Поставщик тепла" Grid.Column="0" Grid.Row="4"/>
@@ -46,7 +46,7 @@
                 <GridView>
                     <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}" Width="30" />
                     <GridViewColumn Header="Описание" DisplayMemberBinding="{Binding Description}" Width="100"/>
-                    <GridViewColumn Header="Нормативная потребность" DisplayMemberBinding="{Binding EstimateConsumptionHeat}" Width="100"/>
+                    <GridViewColumn Header="Нормативная потребность" DisplayMemberBinding="{Binding StandartOfHeat}" Width="100"/>
                     <GridViewColumn Header="Площадь" DisplayMemberBinding="{Binding TotalArea}" Width="100"/>
                 </GridView>
             </ListView.View>

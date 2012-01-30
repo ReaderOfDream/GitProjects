@@ -29,7 +29,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="2">
             <Label Content="предъявленная тепло"/>
-            <TextBox Text="{Binding RequirementHeat}"/>
+            <TextBox Text="{Binding Requirements}"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="3">
@@ -43,7 +43,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="5"  Orientation="Horizontal">
-            <Label Content="Интревал отчета"/>
+            <Label Content="Интервал отчета"/>
             <ComboBox ItemsSource="{Binding DateTimeIntervals}" SelectedItem="{Binding SelectedInterval}" DisplayMemberPath="Name" Width="100"/>
         </StackPanel>
 

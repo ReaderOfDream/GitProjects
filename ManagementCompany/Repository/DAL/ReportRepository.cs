@@ -6,11 +6,11 @@ namespace Repository.DAL
     public interface IReportRepository
     {
         IEnumerable<HeatSupplier> GetHeatSuppliers();
-        IEnumerable<DateTimeImtervals> GetDateTimeIntervals();
-        DateTimeImtervals GetDateTimeIntervalId(int dateTimeIntervalId);
-        void InsertDateTimeInterval(DateTimeImtervals dateTimeImterval);
+        IEnumerable<DateTimeInterval> GetDateTimeIntervals();
+        DateTimeInterval GetDateTimeIntervalId(int dateTimeIntervalId);
+        void InsertDateTimeInterval(DateTimeInterval dateTimeImterval);
         void DeleteDateTimeInterval(int dateTimeIntervalId);
-        void UpdateDateTimeInterval(DateTimeImtervals dateTimeImterval);
+        void UpdateDateTimeInterval(DateTimeInterval dateTimeImterval);
         void Save();
     }
 
@@ -28,32 +28,32 @@ namespace Repository.DAL
             return db.HeatSuppliers;
         }
 
-        public IEnumerable<DateTimeImtervals> GetDateTimeIntervals()
+        public IEnumerable<DateTimeInterval> GetDateTimeIntervals()
         {
-            return db.DateTimeImtervals;
+            return db.DateTimeIntervals;
         }
 
-        public DateTimeImtervals GetDateTimeIntervalId(int dateTimeIntervalId)
+        public DateTimeInterval GetDateTimeIntervalId(int dateTimeIntervalId)
         {
-            return db.DateTimeImtervals.Single(interval => interval.Id == dateTimeIntervalId);
+            return db.DateTimeIntervals.Single(interval => interval.Id == dateTimeIntervalId);
         }
 
-        public void InsertDateTimeInterval(DateTimeImtervals dateTimeImterval)
+        public void InsertDateTimeInterval(DateTimeInterval dateTimeImterval)
         {
-            db.DateTimeImtervals.AddObject(dateTimeImterval);
+            db.DateTimeIntervals.AddObject(dateTimeImterval);
         }
 
         public void DeleteDateTimeInterval(int dateTimeIntervalId)
         {
-            var deletingItem = db.DateTimeImtervals.Single(interval => interval.Id == dateTimeIntervalId);
-            db.DateTimeImtervals.DeleteObject(deletingItem);
+            var deletingItem = db.DateTimeIntervals.Single(interval => interval.Id == dateTimeIntervalId);
+            db.DateTimeIntervals.DeleteObject(deletingItem);
         }
 
-        public void UpdateDateTimeInterval(DateTimeImtervals dateTimeImterval)
+        public void UpdateDateTimeInterval(DateTimeInterval dateTimeImterval)
         {
             // TODO refactor me
 
-            var updatingItem = db.DateTimeImtervals.Single(interval => interval.Id == dateTimeImterval.Id);
+            var updatingItem = db.DateTimeIntervals.Single(interval => interval.Id == dateTimeImterval.Id);
             updatingItem.StartDate = dateTimeImterval.StartDate;
             updatingItem.EndDate = dateTimeImterval.EndDate;
             updatingItem.HeatSupplier = dateTimeImterval.HeatSupplier;

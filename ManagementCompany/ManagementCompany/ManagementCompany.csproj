@@ -42,6 +42,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +53,8 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Telerik.Reporting, Version=5.1.11.713, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+    <Reference Include="Telerik.ReportViewer.Wpf, Version=5.1.11.713, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
     <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -62,18 +66,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\ClearinfViewModel.cs" />
-    <Compile Include="DataSet.Designer.cs">
+    <Compile Include="masterDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet.xsd</DependentUpon>
+      <DependentUpon>masterDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClearingViewModel.cs" />
     <Compile Include="Models\ContractConsumptionViewModel.cs" />
     <Compile Include="Models\CreateReportViewModel.cs" />
     <Compile Include="Models\HeatSupplierViewModel.cs" />
     <Compile Include="Models\ManagementObjectsViewModel.cs" />
     <Compile Include="Models\NormativeCalculationViewModel.cs" />
     <Compile Include="Models\ThermometersReaderViewModel.cs" />
+    <Compile Include="TelerikReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TelerikReport.Designer.cs">
+      <DependentUpon>TelerikReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ClearingView.xaml.cs">
       <DependentUpon>ClearingView.xaml</DependentUpon>
     </Compile>
@@ -163,19 +173,22 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report.rdlc" />
+    <EmbeddedResource Include="TelerikReport.resx">
+      <DependentUpon>TelerikReport.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataSet.xsc">
-      <DependentUpon>DataSet.xsd</DependentUpon>
+    <None Include="masterDataSet.xsc">
+      <DependentUpon>masterDataSet.xsd</DependentUpon>
     </None>
-    <None Include="DataSet.xsd">
+    <None Include="masterDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>masterDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataSet.xss">
-      <DependentUpon>DataSet.xsd</DependentUpon>
+    <None Include="masterDataSet.xss">
+      <DependentUpon>masterDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

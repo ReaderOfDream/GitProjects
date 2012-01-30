@@ -21,7 +21,7 @@ namespace ManagementCompany.Models
             this.repository = repository;
             this.contractCalculator = contractCalculator;
             Buildings = new ObservableCollection<Building>(repository.GetBuildings());
-            DateTimeIntervals = new ObservableCollection<DateTimeImtervals>(repository.GetDateTimeIntervals());
+            DateTimeIntervals = new ObservableCollection<DateTimeInterval>(repository.GetDateTimeIntervals());
             ContractConsumptions = new ObservableCollection<ContractConsumptionHeat>(repository.GetConstractConsumptions());
             ThermometerReadings = new ObservableCollection<ThermometerReading>(repository.GetThermometerReadings());
             view = new ContractConsumptionView(){DataContext = this};
@@ -48,12 +48,12 @@ namespace ManagementCompany.Models
             var totalHeatConsumption = contractCalculator.TotalHeatConsumption(consumptionByLoad, hotWaterByNorm);
             var contractConsumption = new ContractConsumptionHeat
                                           {
-                                              BuildingsId = SelectedBuilding.Id,
+                                              Building = SelectedBuilding,
                                               HeatByLoading = consumptionByLoad,
                                               PeopleCount = int.Parse(PeopleCount),
                                               HotWaterByNorm = hotWaterByNorm,
                                               TotalHeatConsumption = totalHeatConsumption,
-                                              DateTimeImtervals = SelectedInterval,
+                                              DateTimeInterval = SelectedInterval,
                                               ThermometerReading = SelectedThermometerReading
                                           };
             repository.InsertConstractConsumption(contractConsumption);
@@ -67,8 +67,8 @@ namespace ManagementCompany.Models
         public ObservableCollection<ThermometerReading> ThermometerReadings { get; private set; }
         public ThermometerReading SelectedThermometerReading { get; set; }
         public Building SelectedBuilding { get; set; }
-        public ObservableCollection<DateTimeImtervals> DateTimeIntervals { get; private set; }
-        public DateTimeImtervals SelectedInterval { get; set; }
+        public ObservableCollection<DateTimeInterval> DateTimeIntervals { get; private set; }
+        public DateTimeInterval SelectedInterval { get; set; }
     }
 }
 

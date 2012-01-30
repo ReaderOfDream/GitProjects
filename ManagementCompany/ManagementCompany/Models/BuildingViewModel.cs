@@ -13,8 +13,8 @@ namespace ManagementCompany.Models
 {
     public class BuildingViewModel : INotifyPropertyChanged
     {
-        private readonly IBuildingRepository supplierRepository;
-        private readonly UserControl view;
+        private readonly IBuildingRepository _supplierRepository;
+        private readonly UserControl _view;
 
         public BuildingViewModel(IBuildingRepository buildingRepository)
         {
@@ -22,8 +22,8 @@ namespace ManagementCompany.Models
             {
                 Buildings = new ObservableCollection<Building>(buildingRepository.GetBuildings());
                 HeatSuppliers = new ObservableCollection<HeatSupplier>(buildingRepository.GetSuppliers());
-                supplierRepository = buildingRepository;
-                view = new CreateBuildingView() {DataContext = this};
+                _supplierRepository = buildingRepository;
+                _view = new CreateBuildingView() {DataContext = this};
             }
             catch (Exception error)
             {
@@ -48,12 +48,12 @@ namespace ManagementCompany.Models
                                    {
                                        Name = Name,
                                        Description = Description,
-                                       StandartOfHeat = estimatedConsumption,
-                                       TotalArea = TotalArea,
+                                       StandartOfHeat = _standartOfHeat,
+                                       TotalArea = _totalArea,
                                        HeatSupplier = SelectedHeatSupplier
                                    };
-                supplierRepository.InsertBuilding(building);
-                supplierRepository.Save();
+                _supplierRepository.InsertBuilding(building);
+                _supplierRepository.Save();
                 Buildings.Add(building);
 
                 //Clean Gui's text
@@ -69,21 +69,22 @@ namespace ManagementCompany.Models
 
         private void DeleteBuilding()
         {
-            if (selectedItem == null)
+            if (_selectedItem == null)
                 return;
 
-            supplierRepository.DeleteBuilding(selectedItem.Id);
-            supplierRepository.Save();
+            _supplierRepository.DeleteBuilding(_selectedItem.Id);
+            _supplierRepository.Save();
 
-            Buildings.Remove(selectedItem);
+            Buildings.Remove(_selectedItem);
 
         }
+
         private bool UserInputValid()
         {
             if (String.IsNullOrEmpty(Name))
                 return false;
 
-            if (estimatedConsumption <= 1)
+            if (_standartOfHeat <= 1)
                 return false;
 
             return true;
@@ -100,37 +101,54 @@ namespace ManagementCompany.Models
 
         public string Name { get; set; }
         public string Description { get; set; }
-        private double estimatedConsumption;
-        public string EstimatedConsumption
+        
+        private double _standartOfHeat;
+        public string StandartOfHeat
         {
-            get { return estimatedConsumption.ToString(); }
+            get { return _standartOfHeat.ToString(); }
             set
             {
-                var result = Double.TryParse(value, out estimatedConsumption);
+                var result = Double.TryParse(value, out _standartOfHeat);
                 if (!result)
                 {
-                    estimatedConsumption = 0.0;
+                    _standartOfHeat = 0.0;
                     throw new ArgumentException(String.Format("Не удалось преобразовать значение {0}", value));
                 }
             }
         }
-        public string TotalArea { get; set; }
-        public HeatSupplier SelectedHeatSupplier { get; set; }
 
-        private Building selectedItem;
-        public Building SelectedItem
+        private double _totalArea;
+        public string TotalArea
         {
-            get { return selectedItem; }
+            get { return _totalArea.ToString(); }
             set
             {
-                selectedItem = value;
+                var result = Double.TryParse(value, out _totalArea);
+                if (!result)
+                {
+                    _totalArea = 0.0;
+                    throw new ArgumentException(String.Format("Не удалось преобразовать значение {0}", value));
+                }
+            }
+
+        }
+
+        public HeatSupplier SelectedHeatSupplier { get; set; }
+
+        private Building _selectedItem;
+        public Building SelectedItem
+        {
+            get { return _selectedItem; }
+            set
+            {
+                _selectedItem = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("SelectedItem"));
             }
         }
-        
+
         public UserControl View
         {
-            get { return view; }
+            get { return _view; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
