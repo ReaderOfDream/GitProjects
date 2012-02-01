@@ -1,8 +1,13 @@
-﻿<Window x:Class="ManagementCompany.MainWindow"
+﻿<Themes:CustomWindow x:Class="ManagementCompany.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:WinForms="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
-        Title="MainWindow" Height="484" Width="919">
+                  xmlns:Themes="clr-namespace:ManagementCompany.Themes" Title="MainWindow"
+        MinHeight="600"
+        MinWidth="800"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Style="{DynamicResource MainWindow}">
     
     <!--<UserControl Content="{Binding View}"/>-->
     
@@ -36,4 +41,4 @@
             </WindowsFormsHost>
         </TabItem>
     </TabControl>
-</Window>
+</Themes:CustomWindow>

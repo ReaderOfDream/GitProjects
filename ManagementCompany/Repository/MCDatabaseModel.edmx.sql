@@ -2,13 +2,17 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 01/30/2012 00:07:16
--- Generated from EDMX file: C:\Users\Cleric\Documents\Visual Studio 2010\Projects\GitProjects\GitProjects\ManagementCompany\Repository\MCDatabaseModel.edmx
+-- Date Created: 02/01/2012 23:11:28
+-- Generated from EDMX file: D:\Фриланс\Управляющая компания\GitProjects\ManagementCompany\Repository\MCDatabaseModel.edmx
 -- --------------------------------------------------
 
+--DROP TABLE ManagementCompany
+--GO 
+--CREATE DATABASE ManagementCompany
+--GO
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [master];
+USE ManagementCompany;
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
