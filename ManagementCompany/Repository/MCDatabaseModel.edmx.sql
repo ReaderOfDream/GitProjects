@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 01/30/2012 00:07:16
+-- Date Created: 02/01/2012 01:00:08
 -- Generated from EDMX file: C:\Users\Cleric\Documents\Visual Studio 2010\Projects\GitProjects\GitProjects\ManagementCompany\Repository\MCDatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -50,6 +50,12 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_DateTimeIntervalNormativeCalculation]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[NormativeCalculations] DROP CONSTRAINT [FK_DateTimeIntervalNormativeCalculation];
 GO
+IF OBJECT_ID(N'[dbo].[FK_BuildingBuildingMonthVariables]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BuildingMonthVariablesTable] DROP CONSTRAINT [FK_BuildingBuildingMonthVariables];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DateTimeIntervalBuildingMonthVariables]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[BuildingMonthVariablesTable] DROP CONSTRAINT [FK_DateTimeIntervalBuildingMonthVariables];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -82,6 +88,9 @@ GO
 IF OBJECT_ID(N'[dbo].[WholeTableSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[WholeTableSet];
 GO
+IF OBJECT_ID(N'[dbo].[BuildingMonthVariablesTable]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[BuildingMonthVariablesTable];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -111,10 +120,10 @@ GO
 -- Creating table 'NormativeCalculations'
 CREATE TABLE [dbo].[NormativeCalculations] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [CalculationArea] float  NOT NULL,
     [EstimateConsumptionHeat] float  NOT NULL,
     [ConsumptionHeatByTotalArea] float  NOT NULL,
     [ConsumptionHeatByCalculationArea] float  NOT NULL,
+    [TotalHeatConsumption] float  NOT NULL,
     [Building_Id] int  NOT NULL,
     [DateTimeInterval_Id] int  NOT NULL
 );
@@ -124,7 +133,6 @@ GO
 CREATE TABLE [dbo].[ContractConsumptionHeats] (
     [ID] int IDENTITY(1,1) NOT NULL,
     [HeatByLoading] float  NOT NULL,
-    [PeopleCount] int  NOT NULL,
     [HotWaterByNorm] float  NOT NULL,
     [TotalHeatConsumption] float  NOT NULL,
     [DateTimeInterval_Id] int  NOT NULL,
@@ -165,9 +173,9 @@ GO
 -- Creating table 'ThermometerReadings'
 CREATE TABLE [dbo].[ThermometerReadings] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Month] nvarchar(max)  NOT NULL,
-    [Year] nvarchar(max)  NOT NULL,
-    [AirTemperature] nvarchar(max)  NOT NULL
+    [Month] int  NOT NULL,
+    [Year] int  NOT NULL,
+    [AirTemperature] int  NOT NULL
 );
 GO
 
@@ -196,6 +204,16 @@ CREATE TABLE [dbo].[WholeTableSet] (
     [NormativeEstimateConsumptionHeat] float  NOT NULL,
     [NormativConsumptionHeatByTotalArea] float  NOT NULL,
     [NormativeConsumptionHeatByCalculationArea] float  NOT NULL
+);
+GO
+
+-- Creating table 'BuildingMonthVariablesTable'
+CREATE TABLE [dbo].[BuildingMonthVariablesTable] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [CalculationArea] float  NOT NULL,
+    [CountOfPeople] int  NOT NULL,
+    [Building_Id] int  NOT NULL,
+    [DateTimeInterval_Id] int  NOT NULL
 );
 GO
 
@@ -254,6 +272,12 @@ GO
 -- Creating primary key on [Id] in table 'WholeTableSet'
 ALTER TABLE [dbo].[WholeTableSet]
 ADD CONSTRAINT [PK_WholeTableSet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'BuildingMonthVariablesTable'
+ALTER TABLE [dbo].[BuildingMonthVariablesTable]
+ADD CONSTRAINT [PK_BuildingMonthVariablesTable]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -412,6 +436,34 @@ ADD CONSTRAINT [FK_DateTimeIntervalNormativeCalculation]
 -- Creating non-clustered index for FOREIGN KEY 'FK_DateTimeIntervalNormativeCalculation'
 CREATE INDEX [IX_FK_DateTimeIntervalNormativeCalculation]
 ON [dbo].[NormativeCalculations]
+    ([DateTimeInterval_Id]);
+GO
+
+-- Creating foreign key on [Building_Id] in table 'BuildingMonthVariablesTable'
+ALTER TABLE [dbo].[BuildingMonthVariablesTable]
+ADD CONSTRAINT [FK_BuildingBuildingMonthVariables]
+    FOREIGN KEY ([Building_Id])
+    REFERENCES [dbo].[Buildings]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_BuildingBuildingMonthVariables'
+CREATE INDEX [IX_FK_BuildingBuildingMonthVariables]
+ON [dbo].[BuildingMonthVariablesTable]
+    ([Building_Id]);
+GO
+
+-- Creating foreign key on [DateTimeInterval_Id] in table 'BuildingMonthVariablesTable'
+ALTER TABLE [dbo].[BuildingMonthVariablesTable]
+ADD CONSTRAINT [FK_DateTimeIntervalBuildingMonthVariables]
+    FOREIGN KEY ([DateTimeInterval_Id])
+    REFERENCES [dbo].[DateTimeIntervals]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_DateTimeIntervalBuildingMonthVariables'
+CREATE INDEX [IX_FK_DateTimeIntervalBuildingMonthVariables]
+ON [dbo].[BuildingMonthVariablesTable]
     ([DateTimeInterval_Id]);
 GO
 

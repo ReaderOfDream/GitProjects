@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Repository.DAL
 {
-    public interface IContractConsumprionRepository
+    public interface IContractConsumptionRepository
     {
         IEnumerable<DateTimeInterval> GetDateTimeIntervals();
         IEnumerable<ThermometerReading> GetThermometerReadings();
@@ -18,7 +18,7 @@ namespace Repository.DAL
         void Save();
     }
 
-    public class ContractComsumptionRepository : IContractConsumprionRepository
+    public class ContractComsumptionRepository : IContractConsumptionRepository
     {
         private readonly MCDatabaseModelContainer db;
 
@@ -67,7 +67,10 @@ namespace Repository.DAL
 
         public void UpdateConstractConsumption(ContractConsumptionHeat item)
         {
-            throw new NotImplementedException();
+            var updatingItem = db.ContractConsumptionHeats.Single(x => x.ID == item.ID);
+            updatingItem.HeatByLoading = item.HeatByLoading;
+            updatingItem.HotWaterByNorm = item.HotWaterByNorm;
+            updatingItem.TotalHeatConsumption = item.TotalHeatConsumption;
         }
 
         public void Save()

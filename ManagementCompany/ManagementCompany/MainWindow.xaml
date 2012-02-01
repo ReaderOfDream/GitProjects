@@ -18,7 +18,7 @@
             <UserControl Content="{Binding Path=CreateReportViewModel.View}"/>
         </TabItem>
         <TabItem Header="Задание нормативного расчета">
-            <UserControl Content="{Binding Path=NormativeCalculationViewModel.View}"/>
+            <UserControl Content="{Binding Path=NormativeAndProjectModel.View}"/>
         </TabItem>
         <TabItem Header="Календарь температур">
             <UserControl Content="{Binding Path=ThermometersReaderViewModel.View}"/>
@@ -27,7 +27,7 @@
             <UserControl Content="{Binding Path=ContractConsumptionViewModel.View}"/>
         </TabItem>
         <TabItem Header="Счетчик">
-            <UserControl Content="{Binding Path=ClearinfViewModel.View}" />
+            <UserControl Content="{Binding Path=ClearinViewModel.View}" />
         </TabItem>
         <TabItem Header="Отчет">
             <WindowsFormsHost Height="400" Name="windowsFormsHost1" Width="900" >

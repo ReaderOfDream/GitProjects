@@ -56,13 +56,13 @@ namespace ManagementCompany.Models
 
             var normativeCalculation = new NormativeCalculation
                                            {
-                                               CalculationArea = calculationArea,
                                                EstimateConsumptionHeat = standartHeat,
                                                ConsumptionHeatByTotalArea = consumptionByTotalArea,
                                                ConsumptionHeatByCalculationArea = consumptionByCalculationArea,
                                                Building = SelectedBuilding,
                                                DateTimeInterval = SelectedInterval
                                            };
+
 
             _db.InsertNormativeCalculations(normativeCalculation);
             _db.Save();
