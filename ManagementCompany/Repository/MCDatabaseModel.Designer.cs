@@ -25,10 +25,12 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("MCDatabaseModel", "BuildingClearing", "Building", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.Building), "Clearing", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repository.Clearing))]
 [assembly: EdmRelationshipAttribute("MCDatabaseModel", "DateTimeIntervalClearing", "DateTimeInterval", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.DateTimeInterval), "Clearing", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Repository.Clearing))]
 [assembly: EdmRelationshipAttribute("MCDatabaseModel", "DateTimeIntervalContractConsumptionHeat", "DateTimeInterval", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.DateTimeInterval), "ContractConsumptionHeat", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Repository.ContractConsumptionHeat))]
-[assembly: EdmRelationshipAttribute("MCDatabaseModel", "ContractConsumptionHeatBuilding", "ContractConsumptionHeat", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.ContractConsumptionHeat), "Building", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.Building))]
+[assembly: EdmRelationshipAttribute("MCDatabaseModel", "ContractConsumptionHeatBuilding", "ContractConsumptionHeat", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repository.ContractConsumptionHeat), "Building", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.Building))]
 [assembly: EdmRelationshipAttribute("MCDatabaseModel", "ContractConsumptionHeatThermometerReading", "ContractConsumptionHeat", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repository.ContractConsumptionHeat), "ThermometerReading", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.ThermometerReading))]
-[assembly: EdmRelationshipAttribute("MCDatabaseModel", "NormativeCalculationBuilding", "NormativeCalculation", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Repository.NormativeCalculation), "Building", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.Building))]
+[assembly: EdmRelationshipAttribute("MCDatabaseModel", "NormativeCalculationBuilding", "NormativeCalculation", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repository.NormativeCalculation), "Building", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.Building))]
 [assembly: EdmRelationshipAttribute("MCDatabaseModel", "DateTimeIntervalNormativeCalculation", "DateTimeInterval", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.DateTimeInterval), "NormativeCalculation", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Repository.NormativeCalculation))]
+[assembly: EdmRelationshipAttribute("MCDatabaseModel", "BuildingBuildingMonthVariables", "Building", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.Building), "BuildingMonthVariables", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repository.BuildingMonthVariables))]
+[assembly: EdmRelationshipAttribute("MCDatabaseModel", "DateTimeIntervalBuildingMonthVariables", "DateTimeInterval", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repository.DateTimeInterval), "BuildingMonthVariables", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Repository.BuildingMonthVariables))]
 
 #endregion
 
@@ -223,6 +225,22 @@ namespace Repository
             }
         }
         private ObjectSet<WholeTable> _WholeTableSet;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<BuildingMonthVariables> BuildingMonthVariablesTable
+        {
+            get
+            {
+                if ((_BuildingMonthVariablesTable == null))
+                {
+                    _BuildingMonthVariablesTable = base.CreateObjectSet<BuildingMonthVariables>("BuildingMonthVariablesTable");
+                }
+                return _BuildingMonthVariablesTable;
+            }
+        }
+        private ObjectSet<BuildingMonthVariables> _BuildingMonthVariablesTable;
 
         #endregion
         #region Методы AddTo
@@ -297,6 +315,14 @@ namespace Repository
         public void AddToWholeTableSet(WholeTable wholeTable)
         {
             base.AddObject("WholeTableSet", wholeTable);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet BuildingMonthVariablesTable. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToBuildingMonthVariablesTable(BuildingMonthVariables buildingMonthVariables)
+        {
+            base.AddObject("BuildingMonthVariablesTable", buildingMonthVariables);
         }
 
         #endregion
@@ -553,33 +579,17 @@ namespace Repository
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("MCDatabaseModel", "ContractConsumptionHeatBuilding", "ContractConsumptionHeat")]
-        public ContractConsumptionHeat ContractConsumptionHeat
+        public EntityCollection<ContractConsumptionHeat> ContractConsumptionHeat
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ContractConsumptionHeat>("MCDatabaseModel.ContractConsumptionHeatBuilding", "ContractConsumptionHeat").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ContractConsumptionHeat>("MCDatabaseModel.ContractConsumptionHeatBuilding", "ContractConsumptionHeat").Value = value;
-            }
-        }
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<ContractConsumptionHeat> ContractConsumptionHeatReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ContractConsumptionHeat>("MCDatabaseModel.ContractConsumptionHeatBuilding", "ContractConsumptionHeat");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ContractConsumptionHeat>("MCDatabaseModel.ContractConsumptionHeatBuilding", "ContractConsumptionHeat");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ContractConsumptionHeat>("MCDatabaseModel.ContractConsumptionHeatBuilding", "ContractConsumptionHeat", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ContractConsumptionHeat>("MCDatabaseModel.ContractConsumptionHeatBuilding", "ContractConsumptionHeat", value);
                 }
             }
         }
@@ -591,15 +601,169 @@ namespace Repository
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("MCDatabaseModel", "NormativeCalculationBuilding", "NormativeCalculation")]
-        public NormativeCalculation NormativeCalculation
+        public EntityCollection<NormativeCalculation> NormativeCalculation
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<NormativeCalculation>("MCDatabaseModel.NormativeCalculationBuilding", "NormativeCalculation").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<NormativeCalculation>("MCDatabaseModel.NormativeCalculationBuilding", "NormativeCalculation");
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<NormativeCalculation>("MCDatabaseModel.NormativeCalculationBuilding", "NormativeCalculation").Value = value;
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<NormativeCalculation>("MCDatabaseModel.NormativeCalculationBuilding", "NormativeCalculation", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MCDatabaseModel", "BuildingBuildingMonthVariables", "BuildingMonthVariables")]
+        public EntityCollection<BuildingMonthVariables> BuildingMonthVariables
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BuildingMonthVariables>("MCDatabaseModel.BuildingBuildingMonthVariables", "BuildingMonthVariables");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BuildingMonthVariables>("MCDatabaseModel.BuildingBuildingMonthVariables", "BuildingMonthVariables", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MCDatabaseModel", Name="BuildingMonthVariables")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class BuildingMonthVariables : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта BuildingMonthVariables.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства Id.</param>
+        /// <param name="calculationArea">Исходное значение свойства CalculationArea.</param>
+        /// <param name="countOfPeople">Исходное значение свойства CountOfPeople.</param>
+        public static BuildingMonthVariables CreateBuildingMonthVariables(global::System.Int32 id, global::System.Double calculationArea, global::System.Int32 countOfPeople)
+        {
+            BuildingMonthVariables buildingMonthVariables = new BuildingMonthVariables();
+            buildingMonthVariables.Id = id;
+            buildingMonthVariables.CalculationArea = calculationArea;
+            buildingMonthVariables.CountOfPeople = countOfPeople;
+            return buildingMonthVariables;
+        }
+
+        #endregion
+        #region Свойства-примитивы
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double CalculationArea
+        {
+            get
+            {
+                return _CalculationArea;
+            }
+            set
+            {
+                OnCalculationAreaChanging(value);
+                ReportPropertyChanging("CalculationArea");
+                _CalculationArea = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CalculationArea");
+                OnCalculationAreaChanged();
+            }
+        }
+        private global::System.Double _CalculationArea;
+        partial void OnCalculationAreaChanging(global::System.Double value);
+        partial void OnCalculationAreaChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CountOfPeople
+        {
+            get
+            {
+                return _CountOfPeople;
+            }
+            set
+            {
+                OnCountOfPeopleChanging(value);
+                ReportPropertyChanging("CountOfPeople");
+                _CountOfPeople = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CountOfPeople");
+                OnCountOfPeopleChanged();
+            }
+        }
+        private global::System.Int32 _CountOfPeople;
+        partial void OnCountOfPeopleChanging(global::System.Int32 value);
+        partial void OnCountOfPeopleChanged();
+
+        #endregion
+    
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MCDatabaseModel", "BuildingBuildingMonthVariables", "Building")]
+        public Building Building
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Building>("MCDatabaseModel.BuildingBuildingMonthVariables", "Building").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Building>("MCDatabaseModel.BuildingBuildingMonthVariables", "Building").Value = value;
             }
         }
         /// <summary>
@@ -607,17 +771,55 @@ namespace Repository
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<NormativeCalculation> NormativeCalculationReference
+        public EntityReference<Building> BuildingReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<NormativeCalculation>("MCDatabaseModel.NormativeCalculationBuilding", "NormativeCalculation");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Building>("MCDatabaseModel.BuildingBuildingMonthVariables", "Building");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<NormativeCalculation>("MCDatabaseModel.NormativeCalculationBuilding", "NormativeCalculation", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Building>("MCDatabaseModel.BuildingBuildingMonthVariables", "Building", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MCDatabaseModel", "DateTimeIntervalBuildingMonthVariables", "DateTimeInterval")]
+        public DateTimeInterval DateTimeInterval
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DateTimeInterval>("MCDatabaseModel.DateTimeIntervalBuildingMonthVariables", "DateTimeInterval").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DateTimeInterval>("MCDatabaseModel.DateTimeIntervalBuildingMonthVariables", "DateTimeInterval").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<DateTimeInterval> DateTimeIntervalReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DateTimeInterval>("MCDatabaseModel.DateTimeIntervalBuildingMonthVariables", "DateTimeInterval");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DateTimeInterval>("MCDatabaseModel.DateTimeIntervalBuildingMonthVariables", "DateTimeInterval", value);
                 }
             }
         }
@@ -852,15 +1054,13 @@ namespace Repository
         /// </summary>
         /// <param name="id">Исходное значение свойства ID.</param>
         /// <param name="heatByLoading">Исходное значение свойства HeatByLoading.</param>
-        /// <param name="peopleCount">Исходное значение свойства PeopleCount.</param>
         /// <param name="hotWaterByNorm">Исходное значение свойства HotWaterByNorm.</param>
         /// <param name="totalHeatConsumption">Исходное значение свойства TotalHeatConsumption.</param>
-        public static ContractConsumptionHeat CreateContractConsumptionHeat(global::System.Int32 id, global::System.Double heatByLoading, global::System.Int32 peopleCount, global::System.Double hotWaterByNorm, global::System.Double totalHeatConsumption)
+        public static ContractConsumptionHeat CreateContractConsumptionHeat(global::System.Int32 id, global::System.Double heatByLoading, global::System.Double hotWaterByNorm, global::System.Double totalHeatConsumption)
         {
             ContractConsumptionHeat contractConsumptionHeat = new ContractConsumptionHeat();
             contractConsumptionHeat.ID = id;
             contractConsumptionHeat.HeatByLoading = heatByLoading;
-            contractConsumptionHeat.PeopleCount = peopleCount;
             contractConsumptionHeat.HotWaterByNorm = hotWaterByNorm;
             contractConsumptionHeat.TotalHeatConsumption = totalHeatConsumption;
             return contractConsumptionHeat;
@@ -919,30 +1119,6 @@ namespace Repository
         private global::System.Double _HeatByLoading;
         partial void OnHeatByLoadingChanging(global::System.Double value);
         partial void OnHeatByLoadingChanged();
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 PeopleCount
-        {
-            get
-            {
-                return _PeopleCount;
-            }
-            set
-            {
-                OnPeopleCountChanging(value);
-                ReportPropertyChanging("PeopleCount");
-                _PeopleCount = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("PeopleCount");
-                OnPeopleCountChanged();
-            }
-        }
-        private global::System.Int32 _PeopleCount;
-        partial void OnPeopleCountChanging(global::System.Int32 value);
-        partial void OnPeopleCountChanged();
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -1435,6 +1611,44 @@ namespace Repository
                 }
             }
         }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MCDatabaseModel", "DateTimeIntervalBuildingMonthVariables", "BuildingMonthVariables")]
+        public BuildingMonthVariables BuildingMonthVariables
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BuildingMonthVariables>("MCDatabaseModel.DateTimeIntervalBuildingMonthVariables", "BuildingMonthVariables").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BuildingMonthVariables>("MCDatabaseModel.DateTimeIntervalBuildingMonthVariables", "BuildingMonthVariables").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<BuildingMonthVariables> BuildingMonthVariablesReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BuildingMonthVariables>("MCDatabaseModel.DateTimeIntervalBuildingMonthVariables", "BuildingMonthVariables");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BuildingMonthVariables>("MCDatabaseModel.DateTimeIntervalBuildingMonthVariables", "BuildingMonthVariables", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -1793,18 +2007,18 @@ namespace Repository
         /// Создание нового объекта NormativeCalculation.
         /// </summary>
         /// <param name="id">Исходное значение свойства Id.</param>
-        /// <param name="calculationArea">Исходное значение свойства CalculationArea.</param>
         /// <param name="estimateConsumptionHeat">Исходное значение свойства EstimateConsumptionHeat.</param>
         /// <param name="consumptionHeatByTotalArea">Исходное значение свойства ConsumptionHeatByTotalArea.</param>
         /// <param name="consumptionHeatByCalculationArea">Исходное значение свойства ConsumptionHeatByCalculationArea.</param>
-        public static NormativeCalculation CreateNormativeCalculation(global::System.Int32 id, global::System.Double calculationArea, global::System.Double estimateConsumptionHeat, global::System.Double consumptionHeatByTotalArea, global::System.Double consumptionHeatByCalculationArea)
+        /// <param name="totalHeatConsumption">Исходное значение свойства TotalHeatConsumption.</param>
+        public static NormativeCalculation CreateNormativeCalculation(global::System.Int32 id, global::System.Double estimateConsumptionHeat, global::System.Double consumptionHeatByTotalArea, global::System.Double consumptionHeatByCalculationArea, global::System.Double totalHeatConsumption)
         {
             NormativeCalculation normativeCalculation = new NormativeCalculation();
             normativeCalculation.Id = id;
-            normativeCalculation.CalculationArea = calculationArea;
             normativeCalculation.EstimateConsumptionHeat = estimateConsumptionHeat;
             normativeCalculation.ConsumptionHeatByTotalArea = consumptionHeatByTotalArea;
             normativeCalculation.ConsumptionHeatByCalculationArea = consumptionHeatByCalculationArea;
+            normativeCalculation.TotalHeatConsumption = totalHeatConsumption;
             return normativeCalculation;
         }
 
@@ -1837,30 +2051,6 @@ namespace Repository
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
-        /// <summary>
-        /// Нет доступной документации по метаданным.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Double CalculationArea
-        {
-            get
-            {
-                return _CalculationArea;
-            }
-            set
-            {
-                OnCalculationAreaChanging(value);
-                ReportPropertyChanging("CalculationArea");
-                _CalculationArea = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CalculationArea");
-                OnCalculationAreaChanged();
-            }
-        }
-        private global::System.Double _CalculationArea;
-        partial void OnCalculationAreaChanging(global::System.Double value);
-        partial void OnCalculationAreaChanged();
     
         /// <summary>
         /// Нет доступной документации по метаданным.
@@ -1933,6 +2123,30 @@ namespace Repository
         private global::System.Double _ConsumptionHeatByCalculationArea;
         partial void OnConsumptionHeatByCalculationAreaChanging(global::System.Double value);
         partial void OnConsumptionHeatByCalculationAreaChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double TotalHeatConsumption
+        {
+            get
+            {
+                return _TotalHeatConsumption;
+            }
+            set
+            {
+                OnTotalHeatConsumptionChanging(value);
+                ReportPropertyChanging("TotalHeatConsumption");
+                _TotalHeatConsumption = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TotalHeatConsumption");
+                OnTotalHeatConsumptionChanged();
+            }
+        }
+        private global::System.Double _TotalHeatConsumption;
+        partial void OnTotalHeatConsumptionChanging(global::System.Double value);
+        partial void OnTotalHeatConsumptionChanged();
 
         #endregion
     
@@ -2034,7 +2248,7 @@ namespace Repository
         /// <param name="month">Исходное значение свойства Month.</param>
         /// <param name="year">Исходное значение свойства Year.</param>
         /// <param name="airTemperature">Исходное значение свойства AirTemperature.</param>
-        public static ThermometerReading CreateThermometerReading(global::System.Int32 id, global::System.String month, global::System.String year, global::System.String airTemperature)
+        public static ThermometerReading CreateThermometerReading(global::System.Int32 id, global::System.Int32 month, global::System.Int32 year, global::System.Int32 airTemperature)
         {
             ThermometerReading thermometerReading = new ThermometerReading();
             thermometerReading.Id = id;
@@ -2079,7 +2293,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Month
+        public global::System.Int32 Month
         {
             get
             {
@@ -2089,13 +2303,13 @@ namespace Repository
             {
                 OnMonthChanging(value);
                 ReportPropertyChanging("Month");
-                _Month = StructuralObject.SetValidValue(value, false);
+                _Month = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Month");
                 OnMonthChanged();
             }
         }
-        private global::System.String _Month;
-        partial void OnMonthChanging(global::System.String value);
+        private global::System.Int32 _Month;
+        partial void OnMonthChanging(global::System.Int32 value);
         partial void OnMonthChanged();
     
         /// <summary>
@@ -2103,7 +2317,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Year
+        public global::System.Int32 Year
         {
             get
             {
@@ -2113,13 +2327,13 @@ namespace Repository
             {
                 OnYearChanging(value);
                 ReportPropertyChanging("Year");
-                _Year = StructuralObject.SetValidValue(value, false);
+                _Year = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("Year");
                 OnYearChanged();
             }
         }
-        private global::System.String _Year;
-        partial void OnYearChanging(global::System.String value);
+        private global::System.Int32 _Year;
+        partial void OnYearChanging(global::System.Int32 value);
         partial void OnYearChanged();
     
         /// <summary>
@@ -2127,7 +2341,7 @@ namespace Repository
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String AirTemperature
+        public global::System.Int32 AirTemperature
         {
             get
             {
@@ -2137,13 +2351,13 @@ namespace Repository
             {
                 OnAirTemperatureChanging(value);
                 ReportPropertyChanging("AirTemperature");
-                _AirTemperature = StructuralObject.SetValidValue(value, false);
+                _AirTemperature = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("AirTemperature");
                 OnAirTemperatureChanged();
             }
         }
-        private global::System.String _AirTemperature;
-        partial void OnAirTemperatureChanging(global::System.String value);
+        private global::System.Int32 _AirTemperature;
+        partial void OnAirTemperatureChanging(global::System.Int32 value);
         partial void OnAirTemperatureChanged();
 
         #endregion

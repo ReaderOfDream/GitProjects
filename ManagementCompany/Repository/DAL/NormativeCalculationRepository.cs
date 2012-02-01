@@ -17,59 +17,59 @@ namespace Repository.DAL
 
     public class NormativeCalculationRepository : INormativeCalculationRepository
     {
-        private MCDatabaseModelContainer db;
+        private readonly MCDatabaseModelContainer _db;
 
         public NormativeCalculationRepository(MCDatabaseModelContainer container)
         {
-            db = container;
+            _db = container;
         }
 
         #region Implementation of INormativeCalculationRepository
 
         public IEnumerable<Building> GetBuildings()
         {
-            return db.Buildings;
+            return _db.Buildings;
         }
 
         public IEnumerable<DateTimeInterval> GetDateTimeIntervals()
         {
-            return db.DateTimeIntervals;
+            return _db.DateTimeIntervals;
         }
 
         public IEnumerable<NormativeCalculation> GetNormativeCalculations()
         {
-            return db.NormativeCalculations;
+            return _db.NormativeCalculations;
         }
 
         public NormativeCalculation GetNormativeCalculationsId(int normativeCalculationsId)
         {
-            return db.NormativeCalculations.Single(item => item.Id == normativeCalculationsId);
+            return _db.NormativeCalculations.Single(item => item.Id == normativeCalculationsId);
         }
 
         public void InsertNormativeCalculations(NormativeCalculation normativeCalculations)
         {
-            db.NormativeCalculations.AddObject(normativeCalculations);
+            _db.NormativeCalculations.AddObject(normativeCalculations);
         }
 
         public void DeleteNormativeCalculations(int normativeCalculationsId)
         {
-            var deletingItem = db.NormativeCalculations.Single(item => item.Id == normativeCalculationsId);
-            db.NormativeCalculations.DeleteObject(deletingItem);
+            var deletingItem = _db.NormativeCalculations.Single(item => item.Id == normativeCalculationsId);
+            _db.NormativeCalculations.DeleteObject(deletingItem);
         }
 
         public void UpdateNormativeCalculations(NormativeCalculation normativeCalculations)
         {
-            var updatingItem = db.NormativeCalculations.Single(item => item.Id == normativeCalculations.Id);
+            var updatingItem = _db.NormativeCalculations.Single(item => item.Id == normativeCalculations.Id);
 
-            updatingItem.CalculationArea = normativeCalculations.CalculationArea;
             updatingItem.EstimateConsumptionHeat = normativeCalculations.EstimateConsumptionHeat;
             updatingItem.ConsumptionHeatByCalculationArea = normativeCalculations.ConsumptionHeatByCalculationArea;
             updatingItem.ConsumptionHeatByTotalArea = normativeCalculations.ConsumptionHeatByTotalArea;
+            updatingItem.TotalHeatConsumption = normativeCalculations.TotalHeatConsumption;
         }
 
         public void Save()
         {
-            db.SaveChanges();
+            _db.SaveChanges();
         }
 
         #endregion

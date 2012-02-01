@@ -11,12 +11,12 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
         <StackPanel Orientation="Horizontal">
             <Label Content="Месяц:"/>
-            <TextBox Text="{Binding Month}"/>
+            <ComboBox ItemsSource="{Binding Months}" SelectedItem="{Binding selectedMonth}"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1">

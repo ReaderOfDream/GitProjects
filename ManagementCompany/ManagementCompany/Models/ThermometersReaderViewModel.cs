@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Core;
@@ -10,6 +11,14 @@ namespace ManagementCompany.Models
 {
     public class ThermometersReaderViewModel
     {
+        
+        public EnumMonth selectedMonth { get; set; }
+        public int Year { get; set; }
+        public int AirTemperature { get; set; }
+        
+        public ObservableCollection<ThermometerReading> ThermometerReadings { get; private set; }
+        public ObservableCollection<EnumMonth> Months { get; set; }
+
         private readonly IThermometerReadingRepository repository;
         private readonly UserControl view;
 
@@ -17,6 +26,22 @@ namespace ManagementCompany.Models
         {
             this.repository = repository;
             ThermometerReadings = new ObservableCollection<ThermometerReading>(repository.GetThermometerReadings());
+            var monthList = new List<EnumMonth>(12)
+                                {
+                                    EnumMonth.Январь,
+                                    EnumMonth.Февраль,
+                                    EnumMonth.Март,
+                                    EnumMonth.Апрель,
+                                    EnumMonth.Май,
+                                    EnumMonth.Июнь,
+                                    EnumMonth.Июль,
+                                    EnumMonth.Август,
+                                    EnumMonth.Сентябрь,
+                                    EnumMonth.Октябрь,
+                                    EnumMonth.Ноябрь,
+                                    EnumMonth.Декабрь
+                                };
+            Months = new ObservableCollection<EnumMonth>(monthList);
             view = new ThermometerReadingView(){DataContext = this};
         }
 
@@ -25,7 +50,7 @@ namespace ManagementCompany.Models
             var newThermReading = new ThermometerReading()
                                       {
                                           AirTemperature = AirTemperature,
-                                          Month = Month,
+                                          Month = (int) selectedMonth,
                                           Year = Year
                                       };
             repository.InsertThermometerReading(newThermReading);
@@ -40,9 +65,5 @@ namespace ManagementCompany.Models
             get { return new DelegatingCommand(AddReading);}
         }
 
-        public string Month { get; set; }
-        public string Year { get; set; }
-        public string AirTemperature { get; set; }
-        public ObservableCollection<ThermometerReading> ThermometerReadings { get; private set; }
     }
 }

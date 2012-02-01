@@ -12,11 +12,21 @@ namespace ManagementCompany.Models
 {
     public class ContractConsumptionViewModel
     {
-        private readonly IContractConsumprionRepository repository;
+        private readonly IContractConsumptionRepository repository;
         private readonly IContractCalculator contractCalculator;
         private UserControl view;
 
-        public ContractConsumptionViewModel(IContractConsumprionRepository repository, IContractCalculator contractCalculator)
+        public string PeopleCount { get; set; }
+        public ObservableCollection<ContractConsumptionHeat> ContractConsumptions { get; private set; }
+        public ObservableCollection<Building> Buildings { get; private set; }
+        public ObservableCollection<ThermometerReading> ThermometerReadings { get; private set; }
+        public ObservableCollection<DateTimeInterval> DateTimeIntervals { get; private set; }
+
+        public ThermometerReading SelectedThermometerReading { get; set; }
+        public Building SelectedBuilding { get; set; }
+        public DateTimeInterval SelectedInterval { get; set; }
+
+        public ContractConsumptionViewModel(IContractConsumptionRepository repository, IContractCalculator contractCalculator)
         {
             this.repository = repository;
             this.contractCalculator = contractCalculator;
@@ -24,6 +34,7 @@ namespace ManagementCompany.Models
             DateTimeIntervals = new ObservableCollection<DateTimeInterval>(repository.GetDateTimeIntervals());
             ContractConsumptions = new ObservableCollection<ContractConsumptionHeat>(repository.GetConstractConsumptions());
             ThermometerReadings = new ObservableCollection<ThermometerReading>(repository.GetThermometerReadings());
+
             view = new ContractConsumptionView(){DataContext = this};
         }
 
@@ -41,16 +52,16 @@ namespace ManagementCompany.Models
         {
             if (SelectedBuilding == null || SelectedThermometerReading == null)
                 return;
-            var month = int.Parse(SelectedThermometerReading.Month);
-            var year = int.Parse(SelectedThermometerReading.Year);
-            var consumptionByLoad = contractCalculator.ConsumptionByLoad(SelectedBuilding.StandartOfHeat, DateTime.DaysInMonth(year, month), int.Parse(SelectedThermometerReading.AirTemperature));
+
+            var month = (int)SelectedThermometerReading.Month;
+            var year = SelectedThermometerReading.Year;
+            var consumptionByLoad = contractCalculator.ConsumptionByLoad(SelectedBuilding.StandartOfHeat, DateTime.DaysInMonth(year, month), SelectedThermometerReading.AirTemperature);
             var hotWaterByNorm = contractCalculator.HotWaterByNorm(int.Parse(PeopleCount));
             var totalHeatConsumption = contractCalculator.TotalHeatConsumption(consumptionByLoad, hotWaterByNorm);
             var contractConsumption = new ContractConsumptionHeat
                                           {
                                               Building = SelectedBuilding,
                                               HeatByLoading = consumptionByLoad,
-                                              PeopleCount = int.Parse(PeopleCount),
                                               HotWaterByNorm = hotWaterByNorm,
                                               TotalHeatConsumption = totalHeatConsumption,
                                               DateTimeInterval = SelectedInterval,
@@ -60,15 +71,6 @@ namespace ManagementCompany.Models
             repository.Save();
             ContractConsumptions.Add(contractConsumption);
         }
-
-        public string PeopleCount { get; set; }
-        public ObservableCollection<ContractConsumptionHeat> ContractConsumptions { get; private set; }
-        public ObservableCollection<Building> Buildings { get; private set; }
-        public ObservableCollection<ThermometerReading> ThermometerReadings { get; private set; }
-        public ThermometerReading SelectedThermometerReading { get; set; }
-        public Building SelectedBuilding { get; set; }
-        public ObservableCollection<DateTimeInterval> DateTimeIntervals { get; private set; }
-        public DateTimeInterval SelectedInterval { get; set; }
     }
 }
 

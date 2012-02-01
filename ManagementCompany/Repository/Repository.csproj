@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\BuildingMonthVariablesRepository.cs" />
     <Compile Include="DAL\BuildingRepository.cs" />
     <Compile Include="DAL\ClearingRepository.cs" />
     <Compile Include="DAL\ContractComsumptionRepository.cs" />

@@ -18,26 +18,27 @@ namespace ManagementCompany
     /// </summary>
     public partial class MainWindow //: Window
     {
-        private readonly IHeatSupplierRepository heatSupplierRepository;
-        private readonly HeatSupplierViewModel heatSupplierViewModel;
-
         private readonly IBuildingRepository buildingRepository;
         private readonly BuildingViewModel buildingViewModel;
+
+        private readonly IHeatSupplierRepository heatSupplierRepository;
+        private readonly HeatSupplierViewModel heatSupplierViewModel;
 
         private readonly IReportRepository reportRepository;
         private readonly CreateReportViewModel createReportViewModel;
 
         private readonly INormativeCalculationRepository normativeCalculationRepository;
         private readonly NormativeCalculationViewModel normativeCalculationViewModel;
+        private readonly IContractConsumptionRepository contractConsumprionRepository;
+        private readonly ContractConsumptionViewModel contractConsumptionViewModel;
+        private readonly IBuildingMonthVariablesRepository variablesRepository;
+        private readonly NormativeAndProjectModel normativeAndProjectModel;
 
         private readonly IThermometerReadingRepository thermometerReadingRepository;
         private readonly ThermometersReaderViewModel thermometerReadingViewModel;
 
-        private IContractConsumprionRepository contractConsumprionRepository;
-        private ContractConsumptionViewModel contractConsumptionViewModel;
-
         private IClearingRepository clearingRepository;
-        private ClearingViewModel clearinfViewModel;
+        private ClearingViewModel clearinViewModel;
 
         private bool _isReportViewerLoaded;
 
@@ -55,15 +56,19 @@ namespace ManagementCompany
             thermometerReadingRepository = new ThermometerReadingRepository(db);
             contractConsumprionRepository = new ContractComsumptionRepository(db);
             clearingRepository = new ClearingRepository(db);
+            variablesRepository = new BuildingMonthVariablesRepository(db);
 
             heatSupplierViewModel = new HeatSupplierViewModel(heatSupplierRepository);
             buildingViewModel = new BuildingViewModel(buildingRepository);
             createReportViewModel = new CreateReportViewModel(reportRepository);
-            normativeCalculationViewModel = new NormativeCalculationViewModel(normativeCalculationRepository, new StandartCalculator());
+            normativeAndProjectModel = new NormativeAndProjectModel(normativeCalculationRepository, new StandartCalculator(),
+                                                               contractConsumprionRepository, new ContractCalculator(),
+                                                               variablesRepository);
+            //normativeCalculationViewModel = new NormativeCalculationViewModel(normativeCalculationRepository, new StandartCalculator());
             thermometerReadingViewModel = new ThermometersReaderViewModel(thermometerReadingRepository);
             contractConsumptionViewModel = new ContractConsumptionViewModel(contractConsumprionRepository, new ContractCalculator());
 
-            clearinfViewModel = new ClearingViewModel(clearingRepository, new TotalCalculation());
+            clearinViewModel = new ClearingViewModel(clearingRepository, new TotalCalculation());
 
             _reportViewer.Load += ReportViewerLoad;
         }
@@ -104,10 +109,10 @@ namespace ManagementCompany
                     MeterReadingHeat =  building.mr.CurrentHeatMeterReader,
                     MeterReadingWater = building.mr.CurrentWaterHeatReader,
                     ContractHeatByLoading = building.ch.HeatByLoading,
-                    ContractPeopleCount = building.ch.PeopleCount,
+                    //ContractPeopleCount = building.ch.PeopleCount,
                     ContractHotWaterByNorm = building.ch.HotWaterByNorm,
                     ContractTotalHeatConsumption = building.ch.TotalHeatConsumption,
-                    NormativeCalculationArea = building.nc.CalculationArea,
+                    //NormativeCalculationArea = building.nc.CalculationArea,
                     NormativeEstimateConsumptionHeat = building.nc.EstimateConsumptionHeat,
                     NormativeConsumptionHeatByCalculationArea = building.nc.ConsumptionHeatByCalculationArea,
                     NormativConsumptionHeatByTotalArea = building.nc.ConsumptionHeatByTotalArea
@@ -164,6 +169,7 @@ namespace ManagementCompany
         public CreateReportViewModel CreateReportViewModel { get { return createReportViewModel; } }
         public ThermometersReaderViewModel ThermometersReaderViewModel{get { return thermometerReadingViewModel; }}
         public ContractConsumptionViewModel ContractConsumptionViewModel{get { return contractConsumptionViewModel; }}
-        public ClearingViewModel ClearinfViewModel{ get { return clearinfViewModel; }}
+        public ClearingViewModel ClearinViewModel{ get { return clearinViewModel; }}
+        public NormativeAndProjectModel NormativeAndProjectModel { get { return normativeAndProjectModel; }}
     }
 }

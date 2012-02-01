@@ -5,12 +5,16 @@ using System.Text;
 
 namespace Core
 {
+    //TODO
+    //Delete?
     public class Month
     {
         public string Name { get; set; }
         public int Index { get; set; }
     }
 
+    //TODO
+    //Delete?
     public class Months
     {
         public Month[] AllMonth = new Month[]
@@ -29,4 +33,21 @@ namespace Core
                                           new Month {Index = 12, Name = "Декабрь"}
                                       };
     }
+
+    public enum EnumMonth
+    {
+        Январь = 1,
+        Февраль,
+        Март,
+        Апрель,
+        Май,
+        Июнь,
+        Июль,
+        Август,
+        Сентябрь,
+        Октябрь,
+        Ноябрь,
+        Декабрь
+    }
+
 }
