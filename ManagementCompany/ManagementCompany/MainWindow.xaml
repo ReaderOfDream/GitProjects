@@ -1,17 +1,18 @@
-﻿<Themes:CustomWindow x:Class="ManagementCompany.MainWindow"
+﻿<!--<Themes:CustomWindow x:Class="ManagementCompany.MainWindow"-->
+<Window x:Class="ManagementCompany.MainWindow" 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:WinForms="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
                   xmlns:Themes="clr-namespace:ManagementCompany.Themes" Title="MainWindow"
         MinHeight="600"
-        MinWidth="800"
-        WindowStyle="None"
+        MinWidth="800">
+        <!--WindowStyle="None"
         AllowsTransparency="True"
-        Style="{DynamicResource MainWindow}">
-    
+        Style="{DynamicResource MainWindow}"-->
+
     <!--<UserControl Content="{Binding View}"/>-->
-    
-    
+
+
     <TabControl>
         <TabItem Header="Поставщик тепла">
             <UserControl Content="{Binding Path=HeatSupplierViewModel.View}"/>
@@ -36,9 +37,10 @@
         </TabItem>
         <TabItem Header="Отчет">
             <WindowsFormsHost Height="400" Name="windowsFormsHost1" Width="900" >
-                
-               <WinForms:ReportViewer x:Name="_reportViewer" Width="300" Height="300"/> 
+
+                <WinForms:ReportViewer x:Name="_reportViewer" Width="300" Height="300"/>
             </WindowsFormsHost>
         </TabItem>
     </TabControl>
-</Themes:CustomWindow>
+</Window>
+<!--</Themes:CustomWindow>-->

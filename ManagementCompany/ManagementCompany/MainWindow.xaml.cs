@@ -16,7 +16,7 @@ namespace ManagementCompany
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow //: Window
+    public partial class MainWindow : Window
     {
         private readonly IBuildingRepository buildingRepository;
         private readonly BuildingViewModel buildingViewModel;
